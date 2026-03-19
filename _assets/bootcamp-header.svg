@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200"
+     font-family="Inter, Roboto, 'Open Sans', system-ui, sans-serif">
+
+  <!-- ═══ BACKGROUND ═══════════════════════════════════════════════════ -->
+  <rect width="800" height="200" fill="#0f172a"/>
+
+  <!-- ═══ TOP + BOTTOM ACCENT BARS (indigo) ════════════════════════════ -->
+  <rect width="800" height="4" fill="#6366f1"/>
+  <rect y="196" width="800" height="4" fill="#6366f1"/>
+
+  <!-- ═══ LEFT PANEL: language color bars (8px × 64px each) ════════════ -->
+  <rect x="0" y="4"   width="8" height="64" fill="#F7DF1E"/>
+  <rect x="0" y="68"  width="8" height="64" fill="#3572A5"/>
+  <rect x="0" y="132" width="8" height="64" fill="#F89820"/>
+
+  <!-- Language labels — JavaScript zone (y 4–68) -->
+  <text x="20" y="40" fill="#F7DF1E" font-size="11" font-weight="700" letter-spacing="0.5">JavaScript</text>
+  <text x="20" y="56" fill="#475569" font-size="9.5">Jest 29+</text>
+
+  <!-- Language labels — Python zone (y 68–132) -->
+  <text x="20" y="104" fill="#FFD43B" font-size="11" font-weight="700" letter-spacing="0.5">Python</text>
+  <text x="20" y="120" fill="#475569" font-size="9.5">pytest 8+</text>
+
+  <!-- Language labels — Java zone (y 132–196) -->
+  <text x="20" y="168" fill="#F89820" font-size="11" font-weight="700" letter-spacing="0.5">Java</text>
+  <text x="20" y="184" fill="#475569" font-size="9.5">JUnit 5</text>
+
+  <!-- Vertical divider -->
+  <line x1="112" y1="12" x2="112" y2="188" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- ═══ RIGHT PANEL (center x = 456) ════════════════════════════════ -->
+
+  <!-- Main title -->
+  <text x="456" y="62" text-anchor="middle"
+        fill="#f1f5f9" font-size="27" font-weight="700" letter-spacing="-0.3">
+    Bootcamp Testing de Software
+  </text>
+
+  <!-- Zero to Hero tag -->
+  <text x="456" y="93" text-anchor="middle"
+        fill="#6366f1" font-size="17" font-weight="700" letter-spacing="5">
+    ZERO TO HERO
+  </text>
+
+  <!-- Horizontal separator -->
+  <line x1="220" y1="105" x2="692" y2="105" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Tech keywords -->
+  <text x="456" y="124" text-anchor="middle"
+        fill="#475569" font-size="12">
+    Automatización · TDD · BDD · CI/CD · E2E · Performance
+  </text>
+
+  <!-- ═══ STAT CHIPS (total span 530px, centered at x=456) ════════════ -->
+
+  <!-- Chip 1: 36 semanas  x=191 w=118 center=250 -->
+  <rect x="191" y="143" width="118" height="26" rx="13" fill="#1e293b"/>
+  <rect x="191" y="143" width="118" height="26" rx="13" fill="none" stroke="#4f46e5" stroke-width="1"/>
+  <text x="250" y="161" text-anchor="middle"
+        fill="#a5b4fc" font-size="11.5" font-weight="600">36 semanas</text>
+
+  <!-- Chip 2: 288 horas  x=317 w=112 center=373 -->
+  <rect x="317" y="143" width="112" height="26" rx="13" fill="#1e293b"/>
+  <rect x="317" y="143" width="112" height="26" rx="13" fill="none" stroke="#4f46e5" stroke-width="1"/>
+  <text x="373" y="161" text-anchor="middle"
+        fill="#a5b4fc" font-size="11.5" font-weight="600">288 horas</text>
+
+  <!-- Chip 3: 8h/semana  x=437 w=104 center=489 -->
+  <rect x="437" y="143" width="104" height="26" rx="13" fill="#1e293b"/>
+  <rect x="437" y="143" width="104" height="26" rx="13" fill="none" stroke="#4f46e5" stroke-width="1"/>
+  <text x="489" y="161" text-anchor="middle"
+        fill="#a5b4fc" font-size="11.5" font-weight="600">8h / semana</text>
+
+  <!-- Chip 4: QA Engineer / SDET Jr  x=549 w=172 center=635 -->
+  <rect x="549" y="143" width="172" height="26" rx="13" fill="#1e293b"/>
+  <rect x="549" y="143" width="172" height="26" rx="13" fill="none" stroke="#22c55e" stroke-width="1"/>
+  <text x="635" y="161" text-anchor="middle"
+        fill="#86efac" font-size="11.5" font-weight="600">QA Engineer / SDET Jr</text>
+
+</svg>
