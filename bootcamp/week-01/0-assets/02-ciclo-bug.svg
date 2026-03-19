@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+  <defs>
+    <!-- Flecha gris — camino principal -->
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <!-- Flecha roja — caminos alternativos -->
+    <marker id="ahr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="900" height="500" fill="#0f172a"/>
+
+  <!-- Título -->
+  <text x="450" y="42" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="700">Ciclo de Vida del Bug</text>
+
+  <!-- ===== NODOS FILA 1 (y_center = 150) ===== -->
+
+  <!-- New -->
+  <rect x="35" y="130" width="110" height="40" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="90" y="155" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">New</text>
+
+  <!-- Open -->
+  <rect x="185" y="130" width="110" height="40" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="240" y="155" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Open</text>
+
+  <!-- In Progress -->
+  <rect x="345" y="130" width="130" height="40" rx="8" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
+  <text x="410" y="155" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">In Progress</text>
+
+  <!-- Fixed -->
+  <rect x="525" y="130" width="110" height="40" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="580" y="155" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Fixed</text>
+
+  <!-- ===== NODOS FILA 2 (y_center = 330) ===== -->
+
+  <!-- Won't Fix (abajo del New) -->
+  <rect x="35" y="310" width="110" height="40" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="90" y="335" text-anchor="middle" fill="#f1f5f9" font-size="12" font-weight="600">Won't Fix</text>
+
+  <!-- Closed -->
+  <rect x="185" y="310" width="110" height="40" rx="8" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
+  <text x="240" y="335" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Closed</text>
+
+  <!-- Verified -->
+  <rect x="355" y="310" width="110" height="40" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="410" y="335" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Verified</text>
+
+  <!-- Retest -->
+  <rect x="525" y="310" width="110" height="40" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="580" y="335" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Retest</text>
+
+  <!-- ===== NODO ALTERNATIVO: Reopened ===== -->
+  <rect x="700" y="220" width="120" height="40" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="760" y="245" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="600">Reopened</text>
+
+  <!-- ===== FLECHAS — CAMINO PRINCIPAL ===== -->
+
+  <!-- New → Open -->
+  <line x1="145" y1="150" x2="183" y2="150" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <!-- Open → In Progress -->
+  <line x1="295" y1="150" x2="343" y2="150" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <!-- In Progress → Fixed -->
+  <line x1="475" y1="150" x2="523" y2="150" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <!-- Fixed ↓ Retest (vertical) -->
+  <line x1="580" y1="170" x2="580" y2="308" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <!-- Retest → Verified (izquierda) -->
+  <line x1="523" y1="330" x2="467" y2="330" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <!-- Verified → Closed (izquierda) -->
+  <line x1="353" y1="330" x2="297" y2="330" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+
+  <!-- ===== FLECHAS — CAMINOS ALTERNATIVOS ===== -->
+
+  <!-- New ↓ Won't Fix -->
+  <line x1="90" y1="170" x2="90" y2="308" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ahr)"/>
+  <text x="105" y="244" fill="#ef4444" font-size="10">Descartado</text>
+
+  <!-- Retest → Reopened (diagonal) -->
+  <line x1="635" y1="322" x2="700" y2="248" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ahr)"/>
+  <text x="665" y="297" fill="#ef4444" font-size="10">Falla</text>
+
+  <!-- Reopened → In Progress (curva por encima de la fila 1) -->
+  <path d="M 760,220 C 760,80 410,80 410,130" fill="none" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ahr)"/>
+  <text x="600" y="92" fill="#ef4444" font-size="10">Reabierto</text>
+
+  <!-- ===== LEYENDA ===== -->
+  <rect x="30" y="418" width="840" height="62" rx="6" fill="#1e293b"/>
+  <text x="50" y="440" fill="#64748b" font-size="11" font-weight="600">Camino principal:</text>
+  <line x1="153" y1="436" x2="188" y2="436" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="196" y="440" fill="#94a3b8" font-size="11">New → Open → In Progress → Fixed → Retest → Verified → Closed</text>
+  <text x="50" y="464" fill="#64748b" font-size="11" font-weight="600">Caminos alternativos:</text>
+  <line x1="163" y1="460" x2="198" y2="460" stroke="#ef4444" stroke-width="1.5" marker-end="url(#ahr)"/>
+  <text x="206" y="464" fill="#94a3b8" font-size="11">Won't Fix · Not a Bug · Duplicate · Reopened (regresión)</text>
+
+</svg>

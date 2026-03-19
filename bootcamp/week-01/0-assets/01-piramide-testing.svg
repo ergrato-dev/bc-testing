@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="800" height="460" fill="#0f172a"/>
+
+  <!-- Título -->
+  <text x="400" y="38" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="700">La Pirámide de Testing</text>
+
+  <!-- ===== SECCIONES ===== -->
+  <!-- Unitarios (base) -->
+  <polygon points="175,305 625,305 735,415 65,415" fill="#15803d"/>
+  <!-- Integración (medio) -->
+  <polygon points="285,195 515,195 625,305 175,305" fill="#4338ca"/>
+  <!-- E2E / UI (cúspide) -->
+  <polygon points="400,65 285,195 515,195" fill="#b91c1c"/>
+
+  <!-- Separadores -->
+  <line x1="285" y1="195" x2="515" y2="195" stroke="#0f172a" stroke-width="3"/>
+  <line x1="175" y1="305" x2="625" y2="305" stroke="#0f172a" stroke-width="3"/>
+
+  <!-- ===== ETIQUETAS ===== -->
+
+  <!-- E2E -->
+  <text x="400" y="127" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="700">E2E / UI</text>
+  <text x="400" y="147" text-anchor="middle" fill="#fca5a5" font-size="11">~10% · Lento · Costoso</text>
+
+  <!-- Integración -->
+  <text x="400" y="243" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="700">Integración</text>
+  <text x="400" y="263" text-anchor="middle" fill="#c7d2fe" font-size="11">~20% · Velocidad media</text>
+
+  <!-- Unitarios -->
+  <text x="400" y="350" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="700">Unitarios</text>
+  <text x="400" y="372" text-anchor="middle" fill="#bbf7d0" font-size="11">~70% · Rápido · Económico</text>
+
+  <!-- ===== ANNOTATIONS LATERALES ===== -->
+
+  <!-- Izquierda: cantidad (Pocos → Muchos) -->
+  <line x1="30" y1="92" x2="30" y2="408" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="30" y="80" text-anchor="middle" fill="#64748b" font-size="11">Pocos</text>
+  <text x="30" y="430" text-anchor="middle" fill="#64748b" font-size="11">Muchos</text>
+
+  <!-- Derecha: velocidad (Lento → Rápido) -->
+  <line x1="770" y1="92" x2="770" y2="408" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="770" y="80" text-anchor="middle" fill="#64748b" font-size="11">Lento</text>
+  <text x="770" y="430" text-anchor="middle" fill="#64748b" font-size="11">Rápido</text>
+
+</svg>
