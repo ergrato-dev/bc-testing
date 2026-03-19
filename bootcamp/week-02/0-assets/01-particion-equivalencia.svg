@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" width="860" height="480" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Fondo principal -->
+  <rect width="860" height="480" fill="#0f172a" rx="12"/>
+
+  <!-- Título -->
+  <text x="430" y="42" text-anchor="middle" font-size="20" font-weight="700" fill="#f1f5f9">Partición de Equivalencia</text>
+  <text x="430" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Campo "Edad" — acepta valores entre 18 y 65</text>
+
+  <!-- Línea de dominio continua -->
+  <line x1="60" y1="190" x2="800" y2="190" stroke="#334155" stroke-width="2"/>
+
+  <!-- Flechas de los extremos de la línea -->
+  <polygon points="50,190 66,184 66,196" fill="#334155"/>
+  <polygon points="810,190 794,184 794,196" fill="#334155"/>
+
+  <!-- Marcadores de límite en la línea -->
+  <line x1="270" y1="178" x2="270" y2="202" stroke="#f1f5f9" stroke-width="2"/>
+  <line x1="590" y1="178" x2="590" y2="202" stroke="#f1f5f9" stroke-width="2"/>
+
+  <!-- Etiquetas de límites -->
+  <text x="270" y="222" text-anchor="middle" font-size="15" font-weight="700" fill="#f1f5f9">18</text>
+  <text x="590" y="222" text-anchor="middle" font-size="15" font-weight="700" fill="#f1f5f9">65</text>
+
+  <!-- ════ CLASE INVÁLIDA IZQUIERDA (CE1) ════ -->
+  <rect x="62" y="100" width="200" height="72" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="162" y="127" text-anchor="middle" font-size="13" font-weight="700" fill="#ef4444">CE1 — Inválida</text>
+  <text x="162" y="146" text-anchor="middle" font-size="12" fill="#94a3b8">edad &lt; 18</text>
+  <text x="162" y="163" text-anchor="middle" font-size="12" fill="#f1f5f9">Representativo: 10</text>
+  <!-- Flecha hacia línea -->
+  <line x1="162" y1="172" x2="162" y2="188" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ════ CLASE VÁLIDA (CE2) ════ -->
+  <rect x="305" y="100" width="250" height="72" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="430" y="127" text-anchor="middle" font-size="13" font-weight="700" fill="#22c55e">CE2 — Válida</text>
+  <text x="430" y="146" text-anchor="middle" font-size="12" fill="#94a3b8">18 ≤ edad ≤ 65</text>
+  <text x="430" y="163" text-anchor="middle" font-size="12" fill="#f1f5f9">Representativo: 35</text>
+  <!-- Flecha hacia línea -->
+  <line x1="430" y1="172" x2="430" y2="188" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ════ CLASE INVÁLIDA DERECHA (CE3) ════ -->
+  <rect x="598" y="100" width="200" height="72" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="698" y="127" text-anchor="middle" font-size="13" font-weight="700" fill="#ef4444">CE3 — Inválida</text>
+  <text x="698" y="146" text-anchor="middle" font-size="12" fill="#94a3b8">edad &gt; 65</text>
+  <text x="698" y="163" text-anchor="middle" font-size="12" fill="#f1f5f9">Representativo: 80</text>
+  <!-- Flecha hacia línea -->
+  <line x1="698" y1="172" x2="698" y2="188" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ════ PUNTOS EN LA LÍNEA ════ -->
+  <circle cx="162" cy="190" r="5" fill="#ef4444"/>
+  <circle cx="430" cy="190" r="5" fill="#22c55e"/>
+  <circle cx="698" cy="190" r="5" fill="#ef4444"/>
+
+  <!-- ════ TABLA DE CASOS RESULTANTE ════ -->
+  <rect x="60" y="260" width="740" height="32" rx="6" fill="#1e293b"/>
+  <text x="80" y="281" font-size="13" font-weight="700" fill="#94a3b8">Clase</text>
+  <text x="220" y="281" font-size="13" font-weight="700" fill="#94a3b8">Condición</text>
+  <text x="430" y="281" font-size="13" font-weight="700" fill="#94a3b8">Valor representativo</text>
+  <text x="660" y="281" font-size="13" font-weight="700" fill="#94a3b8">Resultado esperado</text>
+
+  <!-- Fila CE1 -->
+  <rect x="60" y="294" width="740" height="36" rx="0" fill="#1c1f2e"/>
+  <text x="80" y="318" font-size="13" fill="#ef4444">CE1</text>
+  <text x="220" y="318" font-size="13" fill="#f1f5f9">edad &lt; 18</text>
+  <text x="430" y="318" font-size="13" fill="#f1f5f9">10</text>
+  <text x="660" y="318" font-size="13" fill="#ef4444">Rechazado</text>
+
+  <!-- Fila CE2 -->
+  <rect x="60" y="330" width="740" height="36" rx="0" fill="#1e293b"/>
+  <text x="80" y="354" font-size="13" fill="#22c55e">CE2</text>
+  <text x="220" y="354" font-size="13" fill="#f1f5f9">18 ≤ edad ≤ 65</text>
+  <text x="430" y="354" font-size="13" fill="#f1f5f9">35</text>
+  <text x="660" y="354" font-size="13" fill="#22c55e">Aceptado</text>
+
+  <!-- Fila CE3 -->
+  <rect x="60" y="366" width="740" height="36" rx="0" fill="#1c1f2e"/>
+  <text x="80" y="390" font-size="13" fill="#ef4444">CE3</text>
+  <text x="220" y="390" font-size="13" fill="#f1f5f9">edad &gt; 65</text>
+  <text x="430" y="390" font-size="13" fill="#f1f5f9">80</text>
+  <text x="660" y="390" font-size="13" fill="#ef4444">Rechazado</text>
+
+  <!-- Nota al pie -->
+  <text x="430" y="448" text-anchor="middle" font-size="12" fill="#64748b">3 casos en lugar de ∞ — Un valor por clase es suficiente</text>
+
+  <!-- Badge etapa -->
+  <rect x="30" y="452" width="130" height="22" rx="11" fill="#1e293b"/>
+  <text x="95" y="467" text-anchor="middle" font-size="11" fill="#6366f1">Etapa 0 · Semana 02</text>
+</svg>
