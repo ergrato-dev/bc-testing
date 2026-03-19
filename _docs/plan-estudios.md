@@ -31,18 +31,23 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 ## 🎯 Distribución por Etapas
 
 ### 🟥 Etapa 0: Fundamentos de Testing (Semanas 1–6)
+
 48 horas totales — Mentalidad tester, terminología, tipos de prueba, primeros tests manuales y automatizados en los tres lenguajes.
 
 ### 🟦 Etapa 1: Testing con JavaScript (Semanas 7–15)
+
 72 horas totales — Jest, testing unitario, mocks/stubs/spies, testing asíncrono, coverage, TDD y testing de APIs REST con Supertest.
 
 ### 🟩 Etapa 2: Testing con Python (Semanas 16–24)
+
 72 horas totales — pytest, unittest, fixtures, parametrize, mocking con `unittest.mock`, testing de APIs con `requests` y `httpx`, BDD con Behave.
 
 ### 🟧 Etapa 3: Testing con Java (Semanas 25–31)
+
 56 horas totales — JUnit 5, Mockito, AssertJ, testing de Spring Boot con MockMvc, Testcontainers y BDD con Cucumber.
 
 ### 🟪 Etapa 4: Testing Avanzado Transversal (Semanas 32–36)
+
 40 horas totales — E2E con Playwright (JS), performance con k6/Locust, seguridad básica, estrategias CI/CD, Proyecto Final integrador multilenguaje.
 
 ---
@@ -62,6 +67,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es la calidad del software? Definición y consecuencias de bugs
 - El rol del tester vs desarrollador vs SDET
 - Tipos de testing: manual vs automatizado
@@ -80,6 +86,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es un caso de prueba? Estructura: precondiciones, pasos, resultado esperado
 - Partición de equivalencia
 - Análisis de valores límite (Boundary Value Analysis)
@@ -98,6 +105,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Configuración del entorno: Node.js, pnpm/yarn, Jest
 - Estructura de un test: `describe`, `test/it`, `expect`
 - Matchers básicos: `toBe`, `toEqual`, `toBeTruthy`, `toBeFalsy`, `toBeNull`
@@ -116,6 +124,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Configuración del entorno: Python 3.12+, pip/uv, pytest
 - Estructura de un test en pytest: convenciones de nombres (`test_*.py`, `def test_*`)
 - Assertions nativas con `assert`
@@ -134,6 +143,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Configuración del entorno: JDK 21 LTS, Maven/Gradle, JUnit 5
 - Estructura de un test en JUnit 5: `@Test`, `@DisplayName`, `Assertions.*`
 - `assertEquals`, `assertTrue`, `assertNotNull`, `assertThrows`
@@ -152,6 +162,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (1h revisión + 1.5h planning + 5h desarrollo + 0.5h presentación)
 
 **Temas**:
+
 - Revisión de Semanas 1–5
 - Estrategia de testing para un sistema pequeño
 - Mapear qué tipos de pruebas aplican a cada capa
@@ -173,6 +184,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Matchers avanzados: `toContain`, `toHaveLength`, `toMatchObject`, `toStrictEqual`
 - Custom matchers con `expect.extend()`
 - `expect.anything()`, `expect.any(Constructor)`
@@ -191,6 +203,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Test doubles: diferencia entre mock, stub, spy, fake, dummy
 - `jest.fn()` — crear funciones mock
 - `.mockReturnValue()`, `.mockResolvedValue()`, `.mockImplementation()`
@@ -209,6 +222,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - El problema del código asíncrono y los tests
 - Callbacks en tests: el parámetro `done`
 - Testing con Promises: `return promise`
@@ -227,6 +241,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es code coverage? Tipos: statement, branch, function, line
 - Configurar coverage en Jest: `--coverage`, `collectCoverageFrom`
 - Leer reportes HTML de Istanbul/c8
@@ -245,6 +260,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es TDD? El ciclo Red → Green → Refactor
 - Diferencia entre TDD, BDD y ATDD
 - Cómo escribir el test primero sin conocer la implementación
@@ -263,6 +279,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Testing de integración vs testing unitario
 - Supertest: instalación y configuración con Express
 - `request(app).get('/ruta').expect(200)`
@@ -281,6 +298,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es snapshot testing? Cuándo usarlo y cuándo NO
 - `toMatchSnapshot()` y `toMatchInlineSnapshot()`
 - Actualizar snapshots: `--updateSnapshot`
@@ -299,6 +317,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Property-based testing con fast-check
 - Parametric tests: `test.each()` con tabla de datos
 - Test factories y builders para datos de prueba
@@ -317,6 +336,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
 
 **Temas**:
+
 - Integración de Semanas 7–14
 - Arquitectura de la suite de tests: unitarios + integración + snapshots
 - Coverage mínimo 85% en todo el proyecto
@@ -337,6 +357,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Fixtures de pytest: `@pytest.fixture`, scope (`function`, `class`, `module`, `session`)
 - Fixtures con `yield` para setup/teardown
 - Fixtures anidados y dependencias entre fixtures
@@ -355,6 +376,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - `unittest.mock`: `Mock`, `MagicMock`, `patch`
 - `@patch` como decorador y como context manager
 - `patch.object` para mockear métodos de instancia
@@ -373,6 +395,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Código asíncrono en Python: `asyncio`, `async def`, `await`
 - `pytest-asyncio`: `@pytest.mark.asyncio`
 - `AsyncMock` para mockear corutinas
@@ -391,6 +414,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Testing de APIs REST con `requests` y `responses` (mock de HTTP)
 - `pytest-httpserver` para simular servidor HTTP real
 - Testing con `httpx` y `respx` para mockear responses
@@ -409,6 +433,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - El ciclo Red → Green → Refactor en Python con pytest
 - TDD en Python: diferencias culturales con JS/Java
 - Kata de TDD en Python: Roman Numerals, Bowling Game
@@ -427,6 +452,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - `pytest-cov`: configuración y ejecución
 - Reportes: terminal, HTML, XML (para CI)
 - Branch coverage en Python: `.coveragerc` / `pyproject.toml`
@@ -445,6 +471,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es BDD? Behavior Driven Development
 - Gherkin: `Feature`, `Scenario`, `Given`, `When`, `Then`, `And`, `But`
 - Behave: instalación, estructura de proyecto (`features/`, `steps/`)
@@ -463,6 +490,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Estrategias para testear con BD: in-memory, fixtures, transacciones
 - SQLite en tests: `pytest` + `sqlalchemy` con BD en memoria
 - Fixtures de BD: crear esquema, poblar datos, limpiar
@@ -481,6 +509,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
 
 **Temas**:
+
 - Integración de Semanas 16–23
 - Arquitectura: unitarios (pytest) + integración (httpx) + BDD (Behave) + BD
 - Coverage ≥85% en toda la suite Python
@@ -501,6 +530,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - JUnit 5 en profundidad: `@ParameterizedTest`, `@MethodSource`, `@CsvSource`, `@ValueSource`
 - `@Nested` para organizar tests por contexto
 - `@Tag` y filtrado de tests
@@ -519,6 +549,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Mockito: `@Mock`, `@InjectMocks`, `@Spy`, `@Captor`
 - `when().thenReturn()`, `when().thenThrow()`, `doReturn()`
 - `verify()`: verificar interacciones
@@ -537,6 +568,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - El ciclo Red → Green → Refactor en Java con JUnit 5
 - TDD y diseño: cómo emerge el diseño OOP desde los tests
 - Kata de TDD en Java: Prime Factors, Game of Life
@@ -555,6 +587,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Spring Boot Test: `@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`
 - MockMvc: testear controladores REST sin levantar servidor
 - `@MockBean` y `@SpyBean` (diferencia con `@Mock` de Mockito)
@@ -573,6 +606,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es Testcontainers? Contenedores Docker en tests
 - Testcontainers con JUnit 5: `@Testcontainers`, `@Container`
 - PostgreSQL container, MySQL container
@@ -591,6 +625,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - Cucumber para Java: dependencias Maven/Gradle
 - Gherkin en Java: `@Given`, `@When`, `@Then` con expresiones
 - `DataTable` para datos tabulares en steps
@@ -609,6 +644,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
 
 **Temas**:
+
 - Integración de Semanas 25–30
 - Arquitectura de testing Java: unit + integration (Spring) + BDD (Cucumber) + Testcontainers
 - Coverage con JaCoCo ≥85%
@@ -629,6 +665,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es E2E testing? Cuándo usar E2E vs unitario vs integración
 - Playwright: instalación y configuración (`@playwright/test`)
 - Locators: `getByRole`, `getByText`, `getByTestId`, `locator()`
@@ -647,6 +684,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es performance testing? Load, stress, spike, soak, volume
 - Métricas clave: RPS, latencia (p50/p90/p99), error rate, throughput
 - k6 (JavaScript): scripts, thresholds, stages, `check()`
@@ -665,6 +703,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - OWASP Top 10: visión desde el tester
 - SQL Injection: cómo detectarlo con tests
 - XSS: validar en tests que el output está correctamente escapado
@@ -683,6 +722,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
+
 - ¿Qué es CI/CD? Integración continua y entrega continua
 - GitHub Actions: anatomía de un workflow (`.github/workflows/`)
 - Job de tests: checkout, setup Node/Python/Java, ejecutar tests
@@ -701,6 +741,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Horas**: 8h (0h teoría + 2h planning + 5.5h desarrollo + 0.5h presentación)
 
 **Temas**:
+
 - Consolidación de todo lo aprendido (Etapas 0–4)
 - Estrategia de testing completa para un sistema real
 - Integración de suites: JS + Python + Java + E2E + Performance
@@ -708,6 +749,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Documentación de calidad: README profesional del proyecto
 
 **Proyecto**: Sistema completo del dominio asignado con:
+
 - Suite JS (Jest): tests unitarios + integración (Supertest) + coverage ≥85%
 - Suite Python (pytest + Behave): unitarios + BD + BDD + coverage ≥85%
 - Suite Java (JUnit 5 + Mockito + Cucumber): unitarios + Spring + Testcontainers + coverage ≥85%
@@ -722,11 +764,13 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 ## 📊 Resumen por Competencias
 
 ### Fundamentos de Testing (Etapa 0)
+
 - Mentalidad de calidad y terminología profesional (S01–S02)
 - Primeros tests automatizados en JS, Python y Java (S03–S05)
 - Plan de pruebas y estrategia básica (S06)
 
 ### Testing con JavaScript (Etapa 1)
+
 - Jest avanzado: matchers, organización, ciclo de vida (S07)
 - Mocks, stubs y spies con Jest (S08)
 - Testing asíncrono y timers falsos (S09)
@@ -737,6 +781,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Property-based testing y test.each() (S14)
 
 ### Testing con Python (Etapa 2)
+
 - pytest avanzado: fixtures, parametrize, conftest (S16)
 - Mocking con unittest.mock y pytest-mock (S17)
 - Testing asíncrono con pytest-asyncio (S18)
@@ -747,6 +792,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Testing de BD con SQLAlchemy y Testcontainers (S23)
 
 ### Testing con Java (Etapa 3)
+
 - JUnit 5 avanzado y AssertJ (S25)
 - Mockito: mocks, spies, captors (S26)
 - TDD con Java y ArchUnit (S27)
@@ -755,6 +801,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - BDD con Cucumber + Spring Boot (S30)
 
 ### Testing Avanzado Transversal (Etapa 4)
+
 - E2E con Playwright y Page Object Model (S32)
 - Performance: k6 (JS) y Locust (Python) (S33)
 - Security testing básico OWASP (S34)
@@ -764,45 +811,45 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ## 📋 Estado de Avance
 
-| Semana | Título | Estado |
-|--------|--------|--------|
-| S01 | ¿Qué es Testing? Calidad de Software | ⏳ Pendiente |
-| S02 | Casos de Prueba y Técnicas de Diseño | ⏳ Pendiente |
-| S03 | Primeros Tests Automatizados — JavaScript | ⏳ Pendiente |
-| S04 | Primeros Tests Automatizados — Python | ⏳ Pendiente |
-| S05 | Primeros Tests Automatizados — Java | ⏳ Pendiente |
-| S06 | Proyecto Integrador — Etapa 0 | ⏳ Pendiente |
-| S07 | Jest Avanzado — Matchers y Organización | ⏳ Pendiente |
-| S08 | Mocks, Stubs y Spies en Jest | ⏳ Pendiente |
-| S09 | Testing Asíncrono en Jest | ⏳ Pendiente |
-| S10 | Code Coverage en JavaScript | ⏳ Pendiente |
-| S11 | TDD con JavaScript — Red, Green, Refactor | ⏳ Pendiente |
-| S12 | Testing de APIs REST con Supertest | ⏳ Pendiente |
-| S13 | Snapshot Testing y Testing de Componentes | ⏳ Pendiente |
-| S14 | Patrones Avanzados de Testing en JavaScript | ⏳ Pendiente |
-| S15 | Proyecto Integrador — Etapa 1 (JavaScript) | ⏳ Pendiente |
-| S16 | pytest Avanzado — Fixtures y Parametrize | ⏳ Pendiente |
-| S17 | Mocking en Python con unittest.mock | ⏳ Pendiente |
-| S18 | Testing Asíncrono en Python | ⏳ Pendiente |
-| S19 | Testing de APIs con Python (requests + httpx) | ⏳ Pendiente |
-| S20 | TDD con Python | ⏳ Pendiente |
-| S21 | Coverage y Calidad en Python | ⏳ Pendiente |
-| S22 | BDD con Python — Behave | ⏳ Pendiente |
-| S23 | Testing de Bases de Datos en Python | ⏳ Pendiente |
-| S24 | Proyecto Integrador — Etapa 2 (Python) | ⏳ Pendiente |
-| S25 | JUnit 5 Avanzado y AssertJ | ⏳ Pendiente |
-| S26 | Mockito — Mocking en Java | ⏳ Pendiente |
-| S27 | TDD con Java | ⏳ Pendiente |
-| S28 | Testing de Spring Boot | ⏳ Pendiente |
-| S29 | Testcontainers en Java | ⏳ Pendiente |
-| S30 | BDD con Java — Cucumber | ⏳ Pendiente |
-| S31 | Proyecto Integrador — Etapa 3 (Java) | ⏳ Pendiente |
-| S32 | Testing End-to-End con Playwright | ⏳ Pendiente |
-| S33 | Testing de Performance con k6 y Locust | ⏳ Pendiente |
-| S34 | Testing de Seguridad Básico (OWASP) | ⏳ Pendiente |
-| S35 | CI/CD y Testing Automatizado | ⏳ Pendiente |
-| S36 | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
+| Semana | Título                                         | Estado       |
+| ------ | ---------------------------------------------- | ------------ |
+| S01    | ¿Qué es Testing? Calidad de Software           | ⏳ Pendiente |
+| S02    | Casos de Prueba y Técnicas de Diseño           | ⏳ Pendiente |
+| S03    | Primeros Tests Automatizados — JavaScript      | ⏳ Pendiente |
+| S04    | Primeros Tests Automatizados — Python          | ⏳ Pendiente |
+| S05    | Primeros Tests Automatizados — Java            | ⏳ Pendiente |
+| S06    | Proyecto Integrador — Etapa 0                  | ⏳ Pendiente |
+| S07    | Jest Avanzado — Matchers y Organización        | ⏳ Pendiente |
+| S08    | Mocks, Stubs y Spies en Jest                   | ⏳ Pendiente |
+| S09    | Testing Asíncrono en Jest                      | ⏳ Pendiente |
+| S10    | Code Coverage en JavaScript                    | ⏳ Pendiente |
+| S11    | TDD con JavaScript — Red, Green, Refactor      | ⏳ Pendiente |
+| S12    | Testing de APIs REST con Supertest             | ⏳ Pendiente |
+| S13    | Snapshot Testing y Testing de Componentes      | ⏳ Pendiente |
+| S14    | Patrones Avanzados de Testing en JavaScript    | ⏳ Pendiente |
+| S15    | Proyecto Integrador — Etapa 1 (JavaScript)     | ⏳ Pendiente |
+| S16    | pytest Avanzado — Fixtures y Parametrize       | ⏳ Pendiente |
+| S17    | Mocking en Python con unittest.mock            | ⏳ Pendiente |
+| S18    | Testing Asíncrono en Python                    | ⏳ Pendiente |
+| S19    | Testing de APIs con Python (requests + httpx)  | ⏳ Pendiente |
+| S20    | TDD con Python                                 | ⏳ Pendiente |
+| S21    | Coverage y Calidad en Python                   | ⏳ Pendiente |
+| S22    | BDD con Python — Behave                        | ⏳ Pendiente |
+| S23    | Testing de Bases de Datos en Python            | ⏳ Pendiente |
+| S24    | Proyecto Integrador — Etapa 2 (Python)         | ⏳ Pendiente |
+| S25    | JUnit 5 Avanzado y AssertJ                     | ⏳ Pendiente |
+| S26    | Mockito — Mocking en Java                      | ⏳ Pendiente |
+| S27    | TDD con Java                                   | ⏳ Pendiente |
+| S28    | Testing de Spring Boot                         | ⏳ Pendiente |
+| S29    | Testcontainers en Java                         | ⏳ Pendiente |
+| S30    | BDD con Java — Cucumber                        | ⏳ Pendiente |
+| S31    | Proyecto Integrador — Etapa 3 (Java)           | ⏳ Pendiente |
+| S32    | Testing End-to-End con Playwright              | ⏳ Pendiente |
+| S33    | Testing de Performance con k6 y Locust         | ⏳ Pendiente |
+| S34    | Testing de Seguridad Básico (OWASP)            | ⏳ Pendiente |
+| S35    | CI/CD y Testing Automatizado                   | ⏳ Pendiente |
+| S36    | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
 
 ---
 
-*Última actualización: Marzo 2026 | Versión: 1.0 — Creación inicial zero-to-hero*
+_Última actualización: Marzo 2026 | Versión: 1.0 — Creación inicial zero-to-hero_
