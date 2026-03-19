@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="900" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Patrón AAA en Tests Unitarios</text>
+  <text x="450" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Arrange · Act · Assert</text>
+
+  <!-- Arrange -->
+  <rect x="70" y="110" width="240" height="260" rx="12" fill="#1e293b" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="190" y="140" text-anchor="middle" font-size="18" font-weight="700" fill="#F7DF1E">A · Arrange</text>
+  <text x="90" y="168" font-size="12" fill="#e2e8f0">Preparar datos y contexto</text>
+  <text x="90" y="192" font-size="12" fill="#cbd5e1">- inputs válidos e inválidos</text>
+  <text x="90" y="212" font-size="12" fill="#cbd5e1">- mocks/stubs si aplica</text>
+  <text x="90" y="232" font-size="12" fill="#cbd5e1">- estado inicial limpio</text>
+  <rect x="90" y="252" width="200" height="90" rx="8" fill="#0b1220"/>
+  <text x="102" y="274" font-size="11" fill="#94a3b8">const a = 2;</text>
+  <text x="102" y="292" font-size="11" fill="#94a3b8">const b = 3;</text>
+  <text x="102" y="310" font-size="11" fill="#94a3b8">// dependencia preparada</text>
+
+  <!-- Act -->
+  <rect x="330" y="110" width="240" height="260" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="450" y="140" text-anchor="middle" font-size="18" font-weight="700" fill="#6366f1">A · Act</text>
+  <text x="350" y="168" font-size="12" fill="#e2e8f0">Ejecutar una sola acción</text>
+  <text x="350" y="192" font-size="12" fill="#cbd5e1">- llamar función bajo prueba</text>
+  <text x="350" y="212" font-size="12" fill="#cbd5e1">- evitar lógica adicional</text>
+  <text x="350" y="232" font-size="12" fill="#cbd5e1">- capturar resultado</text>
+  <rect x="350" y="252" width="200" height="90" rx="8" fill="#0b1220"/>
+  <text x="362" y="274" font-size="11" fill="#94a3b8">const result = add(a, b);</text>
+
+  <!-- Assert -->
+  <rect x="590" y="110" width="240" height="260" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="710" y="140" text-anchor="middle" font-size="18" font-weight="700" fill="#22c55e">A · Assert</text>
+  <text x="610" y="168" font-size="12" fill="#e2e8f0">Verificar resultado esperado</text>
+  <text x="610" y="192" font-size="12" fill="#cbd5e1">- matcher correcto</text>
+  <text x="610" y="212" font-size="12" fill="#cbd5e1">- una intención principal</text>
+  <text x="610" y="232" font-size="12" fill="#cbd5e1">- mensaje claro al fallar</text>
+  <rect x="610" y="252" width="200" height="90" rx="8" fill="#0b1220"/>
+  <text x="622" y="274" font-size="11" fill="#94a3b8">expect(result).toBe(5);</text>
+
+  <!-- Flechas -->
+  <line x1="310" y1="240" x2="330" y2="240" stroke="#475569" stroke-width="2"/>
+  <polygon points="330,240 320,234 320,246" fill="#475569"/>
+
+  <line x1="570" y1="240" x2="590" y2="240" stroke="#475569" stroke-width="2"/>
+  <polygon points="590,240 580,234 580,246" fill="#475569"/>
+
+  <!-- Snippet integrado -->
+  <rect x="80" y="388" width="740" height="52" rx="8" fill="#111827" stroke="#334155"/>
+  <text x="94" y="410" font-size="12" fill="#94a3b8">it("should return 5 when adding 2 and 3", () =&gt; {</text>
+  <text x="94" y="427" font-size="12" fill="#cbd5e1">  // Arrange ...   // Act ...   // Assert ...</text>
+
+  <text x="450" y="452" text-anchor="middle" font-size="12" fill="#64748b">Semana 03 · Estructura mínima para tests legibles y mantenibles</text>
+</svg>
