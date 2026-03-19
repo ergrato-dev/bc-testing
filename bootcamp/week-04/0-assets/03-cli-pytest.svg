@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Comandos CLI Clave de pytest</text>
+  <text x="460" y="62" text-anchor="middle" font-size="13" fill="#94a3b8">Ejecutar, filtrar y depurar tests rapidamente</text>
+
+  <rect x="70" y="96" width="780" height="72" rx="10" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
+  <text x="90" y="126" font-size="16" fill="#3572A5" font-weight="700">pytest</text>
+  <text x="90" y="148" font-size="12" fill="#e2e8f0">Ejecuta toda la suite detectada automaticamente.</text>
+
+  <rect x="70" y="182" width="780" height="72" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="90" y="212" font-size="16" fill="#6366f1" font-weight="700">pytest -v</text>
+  <text x="90" y="234" font-size="12" fill="#e2e8f0">Muestra nombres completos de tests y detalle de ejecucion.</text>
+
+  <rect x="70" y="268" width="780" height="72" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="90" y="298" font-size="16" fill="#22c55e" font-weight="700">pytest -k "discount"</text>
+  <text x="90" y="320" font-size="12" fill="#e2e8f0">Filtra por texto en nombre del test para depuracion focalizada.</text>
+
+  <rect x="70" y="354" width="780" height="72" rx="10" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
+  <text x="90" y="384" font-size="16" fill="#F89820" font-weight="700">pytest tests/test_price.py</text>
+  <text x="90" y="406" font-size="12" fill="#e2e8f0">Ejecuta solo un archivo para ciclos mas rapidos.</text>
+
+  <rect x="70" y="438" width="780" height="42" rx="8" fill="#111827" stroke="#334155"/>
+  <text x="90" y="464" font-size="12" fill="#94a3b8">Tip: combinar con entorno virtual activo y nombres de test descriptivos para mayor productividad.</text>
+</svg>
