@@ -3,8 +3,10 @@
 # Cubre: JavaScript (Jest), Python (pytest), Java (JUnit 5)
 # ============================================================
 
-# ── SOLUCIONES (NUNCA en el repo público) ───────────────────
-**/solution/
+# ── SOLUCIONES DE PROYECTOS (no publicar — anticopia) ────────
+# Las soluciones de prácticas SÍ se publican (son tutoriales guiados).
+# Solo se excluyen las soluciones de los proyectos semanales.
+**/3-proyecto/solution/
 
 # ════════════════════════════════════════════════════════════
 # JAVASCRIPT / NODE.JS
