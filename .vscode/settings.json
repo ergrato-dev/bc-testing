@@ -1,0 +1,118 @@
+{
+  // ── Editor general ────────────────────────────────────────────────────────
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [100],
+  "editor.wordWrap": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // ── JavaScript / TypeScript ────────────────────────────────────────────────
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "javascript.preferences.quoteStyle": "single",
+
+  // ── Python ────────────────────────────────────────────────────────────────
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4
+  },
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": ["--tb=short", "-v"],
+  "python.analysis.typeCheckingMode": "basic",
+
+  // ── Java ──────────────────────────────────────────────────────────────────
+  "[java]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "java.test.config": {
+    "vmArgs": ["-ea"]
+  },
+
+  // ── Jest (JavaScript) ─────────────────────────────────────────────────────
+  "jest.autoRun": "off",
+  "jest.showCoverageOnLoad": false,
+
+  // ── Markdown ──────────────────────────────────────────────────────────────
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    }
+  },
+  "markdownlint.config": {
+    "MD013": false,
+    "MD033": false,
+    "MD041": false
+  },
+
+  // ── Explorer ──────────────────────────────────────────────────────────────
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "jest.config.*": "jest.config.*",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .eslintrc*, .prettierrc*, .babelrc*",
+    "pyproject.toml": "setup.cfg, setup.py, .coverage, .coveragerc, pytest.ini, tox.ini",
+    "pom.xml": ".mvn, mvnw, mvnw.cmd"
+  },
+
+  // ── TODO Tree ─────────────────────────────────────────────────────────────
+  "todo-tree.general.tags": ["TODO", "FIXME", "PASO", "HACK"],
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "#f1f5f9",
+    "background": "#6366f1",
+    "iconColour": "#6366f1"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "background": "#F89820",
+      "icon": "checklist"
+    },
+    "PASO": {
+      "background": "#22c55e",
+      "icon": "list-ordered"
+    }
+  },
+
+  // ── Spell checker ─────────────────────────────────────────────────────────
+  "cSpell.language": "en,es",
+  "cSpell.words": [
+    "bootcamp", "pytest", "pnpm", "mockito", "testcontainers",
+    "behave", "cucumber", "playwright", "supertest", "assertj",
+    "jacoco", "mutmut", "respx", "asyncio", "dataclass",
+    "parametrize", "conftest", "httpx", "locust", "sdet"
+  ],
+
+  // ── Git ───────────────────────────────────────────────────────────────────
+  "git.confirmSync": false,
+  "gitlens.currentLine.enabled": true,
+
+  // ── Archivos excluidos ────────────────────────────────────────────────────
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/target": true,
+    "**/.coverage": true,
+    "**/htmlcov": true,
+    "**/coverage": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/target": true,
+    "**/solution": true
+  }
+}
