@@ -1,0 +1,17 @@
+name: js-quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      # TODO: Agregar checkout con fetch-depth: 0
+      # TODO: Agregar setup node (version 20) con cache yarn
+      # TODO: Instalar dependencias con yarn install --frozen-lockfile
+      # TODO: Ejecutar tests con coverage (yarn test --coverage)
+      # TODO: Agregar SonarQube scan con SONAR_TOKEN y SONAR_HOST_URL

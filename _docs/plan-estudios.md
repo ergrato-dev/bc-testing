@@ -249,7 +249,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Definir umbrales de cobertura: `coverageThreshold`
 - Qué código cubrir y qué excluir (`/* istanbul ignore */`)
 - Coverage en CI: fallar build si coverage baja
-- Integración con Codecov/SonarQube (conceptual)
+- Integración con Codecov/SonarQube (conceptual + demo en free tier para repos públicos)
 
 **Proyecto**: Alcanzar 90%+ de coverage en la suite JS del dominio asignado. Documentar qué ramas quedaron sin cubrir y por qué.
 
@@ -459,7 +459,8 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Excluir código del coverage: `# pragma: no cover`
 - `coverage combine` para proyectos multi-módulo
 - Mutation testing con `mutmut`
-- SonarQube para Python: métricas de calidad
+- SonarQube para Python: métricas de calidad (SonarQube Cloud free tier en repos públicos)
+- Alternativa para repos privados: SonarQube Community Edition autohospedado (opcional)
 - Definir umbrales de calidad: coverage, duplicados, complejidad ciclomática
 
 **Proyecto**: Alcanzar 90%+ de coverage en la suite Python. Ejecutar `mutmut` y analizar los mutantes vivos. Documentar `quality-report-python.md`.
@@ -730,6 +731,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Artifacts: guardar reportes de coverage y resultados
 - Test parallelism en CI
 - Fallar el pipeline si coverage < umbral
+- Quality Gates básicos con SonarQube (free tier para públicos / Community Edition para privados)
 - Pre-commit hooks con Husky (JS), pre-commit (Python)
 
 **Proyecto**: Configurar 3 GitHub Actions workflows (uno por lenguaje) para el repositorio del dominio asignado. Cada workflow ejecuta la suite completa, genera reporte de coverage y falla si baja del umbral.

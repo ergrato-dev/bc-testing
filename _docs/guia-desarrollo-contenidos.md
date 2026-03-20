@@ -72,6 +72,7 @@ El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto
 
 - Nomenclatura técnica en inglés (nombres de métodos, clases, librerías, comandos)
 - Documentación explicativa en español
+- Longitud objetivo: los archivos de teoría deben tener en promedio ~100 líneas por semana (rango sugerido: 80-120 por archivo, según complejidad)
 - Ejemplos de código progresivos (simple → complejo)
 - Conceptos construidos sobre conocimientos previos
 - Indicar claramente a qué lenguaje aplica cada sección (JS, Python, Java o todos)

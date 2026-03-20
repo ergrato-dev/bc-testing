@@ -1,0 +1,37 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">SonarQube: decision publico vs privado</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Selecciona opcion segun visibilidad del repo y costo operativo aceptable.</text>
+
+  <rect x="70" y="150" width="540" height="560" rx="16" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="100" y="200" fill="#22c55e" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Repo publico</text>
+  <text x="100" y="246" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">Opcion sugerida: SonarQube Cloud free tier</text>
+  <text x="100" y="286" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Pros:</text>
+  <text x="124" y="318" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Configuracion rapida en GitHub Actions</text>
+  <text x="124" y="346" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Quality gates listos desde UI</text>
+  <text x="124" y="374" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Baja carga de mantenimiento</text>
+  <text x="100" y="420" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Cuidados:</text>
+  <text x="124" y="452" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Gestionar secretos SONAR_TOKEN</text>
+  <text x="124" y="480" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Verificar rutas de lcov/reportes</text>
+  <text x="124" y="508" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Definir reglas de puerta en PR</text>
+
+  <rect x="100" y="548" width="480" height="130" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="126" y="594" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">Recomendado para bootcamp:</text>
+  <text x="126" y="626" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">demo funcional con minimo setup.</text>
+
+  <rect x="670" y="150" width="540" height="560" rx="16" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
+  <text x="700" y="200" fill="#93c5fd" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Repo privado</text>
+  <text x="700" y="246" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">Opcion sugerida: Community Edition self-hosted</text>
+  <text x="700" y="286" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Pros:</text>
+  <text x="724" y="318" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Control total de datos y hosting</text>
+  <text x="724" y="346" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Sin costo de licencia base</text>
+  <text x="724" y="374" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Personalizacion de reglas</text>
+  <text x="700" y="420" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Cuidados:</text>
+  <text x="724" y="452" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Operacion de servidor y backups</text>
+  <text x="724" y="480" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- Mantenimiento y upgrades</text>
+  <text x="724" y="508" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">- SSL y seguridad de acceso</text>
+
+  <rect x="700" y="548" width="480" height="130" rx="12" fill="#1c2742" stroke="#3572A5"/>
+  <text x="726" y="594" fill="#bfdbfe" font-size="21" font-family="Inter, Arial, sans-serif">Recomendado para bootcamp:</text>
+  <text x="726" y="626" fill="#bfdbfe" font-size="21" font-family="Inter, Arial, sans-serif">ruta opcional para equipos con infraestructura.</text>
+</svg>

@@ -1,0 +1,43 @@
+name: js-quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ============================================
+      # PASO 1: Checkout + setup de Node
+      # ============================================
+      # - name: Checkout
+      #   uses: actions/checkout@v4
+      #   with:
+      #     fetch-depth: 0
+      #
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      #     cache: yarn
+      #
+      # - name: Install dependencies
+      #   run: yarn install --frozen-lockfile
+
+      # ============================================
+      # PASO 2: Tests con coverage
+      # ============================================
+      # - name: Run tests with coverage
+      #   run: yarn test --coverage
+
+      # ============================================
+      # PASO 3: SonarQube Scan
+      # ============================================
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
