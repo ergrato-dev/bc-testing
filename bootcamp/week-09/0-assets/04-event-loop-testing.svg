@@ -1,0 +1,15 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="70" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Event Loop y Testing Asincrono</text>
+
+  <rect x="120" y="170" width="300" height="380" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="270" y="230" fill="#f1f5f9" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">Call Stack</text>
+
+  <rect x="450" y="170" width="300" height="380" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="600" y="230" fill="#F7DF1E" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">Task Queue</text>
+
+  <rect x="780" y="170" width="300" height="380" rx="12" fill="#1e293b" stroke="#22c55e"/>
+  <text x="930" y="230" fill="#22c55e" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">Microtasks</text>
+
+  <text x="600" y="620" fill="#94a3b8" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">Entender estas colas evita flakes y falsos positivos en tests asincronos.</text>
+</svg>

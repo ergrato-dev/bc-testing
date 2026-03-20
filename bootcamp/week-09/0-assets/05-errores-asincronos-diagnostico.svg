@@ -1,0 +1,13 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="72" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Diagnostico de Errores Asincronos</text>
+
+  <rect x="140" y="160" width="920" height="380" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="190" y="225" fill="#ef4444" font-size="22" font-family="Inter, Arial, sans-serif">UnhandledPromiseRejectionWarning</text>
+  <text x="190" y="270" fill="#f1f5f9" font-size="18" font-family="Inter, Arial, sans-serif">1) Revisar await/return en test</text>
+  <text x="190" y="305" fill="#f1f5f9" font-size="18" font-family="Inter, Arial, sans-serif">2) Revisar rejects/resolves</text>
+  <text x="190" y="340" fill="#f1f5f9" font-size="18" font-family="Inter, Arial, sans-serif">3) Revisar timers pendientes</text>
+  <text x="190" y="375" fill="#f1f5f9" font-size="18" font-family="Inter, Arial, sans-serif">4) Limpiar mocks y timers en afterEach</text>
+
+  <text x="600" y="620" fill="#22c55e" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Un test asincrono confiable debe ser determinista y reproducible.</text>
+</svg>
