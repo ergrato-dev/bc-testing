@@ -1,0 +1,49 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Flujo minimo de GitHub Actions + Quality Gate</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Pipeline recomendado para etapa JS: feedback rapido + analisis de calidad.</text>
+
+  <rect x="60" y="140" width="210" height="96" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="84" y="196" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Push / PR</text>
+
+  <rect x="316" y="140" width="210" height="96" rx="12" fill="#1e293b" stroke="#3572A5"/>
+  <text x="340" y="196" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Checkout</text>
+
+  <rect x="572" y="140" width="210" height="96" rx="12" fill="#1e293b" stroke="#3572A5"/>
+  <text x="596" y="196" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Setup Node</text>
+
+  <rect x="828" y="140" width="210" height="96" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="852" y="196" fill="#fef08a" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Install deps</text>
+
+  <rect x="1064" y="140" width="156" height="96" rx="12" fill="#1e293b" stroke="#22c55e"/>
+  <text x="1094" y="196" fill="#bbf7d0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Test</text>
+
+  <path d="M270 188H316" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M526 188H572" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M782 188H828" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M1038 188H1064" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="140" y="320" width="430" height="130" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="168" y="366" fill="#bbf7d0" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Artifacts</text>
+  <text x="168" y="400" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">coverage/lcov.info + reportes de test</text>
+
+  <rect x="630" y="320" width="510" height="130" rx="12" fill="#1c2742" stroke="#6366f1"/>
+  <text x="658" y="366" fill="#c7d2fe" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">SonarQube Scan</text>
+  <text x="658" y="400" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Usa SONAR_TOKEN + SONAR_HOST_URL en secretos</text>
+
+  <path d="M1142 236V320" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="380" y="530" width="520" height="180" rx="14" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="410" y="578" fill="#fecaca" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Quality Gate Decision</text>
+  <text x="410" y="616" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Pass -> merge habilitado</text>
+  <text x="410" y="646" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Fail -> bloquear merge y corregir deuda</text>
+  <text x="410" y="676" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">Reglas sugeridas: coverage + issues nuevas</text>
+
+  <path d="M885 450V530" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

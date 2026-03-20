@@ -1,0 +1,27 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="60" y="76" fill="#f1f5f9" font-size="36" font-family="Inter, Arial, sans-serif" font-weight="700">Mapa de metricas de cobertura en Jest</text>
+  <text x="60" y="112" fill="#94a3b8" font-size="20" font-family="Inter, Arial, sans-serif">Cobertura mide ejecucion de codigo, no calidad automatica de la suite.</text>
+
+  <rect x="60" y="150" width="500" height="120" rx="16" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="86" y="192" fill="#f1f5f9" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Statements</text>
+  <text x="86" y="230" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">Sentencias ejecutadas durante la corrida de tests.</text>
+
+  <rect x="640" y="150" width="500" height="120" rx="16" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="666" y="192" fill="#f1f5f9" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Lines</text>
+  <text x="666" y="230" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">Lineas tocadas por los tests.</text>
+
+  <rect x="60" y="300" width="500" height="120" rx="16" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
+  <text x="86" y="342" fill="#f1f5f9" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Functions</text>
+  <text x="86" y="380" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">Funciones invocadas al menos una vez.</text>
+
+  <rect x="640" y="300" width="500" height="120" rx="16" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
+  <text x="666" y="342" fill="#f1f5f9" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Branches</text>
+  <text x="666" y="380" fill="#cbd5e1" font-size="19" font-family="Inter, Arial, sans-serif">Ramas condicionales realmente recorridas.</text>
+
+  <rect x="60" y="462" width="1080" height="210" rx="16" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="88" y="510" fill="#22c55e" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">Lectura recomendada de prioridad</text>
+  <text x="88" y="550" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">1) Revisa branches en modulos criticos.</text>
+  <text x="88" y="584" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">2) Verifica rutas de error y validacion de entrada.</text>
+  <text x="88" y="618" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">3) Usa lines/statements para detectar huecos secundarios.</text>
+</svg>

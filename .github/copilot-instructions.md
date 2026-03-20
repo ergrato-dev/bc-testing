@@ -141,6 +141,7 @@ Seguir **siempre** este orden:
 ### 1. Teoría (1-teoria/)
 
 - Archivos markdown con explicaciones conceptuales
+- Longitud objetivo: mantener los archivos de teoría en un promedio de ~100 líneas por semana (rango recomendado por archivo: 80-120, ajustable por complejidad)
 - Ejemplos de código con comentarios educativos en español
 - Indicar claramente a qué lenguaje aplica cada sección (JS / Python / Java / Transversal)
 - Cuando un concepto aplica a los tres lenguajes, mostrar el equivalente en cada uno
@@ -618,6 +619,7 @@ Antes de considerar una semana completa:
 - [ ] `README.md` con objetivos, distribución del tiempo y navegación
 - [ ] Rúbrica de evaluación con 3 tipos de evidencia (Conocimiento/Desempeño/Producto)
 - [ ] Archivos de teoría con indicación clara del lenguaje por sección
+- [ ] Archivos de teoría con promedio aproximado de 100 líneas por semana
 - [ ] Assets SVG con paleta por lenguaje
 - [ ] Ejercicios con formato tutorial (código comentado, NO TODOs)
 - [ ] Proyecto con TODOs genéricos (NO usar dominios de la lista anticopia)

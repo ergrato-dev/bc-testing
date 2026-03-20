@@ -1,0 +1,39 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Mapa de integracion de estrategias de testing (Etapa JS)</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Objetivo: combinar enfoque por riesgo, tipo de feedback y costo de mantenimiento.</text>
+
+  <rect x="56" y="140" width="1168" height="620" rx="16" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+
+  <rect x="92" y="184" width="250" height="140" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="114" y="224" fill="#bbf7d0" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Unit</text>
+  <text x="114" y="256" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Reglas puras</text>
+  <text x="114" y="282" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Errores y bordes</text>
+
+  <rect x="370" y="184" width="250" height="140" rx="12" fill="#1c2742" stroke="#3572A5"/>
+  <text x="392" y="224" fill="#bfdbfe" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Integration</text>
+  <text x="392" y="256" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Contratos entre capas</text>
+  <text x="392" y="282" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Flujos de API</text>
+
+  <rect x="648" y="184" width="250" height="140" rx="12" fill="#2a2612" stroke="#F7DF1E"/>
+  <text x="670" y="224" fill="#fef08a" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Snapshot</text>
+  <text x="670" y="256" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Salidas estables</text>
+  <text x="670" y="282" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Sin campos volatiles</text>
+
+  <rect x="926" y="184" width="250" height="140" rx="12" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="948" y="224" fill="#fecaca" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Properties</text>
+  <text x="948" y="256" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Invariantes fuertes</text>
+  <text x="948" y="282" fill="#e2e8f0" font-size="18" font-family="Inter, Arial, sans-serif">Cobertura de dominios</text>
+
+  <rect x="92" y="372" width="1084" height="150" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="118" y="412" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Como decidir rapidamente</text>
+  <text x="118" y="446" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">1) Si hay regla de negocio critica: Unit + casos de error.</text>
+  <text x="118" y="476" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">2) Si hay frontera entre modulos: Integration con contrato observable.</text>
+  <text x="118" y="506" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">3) Si salida serializada estable: Snapshot acotado.</text>
+
+  <rect x="92" y="546" width="1084" height="180" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="118" y="586" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Senales de madurez de suite</text>
+  <text x="118" y="620" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- Falla por causa correcta y mensaje util.</text>
+  <text x="118" y="650" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- Evita duplicaciones y setup complejo.</text>
+  <text x="118" y="680" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- Permite cambios en codigo sin romperse por detalles internos.</text>
+</svg>

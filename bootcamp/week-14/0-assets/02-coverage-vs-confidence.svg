@@ -1,0 +1,30 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="60" y="76" fill="#f1f5f9" font-size="36" font-family="Inter, Arial, sans-serif" font-weight="700">Coverage alto no siempre implica alta confianza</text>
+
+  <rect x="70" y="140" width="500" height="540" rx="18" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="100" y="190" fill="#ef4444" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Zona de autoengano</text>
+  <text x="100" y="240" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Tests solo de happy path</text>
+  <text x="100" y="278" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Assert generico: toBeTruthy</text>
+  <text x="100" y="316" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Sin validacion de errores esperados</text>
+  <text x="100" y="354" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Cobertura global sin foco por modulo</text>
+  <text x="100" y="392" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Branches criticas sin cubrir</text>
+
+  <rect x="100" y="450" width="430" height="190" rx="12" fill="#2b1a1a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="124" y="492" fill="#fecaca" font-size="21" font-family="Inter, Arial, sans-serif">Resultado:</text>
+  <text x="124" y="526" fill="#fecaca" font-size="21" font-family="Inter, Arial, sans-serif">Porcentaje bonito, baja capacidad</text>
+  <text x="124" y="560" fill="#fecaca" font-size="21" font-family="Inter, Arial, sans-serif">de detectar regresiones reales.</text>
+
+  <rect x="630" y="140" width="500" height="540" rx="18" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="660" y="190" fill="#22c55e" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Zona de confianza real</text>
+  <text x="660" y="240" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Ramas de error cubiertas</text>
+  <text x="660" y="278" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Casos borde relevantes</text>
+  <text x="660" y="316" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Asserts de contrato observables</text>
+  <text x="660" y="354" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Priorizacion por riesgo funcional</text>
+  <text x="660" y="392" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Suite estable en corridas repetidas</text>
+
+  <rect x="660" y="450" width="430" height="190" rx="12" fill="#132a1e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="684" y="492" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">Resultado:</text>
+  <text x="684" y="526" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">Cobertura con contexto y mejor</text>
+  <text x="684" y="560" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">proteccion ante cambios.</text>
+</svg>

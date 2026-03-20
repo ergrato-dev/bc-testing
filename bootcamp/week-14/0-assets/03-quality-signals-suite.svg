@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="60" y="76" fill="#f1f5f9" font-size="36" font-family="Inter, Arial, sans-serif" font-weight="700">Senales de calidad en una suite Jest</text>
+
+  <rect x="60" y="130" width="520" height="560" rx="16" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="90" y="180" fill="#22c55e" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Senales positivas</text>
+  <text x="90" y="230" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Nombres de test narran comportamiento.</text>
+  <text x="90" y="268" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Cada test tiene una razon clara de fallo.</text>
+  <text x="90" y="306" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Error paths y bordes cubiertos.</text>
+  <text x="90" y="344" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Assert sobre contratos publicos.</text>
+  <text x="90" y="382" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Setup simple, reusable y legible.</text>
+  <text x="90" y="420" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Baja variacion entre corridas.</text>
+
+  <rect x="620" y="130" width="520" height="560" rx="16" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="650" y="180" fill="#ef4444" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Alertas de fragilidad</text>
+  <text x="650" y="230" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Dependencia de tiempo real o red.</text>
+  <text x="650" y="268" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Asserts genericos (truthy, length > 0).</text>
+  <text x="650" y="306" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Multiples comportamientos por test.</text>
+  <text x="650" y="344" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Snapshots gigantes y volatiles.</text>
+  <text x="650" y="382" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Mocking excesivo sin necesidad.</text>
+  <text x="650" y="420" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif">- Fallos intermitentes sin causa clara.</text>
+</svg>
