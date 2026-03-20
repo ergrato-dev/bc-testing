@@ -1,0 +1,25 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo Red Green Refactor</title>
+  <desc id="desc">Diagrama circular del ciclo TDD con entradas y salidas esperadas en cada fase.</desc>
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="70" y="90" fill="#f1f5f9" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Ciclo TDD: Red -> Green -> Refactor</text>
+
+  <circle cx="600" cy="380" r="190" fill="none" stroke="#334155" stroke-width="18"/>
+  <path d="M600 190 A190 190 0 0 1 764 475" fill="none" stroke="#ef4444" stroke-width="18"/>
+  <path d="M764 475 A190 190 0 0 1 436 475" fill="none" stroke="#22c55e" stroke-width="18"/>
+  <path d="M436 475 A190 190 0 0 1 600 190" fill="none" stroke="#6366f1" stroke-width="18"/>
+
+  <rect x="470" y="230" width="260" height="90" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="560" y="267" fill="#ef4444" font-size="28" font-family="Inter, Roboto, sans-serif" font-weight="700">RED</text>
+  <text x="500" y="295" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Escribe test que falle</text>
+
+  <rect x="730" y="420" width="260" height="90" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="815" y="457" fill="#22c55e" font-size="28" font-family="Inter, Roboto, sans-serif" font-weight="700">GREEN</text>
+  <text x="760" y="485" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Codigo minimo para pasar</text>
+
+  <rect x="210" y="420" width="260" height="90" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="265" y="457" fill="#6366f1" font-size="28" font-family="Inter, Roboto, sans-serif" font-weight="700">REFACTOR</text>
+  <text x="245" y="485" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Mejora interna sin romper</text>
+
+  <text x="420" y="620" fill="#94a3b8" font-size="16" font-family="Inter, Roboto, sans-serif">Feedback corto y continuo: menos riesgo, mejor diseno.</text>
+</svg>
