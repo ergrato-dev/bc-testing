@@ -1,0 +1,21 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="70" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Mock vs Stub vs Spy en Jest</text>
+
+  <rect x="100" y="150" width="300" height="430" rx="12" fill="#1e293b" stroke="#F7DF1E" stroke-width="3"/>
+  <text x="250" y="205" fill="#F7DF1E" font-size="28" text-anchor="middle" font-family="Inter, Arial, sans-serif">Mock</text>
+  <text x="250" y="255" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">Reemplaza dependencia</text>
+  <text x="250" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">jest.fn()</text>
+
+  <rect x="450" y="150" width="300" height="430" rx="12" fill="#1e293b" stroke="#3572A5" stroke-width="3"/>
+  <text x="600" y="205" fill="#FFD43B" font-size="28" text-anchor="middle" font-family="Inter, Arial, sans-serif">Stub</text>
+  <text x="600" y="255" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">Retorna dato controlado</text>
+  <text x="600" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">mockReturnValue(...)</text>
+
+  <rect x="800" y="150" width="300" height="430" rx="12" fill="#1e293b" stroke="#F89820" stroke-width="3"/>
+  <text x="950" y="205" fill="#F89820" font-size="28" text-anchor="middle" font-family="Inter, Arial, sans-serif">Spy</text>
+  <text x="950" y="255" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">Observa llamadas</text>
+  <text x="950" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">jest.spyOn(obj, 'fn')</text>
+
+  <text x="600" y="640" fill="#22c55e" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Usa solo el doble necesario para mantener claridad del test.</text>
+</svg>
