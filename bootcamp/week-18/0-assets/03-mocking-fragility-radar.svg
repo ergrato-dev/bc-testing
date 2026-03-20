@@ -1,0 +1,49 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="68" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Radar de fragilidad en tests con mocking</text>
+  <text x="56" y="102" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Instrumento para evaluar si tus tests mockeados estan estables o sobre-acoplados.</text>
+
+  <circle cx="500" cy="430" r="220" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="500" cy="430" r="170" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="500" cy="430" r="120" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="500" cy="430" r="70" fill="none" stroke="#334155" stroke-width="2"/>
+
+  <line x1="500" y1="210" x2="500" y2="650" stroke="#475569" stroke-width="2"/>
+  <line x1="280" y1="430" x2="720" y2="430" stroke="#475569" stroke-width="2"/>
+  <line x1="345" y1="275" x2="655" y2="585" stroke="#475569" stroke-width="2"/>
+  <line x1="655" y1="275" x2="345" y2="585" stroke="#475569" stroke-width="2"/>
+
+  <text x="470" y="190" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Aislamiento</text>
+  <text x="735" y="435" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Legibilidad</text>
+  <text x="460" y="675" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Mantenibilidad</text>
+  <text x="180" y="435" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Signal de negocio</text>
+  <text x="678" y="262" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Costo setup</text>
+  <text x="236" y="262" fill="#e2e8f0" font-size="16" font-family="Inter, Arial, sans-serif">Acoplamiento interno</text>
+
+  <polygon points="500,270 640,390 600,520 430,590 350,470 400,320" fill="#22c55e55" stroke="#22c55e" stroke-width="3"/>
+  <text x="620" y="352" fill="#86efac" font-size="15" font-family="Inter, Arial, sans-serif">Perfil saludable</text>
+
+  <polygon points="500,235 700,430 670,600 470,650 280,520 320,250" fill="#ef444455" stroke="#ef4444" stroke-width="3"/>
+  <text x="710" y="430" fill="#fca5a5" font-size="15" font-family="Inter, Arial, sans-serif">Perfil fragil</text>
+
+  <rect x="780" y="180" width="430" height="500" rx="14" fill="#111827" stroke="#475569"/>
+  <text x="808" y="222" fill="#f8fafc" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Interpretacion</text>
+
+  <text x="808" y="262" fill="#e5e7eb" font-size="18" font-family="Inter, Arial, sans-serif">1. Acoplamiento interno alto:</text>
+  <text x="808" y="288" fill="#cbd5e1" font-size="16" font-family="Inter, Arial, sans-serif">demasiados asserts de llamadas internas.</text>
+
+  <text x="808" y="330" fill="#e5e7eb" font-size="18" font-family="Inter, Arial, sans-serif">2. Costo setup alto:</text>
+  <text x="808" y="356" fill="#cbd5e1" font-size="16" font-family="Inter, Arial, sans-serif">Arrange grande, dificil de entender y mantener.</text>
+
+  <text x="808" y="398" fill="#e5e7eb" font-size="18" font-family="Inter, Arial, sans-serif">3. Signal de negocio bajo:</text>
+  <text x="808" y="424" fill="#cbd5e1" font-size="16" font-family="Inter, Arial, sans-serif">falla por refactor, no por regresion funcional.</text>
+
+  <text x="808" y="466" fill="#e5e7eb" font-size="18" font-family="Inter, Arial, sans-serif">4. Mantenibilidad baja:</text>
+  <text x="808" y="492" fill="#cbd5e1" font-size="16" font-family="Inter, Arial, sans-serif">cada cambio menor rompe multiples tests.</text>
+
+  <rect x="808" y="540" width="374" height="116" rx="10" fill="#0f172a" stroke="#22c55e"/>
+  <text x="824" y="572" fill="#86efac" font-size="16" font-family="Inter, Arial, sans-serif">Acciones de mejora</text>
+  <text x="824" y="596" fill="#dcfce7" font-size="15" font-family="Inter, Arial, sans-serif">- Assertar comportamiento observable</text>
+  <text x="824" y="618" fill="#dcfce7" font-size="15" font-family="Inter, Arial, sans-serif">- Reducir mocks por test</text>
+  <text x="824" y="640" fill="#dcfce7" font-size="15" font-family="Inter, Arial, sans-serif">- Separar unit vs integracion</text>
+</svg>
