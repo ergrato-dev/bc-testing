@@ -1,0 +1,31 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Slice de piramide para API tests</title>
+  <desc id="desc">Visual del peso relativo entre unit, integration API y e2e para etapa actual.</desc>
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="70" y="90" fill="#f1f5f9" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Donde encaja Supertest en la piramide de testing</text>
+
+  <polygon points="600,140 980,580 220,580" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+
+  <polygon points="600,200 920,560 280,560" fill="#0b1220" stroke="#475569" stroke-width="1"/>
+  <polygon points="600,290 850,540 350,540" fill="#111827" stroke="#475569" stroke-width="1"/>
+  <polygon points="600,390 780,520 420,520" fill="#172554" stroke="#6366f1" stroke-width="1"/>
+
+  <text x="565" y="510" fill="#6366f1" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">E2E</text>
+  <text x="530" y="470" fill="#f1f5f9" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">API Integration (Supertest)</text>
+  <text x="545" y="430" fill="#22c55e" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Unit</text>
+
+  <rect x="70" y="150" width="380" height="180" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="100" y="195" fill="#22c55e" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Unit (mayor volumen)</text>
+  <text x="100" y="225" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Reglas de negocio aisladas</text>
+  <text x="100" y="250" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Feedback muy rapido</text>
+
+  <rect x="70" y="350" width="380" height="180" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="100" y="395" fill="#6366f1" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Integration API (foco week-12)</text>
+  <text x="100" y="425" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Contrato HTTP + JSON</text>
+  <text x="100" y="450" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Valida routing + handlers</text>
+
+  <rect x="780" y="150" width="350" height="140" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="810" y="195" fill="#f59e0b" font-size="19" font-family="Inter, Roboto, sans-serif" font-weight="700">Regla de equilibrio</text>
+  <text x="810" y="225" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">No reemplazar unit tests con API tests.</text>
+  <text x="810" y="250" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">Cada capa responde una pregunta distinta.</text>
+</svg>
