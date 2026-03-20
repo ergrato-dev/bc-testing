@@ -1,0 +1,21 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="70" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Suite Equivalente en 3 Lenguajes</text>
+
+  <rect x="100" y="150" width="300" height="420" rx="14" fill="#1e293b" stroke="#F7DF1E" stroke-width="3"/>
+  <text x="250" y="205" fill="#F7DF1E" font-size="26" text-anchor="middle" font-family="Inter, Arial, sans-serif">JavaScript</text>
+  <text x="250" y="260" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">describe / test</text>
+  <text x="250" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">expect(...).toBe(...)</text>
+
+  <rect x="450" y="150" width="300" height="420" rx="14" fill="#1e293b" stroke="#3572A5" stroke-width="3"/>
+  <text x="600" y="205" fill="#FFD43B" font-size="26" text-anchor="middle" font-family="Inter, Arial, sans-serif">Python</text>
+  <text x="600" y="260" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">def test_...()</text>
+  <text x="600" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">assert valor == esperado</text>
+
+  <rect x="800" y="150" width="300" height="420" rx="14" fill="#1e293b" stroke="#F89820" stroke-width="3"/>
+  <text x="950" y="205" fill="#F89820" font-size="26" text-anchor="middle" font-family="Inter, Arial, sans-serif">Java</text>
+  <text x="950" y="260" fill="#f1f5f9" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">@Test / @DisplayName</text>
+  <text x="950" y="300" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">assertEquals / assertThrows</text>
+
+  <text x="600" y="640" fill="#22c55e" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">Misma regla de negocio, misma cobertura esencial.</text>
+</svg>

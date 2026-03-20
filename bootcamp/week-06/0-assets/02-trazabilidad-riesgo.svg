@@ -1,0 +1,27 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="64" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Matriz de Riesgo y Trazabilidad</text>
+
+  <rect x="140" y="140" width="420" height="420" fill="#1e293b" stroke="#475569"/>
+  <line x1="280" y1="140" x2="280" y2="560" stroke="#334155"/>
+  <line x1="420" y1="140" x2="420" y2="560" stroke="#334155"/>
+  <line x1="140" y1="280" x2="560" y2="280" stroke="#334155"/>
+  <line x1="140" y1="420" x2="560" y2="420" stroke="#334155"/>
+
+  <rect x="420" y="140" width="140" height="140" fill="#ef4444" opacity="0.8"/>
+  <rect x="280" y="140" width="140" height="140" fill="#f59e0b" opacity="0.8"/>
+  <rect x="420" y="280" width="140" height="140" fill="#f59e0b" opacity="0.8"/>
+  <rect x="140" y="140" width="140" height="140" fill="#22c55e" opacity="0.8"/>
+
+  <text x="350" y="610" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Probabilidad -></text>
+  <text x="86" y="350" fill="#94a3b8" font-size="16" text-anchor="middle" transform="rotate(-90 86 350)" font-family="Inter, Arial, sans-serif">Impacto -></text>
+
+  <rect x="650" y="150" width="410" height="360" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="855" y="195" fill="#f1f5f9" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">Trazabilidad Minima</text>
+
+  <text x="690" y="245" fill="#F7DF1E" font-size="18" font-family="Inter, Arial, sans-serif">REQ-001 -> TC-001 -> JS test</text>
+  <text x="690" y="285" fill="#FFD43B" font-size="18" font-family="Inter, Arial, sans-serif">REQ-001 -> TC-001 -> Pytest</text>
+  <text x="690" y="325" fill="#F89820" font-size="18" font-family="Inter, Arial, sans-serif">REQ-001 -> TC-001 -> JUnit 5</text>
+  <text x="690" y="375" fill="#f1f5f9" font-size="16" font-family="Inter, Arial, sans-serif">Misma intencion, distinta sintaxis.</text>
+  <text x="690" y="410" fill="#94a3b8" font-size="16" font-family="Inter, Arial, sans-serif">Esto reduce huecos de cobertura.</text>
+</svg>
