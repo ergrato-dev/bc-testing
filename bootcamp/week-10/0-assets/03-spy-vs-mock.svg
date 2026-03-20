@@ -1,0 +1,28 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Spy vs Mock en Jest</title>
+  <desc id="desc">Comparacion visual de cuando elegir spy o mock segun objetivo de prueba.</desc>
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="70" y="82" fill="#f1f5f9" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Spy vs Mock: criterio de eleccion</text>
+
+  <rect x="60" y="120" width="1080" height="520" rx="18" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+
+  <rect x="110" y="180" width="460" height="400" rx="14" fill="#0b1220" stroke="#f7df1e" stroke-width="2"/>
+  <text x="145" y="230" fill="#f7df1e" font-size="28" font-family="Inter, Roboto, sans-serif" font-weight="700">Spy</text>
+  <text x="145" y="265" fill="#cbd5e1" font-size="17" font-family="Inter, Roboto, sans-serif">Observa metodo existente.</text>
+  <text x="145" y="295" fill="#cbd5e1" font-size="17" font-family="Inter, Roboto, sans-serif">Puede mantener implementacion real.</text>
+  <text x="145" y="345" fill="#f1f5f9" font-size="16" font-family="Inter, Roboto, sans-serif">Usalo cuando:</text>
+  <text x="145" y="373" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Quieres auditar una llamada real.</text>
+  <text x="145" y="398" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Necesitas cambiar temporalmente el retorno.</text>
+  <text x="145" y="423" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Debes preservar comportamiento por defecto.</text>
+  <text x="145" y="473" fill="#ef4444" font-size="15" font-family="Inter, Roboto, sans-serif">Riesgo: olvidar mockRestore().</text>
+
+  <rect x="630" y="180" width="460" height="400" rx="14" fill="#0b1220" stroke="#6366f1" stroke-width="2"/>
+  <text x="665" y="230" fill="#6366f1" font-size="28" font-family="Inter, Roboto, sans-serif" font-weight="700">Mock</text>
+  <text x="665" y="265" fill="#cbd5e1" font-size="17" font-family="Inter, Roboto, sans-serif">Reemplaza colaborador completo.</text>
+  <text x="665" y="295" fill="#cbd5e1" font-size="17" font-family="Inter, Roboto, sans-serif">Controla datos y errores de forma total.</text>
+  <text x="665" y="345" fill="#f1f5f9" font-size="16" font-family="Inter, Roboto, sans-serif">Usalo cuando:</text>
+  <text x="665" y="373" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Dependencia es externa o lenta.</text>
+  <text x="665" y="398" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Necesitas escenarios dificilmente reproducibles.</text>
+  <text x="665" y="423" fill="#22c55e" font-size="15" font-family="Inter, Roboto, sans-serif">- Validas contrato de interaccion.</text>
+  <text x="665" y="473" fill="#ef4444" font-size="15" font-family="Inter, Roboto, sans-serif">Riesgo: sobre-mocking y tests fragiles.</text>
+</svg>
