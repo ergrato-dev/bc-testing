@@ -21,7 +21,7 @@
 
   <rect x="890" y="290" width="240" height="120" rx="12" fill="#1e293b" stroke="#14b8a6" stroke-width="2"/>
   <text x="955" y="340" fill="#14b8a6" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Limites</text>
-  <text x="930" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">0 <= value <= max</text>
+  <text x="930" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">0 &lt;= value &lt;= max</text>
 
   <path d="M600 210 L200 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
   <path d="M600 210 L470 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
