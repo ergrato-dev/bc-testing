@@ -1,0 +1,20 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="72" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Mapa de Matchers Avanzados en Jest</text>
+
+  <rect x="90" y="160" width="220" height="130" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="200" y="225" fill="#F7DF1E" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">toEqual</text>
+
+  <rect x="350" y="160" width="220" height="130" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="460" y="225" fill="#f1f5f9" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">toStrictEqual</text>
+
+  <rect x="610" y="160" width="220" height="130" rx="12" fill="#1e293b" stroke="#22c55e"/>
+  <text x="720" y="225" fill="#22c55e" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">toContain</text>
+
+  <rect x="870" y="160" width="220" height="130" rx="12" fill="#1e293b" stroke="#f89820"/>
+  <text x="980" y="225" fill="#f89820" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">toMatchObject</text>
+
+  <rect x="350" y="380" width="500" height="190" rx="12" fill="#1e293b" stroke="#94a3b8"/>
+  <text x="600" y="445" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Matcher correcto = error mas claro + test mas robusto</text>
+  <text x="600" y="485" fill="#94a3b8" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">Evita assertions genericas cuando hay matcher especifico</text>
+</svg>

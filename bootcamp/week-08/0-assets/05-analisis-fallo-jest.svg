@@ -1,0 +1,12 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="72" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Lectura de Fallos en Jest</text>
+
+  <rect x="140" y="170" width="920" height="360" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="190" y="230" fill="#ef4444" font-size="22" font-family="Inter, Arial, sans-serif">Expected: 42</text>
+  <text x="190" y="270" fill="#f1f5f9" font-size="22" font-family="Inter, Arial, sans-serif">Received: 24</text>
+  <text x="190" y="320" fill="#94a3b8" font-size="18" font-family="Inter, Arial, sans-serif">Stack trace -> archivo, linea, test</text>
+  <text x="190" y="360" fill="#94a3b8" font-size="18" font-family="Inter, Arial, sans-serif">Caso de tabla fallido -> identifica fila de datos</text>
+
+  <text x="600" y="610" fill="#22c55e" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">No corregir solo el assertion: revisar datos, regla y precondiciones.</text>
+</svg>
