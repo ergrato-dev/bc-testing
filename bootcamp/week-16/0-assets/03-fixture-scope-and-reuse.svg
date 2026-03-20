@@ -1,0 +1,37 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Fixtures: scope, reutilizacion y claridad</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Decision practica para week-16: empezar simple y escalar solo cuando agrega valor.</text>
+
+  <rect x="70" y="150" width="560" height="580" rx="16" fill="#1e293b" stroke="#22c55e"/>
+  <text x="100" y="200" fill="#22c55e" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">function scope</text>
+  <text x="100" y="240" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- una instancia por test</text>
+  <text x="100" y="270" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- maximo aislamiento</text>
+  <text x="100" y="300" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- ideal para empezar</text>
+
+  <rect x="100" y="340" width="500" height="130" rx="10" fill="#132a1e" stroke="#22c55e"/>
+  <text x="126" y="386" fill="#bbf7d0" font-size="21" font-family="Inter, Arial, sans-serif">Usar cuando:</text>
+  <text x="126" y="416" fill="#bbf7d0" font-size="20" font-family="Inter, Arial, sans-serif">- hay riesgo de estado compartido</text>
+  <text x="126" y="444" fill="#bbf7d0" font-size="20" font-family="Inter, Arial, sans-serif">- queremos diagnostico por test</text>
+
+  <rect x="100" y="500" width="500" height="190" rx="10" fill="#0f172a" stroke="#475569"/>
+  <text x="126" y="544" fill="#f1f5f9" font-size="21" font-family="Inter, Arial, sans-serif">Sintoma de abuso:</text>
+  <text x="126" y="576" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">fixture hace demasiado y oculta</text>
+  <text x="126" y="604" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">como se arma realmente el escenario.</text>
+
+  <rect x="650" y="150" width="560" height="580" rx="16" fill="#1e293b" stroke="#3572A5"/>
+  <text x="680" y="200" fill="#93c5fd" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">module scope</text>
+  <text x="680" y="240" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- una instancia por archivo</text>
+  <text x="680" y="270" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- menos costo de setup</text>
+  <text x="680" y="300" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- riesgo de acoplamiento si se abusa</text>
+
+  <rect x="680" y="340" width="500" height="130" rx="10" fill="#1c2742" stroke="#3572A5"/>
+  <text x="706" y="386" fill="#bfdbfe" font-size="21" font-family="Inter, Arial, sans-serif">Usar cuando:</text>
+  <text x="706" y="416" fill="#bfdbfe" font-size="20" font-family="Inter, Arial, sans-serif">- setup costoso y read-only</text>
+  <text x="706" y="444" fill="#bfdbfe" font-size="20" font-family="Inter, Arial, sans-serif">- tests independientes entre si</text>
+
+  <rect x="680" y="500" width="500" height="190" rx="10" fill="#0f172a" stroke="#475569"/>
+  <text x="706" y="544" fill="#f1f5f9" font-size="21" font-family="Inter, Arial, sans-serif">Regla de week-16:</text>
+  <text x="706" y="576" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">empieza con function y migra a</text>
+  <text x="706" y="604" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">module solo si hay dolor real.</text>
+</svg>

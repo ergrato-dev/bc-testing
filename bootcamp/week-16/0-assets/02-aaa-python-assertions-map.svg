@@ -1,0 +1,40 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">AAA en Python + calidad de asserts</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Como escribir tests legibles y con buena capacidad de diagnostico.</text>
+
+  <rect x="70" y="150" width="360" height="220" rx="14" fill="#132a1e" stroke="#22c55e"/>
+  <text x="100" y="198" fill="#bbf7d0" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Arrange</text>
+  <text x="100" y="236" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- datos de entrada</text>
+  <text x="100" y="266" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- dependencias necesarias</text>
+  <text x="100" y="296" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- estado inicial del escenario</text>
+
+  <rect x="460" y="150" width="360" height="220" rx="14" fill="#1c2742" stroke="#3572A5"/>
+  <text x="490" y="198" fill="#bfdbfe" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Act</text>
+  <text x="490" y="236" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- ejecutar una accion principal</text>
+  <text x="490" y="266" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- evitar logica extra en test</text>
+  <text x="490" y="296" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- mantener foco en comportamiento</text>
+
+  <rect x="850" y="150" width="360" height="220" rx="14" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="880" y="198" fill="#fecaca" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Assert</text>
+  <text x="880" y="236" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- valor esperado explicito</text>
+  <text x="880" y="266" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- errores con pytest.raises</text>
+  <text x="880" y="296" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- senal clara de fallo</text>
+
+  <path d="M430 260H460" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M820 260H850" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="70" y="430" width="1140" height="300" rx="14" fill="#1e293b" stroke="#475569"/>
+  <text x="100" y="478" fill="#f1f5f9" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Comparativa de calidad de assertions</text>
+  <text x="100" y="518" fill="#ef4444" font-size="21" font-family="Inter, Arial, sans-serif">Debil: assert result</text>
+  <text x="100" y="548" fill="#22c55e" font-size="21" font-family="Inter, Arial, sans-serif">Fuerte: assert result == {"status": "active", "count": 3}</text>
+  <text x="100" y="586" fill="#ef4444" font-size="21" font-family="Inter, Arial, sans-serif">Debil: with pytest.raises(Exception)</text>
+  <text x="100" y="616" fill="#22c55e" font-size="21" font-family="Inter, Arial, sans-serif">Fuerte: with pytest.raises(ValueError, match="email is required")</text>
+  <text x="100" y="666" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Regla: un test debe poder explicar en una frase que comportamiento protege.</text>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
