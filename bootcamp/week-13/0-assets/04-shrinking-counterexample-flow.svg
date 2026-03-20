@@ -1,0 +1,35 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de shrinking de contraejemplo</title>
+  <desc id="desc">Proceso de reducción de un caso fallido grande hasta un caso mínimo reproducible.</desc>
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="70" y="88" fill="#f1f5f9" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Shrinking: del fallo complejo al caso mínimo</text>
+
+  <rect x="70" y="140" width="1060" height="500" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+
+  <rect x="120" y="240" width="250" height="110" rx="12" fill="#111827" stroke="#ef4444" stroke-width="2"/>
+  <text x="165" y="290" fill="#ef4444" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Caso fallido</text>
+  <text x="145" y="320" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">[12, 0, -4, 99, ...]</text>
+
+  <rect x="450" y="240" width="280" height="110" rx="12" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+  <text x="480" y="290" fill="#f59e0b" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Reducciones sucesivas</text>
+  <text x="500" y="320" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">[12, -4] -> [-4]</text>
+
+  <rect x="800" y="240" width="260" height="110" rx="12" fill="#111827" stroke="#22c55e" stroke-width="2"/>
+  <text x="840" y="290" fill="#22c55e" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Caso mínimo</text>
+  <text x="885" y="320" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">[-1]</text>
+
+  <path d="M370 295 L450 295" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <path d="M730 295 L800 295" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+
+  <rect x="120" y="420" width="940" height="170" rx="12" fill="#0b1220" stroke="#475569" stroke-width="1"/>
+  <text x="150" y="465" fill="#94a3b8" font-size="18" font-family="Inter, Roboto, sans-serif">Valor para debugging</text>
+  <text x="150" y="500" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">1) Reduce ruido del fallo original.</text>
+  <text x="150" y="525" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">2) Permite crear regression test puntual con el mínimo input que rompe.</text>
+  <text x="150" y="550" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">3) Facilita corregir la regla sin romper otros casos válidos.</text>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

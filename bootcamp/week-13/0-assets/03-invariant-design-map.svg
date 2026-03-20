@@ -1,0 +1,42 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa de diseño de invariantes</title>
+  <desc id="desc">Guía visual para seleccionar propiedades invariantes de negocio en pruebas con fast-check.</desc>
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="70" y="86" fill="#f1f5f9" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Mapa de diseño de propiedades invariantes</text>
+
+  <rect x="460" y="120" width="280" height="90" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="520" y="172" fill="#6366f1" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Regla de negocio</text>
+
+  <rect x="80" y="290" width="240" height="120" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="130" y="340" fill="#22c55e" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Idempotencia</text>
+  <text x="104" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">f(f(x)) = f(x)</text>
+
+  <rect x="350" y="290" width="240" height="120" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="410" y="340" fill="#f59e0b" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Conservacion</text>
+  <text x="384" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">sum/length se mantiene</text>
+
+  <rect x="620" y="290" width="240" height="120" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="700" y="340" fill="#ef4444" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Orden</text>
+  <text x="666" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">output sorted asc</text>
+
+  <rect x="890" y="290" width="240" height="120" rx="12" fill="#1e293b" stroke="#14b8a6" stroke-width="2"/>
+  <text x="955" y="340" fill="#14b8a6" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">Limites</text>
+  <text x="930" y="370" fill="#cbd5e1" font-size="14" font-family="Inter, Roboto, sans-serif">0 <= value <= max</text>
+
+  <path d="M600 210 L200 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <path d="M600 210 L470 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <path d="M600 210 L740 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <path d="M600 210 L1010 290" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+
+  <rect x="80" y="480" width="1050" height="150" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="110" y="525" fill="#94a3b8" font-size="18" font-family="Inter, Roboto, sans-serif">Checklist de calidad de propiedad</text>
+  <text x="110" y="555" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">1) Es universal y no depende de un ejemplo único.</text>
+  <text x="110" y="580" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">2) Usa generadores con restricciones de dominio real.</text>
+  <text x="110" y="605" fill="#cbd5e1" font-size="15" font-family="Inter, Roboto, sans-serif">3) Falla con mensaje que ayuda a depurar.</text>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
