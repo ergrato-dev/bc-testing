@@ -1,0 +1,20 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="72" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Concepto de Custom Matcher</text>
+
+  <rect x="170" y="220" width="360" height="220" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="350" y="285" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Regla repetida de negocio</text>
+  <text x="350" y="320" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">validaciones usadas en muchos tests</text>
+
+  <rect x="670" y="220" width="360" height="220" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="850" y="285" fill="#F7DF1E" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">expect.extend(...)</text>
+  <text x="850" y="320" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">matcher semantico y reutilizable</text>
+
+  <line x1="530" y1="330" x2="670" y2="330" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
