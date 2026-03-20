@@ -1,0 +1,41 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Flujo de ejecucion en pytest</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Desde el descubrimiento de tests hasta el reporte final.</text>
+
+  <rect x="80" y="150" width="240" height="110" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="108" y="196" fill="#e2e8f0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Discover</text>
+  <text x="108" y="226" fill="#cbd5e1" font-size="18" font-family="Inter, Arial, sans-serif">test_*.py / test_*</text>
+
+  <rect x="370" y="150" width="240" height="110" rx="12" fill="#1e293b" stroke="#3572A5"/>
+  <text x="398" y="196" fill="#bfdbfe" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Collect</text>
+  <text x="398" y="226" fill="#cbd5e1" font-size="18" font-family="Inter, Arial, sans-serif">items y nodos</text>
+
+  <rect x="660" y="150" width="240" height="110" rx="12" fill="#1e293b" stroke="#22c55e"/>
+  <text x="688" y="196" fill="#bbf7d0" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Setup</text>
+  <text x="688" y="226" fill="#cbd5e1" font-size="18" font-family="Inter, Arial, sans-serif">fixtures</text>
+
+  <rect x="950" y="150" width="240" height="110" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="978" y="196" fill="#fef08a" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">Run test</text>
+  <text x="978" y="226" fill="#cbd5e1" font-size="18" font-family="Inter, Arial, sans-serif">act + assert</text>
+
+  <path d="M320 205H370" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M610 205H660" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M900 205H950" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="220" y="350" width="840" height="300" rx="14" fill="#1e293b" stroke="#475569"/>
+  <text x="250" y="396" fill="#f1f5f9" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Resultado y diagnostico</text>
+  <text x="250" y="432" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- passed: comportamiento confirmado</text>
+  <text x="250" y="462" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- failed: diferencia entre esperado y actual</text>
+  <text x="250" y="492" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- skipped/xfailed: casos no ejecutados o esperados a fallar</text>
+  <text x="250" y="522" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- error: fallo de setup/fixture antes de assert</text>
+
+  <rect x="250" y="558" width="780" height="70" rx="10" fill="#0f172a" stroke="#6366f1"/>
+  <text x="274" y="602" fill="#c7d2fe" font-size="20" font-family="Inter, Arial, sans-serif">Clave: diferenciar FAIL (regla rota) de ERROR (entorno roto).</text>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
