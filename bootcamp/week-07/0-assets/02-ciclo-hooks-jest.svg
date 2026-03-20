@@ -1,0 +1,32 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <text x="600" y="72" fill="#f1f5f9" font-size="34" text-anchor="middle" font-family="Inter, Arial, sans-serif">Ciclo de Vida de Hooks en Jest</text>
+
+  <rect x="120" y="160" width="220" height="110" rx="12" fill="#1e293b" stroke="#F7DF1E"/>
+  <text x="230" y="220" fill="#F7DF1E" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">beforeAll</text>
+
+  <rect x="390" y="160" width="220" height="110" rx="12" fill="#1e293b" stroke="#6366f1"/>
+  <text x="500" y="220" fill="#f1f5f9" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">beforeEach</text>
+
+  <rect x="660" y="160" width="220" height="110" rx="12" fill="#1e293b" stroke="#22c55e"/>
+  <text x="770" y="220" fill="#22c55e" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">test()</text>
+
+  <rect x="930" y="160" width="220" height="110" rx="12" fill="#1e293b" stroke="#ef4444"/>
+  <text x="1040" y="220" fill="#ef4444" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">afterEach</text>
+
+  <rect x="485" y="430" width="230" height="120" rx="12" fill="#1e293b" stroke="#f89820" stroke-width="3"/>
+  <text x="600" y="495" fill="#f89820" font-size="24" text-anchor="middle" font-family="Inter, Arial, sans-serif">afterAll</text>
+
+  <line x1="340" y1="215" x2="390" y2="215" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="610" y1="215" x2="660" y2="215" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="880" y1="215" x2="930" y2="215" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="1040" y1="270" x2="715" y2="430" stroke="#64748b" stroke-width="3" marker-end="url(#arr)"/>
+
+  <text x="600" y="620" fill="#94a3b8" font-size="18" text-anchor="middle" font-family="Inter, Arial, sans-serif">beforeEach -> test -> afterEach se repite por cada test del bloque.</text>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
