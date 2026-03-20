@@ -1,0 +1,36 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Estrategia de ejecucion selectiva</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Diferenciar corridas locales, PR y regresion completa para optimizar feedback.</text>
+
+  <rect x="80" y="170" width="300" height="140" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="106" y="220" fill="#bbf7d0" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Local</text>
+  <text x="106" y="252" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">pytest -m smoke -q</text>
+  <text x="106" y="282" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Segundos de feedback</text>
+
+  <rect x="490" y="170" width="300" height="140" rx="12" fill="#1c2742" stroke="#3572A5"/>
+  <text x="516" y="220" fill="#bfdbfe" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Pull Request</text>
+  <text x="516" y="252" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">pytest -m "not slow"</text>
+  <text x="516" y="282" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Control de riesgo medio</text>
+
+  <rect x="900" y="170" width="300" height="140" rx="12" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="926" y="220" fill="#fecaca" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Main / Nightly</text>
+  <text x="926" y="252" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">pytest -m regression</text>
+  <text x="926" y="282" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Cobertura funcional amplia</text>
+
+  <path d="M380 240H490" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+  <path d="M790 240H900" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="120" y="380" width="1040" height="300" rx="14" fill="#1e293b" stroke="#475569"/>
+  <text x="150" y="426" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Criterios de salud de estrategia</text>
+  <text x="150" y="464" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- Local no supera pocos minutos.</text>
+  <text x="150" y="494" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- PR bloquea regresiones criticas sin volverse lenta.</text>
+  <text x="150" y="524" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- Main detecta deuda acumulada que no entra en smoke.</text>
+  <text x="150" y="564" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Si PR tarda demasiado: revisar marks y mover tests a regression.</text>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

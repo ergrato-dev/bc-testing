@@ -1,0 +1,29 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Diseno de casos para pytest.parametrize</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Cada fila debe cubrir un riesgo distinto: happy path, borde o error.</text>
+
+  <rect x="70" y="150" width="1140" height="590" rx="16" fill="#1e293b" stroke="#6366f1"/>
+
+  <rect x="100" y="190" width="340" height="120" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="126" y="235" fill="#bbf7d0" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Happy path</text>
+  <text x="126" y="270" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Valida comportamiento esperado normal.</text>
+
+  <rect x="470" y="190" width="340" height="120" rx="12" fill="#2a2612" stroke="#F7DF1E"/>
+  <text x="496" y="235" fill="#fef08a" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Boundary</text>
+  <text x="496" y="270" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Explora limites y transiciones.</text>
+
+  <rect x="840" y="190" width="340" height="120" rx="12" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="866" y="235" fill="#fecaca" font-size="26" font-family="Inter, Arial, sans-serif" font-weight="700">Error path</text>
+  <text x="866" y="270" fill="#e2e8f0" font-size="19" font-family="Inter, Arial, sans-serif">Asegura falla controlada y mensaje.</text>
+
+  <rect x="100" y="350" width="1080" height="160" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="126" y="396" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Plantilla de tabla</text>
+  <text x="126" y="432" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">(input, expected, case_type, reason)</text>
+  <text x="126" y="464" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Usa ids legibles: "normal-discount", "zero-quantity", "negative-price"</text>
+
+  <rect x="100" y="540" width="1080" height="170" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="126" y="586" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Regla de valor</text>
+  <text x="126" y="622" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Si una fila no agrega riesgo nuevo, elimina o fusiona.</text>
+  <text x="126" y="654" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Parametrizar sin criterio solo traslada duplicacion a otra forma.</text>
+</svg>

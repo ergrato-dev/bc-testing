@@ -1,0 +1,30 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Portafolio de tests por marks</text>
+  <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Segmentar por riesgo y costo de ejecucion para mejorar decisiones de corrida.</text>
+
+  <rect x="80" y="150" width="360" height="560" rx="16" fill="#132a1e" stroke="#22c55e"/>
+  <text x="108" y="198" fill="#bbf7d0" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">@pytest.mark.smoke</text>
+  <text x="108" y="238" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Alta criticidad</text>
+  <text x="108" y="268" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Rapidos y estables</text>
+  <text x="108" y="298" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Feedback temprano</text>
+
+  <rect x="460" y="150" width="360" height="560" rx="16" fill="#1c2742" stroke="#3572A5"/>
+  <text x="488" y="198" fill="#bfdbfe" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">@pytest.mark.regression</text>
+  <text x="488" y="238" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Cobertura funcional amplia</text>
+  <text x="488" y="268" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Detecta interacciones</text>
+  <text x="488" y="298" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Costo moderado</text>
+
+  <rect x="840" y="150" width="360" height="560" rx="16" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="868" y="198" fill="#fecaca" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">@pytest.mark.slow</text>
+  <text x="868" y="238" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Pruebas costosas</text>
+  <text x="868" y="268" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- Setup pesado</text>
+  <text x="868" y="298" fill="#e2e8f0" font-size="20" font-family="Inter, Arial, sans-serif">- No para feedback inmediato</text>
+
+  <rect x="108" y="350" width="1040" height="300" rx="12" fill="#0f172a" stroke="#475569"/>
+  <text x="136" y="394" fill="#f1f5f9" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Comandos operativos</text>
+  <text x="136" y="430" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- pytest -m smoke</text>
+  <text x="136" y="460" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- pytest -m "not slow"</text>
+  <text x="136" y="490" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- pytest -m regression</text>
+  <text x="136" y="530" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Regla: marks pequenos, consistentes y con proposito estable en el tiempo.</text>
+</svg>
