@@ -1,0 +1,39 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#0f172a"/>
+  <text x="56" y="68" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Flujo de resolucion de patch target</text>
+  <text x="56" y="102" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Checklist visual para elegir la ruta correcta de patch y evitar mocks inefectivos.</text>
+
+  <rect x="80" y="150" width="1120" height="90" rx="12" fill="#1e293b" stroke="#475569"/>
+  <text x="108" y="188" fill="#f8fafc" font-size="23" font-family="Inter, Arial, sans-serif" font-weight="700">Paso 1: abre el modulo bajo prueba</text>
+  <text x="108" y="216" fill="#cbd5e1" font-size="18" font-family="Inter, Arial, sans-serif">Identifica la linea exacta de import que usa el simbolo durante ejecucion.</text>
+
+  <line x1="640" y1="240" x2="640" y2="280" stroke="#64748b" stroke-width="3"/>
+
+  <rect x="120" y="285" width="1040" height="120" rx="12" fill="#132a1e" stroke="#22c55e"/>
+  <text x="148" y="326" fill="#bbf7d0" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Paso 2: define el namespace de uso</text>
+  <text x="148" y="355" fill="#dcfce7" font-size="18" font-family="Inter, Arial, sans-serif">Si el archivo tiene "from gateways import PaymentGateway", patch suele ser "modulo_bajo_prueba.PaymentGateway".</text>
+  <text x="148" y="382" fill="#dcfce7" font-size="18" font-family="Inter, Arial, sans-serif">No parchees el origen si el modulo ya tiene una referencia local resuelta.</text>
+
+  <line x1="640" y1="405" x2="640" y2="440" stroke="#64748b" stroke-width="3"/>
+
+  <rect x="120" y="445" width="500" height="210" rx="12" fill="#1c2742" stroke="#3572A5"/>
+  <text x="148" y="484" fill="#bfdbfe" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Ruta correcta</text>
+  <text x="148" y="514" fill="#dbeafe" font-size="18" font-family="Inter, Arial, sans-serif">1. Patch efectivo</text>
+  <text x="148" y="540" fill="#dbeafe" font-size="18" font-family="Inter, Arial, sans-serif">2. Controlas retorno o excepcion</text>
+  <text x="148" y="566" fill="#dbeafe" font-size="18" font-family="Inter, Arial, sans-serif">3. Verificas interaccion relevante</text>
+  <text x="148" y="592" fill="#dbeafe" font-size="18" font-family="Inter, Arial, sans-serif">4. Test falla por regresion real</text>
+  <rect x="148" y="610" width="444" height="32" rx="8" fill="#0f172a" stroke="#3572A5"/>
+  <text x="162" y="632" fill="#93c5fd" font-size="14" font-family="Inter, Arial, sans-serif">Ejemplo: patch("order_service.PaymentGateway")</text>
+
+  <rect x="660" y="445" width="500" height="210" rx="12" fill="#2b1a1a" stroke="#ef4444"/>
+  <text x="688" y="484" fill="#fecaca" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700">Ruta incorrecta</text>
+  <text x="688" y="514" fill="#fee2e2" font-size="18" font-family="Inter, Arial, sans-serif">1. Patch no afecta el test</text>
+  <text x="688" y="540" fill="#fee2e2" font-size="18" font-family="Inter, Arial, sans-serif">2. Dependencia real sigue ejecutandose</text>
+  <text x="688" y="566" fill="#fee2e2" font-size="18" font-family="Inter, Arial, sans-serif">3. Falsos negativos o ruido</text>
+  <text x="688" y="592" fill="#fee2e2" font-size="18" font-family="Inter, Arial, sans-serif">4. Diagnostico lento y confusion</text>
+  <rect x="688" y="610" width="444" height="32" rx="8" fill="#0f172a" stroke="#ef4444"/>
+  <text x="702" y="632" fill="#fca5a5" font-size="14" font-family="Inter, Arial, sans-serif">Anti-ejemplo: patch("gateways.PaymentGateway")</text>
+
+  <rect x="80" y="690" width="1120" height="76" rx="12" fill="#111827" stroke="#475569"/>
+  <text x="108" y="735" fill="#e5e7eb" font-size="19" font-family="Inter, Arial, sans-serif">Regla de oro: parchea donde el nombre se resuelve en runtime dentro del modulo bajo prueba.</text>
+</svg>
