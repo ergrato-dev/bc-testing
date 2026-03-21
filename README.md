@@ -159,7 +159,7 @@ code .
 ### 3. Navegar a la Semana Actual
 
 ```bash
-cd bootcamp/week-01
+cd bootcamp/week-01-que_es_testing_calidad_de_software
 ```
 
 ### 4. Seguir las Instrucciones
@@ -263,7 +263,7 @@ Este proyecto está bajo la Licencia MIT — ver el archivo [LICENSE](LICENSE) p
 </p>
 
 <p align="center">
-  <a href="bootcamp/week-01">Comenzar Semana 1</a> •
+  <a href="bootcamp/week-01-que_es_testing_calidad_de_software">Comenzar Semana 1</a> •
   <a href="_docs/plan-estudios.md">Ver Plan de Estudios</a> •
   <a href="https://github.com/ergrato-dev/bc-testing/issues">Reportar Issue</a> •
   <a href="CONTRIBUTING.md">Contribuir</a>

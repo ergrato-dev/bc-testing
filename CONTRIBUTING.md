@@ -28,9 +28,9 @@ git checkout -b feat/nombre-cambio
 
 Ejemplos:
 
-- `feat: add week-19 pytest-asyncio practice`
-- `fix: correct svg text overlap in week-17`
-- `docs: improve rubric wording for week-18`
+- `feat: add week-19-testing_asincrono_con_pytest_asyncio practice`
+- `fix: correct svg text overlap in week-17-parametrizacion_y_marks_con_pytest`
+- `docs: improve rubric wording for week-18-mocking_con_unittest_mock_y_pytest_mock`
 
 ## Pull Requests
 
