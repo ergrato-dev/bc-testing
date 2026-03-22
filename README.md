@@ -257,6 +257,20 @@ Este proyecto está bajo la Licencia MIT — ver el archivo [LICENSE](LICENSE) p
 
 ---
 
+## ⚠️ Exención de Responsabilidad
+
+Este repositorio es un recurso educativo de código abierto provisto **"tal cual"** (_as is_), sin garantías de ningún tipo, ya sean expresas o implícitas.
+
+- El contenido es de carácter **exclusivamente educativo** y no constituye asesoramiento profesional de ningún tipo.
+- Los autores y colaboradores **no se responsabilizan** por daños directos, indirectos, incidentales o consecuentes derivados del uso de este material.
+- Los ejemplos de código tienen fines didácticos. Su uso en entornos de producción es **responsabilidad exclusiva del usuario**.
+- Las herramientas, frameworks y bibliotecas de terceros mencionados están sujetos a sus propias licencias y condiciones de uso.
+- Este proyecto no está afiliado ni respaldado oficialmente por ninguna de las herramientas o frameworks referenciados (Jest, pytest, JUnit 5, Playwright, etc.).
+
+Ver el archivo [LICENSE](LICENSE) para los términos de la licencia MIT aplicables a este proyecto.
+
+---
+
 <p align="center">
   <strong>🎓 Bootcamp Testing de Software Zero to Hero</strong><br>
   <em>De cero a QA Engineer / SDET Junior en ~9 meses</em>

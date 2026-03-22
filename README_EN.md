@@ -257,6 +257,20 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
+## ⚠️ Disclaimer
+
+This repository is an open-source educational resource provided **"as is"**, without warranties of any kind, either express or implied.
+
+- The content is **strictly educational** in nature and does not constitute professional advice of any kind.
+- The authors and contributors are **not liable** for any direct, indirect, incidental, or consequential damages arising from the use of this material.
+- Code examples are included for didactic purposes. Their use in production environments is the **sole responsibility of the user**.
+- Third-party tools, frameworks, and libraries mentioned are subject to their own licenses and terms of use.
+- This project is not affiliated with or officially endorsed by any of the mentioned tools or frameworks (Jest, pytest, JUnit 5, Playwright, etc.).
+
+See the [LICENSE](LICENSE) file for the MIT license terms applicable to this project.
+
+---
+
 <p align="center">
   <strong>🎓 Software Testing Bootcamp Zero to Hero</strong><br>
   <em>From zero to QA Engineer / SDET Junior in ~9 months</em>
