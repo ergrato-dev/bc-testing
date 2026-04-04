@@ -3,13 +3,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ergrato-dev/bc-testing/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-testing/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-green.svg" alt="License CC BY-NC-SA 4.0"></a>
   <a href="#"><img src="https://img.shields.io/badge/semanas-36-6366f1.svg" alt="36 Semanas"></a>
   <a href="#"><img src="https://img.shields.io/badge/horas-288-6366f1.svg" alt="288 Horas"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-Jest-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript Jest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Python-pytest-3572A5?logo=python&logoColor=white" alt="Python pytest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Java-JUnit5-F89820?logo=openjdk&logoColor=white" alt="Java JUnit 5"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
@@ -203,13 +202,11 @@ Cada semana incluye tres tipos de evidencias:
 
 ### Cómo Contribuir
 
-1. Lee la [Guía de Contribución](CONTRIBUTING.md)
-2. Revisa el [Código de Conducta](CODE_OF_CONDUCT.md)
-3. Fork del repositorio
-4. Crea tu rama (`git checkout -b feature/nueva-funcionalidad`)
-5. Commit con [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
-6. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-7. Abre un Pull Request
+1. Fork del repositorio
+2. Crea tu rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit con [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
 ### 📋 Áreas de Contribución
 
@@ -231,7 +228,14 @@ Cada semana incluye tres tipos de evidencias:
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT — ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la licencia **CC BY-NC-SA 4.0** (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International).
+
+- ✅ Puedes compartir y adaptar el material con atribución
+- ✅ Se permiten forks educativos
+- ❌ No se permite uso comercial
+- ❌ Los trabajos derivados deben mantener la misma licencia
+
+Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
@@ -251,9 +255,7 @@ Este proyecto está bajo la Licencia MIT — ver el archivo [LICENSE](LICENSE) p
 - [📋 Plan de Estudios](_docs/plan-estudios.md)
 - [📖 Guía de Desarrollo de Contenidos](_docs/guia-desarrollo-contenidos.md)
 - [🤖 Instrucciones de Copilot](.github/copilot-instructions.md)
-- [🤝 Guía de Contribución](CONTRIBUTING.md)
-- [📜 Código de Conducta](CODE_OF_CONDUCT.md)
-- [🔒 Política de Seguridad](SECURITY.md)
+- [🐛 Reportar Issue](https://github.com/ergrato-dev/bc-testing/issues)
 
 ---
 
@@ -267,7 +269,7 @@ Este repositorio es un recurso educativo de código abierto provisto **"tal cual
 - Las herramientas, frameworks y bibliotecas de terceros mencionados están sujetos a sus propias licencias y condiciones de uso.
 - Este proyecto no está afiliado ni respaldado oficialmente por ninguna de las herramientas o frameworks referenciados (Jest, pytest, JUnit 5, Playwright, etc.).
 
-Ver el archivo [LICENSE](LICENSE) para los términos de la licencia MIT aplicables a este proyecto.
+Ver el archivo [LICENSE](LICENSE) para los términos de la licencia CC BY-NC-SA 4.0 aplicables a este proyecto.
 
 ---
 
@@ -279,8 +281,7 @@ Ver el archivo [LICENSE](LICENSE) para los términos de la licencia MIT aplicabl
 <p align="center">
   <a href="bootcamp/week-01-que_es_testing_calidad_de_software">Comenzar Semana 1</a> •
   <a href="_docs/plan-estudios.md">Ver Plan de Estudios</a> •
-  <a href="https://github.com/ergrato-dev/bc-testing/issues">Reportar Issue</a> •
-  <a href="CONTRIBUTING.md">Contribuir</a>
+  <a href="https://github.com/ergrato-dev/bc-testing/issues">Reportar Issue</a>
 </p>
 
 <p align="center">
