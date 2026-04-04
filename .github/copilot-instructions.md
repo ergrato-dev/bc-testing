@@ -538,10 +538,87 @@ Cuando trabajes en este proyecto:
    - ✅ Crear contenido por secciones, esperar confirmación del usuario
    - Para semanas completas: dividir por carpetas (`teoria` → `practicas` → `proyecto`)
 
+### ⛔ Regla de Oro: Pinning de Dependencias
+
+> **ESTA REGLA NO TIENE EXCEPCIONES.** Se aplica a todo archivo de dependencias
+> generado o modificado en este repositorio: `package.json`, `requirements.txt`,
+> `pom.xml`, `build.gradle`, `pyproject.toml`, `Pipfile`.
+
+#### ❌ PROHIBIDO — rangos flotantes
+
+```json
+// package.json
+"jest": "^29.7.0"   // instala hasta 29.x.y más reciente
+"jest": "~29.7.0"   // instala hasta 29.7.y más reciente
+"jest": ">=29.0.0"  // instala cualquier versión ≥ 29
+"jest": "*"         // instala la última versión disponible
+```
+
+```txt
+# requirements.txt
+pytest>=8.0.0       # rango abierto hacia arriba
+pytest~=8.3         # compatible con 8.3.x (aún flotante)
+```
+
+```xml
+<!-- pom.xml -->
+<version>LATEST</version>   <!-- prohibido -->
+<version>RELEASE</version>  <!-- prohibido -->
+<version>[5.0,6.0)</version> <!-- rango flotante -->
+```
+
+#### ✅ OBLIGATORIO — versión exacta siempre
+
+```json
+// package.json
+"jest": "29.7.0"
+```
+
+```txt
+# requirements.txt
+pytest==8.3.5
+```
+
+```xml
+<!-- pom.xml -->
+<version>5.10.2</version>
+```
+
+#### Por qué esto importa en un bootcamp
+
+| Riesgo | Detalle |
+|--------|---------|
+| CVEs no controlados | `^29.7.0` puede instalar una futura `29.9.9` con vulnerabilidades |
+| Builds no reproducibles | Dos `pnpm install` en fechas distintas dan resultados distintos |
+| Supply-chain attacks | Una actualización automática puede inyectar código malicioso |
+| Aprendices con entornos distintos | Versiones distintas → comportamientos distintos → confusión pedagógica |
+
+#### Comandos de auditoría obligatoria antes de commit
+
+```bash
+# JavaScript (pnpm)
+pnpm audit --audit-level moderate
+
+# Python
+pip-audit -r requirements.txt
+
+# Java — revisar manualmente que no existan LATEST/RELEASE/rangos en pom.xml
+grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
+```
+
+#### Cuando generes un nuevo archivo de dependencias
+
+1. Consulta la **última versión estable** en [npmjs.com](https://www.npmjs.com), [pypi.org](https://pypi.org) o [mvnrepository.com](https://mvnrepository.com)
+2. Escribe la versión exacta **sin ningún prefijo**
+3. Nunca uses `pnpm add paquete` — siempre `pnpm add paquete@X.Y.Z`
+4. Ejecuta `pnpm audit --audit-level moderate` tras instalar
+
+---
+
 ### Generación de Tests
 
 1. **Usa siempre las herramientas correctas por lenguaje**
-   - JavaScript: Jest 29+ con `pnpm`/`yarn` (❌ NUNCA `npm`)
+   - JavaScript: Jest 29+ con `pnpm` (❌ NUNCA `npm` ni `yarn`)
    - Python: pytest 8+ con `uv` o `pip`+`venv`
    - Java: JUnit 5 + AssertJ + Mockito con Maven
 

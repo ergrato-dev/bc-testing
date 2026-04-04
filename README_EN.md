@@ -3,13 +3,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ergrato-dev/bc-testing/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-testing/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-green.svg" alt="License CC BY-NC-SA 4.0"></a>
   <a href="#"><img src="https://img.shields.io/badge/weeks-36-6366f1.svg" alt="36 Weeks"></a>
   <a href="#"><img src="https://img.shields.io/badge/hours-288-6366f1.svg" alt="288 Hours"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-Jest-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript Jest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Python-pytest-3572A5?logo=python&logoColor=white" alt="Python pytest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Java-JUnit5-F89820?logo=openjdk&logoColor=white" alt="Java JUnit 5"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
@@ -203,13 +202,11 @@ Contributions are welcome! This is an open-source educational project.
 
 ### How to Contribute
 
-1. Read the [Contributing Guide](CONTRIBUTING.md)
-2. Review the [Code of Conduct](CODE_OF_CONDUCT.md)
-3. Fork the repository
-4. Create your branch (`git checkout -b feature/new-feature`)
-5. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
-6. Push to the branch (`git push origin feature/new-feature`)
-7. Open a Pull Request
+1. Fork the repository
+2. Create your branch (`git checkout -b feature/new-feature`)
+3. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
 ### 📋 Contribution Areas
 
@@ -231,7 +228,14 @@ Contributions are welcome! This is an open-source educational project.
 
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under **CC BY-NC-SA 4.0** (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International).
+
+- ✅ You may share and adapt the material with attribution
+- ✅ Educational forks are permitted
+- ❌ Commercial use is not allowed
+- ❌ Derivative works must use the same license
+
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -251,9 +255,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 - [📋 Study Plan](_docs/plan-estudios.md)
 - [📖 Content Development Guide](_docs/guia-desarrollo-contenidos.md)
 - [🤖 Copilot Instructions](.github/copilot-instructions.md)
-- [🤝 Contributing Guide](CONTRIBUTING.md)
-- [📜 Code of Conduct](CODE_OF_CONDUCT.md)
-- [🔒 Security Policy](SECURITY.md)
+- [🐛 Report Issue](https://github.com/ergrato-dev/bc-testing/issues)
 
 ---
 
@@ -267,7 +269,7 @@ This repository is an open-source educational resource provided **"as is"**, wit
 - Third-party tools, frameworks, and libraries mentioned are subject to their own licenses and terms of use.
 - This project is not affiliated with or officially endorsed by any of the mentioned tools or frameworks (Jest, pytest, JUnit 5, Playwright, etc.).
 
-See the [LICENSE](LICENSE) file for the MIT license terms applicable to this project.
+See the [LICENSE](LICENSE) file for the CC BY-NC-SA 4.0 license terms applicable to this project.
 
 ---
 
@@ -279,8 +281,7 @@ See the [LICENSE](LICENSE) file for the MIT license terms applicable to this pro
 <p align="center">
   <a href="bootcamp/week-01-que_es_testing_calidad_de_software">Start Week 1</a> •
   <a href="_docs/plan-estudios.md">View Study Plan</a> •
-  <a href="https://github.com/ergrato-dev/bc-testing/issues">Report Issue</a> •
-  <a href="CONTRIBUTING.md">Contribute</a>
+  <a href="https://github.com/ergrato-dev/bc-testing/issues">Report Issue</a>
 </p>
 
 <p align="center">
