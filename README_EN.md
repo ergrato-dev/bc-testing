@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="Software Testing Bootcamp Zero to Hero" width="800">
+  <img src="assets/bootcamp-header.svg" alt="Software Testing Bootcamp Zero to Hero" width="800">
 </p>
 
 <p align="center">
@@ -252,8 +252,8 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 📚 Additional Documentation
 
-- [📋 Study Plan](_docs/plan-estudios.md)
-- [📖 Content Development Guide](_docs/guia-desarrollo-contenidos.md)
+- [📋 Study Plan](docs/plan-estudios.md)
+- [📖 Content Development Guide](docs/guia-desarrollo-contenidos.md)
 - [🤖 Copilot Instructions](.github/copilot-instructions.md)
 - [🐛 Report Issue](https://github.com/ergrato-dev/bc-testing/issues)
 
@@ -280,7 +280,7 @@ See the [LICENSE](LICENSE) file for the CC BY-NC-SA 4.0 license terms applicable
 
 <p align="center">
   <a href="bootcamp/week-01-que_es_testing_calidad_de_software">Start Week 1</a> •
-  <a href="_docs/plan-estudios.md">View Study Plan</a> •
+  <a href="docs/plan-estudios.md">View Study Plan</a> •
   <a href="https://github.com/ergrato-dev/bc-testing/issues">Report Issue</a>
 </p>
 

@@ -2,7 +2,7 @@
 
 > **Etapa 2 - Testing con Python** | Semana 18 de 24
 
-![Bootcamp Testing](../../_assets/bootcamp-header.svg)
+![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
 ---
 

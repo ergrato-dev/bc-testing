@@ -2,7 +2,7 @@
 
 > **Etapa 1 - Testing con JavaScript** | Semana 12 de 15
 
-![Bootcamp Testing](../../_assets/bootcamp-header.svg)
+![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
 ---
 
