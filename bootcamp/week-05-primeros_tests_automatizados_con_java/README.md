@@ -2,7 +2,7 @@
 
 > **Etapa 0 — Fundamentos de Testing** | Semana 5 de 6
 
-![Bootcamp Testing](../../_assets/bootcamp-header.svg)
+![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
 ---
 

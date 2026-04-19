@@ -116,9 +116,9 @@ bootcamp/week-XX/
 
 ### Carpetas Raíz
 
-- `_assets/`: Recursos visuales globales (logos, headers SVG, banners)
-- `_docs/`: Documentación general del bootcamp
-- `_scripts/`: Scripts de automatización y utilidades
+- `assets/`: Recursos visuales globales (logos, headers SVG, banners)
+- `docs/`: Documentación general del bootcamp
+- `scripts/`: Scripts de automatización y utilidades
 - `bootcamp/`: Contenido semanal
 
 ### Orden de Creación de Cada Semana
