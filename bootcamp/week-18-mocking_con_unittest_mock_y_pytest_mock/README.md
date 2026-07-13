@@ -98,4 +98,4 @@ Mockear no es simular todo: es aislar solo lo necesario para validar una decisio
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 17 - Parametrizacion y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) | [Semana 19 - Testing asyncrono con pytest-asyncio y AsyncMock](../week-19/README.md) |
+| [Semana 17 - Parametrizacion y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) | Semana 19 - Proximamente |

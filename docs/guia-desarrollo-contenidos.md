@@ -487,7 +487,7 @@ Antes de considerar una semana completa:
 
 ### Código
 
-- ✅ Versiones modernas: Jest 29+, pytest 8+, JUnit 5.10+
+- ✅ Versiones modernas: Jest 30+, pytest 9+, JUnit 5.14+
 - ✅ Nombres descriptivos en tests: `should_return_null_when_input_is_empty`
 - ✅ Comentarios educativos en español para explicar el "por qué"
 - ✅ Ejemplos progresivos (simple → complejo)
@@ -537,9 +537,9 @@ Antes de considerar una semana completa:
 | Node.js    | 22 LTS                     |
 | Python     | 3.12+                      |
 | Java (JDK) | 21 LTS                     |
-| Jest       | 29+                        |
-| pytest     | 8+                         |
-| JUnit 5    | 5.10+                      |
+| Jest       | 30+                        |
+| pytest     | 9+                         |
+| JUnit 5    | 5.14+                      |
 | Mockito    | 5+                         |
 | Playwright | 1.40+                      |
 | k6         | 0.50+                      |
@@ -602,4 +602,4 @@ class CreateUser {
 
 ---
 
-_Última actualización: Marzo 2026 | Versión: 1.0_
+_Última actualización: Julio 2026 | Versión: 1.1 — Versiones de herramientas actualizadas tras auditoría (ver AUDIT.md)_
