@@ -13,13 +13,14 @@ Configurar un entorno mínimo para ejecutar tests unitarios con `pytest` en Pyth
 ## Requisitos
 
 - Python 3.12 o superior
-- Entorno virtual (`venv` recomendado)
+- Entorno virtual gestionado con [`uv`](https://docs.astral.sh/uv/) (recomendado) o `venv` + `pip`
 - `pytest` instalado en el entorno
 
 Comprobación rápida:
 
 ```bash
 python --version
+uv --version
 ```
 
 ---
@@ -39,6 +40,16 @@ mi-proyecto-python/
 ---
 
 ## Configuración inicial
+
+**Con `uv` (recomendado)** — más rápido y con resolución de dependencias determinista:
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install pytest
+```
+
+**Alternativa con `pip` + `venv`**:
 
 ```bash
 python -m venv .venv

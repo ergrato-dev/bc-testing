@@ -23,6 +23,17 @@ Encontraras bloques comentados por pasos para descomentar.
 
 ### Paso 2 — Ejecuta tests
 
+Con `uv` (recomendado):
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+pytest -v
+```
+
+Alternativa con `pip` + `venv`:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
