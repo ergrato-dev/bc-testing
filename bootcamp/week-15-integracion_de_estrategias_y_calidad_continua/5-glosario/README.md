@@ -8,6 +8,10 @@
 
 - **continuous integration (CI)**: practica de integrar cambios frecuentemente con validaciones automaticas.
 
+## P
+
+- **pipeline**: secuencia automatizada de pasos (build, test, analisis) ejecutada en cada cambio.
+
 ## Q
 
 - **quality gate**: regla automatica que permite o bloquea avance segun metricas.
@@ -20,3 +24,7 @@
 ## T
 
 - **test strategy**: decision explicita de que, como y donde probar segun riesgo.
+
+## W
+
+- **workflow (GitHub Actions)**: archivo YAML que define los jobs y pasos que se ejecutan en CI.

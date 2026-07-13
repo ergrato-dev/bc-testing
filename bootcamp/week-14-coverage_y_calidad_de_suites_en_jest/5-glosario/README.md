@@ -12,6 +12,10 @@
 
 - **flaky test**: prueba inestable que falla y pasa sin cambios de codigo.
 
+## L
+
+- **line coverage**: porcentaje de lineas de codigo ejecutadas por la suite de tests.
+
 ## M
 
 - **mutation testing**: tecnica para evaluar fuerza de tests introduciendo cambios artificiales.

@@ -8,6 +8,10 @@
 
 - **Custom Matcher**: matcher extendido para reglas de negocio repetitivas.
 
+## M
+
+- **Matcher**: funcion de Jest que compara un valor recibido contra una expectativa y determina si un test pasa o falla.
+
 ## P
 
 - **Parameterized Test**: test que ejecuta la misma logica con multiples datasets.

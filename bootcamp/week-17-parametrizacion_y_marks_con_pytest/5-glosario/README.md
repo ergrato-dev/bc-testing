@@ -1,5 +1,13 @@
 # Glosario Semana 17 - Parametrizacion y Marks
 
+## B
+
+- **boundary case**: valor en el limite de un rango valido, usado como entrada parametrizada.
+
+## E
+
+- **edge case**: escenario poco comun pero valido que debe cubrirse en la suite.
+
 ## I
 
 - **id de caso**: etiqueta legible para identificar una fila de `parametrize`.
@@ -19,3 +27,7 @@
 ## S
 
 - **smoke suite**: conjunto minimo de pruebas criticas para feedback rapido.
+
+## X
+
+- **xfail**: marca de pytest que indica que se espera que un test falle.

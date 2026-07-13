@@ -4,6 +4,10 @@
 
 - **green**: etapa donde el test pasa con la implementacion minima necesaria.
 
+## K
+
+- **kata**: ejercicio de practica deliberada usado para entrenar el ciclo TDD (ej. FizzBuzz, String Calculator).
+
 ## R
 
 - **red**: etapa donde un test nuevo falla por la razon esperada.
