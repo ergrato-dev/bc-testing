@@ -16,9 +16,17 @@
 
 - **integration test**: prueba que valida colaboracion entre multiples componentes.
 
+## P
+
+- **payload**: cuerpo de datos enviado en una request HTTP (POST/PUT/PATCH).
+
 ## S
 
 - **supertest**: libreria para testear endpoints HTTP en Node.js de forma programatica.
+
+## T
+
+- **teardown**: limpieza de datos o conexiones despues de cada test de integracion.
 
 ## V
 

@@ -4,9 +4,17 @@
 
 - **counterexample**: entrada concreta que demuestra que una propiedad no se cumple.
 
+## G
+
+- **generator (property-based)**: componente que produce datos de entrada aleatorios pero reproducibles para las pruebas.
+
 ## I
 
 - **invariant**: regla que debe mantenerse verdadera para cualquier entrada valida.
+
+## O
+
+- **oracle**: criterio o funcion usada para decidir si el resultado de un test es correcto.
 
 ## P
 
