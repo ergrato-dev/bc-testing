@@ -179,41 +179,39 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-#### Week 07: Jest Avanzado — Matchers y Organización
+> ⚠️ **Nota de trazabilidad**: las Semanas 7-18 fueron desarrolladas reordenando algunos temas respecto al borrador original de este plan (p. ej. Mocks se movió de S08 a S10, Coverage de S10 a S14, y Python ganó una semana de fundamentos en S16 antes de Parametrización/Marks y Mocking). Los bloques de abajo reflejan el contenido **tal como fue publicado** — ver el `README.md` de cada semana como fuente definitiva. Las Semanas 19-36 siguen sin publicar; su numeración/orden puede ajustarse igual durante el desarrollo.
+
+#### Week 07: Jest Avanzado — Organización de Suites
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Matchers avanzados: `toContain`, `toHaveLength`, `toMatchObject`, `toStrictEqual`
-- Custom matchers con `expect.extend()`
-- `expect.anything()`, `expect.any(Constructor)`
-- Organización de tests: `describe` anidados, `beforeEach`/`afterEach`
-- `test.only`, `test.skip`, `test.todo`
-- Naming conventions para tests: "should...", "given...when...then..."
-- Setup de Jest en `package.json` vs `jest.config.js`
-- Diferencia entre `toBe` y `toEqual` en profundidad
+- Organización de suites con `describe` anidados por comportamiento
+- Hooks de ciclo de vida: `beforeAll`, `beforeEach`, `afterEach`, `afterAll`
+- Introducción a `mock`, `stub` y `spy` en escenarios básicos de aislamiento
+- Patrón AAA (Arrange-Act-Assert) y nombres de test profesionales
+- Ejecución de tests por archivo y por patrón con `pnpm`/`yarn`
+- Base de trabajo para mocking avanzado y asincronía (S09-S10)
 
-**Proyecto**: Refactorización de la suite JS de Etapa 0 usando matchers avanzados y organización por bloques `describe`. Añadir al menos 3 custom matchers relevantes al dominio.
+**Proyecto**: *Suite Modular con Jest* — refactorización de la suite JS de Etapa 0 organizada con `describe` anidados y hooks de ciclo de vida.
 
 ---
 
-#### Week 08: Mocks, Stubs y Spies en Jest
+#### Week 08: Matchers Avanzados y Parametrización con Jest
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Test doubles: diferencia entre mock, stub, spy, fake, dummy
-- `jest.fn()` — crear funciones mock
-- `.mockReturnValue()`, `.mockResolvedValue()`, `.mockImplementation()`
-- `jest.spyOn()` — observar funciones reales sin reemplazarlas
-- Verificar llamadas: `.toHaveBeenCalled()`, `.toHaveBeenCalledWith()`
-- `jest.mock()` — mockear módulos completos
-- Cuándo mockear: principio de aislamiento
-- Restaurar mocks: `mockRestore()`, `clearMocks`
+- Matchers avanzados de Jest según tipo de dato y comportamiento esperado
+- Tests parametrizados con `test.each()` para reducir duplicación
+- Legibilidad de assertions complejas en objetos, arrays y errores
+- Patrón AAA aplicado a suites con múltiples casos
+- Análisis de fallos de assertions para depurar más rápido
+- Base robusta para testing asíncrono y mocking avanzado
 
-**Proyecto**: Suite con mocks para aislar dependencias externas del dominio asignado (servicios de base de datos, APIs externas, envío de emails). Al menos 5 tests con doubles distintos.
+**Proyecto**: *Suite Parametrizada con Jest* — casos parametrizados con `test.each()` sobre la suite del dominio asignado.
 
 ---
 
@@ -223,35 +221,31 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- El problema del código asíncrono y los tests
-- Callbacks en tests: el parámetro `done`
-- Testing con Promises: `return promise`
-- Testing con `async/await` (patrón recomendado)
-- `.resolves` y `.rejects` matchers
-- `mockResolvedValue` vs `mockRejectedValue`
-- Timers falsos: `jest.useFakeTimers()`, `jest.runAllTimers()`
-- Antipatrones: tests que siempre pasan (falsos positivos)
+- Tests para funciones asíncronas con `async/await` y Promises
+- Validación de errores asíncronos con `.rejects` y `toThrow`
+- Fake timers en escenarios de retry y debounce
+- Falsos positivos por no esperar la finalización de tareas asíncronas
+- Suites asíncronas legibles siguiendo patrón AAA
+- Base para integrar mocks avanzados y APIs en semanas siguientes
 
-**Proyecto**: Suite de tests para módulos asíncronos del dominio asignado: fetching de datos, operaciones con base de datos simuladas, timeouts y retries.
+**Proyecto**: *Suite Asíncrona de ItemService* — tests para módulos asíncronos del dominio asignado (fetching, timeouts, retries).
 
 ---
 
-#### Week 10: Code Coverage en JavaScript
+#### Week 10: Mocks Avanzados en Jest
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- ¿Qué es code coverage? Tipos: statement, branch, function, line
-- Configurar coverage en Jest: `--coverage`, `collectCoverageFrom`
-- Leer reportes HTML de Istanbul/c8
-- Coverage ≠ calidad: el problema de los tests superficiales
-- Definir umbrales de cobertura: `coverageThreshold`
-- Qué código cubrir y qué excluir (`/* istanbul ignore */`)
-- Coverage en CI: fallar build si coverage baja
-- Integración con Codecov/SonarQube (conceptual + demo en free tier para repos públicos)
+- Test doubles: diferencia entre `mock`, `stub` y `spy` en escenarios reales
+- `jest.fn()` y `jest.spyOn()` para controlar dependencias sin romper el objetivo del test
+- `jest.mock()` para simular colaboraciones externas (módulos completos)
+- Verificar interacciones: llamadas, argumentos, orden, cantidad
+- Antipatrones de sobre-mocking que generan tests frágiles
+- Suites aisladas y legibles bajo patrón AAA para servicios con dependencias
 
-**Proyecto**: Alcanzar 90%+ de coverage en la suite JS del dominio asignado. Documentar qué ramas quedaron sin cubrir y por qué.
+**Proyecto**: *Suite con Dependencias Aisladas* — mocks para aislar dependencias externas del dominio asignado (BD, APIs externas, notificaciones).
 
 ---
 
@@ -261,16 +255,14 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- ¿Qué es TDD? El ciclo Red → Green → Refactor
-- Diferencia entre TDD, BDD y ATDD
-- Cómo escribir el test primero sin conocer la implementación
-- Diseño emergente: cómo TDD guía la arquitectura
-- Kata de TDD: FizzBuzz, String Calculator
-- TDD en funciones puras vs con efectos secundarios
-- Antipatrones de TDD: escribir muchos tests de golpe, tests frágiles
-- Outside-in TDD vs inside-out TDD
+- El ciclo Red → Green → Refactor de forma disciplinada con Jest
+- Tests pequeños que expresan comportamiento antes de implementar
+- Implementar solo el código mínimo para pasar cada test
+- Refactor seguro usando la suite como red de protección
+- Antipatrones de TDD: tests frágiles, sobreespecificación, saltarse Red
+- Diseño emergente guiado por casos de prueba incrementales
 
-**Proyecto**: Implementar de cero (con TDD estricto) un módulo complejo del dominio asignado: commits separados por ciclo Red-Green-Refactor, al menos 15 tests.
+**Proyecto**: *TDD Incremental en Servicio de Dominio* — módulo complejo del dominio asignado implementado con TDD estricto, commits por ciclo Red-Green-Refactor.
 
 ---
 
@@ -280,54 +272,47 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Testing de integración vs testing unitario
-- Supertest: instalación y configuración con Express
-- `request(app).get('/ruta').expect(200)`
-- Verificar body, headers, status codes
-- Testing de endpoints POST/PUT/PATCH/DELETE
-- Autenticación en tests: JWT, API keys
-- Bases de datos en tests: in-memory (SQLite), setup/teardown
-- Separar entorno de test con variables de entorno
+- Tests de integración para endpoints REST con Supertest
+- Validación de códigos de estado HTTP y estructura de respuesta JSON
+- Flujos GET, POST y validaciones de payload
+- Casos de error esperados (400, 404, 409, 500)
+- Aislamiento entre capas usando repositorios in-memory
+- Suites legibles y repetibles bajo patrón AAA
 
-**Proyecto**: Suite de integration tests con Supertest para la API REST del dominio asignado: CRUD completo (mínimo 20 tests), autenticación incluida.
+**Proyecto**: *API REST del Dominio Asignado* — suite de integration tests con Supertest, CRUD y casos de error.
 
 ---
 
-#### Week 13: Snapshot Testing y Testing de Componentes
+#### Week 13: Snapshot y Property-Based Testing
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- ¿Qué es snapshot testing? Cuándo usarlo y cuándo NO
-- `toMatchSnapshot()` y `toMatchInlineSnapshot()`
-- Actualizar snapshots: `--updateSnapshot`
-- Testing de funciones que generan HTML/JSON
-- Introducción a Testing Library (conceptual)
-- Testing de DOM con jsdom en Jest
-- Problemas comunes: snapshots frágiles, snapshots grandes
-- Snapshot testing para APIs: contract testing básico
+- Snapshot testing con criterio para detectar cambios no esperados
+- Cómo evitar snapshots frágiles enfocándose en salidas relevantes
+- Propiedades invariantes para funciones de negocio
+- Pruebas property-based con `fast-check`
+- Interpretar contraejemplos y simplificar casos fallidos
+- Combinar tests de ejemplo + propiedades para mayor confianza
 
-**Proyecto**: Suite de snapshot tests para los renderizadores/generadores de HTML/JSON del dominio asignado. Al menos 8 snapshots con justificación de cada uno.
+**Proyecto**: *Suite Combinada de Snapshots y Propiedades* — snapshots justificados + property-based tests con fast-check.
 
 ---
 
-#### Week 14: Patrones Avanzados de Testing en JavaScript
+#### Week 14: Coverage y Calidad de Suites en Jest
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Property-based testing con fast-check
-- Parametric tests: `test.each()` con tabla de datos
-- Test factories y builders para datos de prueba
-- Page Object Model básico (para futura automatización E2E)
-- Testing de errores y excepciones con detalle
-- Mutation testing con Stryker (introducción)
-- Organización de tests en proyectos grandes: colocation vs carpeta `__tests__`
-- Testability: escribir código pensado para ser testeable
+- Ejecutar cobertura en Jest y leer métricas: `statements`, `branches`, `functions`, `lines`
+- Cobertura alta vs. cobertura útil para el negocio
+- Detectar tests frágiles, redundantes o con bajo poder de detección
+- Priorizar mejoras de suite usando riesgo funcional, no solo porcentaje global
+- Plan incremental para mantener cobertura saludable en CI
 
-**Proyecto**: Refactorización de la suite JS usando `test.each()` para reducir duplicación, implementar 2 property-based tests con fast-check, y aplicar el patrón builder para datos de prueba.
+**Proyecto**: *Hardening de Suite con Coverage y Calidad* — suite JS del dominio asignado con cobertura auditada y mejorada.
 
 ---
 
@@ -337,12 +322,12 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Integración de Semanas 7–14
-- Arquitectura de la suite de tests: unitarios + integración + snapshots
-- Coverage mínimo 85% en todo el proyecto
-- Reporte de testing con resultados y análisis
+- Integración en una sola suite de los enfoques de la etapa JS (unit, integration, snapshot, properties)
+- Estrategia de calidad por capas y riesgo funcional
+- Plantilla mínima de GitHub Actions para ejecutar tests y coverage
+- Quality gate básico con SonarQube (Cloud free tier para públicos / Community Edition para privados)
 
-**Proyecto**: Suite completa de tests JS para el dominio asignado: unitarios (Jest + mocks), integración (Supertest), snapshot, `test.each()`, coverage ≥85%, reporte `testing-report-js.md`.
+**Proyecto**: *Cierre de Etapa JS con Quality Gate* — suite completa de tests JS para el dominio asignado con CI y quality gate.
 
 ---
 
@@ -352,60 +337,51 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-#### Week 16: pytest Avanzado — Fixtures y Parametrize
+#### Week 16: Fundamentos con pytest
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Fixtures de pytest: `@pytest.fixture`, scope (`function`, `class`, `module`, `session`)
-- Fixtures con `yield` para setup/teardown
-- Fixtures anidados y dependencias entre fixtures
-- Fixture factory pattern
-- `@pytest.mark.parametrize` — pruebas parametrizadas simples y combinadas
-- `pytest.param` con ids y marks
-- `conftest.py` — fixtures compartidos entre módulos
-- Markers: `@pytest.mark.skip`, `@pytest.mark.xfail`, `@pytest.mark.slow`
+- Configuración y ejecución de pruebas básicas con `pytest`
+- Nomenclatura de tests en `snake_case`
+- Patrón AAA (Arrange-Act-Assert) en Python
+- Fixtures básicas con `@pytest.fixture` para evitar duplicación
+- Migrar el criterio de calidad ya aplicado en JavaScript (S07-S15) hacia Python
 
-**Proyecto**: Refactorización de la suite Python de Etapa 0 usando fixtures con diferentes scopes y `@pytest.mark.parametrize` para cubrir múltiples casos del dominio asignado.
+**Proyecto**: *Base de Suite Python para Dominio Asignado* — primera suite pytest sobre el dominio asignado, aplicando lo ya dominado en JS.
 
 ---
 
-#### Week 17: Mocking en Python con unittest.mock
+#### Week 17: Parametrización y Marks con pytest
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- `unittest.mock`: `Mock`, `MagicMock`, `patch`
-- `@patch` como decorador y como context manager
-- `patch.object` para mockear métodos de instancia
-- `side_effect`: simular excepciones, retornos dinámicos
-- `call_args`, `call_count`, `assert_called_once_with()`
-- `pytest-mock`: `mocker` fixture como wrapper de unittest.mock
-- Mockear módulos externos: `datetime`, `os`, `requests`
-- Cuándo usar `MagicMock` vs `Mock` vs `AsyncMock`
+- `@pytest.mark.parametrize` para cubrir múltiples casos sin duplicación
+- Tablas de casos: entradas válidas, valores límite y errores
+- Marks (`smoke`, `regression`, `slow`) para organizar la suite
+- Ejecutar subconjuntos de pruebas con `-m` y `-k`
+- Trazabilidad de calidad con suites segmentadas por riesgo
 
-**Proyecto**: Suite con mocks para aislar todas las dependencias externas del dominio asignado en Python: base de datos, servicios HTTP, sistema de archivos.
+**Proyecto**: *Suite Python Segmentada por Riesgo* — suite parametrizada y organizada con marks sobre el dominio asignado.
 
 ---
 
-#### Week 18: Testing Asíncrono en Python
+#### Week 18: Mocking con unittest.mock y pytest-mock
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Código asíncrono en Python: `asyncio`, `async def`, `await`
-- `pytest-asyncio`: `@pytest.mark.asyncio`
-- `AsyncMock` para mockear corutinas
-- Testing de código con `asyncio.gather()`
-- Testing con `httpx.AsyncClient`
-- Timeouts en tests asíncronos
-- `anyio` como alternativa (mención)
-- Antipatrones: tests síncronos que ignoran corutinas
+- Distinguir `mock`, `stub` y `spy` según el objetivo de la prueba
+- `patch` en el target correcto para aislar dependencias
+- Configurar `return_value`, `side_effect` y verificaciones de llamadas
+- `pytest-mock` para mejorar la legibilidad de tests con dobles
+- Evitar mocks frágiles que rompen por detalles de implementación
 
-**Proyecto**: Suite de tests para el módulo asíncrono del dominio asignado (cliente HTTP async, tareas concurrentes). Al menos 10 tests async con mocks adecuados.
+**Proyecto**: *Suite Python con Estrategia de Mocking* — mocks para aislar todas las dependencias externas del dominio asignado en Python (BD, servicios HTTP, sistema de archivos).
 
 ---
 
@@ -773,20 +749,20 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### Testing con JavaScript (Etapa 1)
 
-- Jest avanzado: matchers, organización, ciclo de vida (S07)
-- Mocks, stubs y spies con Jest (S08)
-- Testing asíncrono y timers falsos (S09)
-- Code coverage con Istanbul/c8 (S10)
+- Jest avanzado: organización de suites, hooks de ciclo de vida (S07)
+- Matchers avanzados y parametrización con `test.each()` (S08)
+- Testing asíncrono y fake timers (S09)
+- Mocks avanzados: `jest.fn()`, `jest.spyOn()`, `jest.mock()` (S10)
 - TDD: Red-Green-Refactor (S11)
 - Integration testing con Supertest (S12)
-- Snapshot testing y contract testing básico (S13)
-- Property-based testing y test.each() (S14)
+- Snapshot testing y property-based testing con fast-check (S13)
+- Code coverage y calidad de suites (S14)
 
 ### Testing con Python (Etapa 2)
 
-- pytest avanzado: fixtures, parametrize, conftest (S16)
-- Mocking con unittest.mock y pytest-mock (S17)
-- Testing asíncrono con pytest-asyncio (S18)
+- Fundamentos con pytest: AAA, fixtures básicas (S16)
+- Parametrización y marks con pytest (S17)
+- Mocking con unittest.mock y pytest-mock (S18)
 - Testing de APIs con httpx/respx (S19)
 - TDD en Python con hypothesis (S20)
 - Coverage con pytest-cov y mutation testing (S21)
@@ -815,24 +791,24 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 | Semana | Título                                         | Estado       |
 | ------ | ---------------------------------------------- | ------------ |
-| S01    | ¿Qué es Testing? Calidad de Software           | ⏳ Pendiente |
-| S02    | Casos de Prueba y Técnicas de Diseño           | ⏳ Pendiente |
-| S03    | Primeros Tests Automatizados — JavaScript      | ⏳ Pendiente |
-| S04    | Primeros Tests Automatizados — Python          | ⏳ Pendiente |
-| S05    | Primeros Tests Automatizados — Java            | ⏳ Pendiente |
-| S06    | Proyecto Integrador — Etapa 0                  | ⏳ Pendiente |
-| S07    | Jest Avanzado — Matchers y Organización        | ⏳ Pendiente |
-| S08    | Mocks, Stubs y Spies en Jest                   | ⏳ Pendiente |
-| S09    | Testing Asíncrono en Jest                      | ⏳ Pendiente |
-| S10    | Code Coverage en JavaScript                    | ⏳ Pendiente |
-| S11    | TDD con JavaScript — Red, Green, Refactor      | ⏳ Pendiente |
-| S12    | Testing de APIs REST con Supertest             | ⏳ Pendiente |
-| S13    | Snapshot Testing y Testing de Componentes      | ⏳ Pendiente |
-| S14    | Patrones Avanzados de Testing en JavaScript    | ⏳ Pendiente |
-| S15    | Proyecto Integrador — Etapa 1 (JavaScript)     | ⏳ Pendiente |
-| S16    | pytest Avanzado — Fixtures y Parametrize       | ⏳ Pendiente |
-| S17    | Mocking en Python con unittest.mock            | ⏳ Pendiente |
-| S18    | Testing Asíncrono en Python                    | ⏳ Pendiente |
+| S01    | ¿Qué es Testing? Calidad de Software           | ✅ Completo |
+| S02    | Casos de Prueba y Técnicas de Diseño           | ✅ Completo |
+| S03    | Primeros Tests Automatizados — JavaScript      | ✅ Completo |
+| S04    | Primeros Tests Automatizados — Python          | ✅ Completo |
+| S05    | Primeros Tests Automatizados — Java            | ✅ Completo |
+| S06    | Proyecto Integrador — Etapa 0                  | ✅ Completo |
+| S07    | Jest Avanzado — Organización de Suites         | ✅ Completo |
+| S08    | Matchers Avanzados y Parametrización con Jest  | ✅ Completo |
+| S09    | Testing Asíncrono en Jest                      | ✅ Completo |
+| S10    | Mocks Avanzados en Jest                        | ✅ Completo |
+| S11    | TDD con JavaScript — Red, Green, Refactor      | ✅ Completo |
+| S12    | Testing de APIs REST con Supertest             | ✅ Completo |
+| S13    | Snapshot y Property-Based Testing              | ✅ Completo |
+| S14    | Coverage y Calidad de Suites en Jest           | ✅ Completo |
+| S15    | Proyecto Integrador — Etapa 1 (JavaScript)     | ✅ Completo |
+| S16    | Fundamentos con pytest                         | ✅ Completo |
+| S17    | Parametrización y Marks con pytest             | ✅ Completo |
+| S18    | Mocking con unittest.mock y pytest-mock        | ✅ Completo |
 | S19    | Testing de APIs con Python (requests + httpx)  | ⏳ Pendiente |
 | S20    | TDD con Python                                 | ⏳ Pendiente |
 | S21    | Coverage y Calidad en Python                   | ⏳ Pendiente |
@@ -854,4 +830,4 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-_Última actualización: Marzo 2026 | Versión: 1.0 — Creación inicial zero-to-hero_
+_Última actualización: Julio 2026 | Versión: 1.1 — Sincronizado con el contenido publicado de S01-S18 tras auditoría (ver AUDIT.md)_

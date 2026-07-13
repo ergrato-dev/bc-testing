@@ -52,7 +52,7 @@ mi-proyecto-java/
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.jupiter.version>5.10.2</junit.jupiter.version>
+    <junit.jupiter.version>5.14.4</junit.jupiter.version>
   </properties>
 
   <dependencies>
@@ -69,7 +69,7 @@ mi-proyecto-java/
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
+        <version>3.5.6</version>
       </plugin>
     </plugins>
   </build>

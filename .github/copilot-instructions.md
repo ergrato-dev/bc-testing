@@ -118,7 +118,6 @@ bootcamp/week-XX/
 
 - `assets/`: Recursos visuales globales (logos, headers SVG, banners)
 - `docs/`: Documentación general del bootcamp
-- `scripts/`: Scripts de automatización y utilidades
 - `bootcamp/`: Contenido semanal
 
 ### Orden de Creación de Cada Semana
@@ -375,7 +374,7 @@ class MethodName {
 
 | Herramienta | Versión | Propósito                      |
 | ----------- | ------- | ------------------------------ |
-| Jest        | 29+     | Testing unitario e integración |
+| Jest        | 30+     | Testing unitario e integración |
 | Supertest   | 6+      | Testing de APIs Express        |
 | fast-check  | 3+      | Property-based testing         |
 | Playwright  | 1.40+   | E2E testing                    |
@@ -385,7 +384,7 @@ class MethodName {
 
 | Herramienta    | Versión | Propósito                    |
 | -------------- | ------- | ---------------------------- |
-| pytest         | 8+      | Testing framework principal  |
+| pytest         | 9+      | Testing framework principal  |
 | pytest-cov     | 4+      | Code coverage                |
 | pytest-asyncio | 0.23+   | Testing asíncrono            |
 | pytest-mock    | 3+      | Wrapper de unittest.mock     |
@@ -399,7 +398,7 @@ class MethodName {
 
 | Herramienta      | Versión | Propósito                   |
 | ---------------- | ------- | --------------------------- |
-| JUnit 5          | 5.10+   | Testing framework principal |
+| JUnit 5          | 5.14+   | Testing framework principal |
 | Mockito          | 5+      | Mocking                     |
 | AssertJ          | 3+      | Aserciones fluentes         |
 | Spring Boot Test | 3+      | Testing de Spring Boot      |
@@ -618,8 +617,8 @@ grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
 ### Generación de Tests
 
 1. **Usa siempre las herramientas correctas por lenguaje**
-   - JavaScript: Jest 29+ con `pnpm` (❌ NUNCA `npm` ni `yarn`)
-   - Python: pytest 8+ con `uv` o `pip`+`venv`
+   - JavaScript: Jest 30+ con `pnpm` (❌ NUNCA `npm` ni `yarn`)
+   - Python: pytest 9+ con `uv` (recomendado) o `pip`+`venv`
    - Java: JUnit 5 + AssertJ + Mockito con Maven
 
 2. **Sigue el patrón AAA en todos los tests**
