@@ -16,25 +16,9 @@ En equipos de desarrollo reales, un buen reporte de bug es la diferencia entre u
 
 ## Dominio asignado
 
-Cada aprendiz trabaja en el dominio que le asignó el instructor:
+Cada aprendiz trabaja sobre el dominio de negocio único que le asignó el instructor al inicio del trimestre (política anticopia — ver `docs/guia-desarrollo-contenidos.md`). Tu dominio no se lista aquí: consulta al instructor si no lo recuerdas.
 
-| Dominio | Objeto principal | Ejemplo de funcionalidad a probar |
-| --- | --- | --- |
-| 📖 Biblioteca | Libro / ejemplar | Búsqueda de catálogo, préstamo, devolución |
-| 💊 Farmacia | Medicamento | Registro de stock, venta, caducidad |
-| 🏋️ Gimnasio | Membresía / clase | Inscripción, cancelación, reserva de clase |
-| 🏫 Escuela | Alumno / materia | Inscripción, calificaciones, asistencia |
-| 🏬 Tienda mascotas | Producto / mascota | Inventario, ventas, registro de clientes |
-| 🏪 Restaurante | Pedido / mesa | Orden, pago, reserva de mesa |
-| 🏦 Banco | Cuenta / transacción | Depósito, retiro, transferencia |
-| 🚕 Agencia taxis | Viaje / conductor | Solicitud, asignación, tarifa |
-| 🏥 Hospital | Paciente / cita | Agendamiento, diagnóstico, historial |
-| 🎥 Cine | Pelicula / función | Cartelera, compra de boleto, sala |
-| 🏨 Hotel | Reserva / habitación | Check-in, check-out, disponibilidad |
-| ✈️ Agencia viajes | Vuelo / paquete | Búsqueda, reserva, cancelación |
-| 🚗 Concesionario | Vehículo / venta | Inventario, prueba de manejo, financiamiento |
-| 👗 Tienda ropa | Prenda / talla | Catálogo, carrito, talla y stock |
-| 🛠️ Taller mecánico | Orden de trabajo / vehículo | Recepción, diagnóstico, entrega |
+Elige el bug de esta semana en un software real relacionado con tu dominio (o cualquier software si no encuentras uno relevante) — lo importante es la calidad del reporte, no el dominio del software elegido.
 
 ---
 
@@ -44,7 +28,7 @@ Cada aprendiz trabaja en el dominio que le asignó el instructor:
 
 Usa cualquier aplicación web, móvil o de escritorio que conozcas y que sea relevante para tu dominio. Puede ser:
 
-- Una app real de tu dominio (ej: la app de tu banco, el catálogo de tu biblioteca local)
+- Una app real relacionada con tu dominio asignado
 - Un software de gestión open source relacionado
 - La interfaz web de un servicio conocido
 

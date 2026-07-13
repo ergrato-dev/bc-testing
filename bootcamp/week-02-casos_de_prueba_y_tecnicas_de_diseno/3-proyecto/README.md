@@ -12,25 +12,7 @@ Diseñar una suite completa de **casos de prueba manuales** para una funcionalid
 
 ## 🏛️ Dominio Asignado
 
-Cada aprendiz trabaja sobre el dominio asignado por el instructor:
-
-| Dominio | Funcionalidad sugerida |
-|---|---|
-| 📖 Biblioteca | Registro/renovación de préstamo de libro |
-| 💊 Farmacia | Venta de medicamento (con/sin receta, stock) |
-| 🏋️ Gimnasio | Inscripción de miembro (tipo, edad, plan) |
-| 🏫 Escuela | Registro de matrícula (edad, curso, requisitos) |
-| 🏬 Tienda mascotas | Adopción de mascota (especie, edad, documentos) |
-| 🏪 Restaurante | Reserva de mesa (personas, horario, disponibilidad) |
-| 🏦 Banco | Apertura de cuenta (tipo, edad mínima, depósito) |
-| 🚕 Agencia taxis | Solicitud de viaje (zona, horario, tipo de vehículo) |
-| 🏥 Hospital | Registro de cita médica (especialidad, edad, seguro) |
-| 🎥 Cine | Venta de entrada (película, sala, clasificación) |
-| 🏨 Hotel | Reserva de habitación (fechas, tipo, capacidad) |
-| ✈️ Agencia viajes | Reserva de vuelo (pasajeros, destino, equipaje) |
-| 🚗 Concesionario | Registro de test drive (edad, licencia, modelo) |
-| 👗 Tienda de ropa | Devolución de prenda (días, estado, comprobante) |
-| 🛠️ Taller mecánico | Recepción de vehículo (tipo, problema, urgencia) |
+Cada aprendiz trabaja sobre el dominio de negocio único que le asignó el instructor al inicio del trimestre (política anticopia — ver `docs/guia-desarrollo-contenidos.md`). Elige tú mismo una funcionalidad de ese dominio que tenga reglas de negocio con rangos y condiciones — no hay una lista de funcionalidades sugeridas aquí para no condicionar tu suite.
 
 > ⚠️ Adapta el entregable a tu dominio. Los ejemplos de este README usan un **Acuario Virtual** para no revelar soluciones.
 
