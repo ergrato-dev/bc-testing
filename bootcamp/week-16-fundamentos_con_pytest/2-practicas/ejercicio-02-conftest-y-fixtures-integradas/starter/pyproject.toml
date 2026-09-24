@@ -1,5 +1,5 @@
 [project]
-name = "week16-ejercicio01-starter"
+name = "week16-ejercicio02-conftest-fixtures-integradas-starter"
 version = "1.0.0"
 requires-python = ">=3.14"
 dependencies = []
@@ -9,3 +9,5 @@ dev = ["pytest==9.1.1"]
 
 [tool.pytest]
 pythonpath = ["."]
+testpaths = ["tests"]
+addopts = ["-ra"]

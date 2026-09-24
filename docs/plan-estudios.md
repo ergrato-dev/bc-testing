@@ -343,13 +343,14 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Configuración y ejecución de pruebas básicas con `pytest`
-- Nomenclatura de tests en `snake_case`
-- Patrón AAA (Arrange-Act-Assert) en Python
-- Fixtures básicas con `@pytest.fixture` para evitar duplicación
-- Migrar el criterio de calidad ya aplicado en JavaScript (S07-S15) hacia Python
+- Repaso breve de la semana 04 (setup con `uv`, AAA, nombres, `pytest.raises`, filtros)
+- Resultados de pytest: `passed`, `failed`, `error`, `skipped`, `xfailed`, `xpassed` (failed vs error de setup/teardown)
+- Configuración en `[tool.pytest]` de `pyproject.toml` (`pythonpath`, `testpaths`, `addopts`) e inspección con `--setup-show` y `--fixtures`
+- Fixtures con `yield` (setup y teardown), scopes `function`/`class`/`module`/`package`/`session` y composición de fixtures
+- `conftest.py` compartido entre archivos y `autouse` con criterio
+- Fixtures integradas: `tmp_path`, `monkeypatch` (variables de entorno y atributos) y `capsys`
 
-**Proyecto**: *Base de Suite Python para Dominio Asignado* — primera suite pytest sobre el dominio asignado, aplicando lo ya dominado en JS.
+**Proyecto**: *Suite Python con fixtures para el dominio asignado* — suite pytest del dominio con `conftest.py` compartido, fixtures `yield` con teardown, `tmp_path` y `monkeypatch`.
 
 ---
 

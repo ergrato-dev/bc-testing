@@ -1,6 +1,6 @@
 <svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1280" height="800" fill="#0f172a"/>
-  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Flujo de ejecucion en pytest</text>
+  <text x="56" y="70" fill="#f1f5f9" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="700">Flujo de ejecución en pytest</text>
   <text x="56" y="104" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">Desde el descubrimiento de tests hasta el reporte final.</text>
 
   <rect x="80" y="150" width="240" height="110" rx="12" fill="#1e293b" stroke="#6366f1"/>
@@ -24,7 +24,7 @@
   <path d="M900 205H950" stroke="#94a3b8" stroke-width="4" marker-end="url(#arr)"/>
 
   <rect x="220" y="350" width="840" height="300" rx="14" fill="#1e293b" stroke="#475569"/>
-  <text x="250" y="396" fill="#f1f5f9" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Resultado y diagnostico</text>
+  <text x="250" y="396" fill="#f1f5f9" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700">Resultado y diagnóstico</text>
   <text x="250" y="432" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- passed: comportamiento confirmado</text>
   <text x="250" y="462" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- failed: diferencia entre esperado y actual</text>
   <text x="250" y="492" fill="#cbd5e1" font-size="20" font-family="Inter, Arial, sans-serif">- skipped/xfailed: casos no ejecutados o esperados a fallar</text>
