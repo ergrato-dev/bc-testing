@@ -11,7 +11,7 @@ class AmountValidatorTest {
     private final AmountValidator validator = new AmountValidator();
 
     // ============================================
-    // PASO 1: Caso valido
+    // PASO 1: Caso válido
     // ============================================
     // @Test
     // @DisplayName("should return true when amount is positive")
@@ -21,7 +21,7 @@ class AmountValidatorTest {
     // }
 
     // ============================================
-    // PASO 2: Caso invalido
+    // PASO 2: Caso inválido
     // ============================================
     // @Test
     // @DisplayName("should return false when amount is negative")
@@ -31,7 +31,7 @@ class AmountValidatorTest {
     // }
 
     // ============================================
-    // PASO 3: Valor limite
+    // PASO 3: Valor límite
     // ============================================
     // @Test
     // @DisplayName("should return true when amount is zero")

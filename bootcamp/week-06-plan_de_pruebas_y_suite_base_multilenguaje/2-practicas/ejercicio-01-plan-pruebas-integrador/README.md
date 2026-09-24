@@ -11,7 +11,7 @@ Diseñar un plan de pruebas breve pero completo para un modulo pequeno del domin
 ## Instrucciones
 
 1. Abre `starter/test-plan-template.md`.
-2. Completa cada seccion en orden.
+2. Completa cada sección en orden.
 3. Usa IDs de requerimiento (`REQ-001`, `REQ-002`, etc.).
 4. Prioriza casos por riesgo.
 5. Compara tu trabajo con `solution/test-plan-template.md`.

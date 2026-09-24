@@ -3,17 +3,17 @@
 ## A
 
 - **Acceptance Criteria**: condiciones que debe cumplir una funcionalidad para considerarse terminada.
-- **Assertion**: verificacion automatizada que compara resultado real vs esperado.
+- **Assertion**: verificación automatizada que compara resultado real vs esperado.
 
 ## C
 
-- **Coverage**: medida de cuanto codigo o reglas han sido ejercitadas por tests.
+- **Coverage**: medida de cuánto código o reglas han sido ejercitadas por tests.
 - **Critical Path**: flujo principal del negocio que no debe romperse.
 
 ## E
 
-- **Entry Criteria**: condiciones minimas para iniciar ejecucion de pruebas.
-- **Equivalence (testing intent)**: misma intencion de validacion expresada en distintos lenguajes.
+- **Entry Criteria**: condiciones mínimas para iniciar ejecución de pruebas.
+- **Equivalence (testing intent)**: misma intención de validación expresada en distintos lenguajes.
 
 ## F
 
@@ -21,10 +21,10 @@
 
 ## R
 
-- **Requirement ID**: identificador unico de requerimiento para trazabilidad.
-- **Risk-Based Testing**: estrategia que prioriza pruebas segun impacto y probabilidad.
+- **Requirement ID**: identificador único de requerimiento para trazabilidad.
+- **Risk-Based Testing**: estrategia que prioriza pruebas según impacto y probabilidad.
 
 ## T
 
-- **Test Case**: especificacion concreta de datos, pasos y resultado esperado.
+- **Test Case**: especificación concreta de datos, pasos y resultado esperado.
 - **Traceability Matrix**: tabla que conecta requerimientos, casos y evidencia.

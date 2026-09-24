@@ -38,6 +38,7 @@ starter/
 │   ├── package.json
 │   └── item.service.test.js                      # test.todo por cada TC
 ├── python/
+│   ├── pyproject.toml
 │   └── test_item_service.py                      # pytest.skip por cada TC
 └── java/
     ├── pom.xml
@@ -58,7 +59,14 @@ Cada lenguaje necesita además el módulo bajo prueba (`item.service.js`, `item_
    pnpm test
    ```
 
-4. Replica los mismos TC en Python (`pytest -q`) y Java (`mvn test`).
+4. Replica los mismos TC en Python y Java (`mvn test`). Para Python:
+
+   ```bash
+   cd starter/python
+   uv sync
+   uv run pytest -q
+   ```
+
 5. Marca en la matriz las columnas JS/Python/Java y pega las evidencias en la sección 8.
 
 > La carpeta `solution/` del proyecto se mantiene fuera de versionado por política del bootcamp.

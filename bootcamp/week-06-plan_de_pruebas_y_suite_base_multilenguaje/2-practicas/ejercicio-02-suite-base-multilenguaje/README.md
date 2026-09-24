@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Construir la misma intencion de test en JavaScript, Python y Java.
+Construir la misma intención de test en JavaScript, Python y Java.
 
 ## Tiempo estimado
 
@@ -28,8 +28,12 @@ pnpm test
 ### Python (pytest)
 
 ```bash
-pytest -q
+cd starter/python
+uv sync
+uv run pytest -q
 ```
+
+Para ejecutar la solución de referencia: `cd solution/python && uv sync && uv run pytest -q`.
 
 ### Java (JUnit 5 + Maven)
 
