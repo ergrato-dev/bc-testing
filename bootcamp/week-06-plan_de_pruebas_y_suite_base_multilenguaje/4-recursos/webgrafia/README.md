@@ -1,4 +1,4 @@
-# Webgrafia - Semana 06
+# Webgrafía - Semana 06
 
 ## Referencias oficiales
 

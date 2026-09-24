@@ -6,15 +6,15 @@
 
 ## Objetivo
 
-Crear una suite minima equivalente para una regla simple:
+Crear una suite mínima equivalente para una regla simple:
 
 > "El servicio acepta montos positivos y rechaza montos negativos."
 
 ## Estructura recomendada
 
-1. Test de caso valido (happy path).
-2. Test de validacion por dato invalido.
-3. Test de valor limite (ejemplo: cero).
+1. Test de caso válido (happy path).
+2. Test de validación por dato inválido.
+3. Test de valor límite (ejemplo: cero).
 
 ## Ejemplo JavaScript (Jest)
 
@@ -33,11 +33,11 @@ describe("AmountService", () => {
 ## Ejemplo Python (pytest)
 
 ```python
-def test_should_return_true_when_amount_is_positive():
+def test_is_valid_amount_returns_true_when_amount_is_positive() -> None:
     assert is_valid_amount(20) is True
 
 
-def test_should_return_false_when_amount_is_negative():
+def test_is_valid_amount_returns_false_when_amount_is_negative() -> None:
     assert is_valid_amount(-1) is False
 ```
 
@@ -59,4 +59,4 @@ void shouldReturnFalseWhenAmountIsNegative() {
 
 ## Cierre de etapa
 
-Si puedes expresar la misma intencion de test en tres lenguajes, ya tienes base solida para avanzar a las etapas especializadas.
+Si puedes expresar la misma intención de test en tres lenguajes, ya tienes base sólida para avanzar a las etapas especializadas.

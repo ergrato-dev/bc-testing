@@ -8,18 +8,18 @@ class ItemServiceTest {
     @Test
     @DisplayName("should create item when payload is valid")
     void shouldCreateItemWhenPayloadIsValid() {
-        // TODO: implementar caso valido (TC-001)
+        // TODO: implementar caso válido (TC-001)
     }
 
     @Test
     @DisplayName("should throw ValidationError when name is empty")
     void shouldThrowValidationErrorWhenNameIsEmpty() {
-        // TODO: implementar validacion de nombre (TC-002)
+        // TODO: implementar validación de nombre (TC-002)
     }
 
     @Test
     @DisplayName("should throw ValidationError when amount is negative")
     void shouldThrowValidationErrorWhenAmountIsNegative() {
-        // TODO: implementar validacion de monto (TC-003)
+        // TODO: implementar validación de monto (TC-003)
     }
 }

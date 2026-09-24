@@ -2,24 +2,45 @@ from amount_service import is_valid_amount
 
 
 # ============================================
-# PASO 1: Caso valido
+# PASO 1: Caso válido
 # ============================================
-# def test_should_return_true_when_amount_is_positive():
-#     result = is_valid_amount(10)
+# Descomenta las siguientes líneas:
+# def test_is_valid_amount_returns_true_when_amount_is_positive() -> None:
+#     # Arrange
+#     amount = 10
+#
+#     # Act
+#     result = is_valid_amount(amount)
+#
+#     # Assert
 #     assert result is True
 
 
 # ============================================
-# PASO 2: Caso invalido
+# PASO 2: Caso inválido
 # ============================================
-# def test_should_return_false_when_amount_is_negative():
-#     result = is_valid_amount(-1)
+# Descomenta las siguientes líneas:
+# def test_is_valid_amount_returns_false_when_amount_is_negative() -> None:
+#     # Arrange
+#     amount = -1
+#
+#     # Act
+#     result = is_valid_amount(amount)
+#
+#     # Assert
 #     assert result is False
 
 
 # ============================================
-# PASO 3: Valor limite
+# PASO 3: Valor límite
 # ============================================
-# def test_should_return_true_when_amount_is_zero():
-#     result = is_valid_amount(0)
+# Descomenta las siguientes líneas:
+# def test_is_valid_amount_returns_true_when_amount_is_zero() -> None:
+#     # Arrange
+#     amount = 0
+#
+#     # Act
+#     result = is_valid_amount(amount)
+#
+#     # Assert
 #     assert result is True

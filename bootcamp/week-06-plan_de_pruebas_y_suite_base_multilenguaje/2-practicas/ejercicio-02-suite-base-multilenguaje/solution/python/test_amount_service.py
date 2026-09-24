@@ -1,16 +1,34 @@
 from amount_service import is_valid_amount
 
 
-def test_should_return_true_when_amount_is_positive():
-    result = is_valid_amount(10)
+def test_is_valid_amount_returns_true_when_amount_is_positive() -> None:
+    # Arrange
+    amount = 10
+
+    # Act
+    result = is_valid_amount(amount)
+
+    # Assert
     assert result is True
 
 
-def test_should_return_false_when_amount_is_negative():
-    result = is_valid_amount(-1)
+def test_is_valid_amount_returns_false_when_amount_is_negative() -> None:
+    # Arrange
+    amount = -1
+
+    # Act
+    result = is_valid_amount(amount)
+
+    # Assert
     assert result is False
 
 
-def test_should_return_true_when_amount_is_zero():
-    result = is_valid_amount(0)
+def test_is_valid_amount_returns_true_when_amount_is_zero() -> None:
+    # Arrange
+    amount = 0
+
+    # Act
+    result = is_valid_amount(amount)
+
+    # Assert
     assert result is True
