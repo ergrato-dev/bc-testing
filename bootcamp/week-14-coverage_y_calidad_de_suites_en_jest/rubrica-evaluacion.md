@@ -14,7 +14,7 @@
 
 ### Criterios
 
-1. Explica diferencias entre `lines`, `statements`, `functions` y `branches`.
+1. Explica diferencias entre `lines`, `statements`, `functions` y `branches`, y por que sin `collectCoverageFrom` un archivo nunca importado no cuenta.
 2. Justifica por que 100% de cobertura puede seguir ocultando defectos.
 3. Identifica sintomas de tests fragiles y tests redundantes.
 4. Propone mejoras priorizadas por impacto de negocio.
@@ -49,7 +49,7 @@
 ### Criterios
 
 1. Adapta la plantilla del proyecto a su dominio asignado.
-2. Define objetivo de cobertura por modulo critico (no solo global).
+2. Define objetivo de cobertura por modulo critico (no solo global) y lo hace cumplir con `collectCoverageFrom` + `coverageThreshold`.
 3. Implementa tests para al menos 3 rutas de fallo relevantes.
 4. Documenta decisiones de calidad tomadas (que se agrego y por que).
 
