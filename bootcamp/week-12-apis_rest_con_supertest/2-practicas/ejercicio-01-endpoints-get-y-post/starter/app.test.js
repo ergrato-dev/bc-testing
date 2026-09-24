@@ -4,7 +4,7 @@ const { createApp } = require("./app");
 let app;
 
 beforeEach(() => {
-  // App y repositorio nuevos por test: ningun test hereda datos de otro.
+  // App y repositorio nuevos por test: ningún test hereda datos de otro.
   app = createApp();
 });
 

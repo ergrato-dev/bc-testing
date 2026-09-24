@@ -1,7 +1,7 @@
 const fc = require("fast-check");
 const { normalizeText } = require("./text-normalizer");
 
-// Strings con letras y whitespace real (espacio, tab y salto de linea).
+// Strings con letras y whitespace real (espacio, tab y salto de línea).
 const textWithWhitespace = fc.string({
   unit: fc.constantFrom("a", "B", " ", "\t", "\n"),
 });

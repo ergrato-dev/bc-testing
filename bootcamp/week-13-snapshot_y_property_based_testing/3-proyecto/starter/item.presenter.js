@@ -17,7 +17,7 @@ function buildPublicItem(item) {
   };
 }
 
-// Divide una lista en paginas de pageSize elementos (la ultima puede ser menor).
+// Divide una lista en páginas de pageSize elementos (la última puede ser menor).
 function paginate(items, pageSize) {
   if (!Array.isArray(items)) {
     throw new Error("items must be an array");

@@ -30,7 +30,7 @@ describe("ItemService", () => {
   });
 
   describe("coverage goals", () => {
-    // TODO: Documentar cobertura objetivo del modulo y brechas iniciales
+    // TODO: Documentar cobertura objetivo del módulo y brechas iniciales
     // TODO: Agregar tests faltantes para ramas de mayor riesgo
   });
 

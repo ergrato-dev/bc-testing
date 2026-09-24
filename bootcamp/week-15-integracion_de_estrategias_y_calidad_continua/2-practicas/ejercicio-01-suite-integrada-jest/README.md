@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Unificar en un mismo modulo tests unitarios, de integracion ligera y de invariantes para obtener mejor senal de calidad.
+Unificar en un mismo módulo tests unitarios, de integración ligera y de invariantes para obtener mejor señal de calidad.
 
 ## Tiempo estimado
 
@@ -15,7 +15,7 @@ cd starter
 pnpm install
 ```
 
-`pnpm install` instala `jest` y `fast-check` (ya declarados en `package.json` con version exacta); no hace falta agregar nada a mano.
+`pnpm install` instala `jest` y `fast-check` (ya declarados en `package.json` con versión exacta); no hace falta agregar nada a mano.
 
 ## Paso a paso
 
@@ -23,9 +23,9 @@ pnpm install
 
 Abre `starter/__tests__/order.summary.test.js` y descomenta PASO 1.
 
-### Paso 2: Validacion de errores
+### Paso 2: Validación de errores
 
-Descomenta PASO 2 para cubrir ramas invalidas.
+Descomenta PASO 2 para cubrir ramas inválidas.
 
 ### Paso 3: Snapshot acotado
 
@@ -35,7 +35,7 @@ Descomenta PASO 3 para validar contrato de salida estable.
 
 Descomenta PASO 4 para verificar invariante de totales no negativos.
 
-### Paso 5: Comparar con solucion
+### Paso 5: Comparar con solución
 
 Revisa `solution/__tests__/order.summary.test.js`.
 

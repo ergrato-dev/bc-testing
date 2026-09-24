@@ -18,7 +18,7 @@ describe("math", () => {
   // ============================================
   // PASO 2: Test booleano simple
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // it("should return true when number is even", () => {
   //   // Arrange
   //   const input = 10;
@@ -31,9 +31,9 @@ describe("math", () => {
   // });
 
   // ============================================
-  // PASO 3: Test para numero impar
+  // PASO 3: Test para número impar
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // it("should return false when number is odd", () => {
   //   // Arrange
   //   const input = 7;

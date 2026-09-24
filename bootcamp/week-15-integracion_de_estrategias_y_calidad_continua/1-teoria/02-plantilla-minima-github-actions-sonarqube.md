@@ -1,8 +1,8 @@
-# 02 - Plantilla Minima GitHub Actions + SonarQube
+# 02 - Plantilla Mínima GitHub Actions + SonarQube
 
 ## Objetivo
 
-Definir una configuracion base para automatizar tests, coverage y quality gate minimo en proyectos JavaScript.
+Definir una configuración base para automatizar tests, coverage y quality gate mínimo en proyectos JavaScript.
 
 ![Flujo CI con quality gate](../0-assets/02-ci-quality-gate-flow.svg)
 
@@ -14,16 +14,16 @@ Definir una configuracion base para automatizar tests, coverage y quality gate m
 
 ---
 
-## Escenario recomendado segun repositorio
+## Escenario recomendado según repositorio
 
-![Decision SonarQube publico vs privado](../0-assets/03-sonarqube-public-vs-private.svg)
+![Decisión SonarQube público vs privado](../0-assets/03-sonarqube-public-vs-private.svg)
 
-- **Repositorio publico**: SonarQube Cloud free tier.
+- **Repositorio público**: SonarQube Cloud free tier.
 - **Repositorio privado**: SonarQube Community Edition autohospedado (opcional).
 
 ---
 
-## Plantilla minima de workflow
+## Plantilla mínima de workflow
 
 ```yaml
 name: js-quality
@@ -45,12 +45,12 @@ jobs:
           fetch-depth: 0
 
       - name: Setup pnpm
-        # pnpm/action-setup@v6.1.0 (sin "version": lee "packageManager" de package.json)
+        # pnpm/action-setup@v6.1.0 (sin "versión": lee "packageManager" de package.json)
         uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413
 
       - name: Setup Node
         # actions/setup-node@v7.0.0
-        # Sin "cache: pnpm": esa opcion exige pnpm-lock.yaml y este repo no versiona lockfiles
+        # Sin "cache: pnpm": esa opción exige pnpm-lock.yaml y este repo no versiona lockfiles
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 22
@@ -73,16 +73,16 @@ jobs:
 
 ---
 
-## Plantilla minima de `sonar-project.properties`
+## Plantilla mínima de `sonar-project.properties`
 
 ```properties
-# Identificacion del proyecto (SonarQube Cloud: copia los valores de tu organizacion y proyecto)
+# Identificación del proyecto (SonarQube Cloud: copia los valores de tu organización y proyecto)
 sonar.organization=your-organization-key
 sonar.projectKey=bootcamp-js-quality
 sonar.projectName=Bootcamp JS Quality
 
-# Codigo fuente y tests viven en src/: los tests se excluyen de sources
-# para que ningun archivo se indexe dos veces ("File can't be indexed twice").
+# Código fuente y tests viven en src/: los tests se excluyen de sources
+# para que ningún archivo se indexe dos veces ("File can't be indexed twice").
 sonar.sources=src
 sonar.exclusions=**/*.test.js
 sonar.tests=src
@@ -102,19 +102,19 @@ sonar.qualitygate.wait=true
 
 1. El paso de tests (`pnpm test:coverage`) debe generar `coverage/lcov.info` antes del scan.
 2. `SONAR_TOKEN` es obligatorio en los secretos de GitHub.
-3. En SonarQube Cloud (repo publico) basta con `SONAR_TOKEN` y `sonar.organization`; el host por defecto ya es Cloud.
+3. En SonarQube Cloud (repo público) basta con `SONAR_TOKEN` y `sonar.organization`; el host por defecto ya es Cloud.
 4. En servidor propio (Community Edition), agrega el secreto `SONAR_HOST_URL` con la URL interna.
-5. `sonar.qualitygate.wait=true` hace que el scanner espere el resultado del quality gate y marque el job en rojo si falla. Sin esa linea el pipeline pasa aunque el gate falle.
-6. `sonar.sources` y `sonar.tests` apuntan a la misma carpeta, asi que los tests se excluyen de `sources` con `sonar.exclusions`. Si no, el analisis falla con `File can't be indexed twice`.
-7. Las actions se fijan por SHA (con la version en un comentario) porque un tag como `v7` puede moverse; el SHA es inmutable.
+5. `sonar.qualitygate.wait=true` hace que el scanner espere el resultado del quality gate y marque el job en rojo si falla. Sin esa línea el pipeline pasa aunque el gate falle.
+6. `sonar.sources` y `sonar.tests` apuntan a la misma carpeta, así que los tests se excluyen de `sources` con `sonar.exclusions`. Si no, el análisis falla con `File can't be indexed twice`.
+7. Las actions se fijan por SHA (con la versión en un comentario) porque un tag como `v7` puede moverse; el SHA es inmutable.
 8. `pnpm/action-setup` sin `version` lee el campo `packageManager` de `package.json` (su sucesor `pnpm/setup` solo soporta pnpm 11+, y este bootcamp fija pnpm 10). No usamos `cache: pnpm` en `actions/setup-node` porque exige `pnpm-lock.yaml` y este bootcamp no versiona lockfiles; si tu proyecto si lo versiona, agrega `cache: pnpm`.
 
 ---
 
 ## Errores frecuentes
 
-- No subir `fetch-depth: 0` y perder contexto de analisis.
+- No subir `fetch-depth: 0` y perder contexto de análisis.
 - Ejecutar scanner sin coverage previo.
-- Configurar rutas de tests/cobertura que no existen (por ejemplo `sonar.sources=src` cuando el codigo esta en la raiz).
-- Olvidar `sonar.exclusions` cuando tests y codigo comparten carpeta.
-- Esperar quality gate util sin definir reglas minimas de calidad.
+- Configurar rutas de tests/cobertura que no existen (por ejemplo `sonar.sources=src` cuando el código está en la raíz).
+- Olvidar `sonar.exclusions` cuando tests y código comparten carpeta.
+- Esperar quality gate útil sin definir reglas mínimas de calidad.

@@ -54,7 +54,7 @@ Descomenta el bloque `PASO 3`. Compara el uso de `toBeTruthy`/`toBeFalsy` con `t
 Comprueba que todos los tests siguen el formato:
 
 ```text
-should [resultado esperado] when [condicion]
+should [resultado esperado] when [condición]
 ```
 
 ---

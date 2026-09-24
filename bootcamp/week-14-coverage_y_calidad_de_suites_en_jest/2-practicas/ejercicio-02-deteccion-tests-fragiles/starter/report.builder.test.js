@@ -6,10 +6,10 @@ const {
 const { notifyDelivery } = require("./delivery.notifier");
 
 // ============================================
-// PASO 1: Reemplazar assert debil por contrato claro
+// PASO 1: Reemplazar assert débil por contrato claro
 // ============================================
 // /*
-//  * FRAGIL (assert debil): pasa aunque el builder devuelva cualquier objeto.
+//  * FRÁGIL (assert débil): pasa aunque el builder devuelva cualquier objeto.
 //  *
 //  * test("should create report object", () => {
 //  *   const result = buildDeliveryReport({ id: "r-1", customerName: " Ada ", delivered: true, items: ["book", "pen"] });
@@ -34,7 +34,7 @@ const { notifyDelivery } = require("./delivery.notifier");
 // });
 
 // ============================================
-// PASO 2: Ruta de validacion
+// PASO 2: Ruta de validación
 // ============================================
 // test("should throw error when required fields are missing", () => {
 //   expect(() => buildDeliveryReport({ delivered: false, items: [] })).toThrow(
@@ -46,8 +46,8 @@ const { notifyDelivery } = require("./delivery.notifier");
 // PASO 3: Dependencia del tiempo -> reloj controlado
 // ============================================
 // /*
-//  * FRAGIL (dependencia del tiempo): usa el reloj real.
-//  * Pasa hoy y empieza a fallar solo el 1 de enero de 2031, sin que nadie toque el codigo.
+//  * FRÁGIL (dependencia del tiempo): usa el reloj real.
+//  * Pasa hoy y empieza a fallar solo el 1 de enero de 2031, sin que nadie toque el código.
 //  *
 //  * test("should not be overdue when due date is in the future", () => {
 //  *   expect(isDeliveryOverdue("2031-01-01T00:00:00Z")).toBe(false);
@@ -80,8 +80,8 @@ const { notifyDelivery } = require("./delivery.notifier");
 // PASO 4: Dependencia del orden -> estado nuevo en cada test
 // ============================================
 // /*
-//  * FRAGIL (dependencia del orden): una sola instancia compartida por todos los tests.
-//  * El segundo test solo pasa si el primero corrio antes; con `test.only` o en otro orden, falla.
+//  * FRÁGIL (dependencia del orden): una sola instancia compartida por todos los tests.
+//  * El segundo test solo pasa si el primero corrió antes; con `test.only` o en otro orden, falla.
 //  *
 //  * const sharedStore = createReportStore();
 //  * test("should add first report", () => {
@@ -118,10 +118,10 @@ const { notifyDelivery } = require("./delivery.notifier");
 // PASO 5: Over-mocking -> simular solo la frontera externa
 // ============================================
 // /*
-//  * FRAGIL (over-mocking): se mockea el builder real, que es logica propia y pura.
-//  * El test sigue en verde aunque alguien borre el `.trim()` o cambie el calculo de `status`,
-//  * porque solo verifica el cableado entre mocks. Incluso pasa con un input vacio `{}`,
-//  * que en produccion lanzaria "Missing required fields".
+//  * FRÁGIL (over-mocking): se mockea el builder real, que es lógica propia y pura.
+//  * El test sigue en verde aunque alguien borre el `.trim()` o cambie el cálculo de `status`,
+//  * porque solo verifica el cableado entre mocks. Incluso pasa con un input vacío `{}`,
+//  * que en producción lanzaría "Missing required fields".
 //  *
 //  * jest.mock("./report.builder", () => ({
 //  *   buildDeliveryReport: jest.fn(() => ({ id: "r-1", customerName: "Ada", delivered: true })),

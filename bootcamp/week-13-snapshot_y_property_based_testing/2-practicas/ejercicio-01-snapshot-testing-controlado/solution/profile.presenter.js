@@ -11,7 +11,7 @@ function buildPublicProfileList(users) {
   return users.map(buildPublicProfile);
 }
 
-// Respuesta con un campo volatil: generatedAt cambia en cada ejecucion.
+// Respuesta con un campo volátil: generatedAt cambia en cada ejecución.
 function buildProfileResponse(user) {
   return {
     profile: buildPublicProfile(user),

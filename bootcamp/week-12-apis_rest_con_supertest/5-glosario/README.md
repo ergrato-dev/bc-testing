@@ -6,15 +6,15 @@
 
 ## E
 
-- **endpoint**: ruta HTTP expuesta por una API para una operacion especifica.
+- **endpoint**: ruta HTTP expuesta por una API para una operación específica.
 
 ## H
 
-- **http status code**: codigo numerico que representa resultado de una request.
+- **http status code**: código numérico que representa resultado de una request.
 
 ## I
 
-- **integration test**: prueba que valida colaboracion entre multiples componentes.
+- **integration test**: prueba que valida colaboración entre múltiples componentes.
 
 ## P
 
@@ -22,11 +22,11 @@
 
 ## S
 
-- **supertest**: libreria para testear endpoints HTTP en Node.js de forma programatica.
+- **supertest**: librería para testear endpoints HTTP en Node.js de forma programática.
 
 ## T
 
-- **teardown**: limpieza de datos o conexiones despues de cada test de integracion.
+- **teardown**: limpieza de datos o conexiones después de cada test de integración.
 
 ## V
 

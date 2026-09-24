@@ -2,7 +2,7 @@
 
 > **Lenguaje:** JavaScript (Jest + Supertest)
 
-![Mapa de decision para errores HTTP](../0-assets/04-error-handling-decision-map.svg)
+![Mapa de decisión para errores HTTP](../0-assets/04-error-handling-decision-map.svg)
 
 ---
 
@@ -14,10 +14,10 @@ Asegurar que la suite de API sea estable y diagnostique fallos con claridad.
 
 ## Tipos de errores frecuentes
 
-1. **Validacion**: request invalido (400).
+1. **Validación**: request inválido (400).
 2. **No encontrado**: recurso inexistente (404).
 3. **Conflicto**: duplicidad de datos (409).
-4. **Interno**: excepcion no controlada (500).
+4. **Interno**: excepción no controlada (500).
 
 ---
 
@@ -25,7 +25,7 @@ Asegurar que la suite de API sea estable y diagnostique fallos con claridad.
 
 - Usar datos deterministas por test.
 - Resetear estado de repositorio in-memory entre casos.
-- Evitar dependencia de orden de ejecucion.
+- Evitar dependencia de orden de ejecución.
 - Mantener asserts enfocados y descriptivos.
 - No compartir fixtures mutables entre archivos de test.
 
@@ -33,7 +33,7 @@ Asegurar que la suite de API sea estable y diagnostique fallos con claridad.
 
 ## Repositorio in-memory y reset entre tests
 
-Cuando la app guarda datos en un arreglo o Map en memoria, cada test puede dejar el estado sucio para el siguiente. La solucion es que `createApp()` construya el repositorio dentro de la factory y que `beforeEach` cree una app nueva antes de cada caso.
+Cuando la app guarda datos en un arreglo o Map en memoria, cada test puede dejar el estado sucio para el siguiente. La solución es que `createApp()` construya el repositorio dentro de la factory y que `beforeEach` cree una app nueva antes de cada caso.
 
 ```javascript
 // app.js
@@ -70,7 +70,7 @@ const { createApp } = require("./app");
 let app;
 
 beforeEach(() => {
-  app = createApp(); // repositorio vacio en cada test
+  app = createApp(); // repositorio vacío en cada test
 });
 
 test("should create exhibit with unique id", async () => {
@@ -123,10 +123,10 @@ test("should return 409 when exhibit name already exists", async () => {
 
 ## Testear un 500 con middleware de errores
 
-En Express 5, una excepcion lanzada en un handler (o una promesa rechazada) llega al **middleware de errores**, que se reconoce por tener 4 argumentos. Se registra al final, despues de las rutas:
+En Express 5, una excepción lanzada en un handler (o una promesa rechazada) llega al **middleware de errores**, que se reconoce por tener 4 argumentos. Se registra al final, después de las rutas:
 
 ```javascript
-// dentro de createApp, despues de las rutas
+// dentro de createApp, después de las rutas
 app.get("/exhibits/:id", (req, res) => {
   const found = repository.findById(Number(req.params.id));
   // ...404 si no existe, 200 si existe...
@@ -161,7 +161,7 @@ test("should return 500 when repository fails", async () => {
 });
 ```
 
-El test verifica tambien que el mensaje interno (`database down`) no se filtra al cliente.
+El test verifica también que el mensaje interno (`database down`) no se filtra al cliente.
 
 ---
 
@@ -176,7 +176,7 @@ El test verifica tambien que el mensaje interno (`database down`) no se filtra a
 
 ---
 
-## Regla practica
+## Regla práctica
 
 Cuando un test de API falla, primero revisa si el contrato esperado sigue vigente antes de culpar al framework o al entorno.
 
@@ -184,7 +184,7 @@ Cuando un test de API falla, primero revisa si el contrato esperado sigue vigent
 
 ## Errores frecuentes
 
-- Compartir un unico array de datos a nivel de modulo entre tests en lugar de crear la app con `createApp()` en `beforeEach`.
-- Asumir orden de ejecucion entre tests para que un recurso "ya exista".
-- Devolver 500 para errores de validacion que deberian ser 400.
+- Compartir un único array de datos a nivel de módulo entre tests en lugar de crear la app con `createApp()` en `beforeEach`.
+- Asumir orden de ejecución entre tests para que un recurso "ya exista".
+- Devolver 500 para errores de validación que deberían ser 400.
 - No distinguir 404 (no existe) de 409 (conflicto con estado actual).

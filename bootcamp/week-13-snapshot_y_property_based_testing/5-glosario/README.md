@@ -10,11 +10,11 @@
 
 ## I
 
-- **invariant**: regla que debe mantenerse verdadera para cualquier entrada valida.
+- **invariant**: regla que debe mantenerse verdadera para cualquier entrada válida.
 
 ## O
 
-- **oracle**: criterio o funcion usada para decidir si el resultado de un test es correcto.
+- **oracle**: criterio o función usada para decidir si el resultado de un test es correcto.
 
 ## P
 
@@ -22,9 +22,9 @@
 
 ## S
 
-- **shrink**: proceso de reducir un contraejemplo al caso minimo reproducible.
-- **snapshot**: representacion guardada de una salida para comparar cambios futuros.
+- **shrink**: proceso de reducir un contraejemplo al caso mínimo reproducible.
+- **snapshot**: representación guardada de una salida para comparar cambios futuros.
 
 ## V
 
-- **volatile field**: dato que cambia frecuentemente y puede volver fragil un snapshot.
+- **volatile field**: dato que cambia frecuentemente y puede volver frágil un snapshot.

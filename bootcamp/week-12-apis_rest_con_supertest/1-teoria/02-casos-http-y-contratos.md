@@ -1,9 +1,9 @@
-# 02 - Diseno de Casos HTTP y Contratos de Respuesta
+# 02 - Diseño de Casos HTTP y Contratos de Respuesta
 
 > **Lenguaje:** JavaScript (Jest + Supertest)
 
 ![Matriz de contratos HTTP](../0-assets/02-http-status-contract-matrix.svg)
-![Slice de piramide para API tests](../0-assets/03-api-test-pyramid-slice.svg)
+![Slice de pirámide para API tests](../0-assets/03-api-test-pyramid-slice.svg)
 
 ---
 
@@ -13,28 +13,28 @@ Diseñar casos de prueba que validen comportamiento funcional y contrato API.
 
 ---
 
-## Matriz minima sugerida
+## Matriz mínima sugerida
 
 | Endpoint | Caso | Status esperado |
 |---|---|---|
 | GET /exhibits | lista disponible | 200 |
 | GET /exhibits/:id | item inexistente | 404 |
-| POST /exhibits | payload valido | 201 |
+| POST /exhibits | payload válido | 201 |
 | POST /exhibits | campo requerido faltante | 400 |
-| PUT /exhibits/:id | reemplazo completo valido | 200 |
-| PATCH /exhibits/:id | actualizacion parcial valida | 200 |
-| DELETE /exhibits/:id | eliminacion exitosa | 204 |
+| PUT /exhibits/:id | reemplazo completo válido | 200 |
+| PATCH /exhibits/:id | actualización parcial válida | 200 |
+| DELETE /exhibits/:id | eliminación exitosa | 204 |
 | DELETE /exhibits/:id | id inexistente | 404 |
 
 ---
 
 ## Contrato de respuesta
 
-Para cada endpoint, define explicitamente:
+Para cada endpoint, define explícitamente:
 
-1. Shape del JSON de exito.
+1. Shape del JSON de éxito.
 2. Shape del JSON de error.
-3. Reglas de validacion de campos.
+3. Reglas de validación de campos.
 
 ---
 
@@ -54,7 +54,7 @@ test("should return validation error payload when name is missing", async () => 
 
 ---
 
-## PUT vs PATCH en la practica
+## PUT vs PATCH en la práctica
 
 ```javascript
 test("should replace exhibit fully with PUT", async () => {
@@ -93,7 +93,7 @@ test("should delete exhibit and return no content", async () => {
 
 ## Validar headers y content-type
 
-`Content-Type` confirma que el cliente interpretara el body correctamente; vale la pena assertarlo en al menos un test por tipo de respuesta.
+`Content-Type` confirma que el cliente interpretará el body correctamente; vale la pena assertarlo en al menos un test por tipo de respuesta.
 
 ```javascript
 test("should respond with json content-type", async () => {
@@ -105,6 +105,6 @@ test("should respond with json content-type", async () => {
 
 ---
 
-## Recomendacion
+## Recomendación
 
 Empieza por los endpoints de mayor impacto de negocio y evoluciona la matriz de casos en paralelo al desarrollo.

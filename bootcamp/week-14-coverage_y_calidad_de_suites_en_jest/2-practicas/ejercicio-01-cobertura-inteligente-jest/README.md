@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Aprender a subir cobertura de forma util: configurar `collectCoverageFrom` y `coverageThreshold`, leer el reporte para encontrar la rama no cubierta y cubrir ramas de negocio, errores y bordes.
+Aprender a subir cobertura de forma útil: configurar `collectCoverageFrom` y `coverageThreshold`, leer el reporte para encontrar la rama no cubierta y cubrir ramas de negocio, errores y bordes.
 
 ## Tiempo estimado
 
@@ -21,9 +21,9 @@ pnpm install
 
 Abre `starter/pricing.service.test.js` y descomenta PASO 1.
 
-### Paso 2: Cubrir validacion de entrada
+### Paso 2: Cubrir validación de entrada
 
-Descomenta PASO 2 para validar el error cuando `basePrice` es invalido.
+Descomenta PASO 2 para validar el error cuando `basePrice` es inválido.
 
 ### Paso 3: Cubrir rama de descuento premium
 
@@ -57,10 +57,10 @@ Jest: Coverage for lines (90.9%) does not meet "global" threshold (100%)
 
 **Tarea de lectura del reporte** (antes de seguir):
 
-1. En la salida de texto, la columna `Uncovered Line #s` indica la linea 11.
+1. En la salida de texto, la columna `Uncovered Line #s` indica la línea 11.
 2. Abre `coverage/lcov-report/index.html` en el navegador y entra a `pricing.service.js`.
-3. Localiza la linea 11 en rojo y el marcador `I` sobre el `if` de la linea 10.
-4. Anota que regla de negocio corresponde a esa rama (validacion de `hour`) y por que es riesgosa si nadie la prueba.
+3. Localiza la línea 11 en rojo y el marcador `I` sobre el `if` de la línea 10.
+4. Anota qué regla de negocio corresponde a esa rama (validación de `hour`) y por qué es riesgosa si nadie la prueba.
 
 ### Paso 6: Cubrir la rama detectada (`Invalid hour`)
 
@@ -68,11 +68,11 @@ Descomenta PASO 6. Vuelve a ejecutar `pnpm test:coverage`: el umbral se cumple (
 
 ### Paso 7: Probar los bordes que el coverage no exige
 
-Descomenta PASO 7 para verificar las horas 21, 22, 5 y 6. El coverage ya estaba en 100% antes de este paso: si alguien cambia `hour >= 22` por `hour > 22`, ningun test del Paso 1 al 6 falla. Solo los tests de borde protegen esa regla.
+Descomenta PASO 7 para verificar las horas 21, 22, 5 y 6. El coverage ya estaba en 100% antes de este paso: si alguien cambia `hour >= 22` por `hour > 22`, ningún test del Paso 1 al 6 falla. Solo los tests de borde protegen esa regla.
 
 ## Cierre
 
-Compara tu resultado con `solution/` y discute que ramas aportan mas confianza y por que el 100% del Paso 6 no era suficiente.
+Compara tu resultado con `solution/` y discute qué ramas aportan más confianza y por qué el 100% del Paso 6 no era suficiente.
 
 ## Comando sugerido
 

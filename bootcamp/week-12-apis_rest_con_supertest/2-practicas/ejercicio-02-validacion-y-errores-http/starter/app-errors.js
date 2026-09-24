@@ -54,7 +54,7 @@ function createApp({ repository = createItemRepository() } = {}) {
   });
 
   // Middleware de errores (4 argumentos). En Express 5 recibe tanto
-  // excepciones sincronas como promesas rechazadas de los handlers.
+  // excepciones síncronas como promesas rechazadas de los handlers.
   app.use((_err, _req, res, _next) => {
     res.status(500).json({
       error: "InternalServerError",

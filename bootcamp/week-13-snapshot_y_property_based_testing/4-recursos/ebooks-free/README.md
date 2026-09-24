@@ -1,6 +1,6 @@
 # Ebooks y Lecturas Gratuitas
 
-## Seleccion recomendada
+## Selección recomendada
 
 | Recurso | URL | Por qué leerlo |
 | --- | --- | --- |
@@ -12,5 +12,5 @@
 ## Enfoque de lectura
 
 - Criterios para snapshots mantenibles.
-- Diseno de invariantes de negocio.
-- Diagnostico de contraejemplos minimizados (shrinking) y reproducción con seed.
+- Diseño de invariantes de negocio.
+- Diagnóstico de contraejemplos minimizados (shrinking) y reproducción con seed.

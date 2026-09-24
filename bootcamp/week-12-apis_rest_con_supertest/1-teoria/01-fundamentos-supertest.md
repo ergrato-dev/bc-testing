@@ -12,17 +12,17 @@ Entender como validar endpoints HTTP de forma automatizada y repetible.
 
 ---
 
-## Que es Supertest
+## Qué es Supertest
 
-Supertest permite hacer requests HTTP contra una app de Express sin levantar servidor real en puerto, facilitando pruebas rapidas y aisladas. Internamente usa `superagent` para construir la request y devuelve un objeto `response` con `status`, `body` y `headers` listos para assertar.
+Supertest permite hacer requests HTTP contra una app de Express sin levantar servidor real en puerto, facilitando pruebas rápidas y aisladas. Internamente usa `superagent` para construir la request y devuelve un objeto `response` con `status`, `body` y `headers` listos para assertar.
 
 ---
 
 ## Separar app y servidor
 
-La app de Express se exporta sin invocar `listen()`. Asi cada test importa la app directamente, sin abrir puertos reales ni pelear con conflictos de puerto en ejecucion paralela.
+La app de Express se exporta sin invocar `listen()`. Así cada test importa la app directamente, sin abrir puertos reales ni pelear con conflictos de puerto en ejecución paralela.
 
-Ademas, en vez de exportar una app ya construida, se exporta una **factory** `createApp()`. Cada llamada crea una app con su propio repositorio en memoria, de modo que un test nunca ve datos creados por otro.
+Además, en vez de exportar una app ya construida, se exporta una **factory** `createApp()`. Cada llamada crea una app con su propio repositorio en memoria, de modo que un test nunca ve datos creados por otro.
 
 ```javascript
 // app.js
@@ -49,7 +49,7 @@ module.exports = { createApp };
 ```
 
 ```javascript
-// server.js (solo para produccion, no se importa en tests)
+// server.js (solo para producción, no se importa en tests)
 const { createApp } = require("./app");
 
 createApp().listen(3000, () => console.log("API escuchando en :3000"));
@@ -57,7 +57,7 @@ createApp().listen(3000, () => console.log("API escuchando en :3000"));
 
 ---
 
-## Patron base
+## Patrón base
 
 ```javascript
 const request = require("supertest");
@@ -79,7 +79,7 @@ test("should return health status", async () => {
 
 ---
 
-## Anatomia de un test con Supertest (AAA)
+## Anatomía de un test con Supertest (AAA)
 
 1. **Arrange**: preparar `app` y datos de entrada.
 2. **Act**: disparar la request con `request(app).<verbo>(ruta)`.
@@ -96,9 +96,9 @@ test("should return list of exhibits", async () => {
 
 ---
 
-## Matchers asimetricos para campos generados
+## Matchers asimétricos para campos generados
 
-Algunos campos los genera el servidor (ids, fechas) y el test no puede conocer su valor exacto. Jest ofrece **matchers asimetricos**: se colocan dentro de `toEqual` en lugar de un valor concreto y aceptan cualquier valor que cumpla una condicion.
+Algunos campos los genera el servidor (ids, fechas) y el test no puede conocer su valor exacto. Jest ofrece **matchers asimétricos**: se colocan dentro de `toEqual` en lugar de un valor concreto y aceptan cualquier valor que cumpla una condición.
 
 ```javascript
 test("should create exhibit with generated id", async () => {
@@ -110,7 +110,7 @@ test("should create exhibit with generated id", async () => {
     id: expect.any(Number), // cualquier number
     name: "Sala de aves", // valor exacto
   });
-  // Solo exige que existan estas propiedades; ignora las demas.
+  // Solo exige que existan estas propiedades; ignora las demás.
   expect(response.body).toEqual(expect.objectContaining({ name: "Sala de aves" }));
 });
 ```
@@ -120,9 +120,9 @@ test("should create exhibit with generated id", async () => {
 
 ---
 
-## Que validar siempre
+## Qué validar siempre
 
-1. Codigo de estado HTTP.
+1. Código de estado HTTP.
 2. Estructura y contenido del body.
 3. Mensajes de error consistentes.
 4. Headers relevantes cuando aplique (`content-type`, `location`, etc.).
@@ -135,4 +135,4 @@ test("should create exhibit with generated id", async () => {
 - Validar solo `status` y omitir contrato de datos.
 - No limpiar estado entre pruebas cuando hay almacenamiento en memoria.
 - Exportar la app con `listen()` ya invocado, forzando conflictos de puerto entre suites.
-- Repetir logica de arranque de `app` en cada archivo de test en lugar de centralizarla en un modulo comun.
+- Repetir lógica de arranque de `app` en cada archivo de test en lugar de centralizarla en un módulo común.

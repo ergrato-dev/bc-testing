@@ -1,6 +1,6 @@
 const express = require("express");
 
-// Capa API: traduce HTTP <-> servicio. Recibe el servicio por parametro
+// Capa API: traduce HTTP <-> servicio. Recibe el servicio por parámetro
 // para poder probarla con Supertest sin levantar un servidor real (sin app.listen).
 function createApp(itemService) {
   const app = express();

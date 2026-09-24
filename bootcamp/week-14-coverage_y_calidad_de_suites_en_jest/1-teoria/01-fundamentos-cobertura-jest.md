@@ -4,18 +4,18 @@
 
 Entender que mide cobertura en Jest y como usarla para observar huecos de prueba sin caer en falsas certezas.
 
-![Mapa de metricas de coverage](../0-assets/01-coverage-metrics-map.svg)
+![Mapa de métricas de coverage](../0-assets/01-coverage-metrics-map.svg)
 
 ---
 
-## Que es cobertura
+## Qué es cobertura
 
-Cobertura es una metrica que indica que porciones del codigo fueron ejecutadas durante los tests.
+Cobertura es una métrica que indica qué porciones del código fueron ejecutadas durante los tests.
 
-En Jest, las metricas mas usadas son:
+En Jest, las métricas más usadas son:
 
 - `statements`: sentencias ejecutadas.
-- `lines`: lineas ejecutadas.
+- `lines`: líneas ejecutadas.
 - `functions`: funciones invocadas.
 - `branches`: ramas evaluadas (if/else, ternarios, cortocircuitos).
 
@@ -28,7 +28,7 @@ pnpm install
 pnpm test:coverage
 ```
 
-Tambien puedes apuntar a un archivo:
+También puedes apuntar a un archivo:
 
 ```bash
 pnpm install
@@ -53,13 +53,13 @@ function calculateFee(amount, isMember) {
 }
 ```
 
-Si solo pruebas `isMember = true`, tendras cobertura de funcion y lineas altas, pero `branches` incompleta: no validaste el camino de no miembro ni el error.
+Si solo pruebas `isMember = true`, tendrás cobertura de función y líneas altas, pero `branches` incompleta: no validaste el camino de no miembro ni el error.
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Cobertura responde: "que se ejecuto".
+Cobertura responde: "que se ejecutó".
 Calidad responde: "que tan bien detecta defectos".
 Necesitas ambas.
 
@@ -67,6 +67,6 @@ Necesitas ambas.
 
 ## Recomendaciones iniciales
 
-1. Revisa cobertura por modulo, no solo porcentaje global.
+1. Revisa cobertura por módulo, no solo porcentaje global.
 2. Prioriza rutas con validaciones, reglas de negocio y manejo de errores.
 3. Usa cobertura para descubrir huecos, luego decide si tienen riesgo real.
