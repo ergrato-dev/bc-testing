@@ -1,10 +1,11 @@
 # Ebooks Free - Semana 08
 
-## Recomendados
-
-1. *Testing JavaScript Applications* - secciones de assertions y datasets.
-2. *Clean Code in Test Suites* - capitulos de legibilidad de tests.
-3. Documentacion oficial de Jest (`expect` y `test.each`).
+| Recurso | URL | Por que leerlo |
+|---|---|---|
+| Jest - Expect (documentacion oficial) | https://jestjs.io/docs/expect | Referencia completa de `toStrictEqual`, `toContainEqual`, `toBeCloseTo` y `toHaveProperty`, con sus diferencias. |
+| JavaScript & Node.js Testing Best Practices (Yoni Goldberg) | https://github.com/goldbergyoni/javascript-testing-best-practices | Guia gratuita con reglas de nombrado de tests y assertions declarativas. |
+| Eloquent JavaScript - Cap. 8: Bugs and Errors | https://eloquentjavascript.net/08_error.html | Capitulo gratuito sobre testing automatizado y excepciones, base para `toThrow`. |
+| The Floating-Point Guide | https://floating-point-gui.de/ | Explica por que `0.1 + 0.2` no es `0.3` y por que se compara con tolerancia (`toBeCloseTo`). |
 
 ## Sugerencia de estudio
 

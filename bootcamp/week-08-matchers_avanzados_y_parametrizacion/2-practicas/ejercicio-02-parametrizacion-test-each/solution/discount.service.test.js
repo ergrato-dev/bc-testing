@@ -5,25 +5,37 @@ test("should return discounted price when percentage is valid", () => {
   expect(result).toBe(90);
 });
 
+// El orden de los %i sigue el orden de las columnas: [price, percentage, expected]
 test.each([
   [100, 10, 90],
   [200, 25, 150],
   [80, 0, 80],
 ])(
-  "should return %i when price is %i and discount is %i",
+  "should turn price %i with discount %i into %i",
   (price, percentage, expected) => {
     const result = applyDiscount(price, percentage);
     expect(result).toBe(expected);
   },
 );
 
-test.each([
+test.each`
+  price  | percentage | expected
+  ${50}  | ${50}      | ${25}
+  ${100} | ${100}     | ${0}
+  ${0}   | ${30}      | ${0}
+`(
+  "should return $expected when price is $price and discount is $percentage",
+  ({ price, percentage, expected }) => {
+    expect(applyDiscount(price, percentage)).toBe(expected);
+  },
+);
+
+describe.each([
   [-1, 10],
   [100, -5],
   [100, 120],
-])(
-  "should throw ValidationError when inputs are invalid",
-  (price, percentage) => {
+])("when price is %i and discount is %i", (price, percentage) => {
+  test("should throw ValidationError", () => {
     expect(() => applyDiscount(price, percentage)).toThrow("ValidationError");
-  },
-);
+  });
+});
