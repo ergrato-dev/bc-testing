@@ -2,33 +2,72 @@
 
 ## Objetivo
 
-Practicar TDD en micro-pasos construyendo una funcion de descuento.
+Practicar TDD en micro-pasos construyendo una funcion de descuento. Cada ciclo sigue el mismo orden: **test (Red) → ejecutar y ver el fallo → codigo minimo (Green) → refactor**.
 
 ## Tiempo estimado
 
 90 minutos.
 
+## Preparacion
+
+```bash
+cd starter
+pnpm install
+```
+
+El starter trae el esqueleto `calculateDiscount` sin cuerpo (devuelve `undefined`). Los PASO del test estan en `discount-calculator.test.js` y los de implementacion en `discount-calculator.js`.
+
+> Regla del ejercicio: despues de cada PASO ejecuta `pnpm test` y comprueba que el resultado es el esperado. Si un Red pasa en verde, detente: el test no esta probando nada nuevo.
+
 ## Paso a paso
 
-### Paso 1: Red (caso minimo)
+### Paso 1: Red - caso minimo (premium)
 
-Abre `starter/discount-calculator.test.js` y descomenta el PASO 1.
+Descomenta el PASO 1 en `discount-calculator.test.js` y ejecuta los tests. Fallo esperado:
 
-### Paso 2: Green (codigo minimo)
+```text
+Expected: 90
+Received: undefined
+```
 
-Descomenta en `starter/discount-calculator.js` el PASO 2 para pasar el primer test.
+### Paso 2: Green - codigo minimo
 
-### Paso 3: Nuevo Red para borde
+Descomenta el PASO 2 en `discount-calculator.js` (`return price * 0.9;`). El test pasa, aunque la funcion ya no distingue socios: es lo minimo que pide el unico test existente.
 
-Descomenta el PASO 3 para caso no premium.
+### Paso 3: Red - socio basico
 
-### Paso 4: Green y Refactor
+Descomenta el PASO 3 en el test. Fallo esperado (el codigo del PASO 2 aplica descuento a todos):
 
-Ajusta implementacion minima y revisa la solucion completa.
+```text
+Expected: 100
+Received: 90
+```
+
+### Paso 4: Green - precio completo para no premium
+
+Descomenta el PASO 4 en `discount-calculator.js` (esta encima del PASO 2 a proposito: la guarda debe ejecutarse antes del `return`). Los 2 tests pasan.
+
+### Paso 5: Red - precio negativo
+
+Descomenta el PASO 5 en el test. Fallo esperado:
+
+```text
+Expected substring: "invalid price"
+Received function did not throw
+```
+
+### Paso 6: Green - validacion
+
+Descomenta el PASO 6 en `discount-calculator.js`. Los 3 tests pasan.
+
+### Paso 7: Refactor - nombrar el numero magico
+
+Descomenta la constante del PASO 7 y sustituye `0.9` por `PREMIUM_PRICE_FACTOR` en la linea del PASO 2. Ejecuta los tests: siguen en verde, el comportamiento no cambio.
+
+Compara tu resultado con `solution/discount-calculator.js`.
 
 ## Comando sugerido
 
 ```bash
-pnpm install
 pnpm test discount-calculator.test.js
 ```

@@ -52,7 +52,25 @@ test("should format 65 seconds as 01:05", () => {
 });
 ```
 
-Al correr `jest`, falla con `formatDuration is not a function`. Esa es la razon correcta: no hay implementacion, no un typo ni un test mal escrito.
+Al correr `jest` sin haber creado `duration.js`, la suite ni siquiera arranca:
+
+```text
+FAIL ./duration.test.js
+  ● Test suite failed to run
+
+    Cannot find module './duration' from 'duration.test.js'
+```
+
+Si creas `duration.js` vacio (`module.exports = {};`), el fallo pasa a ser del test:
+
+```text
+FAIL ./duration.test.js
+  ● should format 65 seconds as 01:05
+
+    TypeError: formatDuration is not a function
+```
+
+Ambos son Red por la razon correcta: no hay implementacion, no un typo ni un test mal escrito. El segundo es preferible porque ya confirma que el test se ejecuta.
 
 ### Paso 2 - Green (implementacion minima, sin pulir)
 

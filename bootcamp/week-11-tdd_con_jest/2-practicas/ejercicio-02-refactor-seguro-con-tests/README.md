@@ -2,33 +2,37 @@
 
 ## Objetivo
 
-Refactorizar una funcion sin cambiar comportamiento observable.
+Refactorizar codigo heredado sin cambiar su comportamiento observable: primero se fija el comportamiento actual con tests y despues se cambia la estructura.
 
 ## Tiempo estimado
 
 90 minutos.
 
+## Preparacion
+
+```bash
+cd starter
+pnpm install
+```
+
+`starter/shipping-fee.js` ya contiene la implementacion heredada, que funciona. No hay tests todavia.
+
 ## Paso a paso
 
 ### Paso 1: Capturar comportamiento actual
 
-Descomenta tests en `starter/shipping-fee.test.js` para fijar reglas actuales.
+Descomenta el PASO 1 en `starter/shipping-fee.test.js` y ejecuta `pnpm test`. Los 3 tests deben pasar **en verde desde el principio**: son tests de caracterizacion, describen lo que el codigo ya hace. Esta es la red de proteccion antes de tocar nada.
 
-### Paso 2: Hacer pasar en verde
+### Paso 2: Refactor controlado
 
-Descomenta implementacion inicial en `starter/shipping-fee.js`.
+En `starter/shipping-fee.js`, borra las 4 lineas marcadas con `// PASO 2: borrar` y descomenta las dos lineas del PASO 2 (`ratePerKg`). Ejecuta de nuevo `pnpm test`: los 3 tests siguen en verde.
 
-### Paso 3: Refactor controlado
+Para comprobar que la red de proteccion funciona, cambia temporalmente `8` por `7` y ejecuta los tests: el de envio prioritario debe fallar (`Expected: 16`, `Received: 14`). Deshaz el cambio.
 
-Aplica la version refactorizada (paso 3) y confirma que todo sigue verde.
-
-### Paso 4: Comparar
-
-Revisa `solution/` para validar estilo final.
+Compara tu resultado con `solution/shipping-fee.js`.
 
 ## Comando sugerido
 
 ```bash
-pnpm install
 pnpm test shipping-fee.test.js
 ```

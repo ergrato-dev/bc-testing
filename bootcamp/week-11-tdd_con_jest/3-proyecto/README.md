@@ -15,6 +15,19 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 3. Mantener nomenclatura: `should [expected] when [condition]`.
 4. Incluir al menos un refactor donde la suite siga en verde.
 5. Documentar en comentarios breves que parte corresponde a Red, Green y Refactor.
+6. Partir de los stubs del starter (`throw new Error("Not implemented")`): ninguna regla se implementa sin un test que antes haya fallado.
+
+## Evidencia del ciclo Red-Green-Refactor
+
+Por cada ciclo entrega evidencia de las tres fases. Opcion recomendada: un commit por fase, por ejemplo:
+
+```text
+test(item): red - should throw validation error when name is missing
+feat(item): green - validate name in create
+refactor(item): extract validation helper
+```
+
+Si no usas git, entrega capturas o la salida de `pnpm test` de cada fase: en Red debe verse el test fallando con el motivo esperado (no un error de sintaxis ni de import), y en Green y Refactor la suite completa en verde.
 
 ## Estructura
 
@@ -26,7 +39,8 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 - Minimo 8 tests.
 - Minimo 3 iteraciones TDD visibles.
 - Minimo 1 validacion de error de negocio.
-- Cobertura sugerida: >= 85% en archivos del proyecto.
+- Todos los tests en verde al final de cada ciclo.
+- Evidencia de al menos 3 ciclos completos (Red, Green y Refactor).
 
 ## Ejecucion sugerida
 

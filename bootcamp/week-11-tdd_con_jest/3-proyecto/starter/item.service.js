@@ -1,26 +1,24 @@
+// ============================================
+// ItemService - se construye con TDD
+// ============================================
+// Estos metodos son stubs: lanzan "Not implemented" a proposito.
+// No escribas logica aqui sin antes tener un test en rojo que la pida.
+
 class ItemService {
   constructor(repository) {
     this.repository = repository;
   }
 
+  // TODO (Green 1): delegar en repository.create cuando el input sea valido
+  // TODO (Green 2): validar las reglas de negocio de create que pidan tus tests
   create(input) {
-    if (!input?.name) {
-      throw new Error("name is required");
-    }
-
-    return this.repository.create(input);
+    throw new Error("Not implemented");
   }
 
+  // TODO (Green 3): delegar en repository.updateStock
+  // TODO (Green 4-5): validar itemId y quantity segun tus tests
   updateStock(itemId, quantity) {
-    if (!itemId) {
-      throw new Error("itemId is required");
-    }
-
-    if (quantity < 0) {
-      throw new Error("quantity cannot be negative");
-    }
-
-    return this.repository.updateStock(itemId, quantity);
+    throw new Error("Not implemented");
   }
 }
 
