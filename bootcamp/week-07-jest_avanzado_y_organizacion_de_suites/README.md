@@ -14,7 +14,7 @@ Al finalizar esta semana seras capaz de:
 2. Aplicar hooks de ciclo de vida (`beforeAll`, `beforeEach`, `afterEach`, `afterAll`) con criterio.
 3. Diferenciar `mock`, `stub` y `spy` en escenarios basicos de aislamiento.
 4. Diseñar suites legibles con patron AAA y nombres de test profesionales.
-5. Ejecutar tests por archivo y por patron usando `yarn` o `pnpm`.
+5. Ejecutar tests por archivo y por patron usando `pnpm`.
 6. Preparar una base de trabajo para temas avanzados de mocking y asincronia.
 
 ---

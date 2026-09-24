@@ -31,5 +31,6 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 ## Ejecucion sugerida
 
 ```bash
-yarn test --coverage
+pnpm install
+pnpm test:coverage
 ```

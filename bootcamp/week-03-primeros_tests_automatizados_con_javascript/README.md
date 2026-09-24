@@ -10,7 +10,7 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Configurar un entorno mínimo de testing con **Node.js + pnpm/yarn + Jest**
+1. Configurar un entorno mínimo de testing con **Node.js + pnpm + Jest**
 2. Explicar la anatomía de un test en Jest usando `describe`, `test`/`it` y `expect`
 3. Aplicar el patrón **AAA (Arrange-Act-Assert)** en tests unitarios simples
 4. Usar matchers básicos: `toBe`, `toEqual`, `toBeTruthy`, `toBeFalsy`, `toBeNull`, `toThrow`

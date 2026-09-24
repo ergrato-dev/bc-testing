@@ -74,6 +74,6 @@
 
 - [ ] Practicas guiadas completadas.
 - [ ] Proyecto implementado en `3-proyecto/starter/`.
-- [ ] Evidencia de `yarn test --coverage` en CI.
+- [ ] Evidencia de `pnpm test:coverage` en CI.
 - [ ] Configuracion SonarQube minima documentada.
 - [ ] Criterios de salida de etapa JS explicitados.

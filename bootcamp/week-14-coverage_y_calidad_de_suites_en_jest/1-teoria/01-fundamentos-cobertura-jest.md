@@ -24,13 +24,15 @@ En Jest, las metricas mas usadas son:
 ## Comando base en Jest
 
 ```bash
-yarn test --coverage
+pnpm install
+pnpm test:coverage
 ```
 
 Tambien puedes apuntar a un archivo:
 
 ```bash
-yarn test pricing.service.test.js --coverage
+pnpm install
+pnpm test:coverage pricing.service.test.js
 ```
 
 ---

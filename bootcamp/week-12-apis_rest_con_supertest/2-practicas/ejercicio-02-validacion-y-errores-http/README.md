@@ -29,5 +29,6 @@ Compara con `solution/app-errors.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test app-errors.test.js
+pnpm install
+pnpm test app-errors.test.js
 ```

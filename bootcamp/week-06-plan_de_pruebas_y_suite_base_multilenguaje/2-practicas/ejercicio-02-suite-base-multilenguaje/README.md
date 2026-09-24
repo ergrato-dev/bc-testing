@@ -21,7 +21,8 @@ Construir la misma intencion de test en JavaScript, Python y Java.
 ### JavaScript (Jest)
 
 ```bash
-yarn test
+pnpm install
+pnpm test
 ```
 
 ### Python (pytest)

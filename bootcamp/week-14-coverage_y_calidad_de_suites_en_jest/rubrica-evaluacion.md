@@ -74,6 +74,6 @@
 
 - [ ] Practicas guiadas completadas.
 - [ ] Proyecto implementado en `3-proyecto/starter/`.
-- [ ] Evidencia de ejecucion de cobertura (`yarn test --coverage`).
+- [ ] Evidencia de ejecucion de cobertura (`pnpm test:coverage`).
 - [ ] Mejora explicita de al menos 2 zonas de riesgo.
 - [ ] Suite estable (sin flaky tests) en ejecuciones repetidas.

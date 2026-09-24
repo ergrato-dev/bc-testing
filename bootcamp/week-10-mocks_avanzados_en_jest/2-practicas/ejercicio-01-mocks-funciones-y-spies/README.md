@@ -29,5 +29,6 @@ Compara con `solution/notification.service.test.js` y analiza diferencias.
 ## Comando sugerido
 
 ```bash
-yarn test notification.service.test.js
+pnpm install
+pnpm test notification.service.test.js
 ```

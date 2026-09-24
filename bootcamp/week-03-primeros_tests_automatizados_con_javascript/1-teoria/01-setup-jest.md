@@ -6,14 +6,14 @@
 
 ## Objetivo
 
-Configurar un entorno mínimo y profesional para ejecutar tests unitarios con Jest usando `pnpm` (o `yarn`).
+Configurar un entorno mínimo y profesional para ejecutar tests unitarios con Jest usando `pnpm`.
 
 ---
 
 ## Requisitos previos
 
-- Node.js 20 LTS instalado
-- `pnpm` instalado globalmente (`corepack enable` + `corepack prepare pnpm@latest --activate`)
+- Node.js 22 LTS instalado (versión fijada en `.nvmrc`)
+- `pnpm` instalado globalmente (`corepack enable`; la versión exacta la fija el campo `packageManager` del `package.json`)
 - Editor VS Code
 
 Verificación rápida:
@@ -44,7 +44,7 @@ mi-proyecto/
 mkdir mi-proyecto
 cd mi-proyecto
 pnpm init
-pnpm add -D jest@29
+pnpm add -D jest@30.5.2
 ```
 
 Agregar scripts en `package.json`:
@@ -130,7 +130,7 @@ PASS tests/calculator.test.js
 
 | Error | Causa probable | Solución |
 |---|---|---|
-| `jest: command not found` | Jest no instalado como dev dependency | `pnpm add -D jest@29` |
+| `jest: command not found` | Jest no instalado como dev dependency | `pnpm add -D jest@30.5.2` |
 | No encuentra tests | Nombre o ruta no coincide | Usar sufijo `.test.js` en carpeta `tests/` |
 | `Cannot find module` | Ruta de import incorrecta | Revisar `../src/...` |
 | Tests no corren tras cambios | Watch no activo | Ejecutar `pnpm test:watch` |

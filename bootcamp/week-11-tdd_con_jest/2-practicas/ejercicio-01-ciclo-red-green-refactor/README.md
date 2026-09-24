@@ -29,5 +29,6 @@ Ajusta implementacion minima y revisa la solucion completa.
 ## Comando sugerido
 
 ```bash
-yarn test discount-calculator.test.js
+pnpm install
+pnpm test discount-calculator.test.js
 ```

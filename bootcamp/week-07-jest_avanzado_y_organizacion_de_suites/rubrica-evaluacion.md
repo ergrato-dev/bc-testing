@@ -69,7 +69,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 | Usa hooks de forma coherente | 5 |
 | Incluye al menos 3 casos con doble de prueba | 5 |
 | Nomenclatura profesional consistente | 4 |
-| Evidencia de ejecucion con `yarn` o `pnpm` | 4 |
+| Evidencia de ejecucion con `pnpm` | 4 |
 | **Total** | **30** |
 
 ---
@@ -78,7 +78,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 
 | Situacion | Penalizacion |
 |---|---|
-| Uso de `npm` en lugar de `pnpm`/`yarn` | -3 |
+| Uso de `npm` en lugar de `pnpm` | -3 |
 | Tests con nombres genericos (`test1`, `works`) | -2 c/u (max -8) |
 | Tests sin assertion relevante | -2 c/u (max -8) |
 | Dependencia de API/BD real en unit tests | -5 |

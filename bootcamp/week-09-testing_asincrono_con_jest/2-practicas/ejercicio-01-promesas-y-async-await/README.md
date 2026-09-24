@@ -19,5 +19,6 @@ Escribir tests asincronos confiables con `async/await`, `resolves` y `rejects`.
 ## Comando sugerido
 
 ```bash
-yarn test user.repository.test.js
+pnpm install
+pnpm test user.repository.test.js
 ```

@@ -19,5 +19,6 @@ Aplicar hooks de ciclo de vida y dobles de prueba simples para aislar dependenci
 ## Comando sugerido
 
 ```bash
-yarn test notification.service.test.js
+pnpm install
+pnpm test notification.service.test.js
 ```

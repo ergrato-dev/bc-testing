@@ -29,5 +29,6 @@ Revisa `solution/` para validar estilo final.
 ## Comando sugerido
 
 ```bash
-yarn test shipping-fee.test.js
+pnpm install
+pnpm test shipping-fee.test.js
 ```

@@ -29,5 +29,6 @@ Compara con `solution/order.service.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test order.service.test.js
+pnpm install
+pnpm test order.service.test.js
 ```

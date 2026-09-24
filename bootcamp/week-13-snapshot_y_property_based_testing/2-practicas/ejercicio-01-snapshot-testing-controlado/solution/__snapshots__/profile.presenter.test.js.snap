@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`should match snapshot for profile list 1`] = `
+[
+  {
+    "displayName": "Ada Lovelace",
+    "id": "u-1",
+    "isActive": true,
+    "role": "mentor",
+  },
+  {
+    "displayName": "Alan Turing",
+    "id": "u-2",
+    "isActive": false,
+    "role": "student",
+  },
+]
+`;
+
+exports[`should match snapshot for public profile 1`] = `
+{
+  "displayName": "Ada Lovelace",
+  "id": "u-1",
+  "isActive": true,
+  "role": "mentor",
+}
+`;
