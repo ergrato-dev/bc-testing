@@ -6,7 +6,7 @@ Diseñar un plan de pruebas breve pero completo para un modulo pequeno del domin
 
 ## Tiempo estimado
 
-75 minutos.
+40 minutos.
 
 ## Instrucciones
 

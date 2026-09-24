@@ -8,18 +8,20 @@
 
 | Tipo de Evidencia | Peso | Puntos |
 |---|---|---|
-| Conocimiento | 30% | 30 pts |
-| Desempeno | 40% | 40 pts |
-| Producto | 30% | 30 pts |
+| Conocimiento | 20% | 20 pts |
+| Desempeno | 30% | 30 pts |
+| Producto | 50% | 50 pts |
 | **Total** | **100%** | **100 pts** |
 
-**Minimo por componente**: 70% (21/30 - 28/40 - 21/30)
+**Minimo por componente**: 70% (14/20 - 21/30 - 35/50)
+
+> La ponderacion refleja la distribucion del tiempo de la semana: 1 h teoria, 1.5 h practicas, 5 h proyecto y 0.5 h recursos.
 
 ---
 
-## Conocimiento (30 pts)
+## Conocimiento (20 pts)
 
-Cuestionario de 10 preguntas (3 pts c/u):
+Cuestionario de 10 preguntas (2 pts c/u):
 
 1. Que diferencia existe entre plan de pruebas y casos de prueba.
 2. Que significa trazabilidad en testing.
@@ -34,43 +36,45 @@ Cuestionario de 10 preguntas (3 pts c/u):
 
 ---
 
-## Desempeno (40 pts)
+## Desempeno (30 pts)
 
-### Ejercicio 01 - Plan de pruebas integrador (20 pts)
-
-| Criterio | Pts |
-|---|---|
-| Define alcance, supuestos y riesgos | 5 |
-| Escribe al menos 8 casos trazables | 5 |
-| Prioriza casos (alta/media/baja) con justificacion | 5 |
-| Declara criterios de entrada/salida claros | 5 |
-| **Total** | **20** |
-
-### Ejercicio 02 - Suite base multilenguaje (20 pts)
+### Ejercicio 01 - Plan de pruebas integrador (15 pts)
 
 | Criterio | Pts |
 |---|---|
-| Implementa suite equivalente en JS/Python/Java | 6 |
-| Mantiene patron AAA en los tres lenguajes | 6 |
-| Incluye happy path + validaciones | 4 |
-| Ejecuta pruebas localmente sin errores de sintaxis | 4 |
-| **Total** | **20** |
+| Define alcance, supuestos y riesgos | 4 |
+| Escribe al menos 8 casos trazables | 4 |
+| Prioriza casos (alta/media/baja) con justificacion | 4 |
+| Declara criterios de entrada/salida claros | 3 |
+| **Total** | **15** |
+
+### Ejercicio 02 - Suite base multilenguaje (15 pts)
+
+| Criterio | Pts |
+|---|---|
+| Implementa suite equivalente en JS/Python/Java | 5 |
+| Mantiene patron AAA en los tres lenguajes | 4 |
+| Incluye happy path + validaciones | 3 |
+| Ejecuta pruebas localmente sin errores de sintaxis | 3 |
+| **Total** | **15** |
 
 ---
 
-## Producto (30 pts)
+## Producto (50 pts)
 
-### Proyecto integrador de dominio (entregable obligatorio)
+### Proyecto integrador: `test-plan.md` + suite en JS, Python y Java (entregable obligatorio)
 
 | Criterio | Pts |
 |---|---|
-| Suite con minimo 10 tests del dominio asignado | 6 |
-| Cobertura de escenarios validos e invalidos | 6 |
-| Trazabilidad caso -> test documentada | 5 |
-| Nombres descriptivos y consistentes | 4 |
-| Independencia de servicios externos reales | 4 |
-| Evidencia de ejecucion en al menos un lenguaje | 5 |
-| **Total** | **30** |
+| `test-plan.md` con alcance, enfoque, riesgos y criterios de entrada/salida | 10 |
+| Matriz de trazabilidad Requirement ID -> Test Case ID -> test en cada lenguaje | 8 |
+| Minimo 6 TC implementados en JavaScript (Jest) | 8 |
+| Los mismos TC implementados en Python (pytest) | 6 |
+| Los mismos TC implementados en Java (JUnit 5) | 6 |
+| Cobertura de happy path, validaciones y casos limite | 4 |
+| Nombres descriptivos, AAA y equivalencia de intencion entre lenguajes | 4 |
+| Evidencia de ejecucion de las tres suites | 4 |
+| **Total** | **50** |
 
 ---
 
