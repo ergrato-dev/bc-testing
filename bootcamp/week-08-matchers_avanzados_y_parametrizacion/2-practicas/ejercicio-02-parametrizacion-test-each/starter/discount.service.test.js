@@ -9,7 +9,7 @@ const { applyDiscount } = require("./discount.service");
 // });
 
 // ============================================
-// PASO 2: Parametrizacion con test.each (array de arrays)
+// PASO 2: Parametrización con test.each (array de arrays)
 // ============================================
 // // El orden de los %i sigue el orden de las columnas: [price, percentage, expected]
 // test.each([
@@ -40,7 +40,7 @@ const { applyDiscount } = require("./discount.service");
 // );
 
 // ============================================
-// PASO 4: Casos invalidos agrupados con describe.each
+// PASO 4: Casos inválidos agrupados con describe.each
 // ============================================
 // describe.each([
 //   [-1, 10],

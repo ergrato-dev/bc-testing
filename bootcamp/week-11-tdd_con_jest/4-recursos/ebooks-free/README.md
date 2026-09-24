@@ -1,6 +1,6 @@
 # Ebooks y Lecturas Gratuitas
 
-## Seleccion recomendada
+## Selección recomendada
 
 | Recurso | URL | Por qué leerlo |
 | --- | --- | --- |
@@ -11,6 +11,6 @@
 
 ## Enfoque de lectura
 
-- Como mantener ciclos cortos de feedback.
+- Cómo mantener ciclos cortos de feedback.
 - Estrategias para refactor incremental con los tests en verde.
-- Diseno emergente basado en comportamiento.
+- Diseño emergente basado en comportamiento.

@@ -1,4 +1,4 @@
-# Ejercicio 01 - Organizacion de Suite Jest
+# Ejercicio 01 - Organización de Suite Jest
 
 ## Objetivo
 

@@ -1,4 +1,4 @@
-// Codigo heredado: funciona, pero repite la multiplicacion en cada rama.
+// Código heredado: funciona, pero repite la multiplicación en cada rama.
 function calculateShippingFee(weightKg, isPriority) {
   if (weightKg <= 0) {
     throw new Error("invalid weight");
@@ -7,7 +7,7 @@ function calculateShippingFee(weightKg, isPriority) {
   // ============================================
   // PASO 2: Refactor sin cambiar comportamiento
   // ============================================
-  // Borra las 4 lineas marcadas con "PASO 2: borrar" y descomenta estas dos:
+  // Borra las 4 líneas marcadas con "PASO 2: borrar" y descomenta estas dos:
   // const ratePerKg = isPriority ? 8 : 5;
   // return weightKg * ratePerKg;
 

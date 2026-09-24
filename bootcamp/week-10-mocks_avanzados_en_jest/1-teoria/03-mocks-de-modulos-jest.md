@@ -1,24 +1,24 @@
-# 03 - Mocks de Modulos con jest.mock
+# 03 - Mocks de Módulos con jest.mock
 
 > **Lenguaje:** JavaScript (Jest)
 
-![Flujo de mock de modulo](../0-assets/04-mock-modulo-flujo.svg)
+![Flujo de mock de módulo](../0-assets/04-mock-modulo-flujo.svg)
 
 ---
 
 ## Objetivo
 
-Aislar dependencias de infraestructura (API, base de datos, correo, cache) para probar logica de negocio de forma deterministica.
+Aislar dependencias de infraestructura (API, base de datos, correo, cache) para probar lógica de negocio de forma determinística.
 
 ---
 
-## Cuando usar `jest.mock`
+## Cuándo usar `jest.mock`
 
-Usa `jest.mock("./dependency")` cuando quieras reemplazar un modulo completo importado por la unidad bajo prueba.
+Usa `jest.mock("./dependency")` cuando quieras reemplazar un módulo completo importado por la unidad bajo prueba.
 
 ---
 
-## Ejemplo basico
+## Ejemplo básico
 
 ```javascript
 // payment.gateway.js
@@ -65,7 +65,7 @@ test("should confirm order when gateway approves charge", async () => {
 
 ## Mock parcial con `jest.requireActual`
 
-Si el modulo tiene funciones puras que no vale la pena reemplazar, copia el modulo real y sobrescribe solo lo que sale a la red:
+Si el módulo tiene funciones puras que no vale la pena reemplazar, copia el módulo real y sobrescribe solo lo que sale a la red:
 
 ```javascript
 jest.mock("./payment.gateway", () => ({
@@ -74,7 +74,7 @@ jest.mock("./payment.gateway", () => ({
 }));
 ```
 
-Asi `charge` es un mock y el resto de exportaciones mantienen su implementacion real.
+Así `charge` es un mock y el resto de exportaciones mantienen su implementación real.
 
 ---
 
@@ -86,6 +86,6 @@ Asi `charge` es un mock y el resto de exportaciones mantienen su implementacion 
 
 ---
 
-## Recomendacion
+## Recomendación
 
-Combina unit tests con mocks + integration tests sin mocks en semanas siguientes para mantener balance en la piramide de testing.
+Combina unit tests con mocks + integration tests sin mocks en semanas siguientes para mantener balance en la pirámide de testing.

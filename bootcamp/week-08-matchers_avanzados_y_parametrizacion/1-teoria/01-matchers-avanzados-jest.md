@@ -8,16 +8,16 @@
 
 ## Objetivo
 
-Elegir el matcher correcto para expresar mejor la intencion del test, en vez de forzar `toBe`/`toEqual` para todo.
+Elegir el matcher correcto para expresar mejor la intención del test, en vez de forzar `toBe`/`toEqual` para todo.
 
 ---
 
 ## Matchers de igualdad y estructura
 
 - `toEqual`: compara estructura y valores (ignora `undefined` en propiedades).
-- `toStrictEqual`: compara estructura, valores y tipos de forma estricta (distingue `undefined` explicito, tipos de clase, arrays dispersos).
-- `toContain`: valida inclusion de un valor primitivo en un string o array.
-- `toContainEqual`: valida inclusion por igualdad profunda en arrays de objetos.
+- `toStrictEqual`: compara estructura, valores y tipos de forma estricta (distingue `undefined` explícito, tipos de clase, arrays dispersos).
+- `toContain`: valida inclusión de un valor primitivo en un string o array.
+- `toContainEqual`: valida inclusión por igualdad profunda en arrays de objetos.
 - `toMatchObject`: valida parcialmente propiedades de un objeto, sin exigir coincidencia total.
 
 ```javascript
@@ -28,11 +28,11 @@ expect([{ id: 1 }, { id: 2 }]).toContainEqual({ id: 2 });
 expect(["planetario", "acuario"]).toContain("planetario");
 ```
 
-## Matchers numericos
+## Matchers numéricos
 
-- `toBeCloseTo(numero, decimales)`: compara flotantes evitando errores de precision.
-- `toBeGreaterThan` / `toBeGreaterThanOrEqual`: compara limites inferiores.
-- `toBeLessThan` / `toBeLessThanOrEqual`: compara limites superiores.
+- `toBeCloseTo(numero, decimales)`: compara flotantes evitando errores de precisión.
+- `toBeGreaterThan` / `toBeGreaterThanOrEqual`: compara límites inferiores.
+- `toBeLessThan` / `toBeLessThanOrEqual`: compara límites superiores.
 
 ```javascript
 test("should calculate ticket discount with float precision", () => {
@@ -45,7 +45,7 @@ test("should calculate ticket discount with float precision", () => {
 
 ## Matchers de excepciones
 
-- `toThrow()`: valida que la funcion lance cualquier error.
+- `toThrow()`: valida que la función lance cualquier error.
 - `toThrow("mensaje")`: valida que el mensaje contenga ese texto.
 - `toThrow(ClaseDeError)`: valida el tipo de error lanzado.
 
@@ -61,7 +61,7 @@ test("should throw RangeError when seats is zero", () => {
 });
 ```
 
-El matcher siempre envuelve una funcion (`() => bookSeat(...)`), nunca la llamada directa: Jest necesita ejecutarla dentro del `expect` para capturar la excepcion.
+El matcher siempre envuelve una función (`() => bookSeat(...)`), nunca la llamada directa: Jest necesita ejecutarla dentro del `expect` para capturar la excepción.
 
 ## Matchers de propiedades y forma
 
@@ -75,9 +75,9 @@ expect(visit).toHaveProperty("visitor.ticket.type", "vip");
 expect(visit.stops).toHaveLength(2);
 ```
 
-## Preview: matchers asimetricos
+## Preview: matchers asimétricos
 
-`expect.any(Tipo)` y `expect.arrayContaining([...])` validan forma sin fijar valores exactos, utiles en tests asincronos donde algun campo cambia en cada ejecucion (timestamps, ids generados). Se practican a fondo en la Semana 12, al validar respuestas de API.
+`expect.any(Tipo)` y `expect.arrayContaining([...])` validan forma sin fijar valores exactos, útiles en tests asíncronos donde algún campo cambia en cada ejecución (timestamps, ids generados). Se practican a fondo en la Semana 12, al validar respuestas de API.
 
 ```javascript
 expect(createVisit()).toEqual({
@@ -94,11 +94,11 @@ expect(createVisit()).toEqual({
 |---|---|---|
 | `toEqual` | Igualdad profunda de estructura | Ignora `undefined` |
 | `toStrictEqual` | Igualdad profunda estricta | Puede romper tests "flexibles" |
-| `toContain` | Valor primitivo en coleccion | No sirve para objetos |
-| `toContainEqual` | Objeto en array por igualdad | Mas lento que `toContain` |
+| `toContain` | Valor primitivo en colección | No sirve para objetos |
+| `toContainEqual` | Objeto en array por igualdad | Más lento que `toContain` |
 | `toMatchObject` | Coincidencia parcial | No detecta propiedades extra |
-| `toBeCloseTo` | Comparacion de flotantes | Definir decimales relevantes |
-| `toThrow` | Validar excepciones | Siempre envolver en funcion |
+| `toBeCloseTo` | Comparación de flotantes | Definir decimales relevantes |
+| `toThrow` | Validar excepciones | Siempre envolver en función |
 | `toHaveProperty` | Propiedad anidada | Usar ruta con puntos |
 
 ---
@@ -107,12 +107,12 @@ expect(createVisit()).toEqual({
 
 - Usar `toEqual` cuando se necesita distinguir tipos (`toStrictEqual`).
 - Comparar flotantes con `toBe` en vez de `toBeCloseTo`.
-- Llamar la funcion fuera del `expect` al probar `toThrow`, lo que rompe el test antes de la assertion.
+- Llamar la función fuera del `expect` al probar `toThrow`, lo que rompe el test antes de la assertion.
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Un matcher preciso reduce falsos positivos y mejora lectura en revisiones: si el nombre del matcher describe la intencion, el test se explica solo.
+Un matcher preciso reduce falsos positivos y mejora lectura en revisiones: si el nombre del matcher describe la intención, el test se explica solo.
 
-![Seleccion de matcher](../0-assets/03-seleccion-matchers.svg)
+![Selección de matcher](../0-assets/03-seleccion-matchers.svg)

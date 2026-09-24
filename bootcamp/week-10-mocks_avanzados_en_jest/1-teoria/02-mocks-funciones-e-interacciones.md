@@ -2,7 +2,7 @@
 
 > **Lenguaje:** JavaScript (Jest)
 
-![Anatomia de jest.fn](../0-assets/02-anatomia-jest-fn.svg)
+![Anatomía de jest.fn](../0-assets/02-anatomia-jest-fn.svg)
 ![Spy vs mock](../0-assets/03-spy-vs-mock.svg)
 
 ---
@@ -13,17 +13,17 @@ Validar comportamiento observable: llamadas, argumentos, orden e impacto en la s
 
 ---
 
-## Patron recomendado
+## Patrón recomendado
 
 1. **Arrange**: crear dependencia mockeada y configurar retorno.
 2. **Act**: ejecutar unidad bajo prueba.
-3. **Assert**: validar resultado + interaccion minima necesaria.
+3. **Assert**: validar resultado + interacción mínima necesaria.
 
 ---
 
 ## Ejemplo de servicio
 
-En la Semana 07 viste `jest.fn()` con `mockReturnValue` para un envio simple. Aqui el doble calcula su respuesta con `mockImplementation` y el test verifica tambien el orden de las llamadas.
+En la Semana 07 viste `jest.fn()` con `mockReturnValue` para un envío simple. Aquí el doble calcula su respuesta con `mockImplementation` y el test verifica también el orden de las llamadas.
 
 ```javascript
 async function notifyWaitlist(visitors, smsClient) {
@@ -51,11 +51,11 @@ test("should notify visitors in waitlist order and count deliveries", async () =
 });
 ```
 
-`mockImplementationOnce(fn)` sobrescribe solo la siguiente llamada; despues el mock vuelve a su implementacion por defecto.
+`mockImplementationOnce(fn)` sobrescribe solo la siguiente llamada; después el mock vuelve a su implementación por defecto.
 
 ---
 
-## Matchers mas utiles para interacciones
+## Matchers más útiles para interacciones
 
 - `toHaveBeenCalled()`
 - `toHaveBeenCalledTimes(n)`
@@ -65,17 +65,17 @@ test("should notify visitors in waitlist order and count deliveries", async () =
 
 ---
 
-## Buenas practicas
+## Buenas prácticas
 
 - Verifica solo interacciones relevantes para el comportamiento.
-- Evita asserts redundantes sobre implementacion interna.
+- Evita asserts redundantes sobre implementación interna.
 - Limpia mocks con `jest.clearAllMocks()` en `afterEach` cuando aplique.
 
 ---
 
 ## Limpiar mocks: `mockClear`, `mockReset` y `mockRestore`
 
-| Metodo | Historial de llamadas | Implementacion falsa | Metodo original |
+| Método | Historial de llamadas | Implementación falsa | Método original |
 |---|---|---|---|
 | `mockClear()` / `jest.clearAllMocks()` | Se borra | Se conserva | No |
 | `mockReset()` / `jest.resetAllMocks()` | Se borra | Se borra (devuelve `undefined`) | No |

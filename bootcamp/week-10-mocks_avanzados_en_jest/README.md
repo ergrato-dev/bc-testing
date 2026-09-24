@@ -8,23 +8,23 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
 1. Diferenciar y aplicar `mock`, `stub` y `spy` en escenarios reales de testing.
 2. Controlar dependencias con `jest.fn()` y `jest.spyOn()` sin romper el objetivo del test.
-3. Simular colaboraciones externas con `jest.mock()` en modulos completos.
+3. Simular colaboraciones externas con `jest.mock()` en módulos completos.
 4. Verificar interacciones (llamadas, argumentos, orden, cantidad) de forma confiable.
-5. Evitar anti patrones de sobre-mocking que generan tests fragiles.
-6. Diseñar suites aisladas y legibles bajo patron AAA para servicios con dependencias.
+5. Evitar anti patrones de sobre-mocking que generan tests frágiles.
+6. Diseñar suites aisladas y legibles bajo patrón AAA para servicios con dependencias.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Test doubles, spies, mocks de modulo y buenas practicas | 2.5 h |
-| Practicas | Ejercicios guiados de funciones mockeadas y modulos aislados | 3 h |
+| Teoría | Test doubles, spies, mocks de módulo y buenas prácticas | 2.5 h |
+| Prácticas | Ejercicios guiados de funciones mockeadas y módulos aislados | 3 h |
 | Proyecto | Suite con dependencias mockeadas en dominio asignado | 2 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
@@ -32,16 +32,16 @@ Al finalizar esta semana seras capaz de:
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
 1. [Test doubles: mock, stub y spy en Jest](./1-teoria/01-test-doubles-jest.md)
-2. [Mocks de funciones y verificacion de interacciones](./1-teoria/02-mocks-funciones-e-interacciones.md)
-3. [Mocks de modulos con jest.mock y aislamiento](./1-teoria/03-mocks-de-modulos-jest.md)
+2. [Mocks de funciones y verificación de interacciones](./1-teoria/02-mocks-funciones-e-interacciones.md)
+3. [Mocks de módulos con jest.mock y aislamiento](./1-teoria/03-mocks-de-modulos-jest.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Mocks de funciones y spies](./2-practicas/ejercicio-01-mocks-funciones-y-spies/)
-- [Ejercicio 02 - Mocks de modulos](./2-practicas/ejercicio-02-mocks-modulos/)
+- [Ejercicio 02 - Mocks de módulos](./2-practicas/ejercicio-02-mocks-modulos/)
 
 ### Proyecto
 
@@ -50,12 +50,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -92,12 +92,12 @@ week-10-mocks_avanzados_en_jest/
 
 ## Nota Importante
 
-Un mock aporta valor cuando ayuda a aislar el comportamiento bajo prueba. Si mockeas demasiadas capas, puedes probar la implementacion del mock y no la logica real.
+Un mock aporta valor cuando ayuda a aislar el comportamiento bajo prueba. Si mockeas demasiadas capas, puedes probar la implementación del mock y no la lógica real.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 09 - Testing asincrono con Jest](../week-09-testing_asincrono_con_jest/README.md) | [Semana 11 - TDD en JavaScript con Jest](../week-11-tdd_con_jest/README.md) |
+| [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) | [Semana 11 - TDD en JavaScript con Jest](../week-11-tdd_con_jest/README.md) |

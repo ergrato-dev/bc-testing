@@ -26,7 +26,7 @@ class ItemService {
   }
 
   // Reintenta la lectura del repositorio cuando falla (por ejemplo, un timeout de red).
-  // Espera `delay` ms entre intentos y rechaza con el ultimo error si se agotan los reintentos.
+  // Espera `delay` ms entre intentos y rechaza con el último error si se agotan los reintentos.
   async findByIdWithRetry(id, retries = 2, delay = 500) {
     for (let attempt = 0; ; attempt++) {
       try {

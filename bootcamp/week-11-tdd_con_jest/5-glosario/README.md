@@ -2,23 +2,23 @@
 
 ## G
 
-- **green**: etapa donde el test pasa con la implementacion minima necesaria.
+- **green**: etapa donde el test pasa con la implementación mínima necesaria.
 
 ## K
 
-- **kata**: ejercicio de practica deliberada usado para entrenar el ciclo TDD (ej. FizzBuzz, String Calculator).
+- **kata**: ejercicio de práctica deliberada usado para entrenar el ciclo TDD (ej. FizzBuzz, String Calculator).
 
 ## R
 
-- **red**: etapa donde un test nuevo falla por la razon esperada.
-- **refactor**: mejora interna del codigo sin cambiar comportamiento observable.
+- **red**: etapa donde un test nuevo falla por la razón esperada.
+- **refactor**: mejora interna del código sin cambiar comportamiento observable.
 
 ## S
 
-- **small step**: cambio pequeno que reduce riesgo y facilita rollback.
+- **small step**: cambio pequeño que reduce riesgo y facilita rollback.
 - **safety net**: conjunto de tests que protege contra regresiones.
 
 ## T
 
-- **tdd**: practica de desarrollo guiada por tests en ciclos cortos.
-- **test-first**: principio de escribir test antes del codigo de produccion.
+- **tdd**: práctica de desarrollo guiada por tests en ciclos cortos.
+- **test-first**: principio de escribir test antes del código de producción.

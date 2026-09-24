@@ -1,4 +1,4 @@
-# Semana 08 - JavaScript Testing II: Matchers Avanzados y Parametrizacion
+# Semana 08 - JavaScript Testing II: Matchers Avanzados y Parametrización
 
 > **Etapa 1 - Testing con JavaScript** | Semana 8 de 15
 
@@ -8,23 +8,23 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
-1. Seleccionar matchers avanzados de Jest segun tipo de dato y comportamiento esperado.
-2. Diseñar tests parametrizados con `test.each` para reducir duplicacion.
+1. Seleccionar matchers avanzados de Jest según tipo de dato y comportamiento esperado.
+2. Diseñar tests parametrizados con `test.each` para reducir duplicación.
 3. Mejorar legibilidad de assertions complejas en objetos, arrays y errores.
-4. Mantener tests aislados y expresivos con patron AAA.
+4. Mantener tests aislados y expresivos con patrón AAA.
 5. Analizar fallos de assertions para depurar con mayor velocidad.
-6. Consolidar una base robusta para testing asincrono y mocking avanzado.
+6. Consolidar una base robusta para testing asíncrono y mocking avanzado.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Matchers avanzados, parametrizacion y lectura de errores | 2.5 h |
-| Practicas | Ejercicios guiados con `test.each` y assertions complejas | 3 h |
+| Teoría | Matchers avanzados, parametrización y lectura de errores | 2.5 h |
+| Prácticas | Ejercicios guiados con `test.each` y assertions complejas | 3 h |
 | Proyecto | Suite del dominio con casos parametrizados | 2 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
@@ -32,16 +32,16 @@ Al finalizar esta semana seras capaz de:
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
 1. [Matchers avanzados en Jest](./1-teoria/01-matchers-avanzados-jest.md)
 2. [Tests parametrizados con `test.each`](./1-teoria/02-tests-parametrizados-jest.md)
-3. [Legibilidad de assertions y analisis de fallos](./1-teoria/03-legibilidad-assertions-y-fallos.md)
+3. [Legibilidad de assertions y análisis de fallos](./1-teoria/03-legibilidad-assertions-y-fallos.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Matchers avanzados](./2-practicas/ejercicio-01-matchers-avanzados/)
-- [Ejercicio 02 - Parametrizacion con `test.each`](./2-practicas/ejercicio-02-parametrizacion-test-each/)
+- [Ejercicio 02 - Parametrización con `test.each`](./2-practicas/ejercicio-02-parametrizacion-test-each/)
 
 ### Proyecto
 
@@ -50,12 +50,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -93,12 +93,12 @@ week-08-matchers_avanzados_y_parametrizacion/
 
 ## Nota Importante
 
-Esta semana apunta a escribir menos codigo repetido y mas intencion de prueba. Un buen matcher y una buena tabla de casos hacen la suite mas mantenible.
+Esta semana apunta a escribir menos código repetido y más intención de prueba. Un buen matcher y una buena tabla de casos hacen la suite más mantenible.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 07 - Jest avanzado y organizacion](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Testing asincrono con Jest](../week-09-testing_asincrono_con_jest/README.md) |
+| [Semana 07 - Jest avanzado y organización](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) |

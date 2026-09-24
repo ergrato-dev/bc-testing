@@ -8,19 +8,19 @@
 
 ## Objetivo
 
-Dominar el ciclo base de TDD y su impacto en calidad y diseno.
+Dominar el ciclo base de TDD y su impacto en calidad y diseño.
 
 ---
 
 ## Fases del ciclo
 
-1. **Red**: escribir un test que falle por la razon correcta.
-2. **Green**: implementar el minimo codigo para que pase.
+1. **Red**: escribir un test que falle por la razón correcta.
+2. **Green**: implementar el mínimo código para que pase.
 3. **Refactor**: mejorar estructura sin cambiar comportamiento.
 
 ---
 
-## Ejemplo minimo
+## Ejemplo mínimo
 
 ```javascript
 test("should apply 10 percent discount when user is premium", () => {
@@ -29,19 +29,19 @@ test("should apply 10 percent discount when user is premium", () => {
 });
 ```
 
-- En **Red**, `calculateDiscount` aun no existe o no cumple.
-- En **Green**, implementas logica minima.
-- En **Refactor**, limpias nombres, duplicacion y legibilidad.
+- En **Red**, `calculateDiscount` aún no existe o no cumple.
+- En **Green**, implementas lógica mínima.
+- En **Refactor**, limpias nombres, duplicación y legibilidad.
 
 ---
 
 ## Mini-kata: formatear el contador de un show de planetario
 
-El planetario necesita mostrar el tiempo restante de una proyeccion como `mm:ss`. Recibe segundos totales y debe devolver un string con dos digitos por unidad. Vamos a recorrer el ciclo completo, un test a la vez.
+El planetario necesita mostrar el tiempo restante de una proyección como `mm:ss`. Recibe segundos totales y debe devolver un string con dos dígitos por unidad. Vamos a recorrer el ciclo completo, un test a la vez.
 
 ### Paso 1 - Red
 
-Escribimos el primer test antes de que exista implementacion:
+Escribimos el primer test antes de que exista implementación:
 
 ```javascript
 // duration.test.js
@@ -61,7 +61,7 @@ FAIL ./duration.test.js
     Cannot find module './duration' from 'duration.test.js'
 ```
 
-Si creas `duration.js` vacio (`module.exports = {};`), el fallo pasa a ser del test:
+Si creas `duration.js` vacío (`module.exports = {};`), el fallo pasa a ser del test:
 
 ```text
 FAIL ./duration.test.js
@@ -70,9 +70,9 @@ FAIL ./duration.test.js
     TypeError: formatDuration is not a function
 ```
 
-Ambos son Red por la razon correcta: no hay implementacion, no un typo ni un test mal escrito. El segundo es preferible porque ya confirma que el test se ejecuta.
+Ambos son Red por la razón correcta: no hay implementación, no un typo ni un test mal escrito. El segundo es preferible porque ya confirma que el test se ejecuta.
 
-### Paso 2 - Green (implementacion minima, sin pulir)
+### Paso 2 - Green (implementación mínima, sin pulir)
 
 ```javascript
 // duration.js
@@ -87,12 +87,12 @@ function formatDuration(totalSeconds) {
 module.exports = { formatDuration };
 ```
 
-El test pasa. La implementacion funciona pero es ruidosa: concatenacion manual y padding repetido. No se toca todavia, primero hay evidencia en verde.
+El test pasa. La implementación funciona pero es ruidosa: concatenación manual y padding repetido. No se toca todavía, primero hay evidencia en verde.
 
-### Paso 3 - Refactor (con el test como red de proteccion)
+### Paso 3 - Refactor (con el test como red de protección)
 
 ```javascript
-// duration.js (despues)
+// duration.js (después)
 function formatDuration(totalSeconds) {
   const pad = (unit) => String(unit).padStart(2, "0");
   const minutes = Math.floor(totalSeconds / 60);
@@ -103,7 +103,7 @@ function formatDuration(totalSeconds) {
 module.exports = { formatDuration };
 ```
 
-Se corre `jest` de nuevo: sigue en verde. El comportamiento externo (`formatDuration(65) === "01:05"`) no cambio, solo la estructura interna. Eso es un refactor legitimo.
+Se corre `jest` de nuevo: sigue en verde. El comportamiento externo (`formatDuration(65) === "01:05"`) no cambio, solo la estructura interna. Eso es un refactor legítimo.
 
 ---
 
@@ -116,6 +116,6 @@ Si el test no falla primero, no tienes evidencia de que protege el comportamient
 ## Errores comunes
 
 - Escribir varios tests antes de correr el primero.
-- Implementar de mas en Green (por ejemplo, manejar horas cuando ningun test lo pide todavia).
+- Implementar de más en Green (por ejemplo, manejar horas cuando ningún test lo pide todavía).
 - Refactorizar cambiando comportamiento sin nuevos tests.
-- Saltar el paso de correr la suite despues del refactor, asumiendo que "se ve bien".
+- Saltar el paso de correr la suite después del refactor, asumiendo que "se ve bien".

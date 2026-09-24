@@ -1,53 +1,53 @@
-# 02 - Micro-ciclos TDD y Diseno Emergente
+# 02 - Micro-ciclos TDD y Diseño Emergente
 
 > **Lenguaje:** JavaScript (Jest)
 
 ![Micro-pasos TDD](../0-assets/02-micro-pasos-tdd.svg)
-![Arbol de decision del siguiente test](../0-assets/03-arbol-decision-siguiente-test.svg)
+![Árbol de decisión del siguiente test](../0-assets/03-arbol-decision-siguiente-test.svg)
 
 ---
 
 ## Objetivo
 
-Reducir riesgo con pasos pequenos y decisiones guiadas por comportamiento.
+Reducir riesgo con pasos pequeños y decisiones guiadas por comportamiento.
 
 ---
 
-## Por que micro-ciclos
+## Por qué micro-ciclos
 
-Los micro-ciclos permiten feedback rapido, menor complejidad y deteccion temprana de problemas de diseno.
+Los micro-ciclos permiten feedback rápido, menor complejidad y detección temprana de problemas de diseño.
 
 ---
 
 ## Secuencia recomendada
 
 1. Agrega un caso simple (happy path).
-2. Hazlo pasar con implementacion minima.
-3. Agrega un borde (input invalido).
-4. Ajusta implementacion y refactoriza.
+2. Hazlo pasar con implementación mínima.
+3. Agrega un borde (input inválido).
+4. Ajusta implementación y refactoriza.
 5. Repite.
 
 ---
 
-## Patron de crecimiento
+## Patrón de crecimiento
 
 - De ejemplo concreto a regla general.
 - De un escenario a variaciones controladas.
-- De implementacion directa a abstracciones necesarias.
+- De implementación directa a abstracciones necesarias.
 
 ---
 
-## Senales de buen diseno emergente
+## Señales de buen diseño emergente
 
-- Funciones pequenas y con responsabilidad clara.
-- Menor acoplamiento entre modulos.
-- Pruebas faciles de leer y mantener.
+- Funciones pequeñas y con responsabilidad clara.
+- Menor acoplamiento entre módulos.
+- Pruebas fáciles de leer y mantener.
 
 ---
 
 ## Fake it till you make it
 
-Tecnica para el primer test: en Green, devuelves una constante que satisface el unico caso conocido, sin construir logica que ningun test exige aun. El proximo test obliga a generalizar.
+Técnica para el primer test: en Green, devuelves una constante que satisface el único caso conocido, sin construir lógica que ningún test exige aún. El próximo test obliga a generalizar.
 
 ```javascript
 function admissionCategory(age) {
@@ -55,11 +55,11 @@ function admissionCategory(age) {
 }
 ```
 
-No es pereza, es evitar diseno especulativo: la logica real la va a pedir el siguiente test, no la imaginacion del autor.
+No es pereza, es evitar diseño especulativo: la lógica real la va a pedir el siguiente test, no la imaginación del autor.
 
 ---
 
-## Triangulacion: cada test empuja el diseno
+## Triangulación: cada test empuja el diseño
 
 Ejemplo: `admissionCategory(age)` debe clasificar visitantes de un planetario en `"infantil"`, `"adulto"` o `"senior"`.
 
@@ -71,9 +71,9 @@ test("should classify age 10 as infantil", () => {
 });
 ```
 
-Implementacion minima (constante, ver seccion anterior). Pasa, pero es obviamente incompleta.
+Implementación mínima (constante, ver sección anterior). Pasa, pero es obviamente incompleta.
 
-### Test 2 - fuerza logica real
+### Test 2 - fuerza lógica real
 
 ```javascript
 test("should classify age 30 as adulto", () => {
@@ -81,7 +81,7 @@ test("should classify age 30 as adulto", () => {
 });
 ```
 
-La constante ya no alcanza. Un solo `if` no basta con dos categorias, asi que aparece la primera condicion real:
+La constante ya no alcanza. Un solo `if` no basta con dos categorías, así que aparece la primera condición real:
 
 ```javascript
 function admissionCategory(age) {
@@ -98,7 +98,7 @@ test("should classify age 65 as senior", () => {
 });
 ```
 
-Ahora el diseno se completa con el tercer caso, sin anticiparlo antes de tiempo:
+Ahora el diseño se completa con el tercer caso, sin anticiparlo antes de tiempo:
 
 ```javascript
 function admissionCategory(age) {
@@ -108,12 +108,12 @@ function admissionCategory(age) {
 }
 ```
 
-Tres tests, tres decisiones de diseno, cada una motivada por un caso concreto y no por especulacion. Eso es triangulacion: el conjunto de tests "acorrala" la implementacion hasta que la regla general emerge sola.
+Tres tests, tres decisiones de diseño, cada una motivada por un caso concreto y no por especulación. Eso es triangulación: el conjunto de tests "acorrala" la implementación hasta que la regla general emerge sola.
 
 ---
 
 ## Errores frecuentes
 
 - Escribir la regla general completa en el primer Green, sin dejar que los tests la motiven.
-- Agregar categorias o parametros que ningun test pide todavia.
-- Triangular con casos redundantes que no agregan una decision de diseno nueva.
+- Agregar categorías o parámetros que ningún test pide todavía.
+- Triangular con casos redundantes que no agregan una decisión de diseño nueva.

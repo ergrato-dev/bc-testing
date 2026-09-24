@@ -31,9 +31,9 @@ const { buildProduct, sumPrices, validatePrice } = require("./product.utils");
 // });
 
 // ============================================
-// PASO 2: Inclusion, forma parcial y propiedades anidadas
+// PASO 2: Inclusión, forma parcial y propiedades anidadas
 // ============================================
-// describe("inclusion, forma parcial y propiedades", () => {
+// describe("inclusión, forma parcial y propiedades", () => {
 //   test("should include active tag when product is built", () => {
 //     const result = buildProduct("Notebook", 1200);
 //     expect(result.tags).toContain("active");
@@ -63,7 +63,7 @@ const { buildProduct, sumPrices, validatePrice } = require("./product.utils");
 // ============================================
 // PASO 3: Decimales con toBeCloseTo
 // ============================================
-// describe("numeros decimales", () => {
+// describe("números decimales", () => {
 //   test("should sum decimal prices with floating point tolerance", () => {
 //     const total = sumPrices([0.1, 0.2]);
 //     expect(total).not.toBe(0.3);

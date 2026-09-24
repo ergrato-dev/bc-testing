@@ -8,8 +8,8 @@ const { ItemService } = require("./item.service");
 // NOTA PARA EL APRENDIZ:
 // Adapta esta suite a tu dominio asignado.
 // Ejemplos:
-// - Museo: ExhibitService (exhibicion)
-// - Planetario: SessionService (sesion)
+// - Museo: ExhibitService (exhibición)
+// - Planetario: SessionService (sesión)
 // - Acuario: SpeciesService (especie)
 
 describe("ItemService", () => {
@@ -46,7 +46,7 @@ describe("ItemService", () => {
   });
 
   describe("spies and interactions", () => {
-    // TODO: Agregar test con spy o verificacion detallada de llamadas
+    // TODO: Agregar test con spy o verificación detallada de llamadas
     // 1. should call markAsActive once when activation succeeds
   });
 });

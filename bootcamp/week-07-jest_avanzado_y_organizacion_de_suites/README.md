@@ -1,4 +1,4 @@
-# Semana 07 - JavaScript Testing I: Jest Avanzado y Organizacion de Suites
+# Semana 07 - JavaScript Testing I: Jest Avanzado y Organización de Suites
 
 > **Etapa 1 - Testing con JavaScript** | Semana 7 de 15
 
@@ -8,23 +8,23 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
 1. Organizar suites de tests en Jest con `describe` anidados por comportamiento.
 2. Aplicar hooks de ciclo de vida (`beforeAll`, `beforeEach`, `afterEach`, `afterAll`) con criterio.
-3. Diferenciar `mock`, `stub` y `spy` en escenarios basicos de aislamiento.
-4. Diseñar suites legibles con patron AAA y nombres de test profesionales.
-5. Ejecutar tests por archivo y por patron usando `pnpm`.
-6. Preparar una base de trabajo para temas avanzados de mocking y asincronia.
+3. Diferenciar `mock`, `stub` y `spy` en escenarios básicos de aislamiento.
+4. Diseñar suites legibles con patrón AAA y nombres de test profesionales.
+5. Ejecutar tests por archivo y por patrón usando `pnpm`.
+6. Preparar una base de trabajo para temas avanzados de mocking y asincronía.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Organizacion, hooks y fundamentos de test doubles | 2.5 h |
-| Practicas | Ejercicios guiados de estructura y aislamiento basico | 3 h |
+| Teoría | Organización, hooks y fundamentos de test doubles | 2.5 h |
+| Prácticas | Ejercicios guiados de estructura y aislamiento básico | 3 h |
 | Proyecto | Suite inicial modular del dominio asignado | 2 h |
 | Recursos y cierre | Refuerzo y checklist de calidad | 0.5 h |
 
@@ -32,16 +32,16 @@ Al finalizar esta semana seras capaz de:
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
-1. [Organizacion de suites y convenciones de Jest](./1-teoria/01-organizacion-suites-jest.md)
+1. [Organización de suites y convenciones de Jest](./1-teoria/01-organizacion-suites-jest.md)
 2. [Ciclo de vida de pruebas con hooks](./1-teoria/02-ciclo-de-vida-hooks-jest.md)
-3. [Introduccion a mocks, stubs y spies](./1-teoria/03-intro-mocks-stubs-spies-jest.md)
+3. [Introducción a mocks, stubs y spies](./1-teoria/03-intro-mocks-stubs-spies-jest.md)
 
-### Practicas
+### Prácticas
 
-- [Ejercicio 01 - Organizacion de suite Jest](./2-practicas/ejercicio-01-organizacion-suite-jest/)
-- [Ejercicio 02 - Hooks y mocks basicos](./2-practicas/ejercicio-02-hooks-y-mocks-basicos/)
+- [Ejercicio 01 - Organización de suite Jest](./2-practicas/ejercicio-01-organizacion-suite-jest/)
+- [Ejercicio 02 - Hooks y mocks básicos](./2-practicas/ejercicio-02-hooks-y-mocks-basicos/)
 
 ### Proyecto
 
@@ -50,12 +50,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -92,12 +92,12 @@ week-07-jest_avanzado_y_organizacion_de_suites/
 
 ## Nota Importante
 
-En esta semana comienza la etapa enfocada solo en JavaScript. La prioridad es mejorar la arquitectura de tests antes de aumentar complejidad tecnica.
+En esta semana comienza la etapa enfocada solo en JavaScript. La prioridad es mejorar la arquitectura de tests antes de aumentar complejidad técnica.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 06 - Cierre de Fundamentos](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: matchers avanzados y parametrizacion](../week-08-matchers_avanzados_y_parametrizacion/README.md) |
+| [Semana 06 - Cierre de Fundamentos](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) |

@@ -3,9 +3,9 @@ const { calculateTotal, validateOrder } = require("./order.service");
 // Suite principal: agrupa todo el comportamiento de OrderService.
 describe("OrderService", () => {
   // ============================================
-  // PASO 1: Anida un describe por metodo (calculateTotal)
+  // PASO 1: Anida un describe por método (calculateTotal)
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // describe("calculateTotal", () => {
   //   test("should return total amount when items are valid", () => {
   //     const items = [
@@ -21,17 +21,17 @@ describe("OrderService", () => {
 
   describe("validateOrder", () => {
     // ============================================
-    // PASO 2: Caso invalido dentro del grupo validateOrder
+    // PASO 2: Caso inválido dentro del grupo validateOrder
     // ============================================
-    // Descomenta las siguientes lineas:
+    // Descomenta las siguientes líneas:
     // test("should throw ValidationError when items are empty", () => {
     //   expect(() => validateOrder([])).toThrow("ValidationError");
     // });
 
     // ============================================
-    // PASO 3: Caso valido en el mismo grupo
+    // PASO 3: Caso válido en el mismo grupo
     // ============================================
-    // Descomenta las siguientes lineas:
+    // Descomenta las siguientes líneas:
     // test("should return true when items contain at least one entry", () => {
     //   const result = validateOrder([{ price: 1, quantity: 1 }]);
     //   expect(result).toBe(true);
