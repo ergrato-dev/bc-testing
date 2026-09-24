@@ -29,5 +29,6 @@ Compara con `solution/report.builder.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test report.builder.test.js --coverage
+pnpm install
+pnpm test:coverage report.builder.test.js
 ```

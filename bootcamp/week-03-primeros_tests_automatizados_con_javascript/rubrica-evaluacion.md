@@ -89,7 +89,7 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 
 | Situación | Penalización |
 |---|---|
-| Uso de `npm` en lugar de `pnpm`/`yarn` | −3 pts |
+| Uso de `npm` en lugar de `pnpm` | −3 pts |
 | Nombres genéricos de test (`test1`, `it works`) | −2 pts c/u (máx −6) |
 | Tests sin assertions reales | −2 pts c/u (máx −8) |
 | Uso de datos reales sensibles en fixtures | −5 pts |

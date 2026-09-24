@@ -19,5 +19,6 @@ Controlar el tiempo de ejecucion en tests de retry usando fake timers.
 ## Comando sugerido
 
 ```bash
-yarn test retry.service.test.js
+pnpm install
+pnpm test retry.service.test.js
 ```

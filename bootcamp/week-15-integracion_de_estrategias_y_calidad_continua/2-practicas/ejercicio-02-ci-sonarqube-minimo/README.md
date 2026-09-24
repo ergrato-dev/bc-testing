@@ -16,7 +16,7 @@ Abre `starter/.github/workflows/js-quality.yml` y descomenta PASO 1.
 
 ### Paso 2: Ejecutar tests con coverage
 
-Descomenta PASO 2 para correr `yarn test --coverage`.
+Descomenta PASO 2 para correr `pnpm test:coverage`.
 
 ### Paso 3: Integrar SonarQube Scan
 
@@ -33,5 +33,6 @@ Revisa la carpeta `solution/`.
 ## Comando local sugerido
 
 ```bash
-yarn test --coverage
+pnpm install
+pnpm test:coverage
 ```

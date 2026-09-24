@@ -13,7 +13,7 @@ Definir y validar propiedades invariantes en una funcion de limpieza de texto.
 Instalar dependencia de testing:
 
 ```bash
-yarn add -D fast-check
+pnpm install
 ```
 
 ## Paso a paso
@@ -37,5 +37,6 @@ Compara con `solution/text-normalizer.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test text-normalizer.test.js
+pnpm install
+pnpm test text-normalizer.test.js
 ```

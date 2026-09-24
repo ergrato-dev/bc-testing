@@ -69,7 +69,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 | Usa `resolves/rejects` cuando corresponde | 5 |
 | Controla timers/retries si aplica | 5 |
 | Nomenclatura profesional y legibilidad | 4 |
-| Evidencia de ejecucion con `yarn` o `pnpm` | 4 |
+| Evidencia de ejecucion con `pnpm` | 4 |
 | **Total** | **30** |
 
 ---
@@ -78,7 +78,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 
 | Situacion | Penalizacion |
 |---|---|
-| Uso de `npm` en lugar de `pnpm`/`yarn` | -3 |
+| Uso de `npm` en lugar de `pnpm` | -3 |
 | Tests asincronos sin `await/return` correcto | -2 c/u (max -8) |
 | Tests flaky por timers mal gestionados | -2 c/u (max -8) |
 | Dependencia de servicios externos reales | -5 |

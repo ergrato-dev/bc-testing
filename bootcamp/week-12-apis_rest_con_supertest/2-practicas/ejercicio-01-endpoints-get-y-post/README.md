@@ -29,5 +29,6 @@ Compara con `solution/app.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test app.test.js
+pnpm install
+pnpm test app.test.js
 ```

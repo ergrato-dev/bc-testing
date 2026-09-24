@@ -75,7 +75,7 @@ Estos dos tests ejecutan la unica sentencia `return` de la funcion en cada corri
 
 ## Leer el reporte HTML de Istanbul (rojo / amarillo / verde)
 
-Al correr `yarn test --coverage`, Jest genera `coverage/lcov-report/index.html`. Abrirlo en el navegador muestra el arbol de archivos con porcentajes; entrar a un archivo muestra el codigo fuente coloreado linea por linea.
+Al correr `pnpm test:coverage`, Jest genera `coverage/lcov-report/index.html`. Abrirlo en el navegador muestra el arbol de archivos con porcentajes; entrar a un archivo muestra el codigo fuente coloreado linea por linea.
 
 | Color | Significado |
 |---|---|

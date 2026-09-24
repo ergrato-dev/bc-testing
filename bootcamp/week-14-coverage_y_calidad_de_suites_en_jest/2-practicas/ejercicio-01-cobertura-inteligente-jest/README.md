@@ -33,5 +33,6 @@ Revisa `solution/pricing.service.test.js` y discute que ramas aportan mas confia
 ## Comando sugerido
 
 ```bash
-yarn test pricing.service.test.js --coverage
+pnpm install
+pnpm test:coverage pricing.service.test.js
 ```

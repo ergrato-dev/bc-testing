@@ -29,5 +29,6 @@ Compara con `solution/profile.presenter.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test profile.presenter.test.js
+pnpm install
+pnpm test profile.presenter.test.js
 ```

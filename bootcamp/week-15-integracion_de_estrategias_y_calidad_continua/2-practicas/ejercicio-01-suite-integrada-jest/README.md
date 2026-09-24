@@ -11,7 +11,7 @@ Unificar en un mismo modulo tests unitarios, de integracion ligera y de invarian
 ## Requisito previo
 
 ```bash
-yarn add -D fast-check
+pnpm install
 ```
 
 ## Paso a paso
@@ -39,5 +39,6 @@ Revisa `solution/__tests__/order.summary.test.js`.
 ## Comando sugerido
 
 ```bash
-yarn test order.summary.test.js --coverage
+pnpm install
+pnpm test:coverage order.summary.test.js
 ```

@@ -35,6 +35,6 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 ## Ejecucion sugerida
 
 ```bash
-yarn add -D fast-check
-yarn test
+pnpm install
+pnpm test
 ```

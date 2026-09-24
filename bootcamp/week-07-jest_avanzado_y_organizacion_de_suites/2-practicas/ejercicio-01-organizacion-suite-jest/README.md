@@ -19,5 +19,6 @@ Reestructurar una suite plana en una suite organizada por comportamiento usando 
 ## Comando sugerido
 
 ```bash
-yarn test order.service.test.js
+pnpm install
+pnpm test order.service.test.js
 ```

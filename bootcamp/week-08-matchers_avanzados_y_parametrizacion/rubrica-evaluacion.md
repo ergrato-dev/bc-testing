@@ -69,7 +69,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 | Matchers apropiados y consistentes | 5 |
 | Incluye validaciones y edge cases | 5 |
 | Nombres de test claros y profesionales | 4 |
-| Evidencia de ejecucion con `yarn` o `pnpm` | 4 |
+| Evidencia de ejecucion con `pnpm` | 4 |
 | **Total** | **30** |
 
 ---
@@ -78,7 +78,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 
 | Situacion | Penalizacion |
 |---|---|
-| Uso de `npm` en lugar de `pnpm`/`yarn` | -3 |
+| Uso de `npm` en lugar de `pnpm` | -3 |
 | Tests duplicados sin parametrizacion | -2 c/u (max -8) |
 | Assertions ambiguas o debiles | -2 c/u (max -8) |
 | Dependencia de recursos externos en unit tests | -5 |

@@ -19,5 +19,6 @@ Reducir duplicacion de tests mediante tablas de casos claras y mantenibles.
 ## Comando sugerido
 
 ```bash
-yarn test discount.service.test.js
+pnpm install
+pnpm test discount.service.test.js
 ```

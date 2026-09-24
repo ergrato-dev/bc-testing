@@ -128,7 +128,7 @@ En las semanas siguientes configuraremos y usaremos tres entornos de testing:
 
 | Entorno | Lenguaje | Framework principal | Gestor |
 | --- | --- | --- | --- |
-| Node.js 20 LTS | JavaScript | Jest 29 | pnpm |
+| Node.js 22 LTS | JavaScript | Jest 30 | pnpm |
 | Python 3.12 | Python | pytest 8 | uv |
 | JDK 21 LTS | Java | JUnit 5.10 | Maven |
 

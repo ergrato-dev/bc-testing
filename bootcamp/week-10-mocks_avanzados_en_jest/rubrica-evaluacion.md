@@ -63,7 +63,7 @@
 
 ## Penalizaciones
 
-- Uso de gestor no recomendado en JavaScript de la ruta formativa (`npm` en lugar de `yarn/pnpm`): hasta -5 pts.
+- Uso de gestor no recomendado en JavaScript de la ruta formativa (`npm` en lugar de `pnpm`): hasta -5 pts.
 - Nombres de tests genericos (`test1`, `works`): hasta -5 pts.
 - Mezcla de idiomas en nomenclatura tecnica (variables/metodos en espanol): hasta -5 pts.
 - Evidencias sin ejecucion verificable de tests: hasta -10 pts.

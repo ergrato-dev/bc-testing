@@ -19,5 +19,6 @@ Aplicar matchers avanzados para validar estructuras, inclusiones y errores con m
 ## Comando sugerido
 
 ```bash
-yarn test product.utils.test.js
+pnpm install
+pnpm test product.utils.test.js
 ```
