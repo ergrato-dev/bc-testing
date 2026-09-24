@@ -527,7 +527,7 @@ Antes de considerar una semana completa:
 
 - ❌ **NUNCA** usar `npm` en proyectos JavaScript
 - ✅ **SOLO** usar `pnpm` (❌ NUNCA `yarn`)
-- ✅ Python: usar `uv` (recomendado moderno) o `pip` con `venv`
+- ✅ Python: usar `uv` (`uv sync`, `uv run pytest`) con `pyproject.toml` por starter/solution; `pip` + `venv` solo como alternativa mencionada
 - ✅ Java: usar `Maven` (por defecto) o `Gradle`
 
 ### Versiones de Lenguajes y Frameworks

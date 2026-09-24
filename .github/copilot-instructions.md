@@ -360,9 +360,13 @@ class MethodName {
 
 **Python**:
 
-- Python 3.12+, type hints donde sea útil
-- `uv` (recomendado) o `pip` + `venv`
-- Nombres de test en snake_case: `test_should_validate_email`
+- Python 3.14 (`.python-version` en la raíz), type hints donde sea útil
+- Gestor: `uv` únicamente en instrucciones (`uv sync`, `uv run pytest`); `pip` + `venv` solo como alternativa mencionada
+- Cada `starter/` y `solution/` con código Python lleva su propio `pyproject.toml`:
+  `requires-python = ">=3.14"`, `[dependency-groups] dev` con versiones exactas (`pytest==9.1.1`),
+  configuración de pytest en la tabla nativa `[tool.pytest]` (`pythonpath = ["."]`, `testpaths` si hay `tests/`).
+  Sin `requirements.txt` ni `uv.lock` versionados
+- Nombres de test en snake_case: `test_[context]_[expected]_when_[condition]` (ej. `test_email_is_rejected_when_domain_is_missing`)
 - Fixtures en `conftest.py` cuando se comparten entre módulos
 
 **Java**:
@@ -391,8 +395,8 @@ class MethodName {
 | Herramienta    | Versión | Propósito                    |
 | -------------- | ------- | ---------------------------- |
 | pytest         | 9+      | Testing framework principal  |
-| pytest-cov     | 4+      | Code coverage                |
-| pytest-asyncio | 0.23+   | Testing asíncrono            |
+| pytest-cov     | 7+      | Code coverage                |
+| pytest-asyncio | 1.4+    | Testing asíncrono (S19)      |
 | pytest-mock    | 3+      | Wrapper de unittest.mock     |
 | httpx + respx  | latest  | Testing de APIs async        |
 | Behave         | 1.2+    | BDD (Gherkin)                |
@@ -579,9 +583,10 @@ pytest~=8.3         # compatible con 8.3.x (aún flotante)
 "jest": "29.7.0"
 ```
 
-```txt
-# requirements.txt
-pytest==8.3.5
+```toml
+# pyproject.toml
+[dependency-groups]
+dev = ["pytest==9.1.1"]
 ```
 
 ```xml
@@ -605,7 +610,7 @@ pytest==8.3.5
 pnpm audit --audit-level moderate
 
 # Python
-pip-audit -r requirements.txt
+uvx pip-audit
 
 # Java — revisar manualmente que no existan LATEST/RELEASE/rangos en pom.xml
 grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
@@ -624,7 +629,7 @@ grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
 
 1. **Usa siempre las herramientas correctas por lenguaje**
    - JavaScript: Jest 30+ con `pnpm` (❌ NUNCA `npm` ni `yarn`)
-   - Python: pytest 9+ con `uv` (recomendado) o `pip`+`venv`
+   - Python: pytest 9+ con `uv` (`uv sync` + `uv run pytest`)
    - Java: JUnit 5 + AssertJ + Mockito con Maven
 
 2. **Sigue el patrón AAA en todos los tests**
