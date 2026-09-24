@@ -4,41 +4,18 @@
 
 ---
 
-## Lectura obligatoria
-
-### Jest Documentation — Getting Started
-
-- URL: https://jestjs.io/docs/getting-started
-- Enfoque: instalación, primer test, comandos base
-- Tiempo estimado: 25 min
-
-### Jest Docs — Using Matchers
-
-- URL: https://jestjs.io/docs/using-matchers
-- Enfoque: `toBe`, `toEqual`, `toThrow`, truthy/falsy
-- Tiempo estimado: 20 min
+| Recurso | URL | Por qué leerlo |
+|---------|-----|----------------|
+| Jest — Getting Started | [jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started) | Instalación, primer test y script `test` (usa `pnpm` donde la doc dice `npm`) |
+| Jest — Using Matchers | [jestjs.io/docs/using-matchers](https://jestjs.io/docs/using-matchers) | `toBe`, `toEqual`, `toBeNull`, truthiness y `toThrow` con ejemplos oficiales |
+| Software Engineering at Google — Cap. 12 "Unit Testing" | [abseil.io/resources/swe-book/html/ch12.html](https://abseil.io/resources/swe-book/html/ch12.html) | Libro gratuito: tests claros, mantenibles y centrados en comportamiento |
+| JavaScript Testing Best Practices (Yoni Goldberg) | [github.com/goldbergyoni/javascript-testing-best-practices](https://github.com/goldbergyoni/javascript-testing-best-practices) | Secciones 1.1 (nombres de test) y 1.2 (patrón AAA) aplican directamente a esta semana |
+| The Practical Test Pyramid (Ham Vocke, martinfowler.com) | [martinfowler.com/articles/practical-test-pyramid.html](https://martinfowler.com/articles/practical-test-pyramid.html) | Contexto: dónde encajan los tests unitarios dentro de una estrategia completa |
 
 ---
 
-## Lectura recomendada
+## Sugerencia de estudio
 
-### Testing JavaScript Applications (capítulos introductorios)
-
-- Autor: Lucas da Costa
-- Cobertura: fundamentos de testing en JS
-- Buscar versión gratuita o extractos del autor
-
-### The Practical Test Pyramid
-
-- Autor: Martin Fowler
-- URL: https://martinfowler.com/articles/practical-test-pyramid.html
-- Enfoque: equilibrio entre tipos de tests
-
----
-
-## Lecturas cortas
-
-- https://kentcdodds.com/blog/common-mistakes-with-react-testing-library (errores comunes en assertions y calidad de tests)
-- https://blog.jetbrains.com/webstorm/2022/11/how-to-use-jest/ (flujo práctico de Jest)
-
-> Aunque algunos artículos mencionan UI, los principios de calidad de tests aplican igual para unit tests puros.
+- 25 min: Getting Started + Using Matchers.
+- 20 min: secciones 1.1 y 1.2 de JavaScript Testing Best Practices.
+- Opcional: capítulo 12 de *Software Engineering at Google*.

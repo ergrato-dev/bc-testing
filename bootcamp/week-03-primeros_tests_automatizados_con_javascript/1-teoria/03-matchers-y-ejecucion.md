@@ -16,6 +16,28 @@ Un matcher correcto comunica intención y evita falsos positivos.
 
 ---
 
+## ¿Qué es una aserción? `==` frente a `expect`
+
+Una **aserción** es una comprobación que **detiene el test y lo marca como fallido** si no se cumple. Una comparación con `==` (o `===`) solo produce un booleano: si nadie lo verifica, el test pasa aunque el resultado sea incorrecto.
+
+```javascript
+const add = (a, b) => a - b; // bug intencional
+
+test("comparación sin aserción: pasa aunque haya bug", () => {
+  const result = add(2, 3);
+  result == 5; // evalúa false, pero Jest no se entera
+});
+
+test("aserción: falla y explica por qué", () => {
+  const result = add(2, 3);
+  expect(result).toBe(5); // Expected: 5, Received: -1
+});
+```
+
+Además, `==` aplica conversión de tipos (`"5" == 5` es `true`), mientras que `toBe` compara sin conversión (`expect("5").toBe(5)` falla). Regla: **todo test necesita al menos un `expect`**.
+
+---
+
 ## Matchers fundamentales
 
 ### `toBe` — igualdad estricta (`===`)
@@ -46,8 +68,12 @@ expect(0).toBeFalsy();
 ### `toBeNull`
 
 ```javascript
-expect(result).toBeNull();
+const findUser = (id) => (id === 1 ? { id: 1 } : null);
+
+expect(findUser(99)).toBeNull();
 ```
+
+Más expresivo que `toBe(null)` y más estricto que `toBeFalsy()`: `undefined`, `0` o `""` no lo cumplen.
 
 ### `toThrow`
 

@@ -32,27 +32,29 @@ Desde terminal en esa carpeta:
 pnpm install
 ```
 
-### Paso 3 — Ejecutar tests
+### Paso 3 — Ejecutar tests (rojo)
 
 ```bash
 pnpm test
 ```
 
-Verás un test fallando por diseño. Lee el mensaje de error.
+Verás un test fallando por diseño: `should return 5 when adding 2 and 3` está activo en `tests/math.test.js`, pero `add` tiene un bug. Lee el mensaje de error (`Expected: 5`, `Received: -1`).
 
-### Paso 4 — Abrir test y descomentar por secciones
+### Paso 4 — PASO 1: corregir la función (verde)
 
-Abre `starter/tests/math.test.js` y sigue los bloques `PASO 1`, `PASO 2`, `PASO 3`.
+Abre `starter/src/math.js` y sigue el bloque `PASO 1`: sustituye la resta por la suma. Ejecuta `pnpm test` y comprueba que el test pasa a verde.
 
-### Paso 5 — Corregir función
+### Paso 5 — PASO 2 y PASO 3: añadir tests de `isEven`
 
-Abre `starter/src/math.js`. Hay una implementación intencionalmente incorrecta para practicar ciclo red-green.
+Abre `starter/tests/math.test.js` y descomenta los bloques `PASO 2` (número par) y `PASO 3` (número impar). Observa la estructura AAA de cada test.
 
 ### Paso 6 — Ejecutar de nuevo hasta ver todo en verde
 
 ```bash
 pnpm test
 ```
+
+Deben pasar los 3 tests.
 
 ---
 

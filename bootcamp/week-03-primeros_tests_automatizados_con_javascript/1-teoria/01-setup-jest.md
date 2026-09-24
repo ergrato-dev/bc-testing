@@ -111,6 +111,8 @@ describe("calculator", () => {
 
 ## Ejecutar la suite
 
+![Ciclo de ejecución de un test en Jest](../0-assets/01-ciclo-test-jest.svg)
+
 ```bash
 pnpm test
 ```
