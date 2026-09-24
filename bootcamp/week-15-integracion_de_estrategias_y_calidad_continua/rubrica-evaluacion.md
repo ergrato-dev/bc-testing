@@ -6,7 +6,7 @@
 |---|---:|---|
 | Conocimiento | 30% | Estrategia integrada y entendimiento de quality gates |
 | Desempeno | 40% | Practicas guiadas de suite integrada y CI minimo |
-| Producto | 30% | Cierre de etapa JS con pipeline y criterios de calidad |
+| Producto | 30% | Proyecto integrador (5 h de la semana): API + Supertest, coverage con umbral y pipeline |
 
 ---
 
@@ -49,9 +49,10 @@
 ### Criterios
 
 1. Adapta plantilla al dominio asignado.
-2. Implementa al menos 8 tests con mezcla de enfoques.
-3. Incluye pipeline basico de calidad automatizada.
-4. Documenta criterios de salida y deuda tecnica pendiente.
+2. Implementa al menos 8 tests con mezcla de enfoques, incluida integracion HTTP con Supertest sobre la capa API.
+3. Configura `coverageThreshold` y `collectCoverageFrom` y la suite cumple el umbral.
+4. Incluye pipeline de calidad automatizada con evidencia de `pnpm test:coverage` ejecutado en CI y quality gate bloqueante.
+5. Documenta criterios de salida y deuda tecnica pendiente.
 
 ### Niveles
 

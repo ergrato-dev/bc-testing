@@ -1,4 +1,4 @@
-function createItemQualityService(repository) {
+function createItemService(repository) {
   async function createItem(input) {
     if (!input || typeof input !== "object") {
       throw new Error("Invalid payload");
@@ -32,4 +32,4 @@ function createItemQualityService(repository) {
   return { createItem };
 }
 
-module.exports = { createItemQualityService };
+module.exports = { createItemService };

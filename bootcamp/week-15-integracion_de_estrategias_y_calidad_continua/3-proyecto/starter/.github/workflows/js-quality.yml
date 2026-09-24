@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # TODO: Agregar checkout con fetch-depth: 0
-      # TODO: Agregar setup node (version 20) con cache yarn
-      # TODO: Instalar dependencias con yarn install --frozen-lockfile
-      # TODO: Ejecutar tests con coverage (yarn test --coverage)
-      # TODO: Agregar SonarQube scan con SONAR_TOKEN y SONAR_HOST_URL
+      # TODO: Checkout con fetch-depth: 0 (actions/checkout pinado por SHA)
+      # TODO: Setup de pnpm con pnpm/action-setup (lee "packageManager" de package.json)
+      # TODO: Setup de Node 22 con actions/setup-node (sin cache: el repo no versiona pnpm-lock.yaml)
+      # TODO: Instalar dependencias con pnpm install
+      # TODO: Ejecutar pnpm test:coverage (debe fallar si no se cumple coverageThreshold)
+      # TODO: SonarQube scan con SonarSource/sonarqube-scan-action y el secreto SONAR_TOKEN

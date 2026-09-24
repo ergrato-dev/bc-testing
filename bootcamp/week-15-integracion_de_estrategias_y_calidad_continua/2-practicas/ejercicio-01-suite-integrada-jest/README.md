@@ -11,8 +11,11 @@ Unificar en un mismo modulo tests unitarios, de integracion ligera y de invarian
 ## Requisito previo
 
 ```bash
+cd starter
 pnpm install
 ```
+
+`pnpm install` instala `jest` y `fast-check` (ya declarados en `package.json` con version exacta); no hace falta agregar nada a mano.
 
 ## Paso a paso
 
