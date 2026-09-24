@@ -1,6 +1,7 @@
 const {
   buildPublicProfile,
   buildPublicProfileList,
+  buildProfileResponse,
 } = require("./profile.presenter");
 
 test("should build a public profile payload", () => {
@@ -51,4 +52,37 @@ test("should match snapshot for profile list", () => {
   ]);
 
   expect(list).toMatchSnapshot();
+});
+
+test("should match snapshot for profile response ignoring generatedAt", () => {
+  const response = buildProfileResponse({
+    id: "u-1",
+    firstName: "Ada",
+    lastName: "Lovelace",
+    role: "mentor",
+    isActive: true,
+  });
+
+  expect(response).toMatchSnapshot({
+    generatedAt: expect.any(String),
+  });
+});
+
+test("should match inline snapshot for public profile", () => {
+  const profile = buildPublicProfile({
+    id: "u-3",
+    firstName: "Grace",
+    lastName: "Hopper",
+    role: "mentor",
+    isActive: true,
+  });
+
+  expect(profile).toMatchInlineSnapshot(`
+{
+  "displayName": "Grace Hopper",
+  "id": "u-3",
+  "isActive": true,
+  "role": "mentor",
+}
+`);
 });

@@ -17,6 +17,18 @@ exports[`should match snapshot for profile list 1`] = `
 ]
 `;
 
+exports[`should match snapshot for profile response ignoring generatedAt 1`] = `
+{
+  "generatedAt": Any<String>,
+  "profile": {
+    "displayName": "Ada Lovelace",
+    "id": "u-1",
+    "isActive": true,
+    "role": "mentor",
+  },
+}
+`;
+
 exports[`should match snapshot for public profile 1`] = `
 {
   "displayName": "Ada Lovelace",
