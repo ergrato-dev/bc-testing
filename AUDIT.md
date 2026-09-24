@@ -147,3 +147,40 @@ Todas las solutions JS pasan con `CI=true pnpm test`; los starters descomentados
 - **Idioma**: verificado 2026-09 que no hay voseo en el repo (búsqueda de formas `-ás/-és/-ís`, imperativos `-á/-é/-í`, clíticos sin tilde y léxico rioplatense). Se encontraron 8 formas ambiguas sin tilde (`Fijate`, `importalo`, `requierelo`, `declaralo`, `Abrelo`...) y se normalizaron a tuteo con tilde. Regla "tuteo, nunca voseo" añadida a `copilot-instructions.md` y a la guía.
 - **Menores de estilo JS** fuera de alcance: `describe` en todos los tests, nombres con "when", layout `src/tests` uniforme, tildes en READMEs S07–S15.
 - **Python (S04, S16–S18) y Java**: pendiente de revisión equivalente (S04 falla con `pytest -v` por `pythonpath`; S16–S18 sin dependencias declaradas).
+
+---
+
+# Revisión integral Python — 2026-09
+
+**Alcance**: contenido Python publicado (S04, S06 parte Python, S16–S18) + paso de ortografía (tildes/ñ) en todo el contenido JS (S03, S06, S07–S15).
+**Rama**: `fix/revision-integral-python`. Referencias de la organización: `bc-python` (semana 13) y `bc-fastapi`.
+
+## Decisiones
+
+- Python 3.14 (`.python-version`), `uv` como único camino en instrucciones (`uv sync`, `uv run pytest`); `pip` + `venv` solo como alternativa mencionada en S04.
+- `pyproject.toml` por starter/solution/proyecto con `[dependency-groups] dev` fijado (`pytest==9.1.1`; `pytest-mock==3.15.1` en S18) y tabla nativa `[tool.pytest]` de pytest 9 (`pythonpath`, `testpaths`, `markers`). Sin `requirements.txt`, `pytest.ini` ni `uv.lock` versionados.
+- Nombres de test unificados: `test_[context]_[expected]_when_[condition]`.
+- Testing asíncrono en Python reubicado en S19 (`docs/plan-estudios.md`).
+
+## Hallazgos principales y estado
+
+| Hallazgo | Estado |
+|---|---|
+| Comandos de README no ejecutables: `ModuleNotFoundError: src` en S04 (también en el ejemplo de teoría), `import file mismatch` en S06/S16–S18 por ejecutar desde la carpeta del ejercicio, S16–S18 sin dependencias declaradas | ✅ `pyproject.toml` con `pythonpath`; README con `cd starter && uv sync && uv run pytest` |
+| S04 proyecto con dominios restringidos (Biblioteca/Farmacia/Gimnasio) y starter con `IndentationError` | ✅ Museo/Planetario/Acuario; starter válido renombrado a `test_item_service.py` |
+| S04 afirmaba que una excepción inesperada en el test da ERROR (es FAILED) | ✅ Corregido con salida real en teoría, glosario y rúbrica |
+| S16 repetía S04 casi por completo | ✅ S16 reenfocada en fixtures: `yield`/teardown, scopes, composición, `conftest.py`, `autouse`, `tmp_path`, `monkeypatch`, `capsys`, `--setup-show` |
+| S17: marks solo en `pytest.ini`, sin `--strict-markers`/`strict`, sin `skip`/`skipif`/`xfail`, sin `pytest.param`, `-k` no cubierto, estrategia "`-m regression` = regresión completa" incorrecta | ✅ Marks en `[tool.pytest]` con `strict = true`; temas añadidos; estrategia corregida |
+| S18: "stub" que verificaba interacción, `try/assert False`, sin demostración de target de patch incorrecto, `autospec` sin práctica, proyecto sin símbolo que parchear, markdown mal renderizado | ✅ Stub/mock/spy separados; PASO con target incorrecto y `autospec` con salidas reales; `assert_not_called`, `call_args`, `monkeypatch` vs `patch`; proyecto con gateway a nivel de módulo |
+| S06: `pytest.raises(match=...)` comparaba con el nombre de la clase; ejemplos JS/Java sin la misma verificación | ✅ Los tres lenguajes verifican el mismo mensaje |
+| Recursos sin URLs, libros de pago en "ebooks-free" y un título inexistente (S17) | ✅ URLs verificadas en formato tabla; solo recursos gratuitos reales |
+| Tildes y ñ ausentes en la prosa de S04, S07–S18 | ✅ Corregidas (prosa y comentarios; identificadores y cadenas verificadas por tests intactos) |
+
+## Resultado
+
+Todas las solutions Python pasan con `uv run pytest` (S17 ej02: 5 passed + 1 xfailed intencional) y todas las solutions JS siguen pasando. Starters descomentados equivalentes a su solution. Sin enlaces internos rotos ni formas de voseo.
+
+## Ítems abiertos
+
+- `skip`/`skipif` en S17 solo en teoría (en la práctica se usa `xfail(strict=True)`; un `skipif` exigía una condición ajena al dominio).
+- Revisión equivalente de Java (S05, S06 parte Java) pendiente.
