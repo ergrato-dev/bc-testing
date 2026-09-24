@@ -9,16 +9,22 @@
 # - Planetario: SessionPolicy
 # - Acuario: SpeciesPolicy
 
-# TODO: importar pytest y evaluate_item_policy
+import pytest
 
-# TODO: definir pytest.ini con marks smoke/regression/slow
+# TODO: importar evaluate_item_policy
 
-# TODO: crear test smoke para ruta critica de disponibilidad
+# TODO: registrar los marks smoke/regression/slow en [tool.pytest] de pyproject.toml
 
-# TODO: crear matriz parametrizada con casos validos y de borde
+
+# TODO: crear test smoke para la ruta crítica de disponibilidad (patrón AAA)
+def test_evaluate_item_policy_smoke_pending():
+    pytest.skip("TODO: implementar test smoke")
+
+
+# TODO: crear matriz parametrizada con casos válidos y de borde (ids legibles)
 
 # TODO: crear matriz parametrizada de errores esperados
 
-# TODO: documentar comandos de ejecucion selectiva
-# - pytest -m smoke
-# - pytest -m "regression and not slow"
+# TODO: usar skipif o xfail(strict=True) donde tenga sentido, con reason
+
+# TODO: documentar comandos de ejecución selectiva (-m y -k) en tu entrega

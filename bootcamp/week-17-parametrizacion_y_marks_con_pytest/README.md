@@ -1,4 +1,4 @@
-# Semana 17 - Python Testing II: Parametrizacion y Marks con pytest
+# Semana 17 - Python Testing II: Parametrización y Marks con pytest
 
 > **Etapa 2 - Testing con Python** | Semana 17 de 24
 
@@ -8,39 +8,39 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
-1. Usar `@pytest.mark.parametrize` para cubrir multiples casos sin duplicacion.
-2. Diseñar tablas de casos con entradas validas, bordes y errores.
-3. Aplicar marks (`smoke`, `regression`, `slow`) para organizar la suite.
-4. Ejecutar subconjuntos de pruebas con `-m` y `-k`.
-5. Mejorar trazabilidad de calidad con suites segmentadas por riesgo.
+1. Usar `@pytest.mark.parametrize` para cubrir múltiples casos sin duplicación, con `ids` y `pytest.param`.
+2. Diseñar tablas de casos con entradas válidas, bordes y errores.
+3. Aplicar marks propios (`smoke`, `regression`, `slow`) registrados en `pyproject.toml` con modo estricto, y marks integrados (`skip`, `skipif`, `xfail`).
+4. Ejecutar subconjuntos de pruebas con expresiones `-m` (marks) y `-k` (nombres).
+5. Mejorar la trazabilidad de calidad con suites segmentadas por riesgo.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Parametrizacion efectiva, marks y seleccion de pruebas | 2.5 h |
-| Practicas | Casos tabulares + ejecucion segmentada con marks | 3 h |
-| Proyecto | Suite del dominio con parametrizacion y taxonomia de marks | 2 h |
+| Teoría | Parametrización efectiva, marks y selección de pruebas | 2.5 h |
+| Prácticas | Casos tabulares + ejecución segmentada con marks | 3 h |
+| Proyecto | Suite del dominio con parametrización y taxonomía de marks | 2 h |
 | Recursos y cierre | Checklist y refuerzo de patrones | 0.5 h |
 
 ---
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
-1. [Parametrizacion efectiva con pytest](./1-teoria/01-parametrizacion-efectiva-pytest.md)
+1. [Parametrización efectiva con pytest](./1-teoria/01-parametrizacion-efectiva-pytest.md)
 2. [Marks para organizar y priorizar suites](./1-teoria/02-marks-organizacion-priorizacion-suites.md)
-3. [Estrategia de ejecucion selectiva en CI local](./1-teoria/03-estrategia-ejecucion-selectiva-ci-local.md)
+3. [Estrategia de ejecución selectiva en CI local](./1-teoria/03-estrategia-ejecucion-selectiva-ci-local.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Parametrize con casos de negocio](./2-practicas/ejercicio-01-pytest-parametrize/)
-- [Ejercicio 02 - Marks y seleccion de suite](./2-practicas/ejercicio-02-marks-y-seleccion-suite/)
+- [Ejercicio 02 - Marks y selección de suite](./2-practicas/ejercicio-02-marks-y-seleccion-suite/)
 
 ### Proyecto
 
@@ -49,12 +49,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -90,11 +90,11 @@ week-17-parametrizacion_y_marks_con_pytest/
 
 ## Nota Importante
 
-Parametrizar no es meter datos al azar: cada fila debe representar una decision de calidad (happy path, borde o error esperado).
+Parametrizar no es meter datos al azar: cada fila debe representar una decisión de calidad (happy path, borde o error esperado).
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|

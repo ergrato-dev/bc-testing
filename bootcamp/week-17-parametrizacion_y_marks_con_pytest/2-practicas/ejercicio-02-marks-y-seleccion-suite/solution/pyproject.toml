@@ -9,3 +9,10 @@ dev = ["pytest==9.1.1"]
 
 [tool.pytest]
 pythonpath = ["."]
+# PASO 1: registrar marks y activar el modo estricto
+strict = true
+markers = [
+    "smoke: pruebas críticas de validación rápida",
+    "regression: pruebas de cobertura funcional amplia",
+    "slow: pruebas de mayor costo de ejecución",
+]
