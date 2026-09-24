@@ -1,7 +1,7 @@
 const { calculateDiscount } = require("./discount-calculator");
 
 // ============================================
-// PASO 1: Red - caso minimo
+// PASO 1: Red - caso minimo (premium)
 // ============================================
 // test("should apply 10 percent discount when membership is premium", () => {
 //   const result = calculateDiscount(100, "premium");
@@ -9,7 +9,7 @@ const { calculateDiscount } = require("./discount-calculator");
 // });
 
 // ============================================
-// PASO 3: Nuevo Red - caso borde
+// PASO 3: Red - socio basico
 // ============================================
 // test("should return full price when membership is basic", () => {
 //   const result = calculateDiscount(100, "basic");
@@ -17,7 +17,7 @@ const { calculateDiscount } = require("./discount-calculator");
 // });
 
 // ============================================
-// PASO 4: Nuevo Red - validacion
+// PASO 5: Red - validacion de precio negativo
 // ============================================
 // test("should throw error when price is negative", () => {
 //   expect(() => calculateDiscount(-10, "premium")).toThrow("invalid price");
