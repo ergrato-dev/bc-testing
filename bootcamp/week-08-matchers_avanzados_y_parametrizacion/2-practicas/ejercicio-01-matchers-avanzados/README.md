@@ -10,11 +10,12 @@ Aplicar matchers avanzados para validar estructuras, inclusiones y errores con m
 
 ## Pasos
 
-1. Abre `starter/product.utils.test.js`.
-2. Descomenta PASO 1 y ejecuta la suite.
-3. Descomenta PASO 2 y compara `toEqual` vs `toStrictEqual`.
-4. Descomenta PASO 3 para `toContainEqual` y `toMatchObject`.
-5. Compara con `solution/product.utils.test.js`.
+1. Abre `starter/product.utils.test.js` y revisa `starter/product.utils.js`.
+2. Descomenta PASO 1 y compara `toEqual` vs `toStrictEqual`: una clave con valor `undefined` solo la detecta `toStrictEqual`.
+3. Descomenta PASO 2 para `toContain` (primitivo en array), `toContainEqual` (objeto en array), `toMatchObject` (forma parcial) y `toHaveProperty` (ruta anidada).
+4. Descomenta PASO 3 para `toBeCloseTo`: `0.1 + 0.2` no es exactamente `0.3`.
+5. Descomenta PASO 4 para validar el error con `toThrow`.
+6. Ejecuta la suite y compara con `solution/product.utils.test.js`.
 
 ## Comando sugerido
 

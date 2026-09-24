@@ -77,7 +77,7 @@ expect(visit.stops).toHaveLength(2);
 
 ## Preview: matchers asimetricos
 
-`expect.any(Tipo)` y `expect.arrayContaining([...])` validan forma sin fijar valores exactos, utiles en tests asincronos donde algun campo cambia en cada ejecucion (timestamps, ids generados). Se retoma en la Semana 09.
+`expect.any(Tipo)` y `expect.arrayContaining([...])` validan forma sin fijar valores exactos, utiles en tests asincronos donde algun campo cambia en cada ejecucion (timestamps, ids generados). Se practican a fondo en la Semana 12, al validar respuestas de API.
 
 ```javascript
 expect(createVisit()).toEqual({

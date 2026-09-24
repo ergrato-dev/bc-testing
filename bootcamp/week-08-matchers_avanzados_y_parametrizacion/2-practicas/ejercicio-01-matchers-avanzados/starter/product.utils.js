@@ -3,7 +3,12 @@ function buildProduct(name, price) {
     name,
     price,
     tags: ["catalog", "active"],
+    stock: { warehouse: "central", units: 10 },
   };
+}
+
+function sumPrices(prices) {
+  return prices.reduce((total, price) => total + price, 0);
 }
 
 function validatePrice(price) {
@@ -13,4 +18,4 @@ function validatePrice(price) {
   return true;
 }
 
-module.exports = { buildProduct, validatePrice };
+module.exports = { buildProduct, sumPrices, validatePrice };

@@ -52,21 +52,21 @@ Si falla, Jest muestra exactamente que propiedad no coincide, y el nombre del te
 Ante un fallo, Jest imprime tres bloques clave:
 
 ```
-expect(received).toEqual(expected)
+expect(received).toEqual(expected) // deep equality
 
-- Expected
-+ Received
+- Expected  - 1
++ Received  + 1
 
   Object {
+    "site": "Museo Aeroespacial",
 -   "visitors": 3,
 +   "visitors": 2,
-    "site": "Museo Aeroespacial",
   }
 ```
 
 1. **Linea del matcher**: identifica que comparacion fallo (`toEqual`, `toBe`, etc).
 2. **`- Expected` / `+ Received`**: lo esperado va con `-`, lo real con `+`; se lee como un diff de git.
-3. **Propiedad marcada**: solo la linea que difiere trae el signo; el resto del objeto se muestra igual para dar contexto.
+3. **Propiedad marcada**: solo la linea que difiere trae el signo; el resto del objeto se muestra igual para dar contexto. Jest ordena las claves alfabeticamente en el diff, asi que no esperes ver el orden en que las escribiste.
 
 La causa casi siempre esta en la linea marcada, no en todo el bloque: revisa primero que produjo ese valor antes de tocar el test.
 
