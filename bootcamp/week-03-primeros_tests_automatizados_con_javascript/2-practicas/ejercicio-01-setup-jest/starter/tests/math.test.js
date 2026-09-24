@@ -1,28 +1,47 @@
 const { add, isEven } = require("../src/math");
 
 describe("math", () => {
-  // ============================================
-  // PASO 1: Mi primer test con Jest
-  // ============================================
-  // Descomenta las siguientes lineas:
-  // it("should return 5 when adding 2 and 3", () => {
-  //   const result = add(2, 3);
-  //   expect(result).toBe(5);
-  // });
+  // Test activo que falla por diseño: add tiene un bug en src/math.js.
+  // Lee el mensaje de error y corrígelo en el PASO 1 (src/math.js).
+  it("should return 5 when adding 2 and 3", () => {
+    // Arrange
+    const a = 2;
+    const b = 3;
+
+    // Act
+    const result = add(a, b);
+
+    // Assert
+    expect(result).toBe(5);
+  });
+
   // ============================================
   // PASO 2: Test booleano simple
   // ============================================
   // Descomenta las siguientes lineas:
   // it("should return true when number is even", () => {
-  //   const result = isEven(10);
+  //   // Arrange
+  //   const input = 10;
+  //
+  //   // Act
+  //   const result = isEven(input);
+  //
+  //   // Assert
   //   expect(result).toBeTruthy();
   // });
+
   // ============================================
   // PASO 3: Test para numero impar
   // ============================================
   // Descomenta las siguientes lineas:
   // it("should return false when number is odd", () => {
-  //   const result = isEven(7);
+  //   // Arrange
+  //   const input = 7;
+  //
+  //   // Act
+  //   const result = isEven(input);
+  //
+  //   // Assert
   //   expect(result).toBeFalsy();
   // });
 });

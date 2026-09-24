@@ -26,24 +26,32 @@ Trabajarás con un módulo simple de utilidades de validación (`user-utils.js`)
 
 ## Instrucciones
 
-### Paso 1 — Abre `starter/tests/user-utils.test.js`
+### Paso 1 — Instalar y ejecutar en modo watch
 
-Encontrarás bloques comentados por pasos. Ve descomentando sección por sección.
-
-### Paso 2 — Ejecuta tests continuamente
+Desde `starter/`:
 
 ```bash
 pnpm install
-pnpm test
+pnpm test:watch
 ```
 
-### Paso 3 — Completa assertions faltantes
+Mientras no descomentes ningún bloque, Jest avisará `Your test suite must contain at least one test`. Es lo esperado.
 
-Algunas secciones requieren completar matcher o valor esperado.
+### Paso 2 — PASO 1: tests de `isAdult`
 
-### Paso 4 — Refactor de nombres
+Abre `starter/tests/user-utils.test.js` y descomenta el bloque `PASO 1`. Fíjate en los comentarios `// Arrange`, `// Act`, `// Assert` y en el borde `18` / `17`.
 
-Asegura formato:
+### Paso 3 — PASO 2: tests de `calculateDiscount`
+
+Descomenta el bloque `PASO 2`. Observa que para `toThrow` se pasa una **función** a `expect` (`() => calculateDiscount(...)`); por eso Act y Assert van juntos.
+
+### Paso 4 — PASO 3: tests de `isValidEmail`
+
+Descomenta el bloque `PASO 3`. Compara el uso de `toBeTruthy`/`toBeFalsy` con `toBe(true)`/`toBe(false)` del PASO 1.
+
+### Paso 5 — Revisar nombres
+
+Comprueba que todos los tests siguen el formato:
 
 ```text
 should [resultado esperado] when [condicion]
@@ -61,6 +69,6 @@ should [resultado esperado] when [condicion]
 
 ## Criterios de evaluación
 
-- Uso correcto de `toBe`, `toEqual`, `toThrow`
+- Uso correcto de `toBe`, `toBeTruthy`/`toBeFalsy` y `toThrow`
 - Tests legibles y reproducibles
 - Nombres claros orientados a comportamiento

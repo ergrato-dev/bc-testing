@@ -26,6 +26,8 @@ describe("Calculator", () => {
 
 ## Patrón AAA (Arrange-Act-Assert)
 
+![Patrón AAA en tests unitarios](../0-assets/02-patron-aaa.svg)
+
 El patrón AAA hace que tus tests sean legibles y consistentes.
 
 - **Arrange**: preparar datos y dependencias
