@@ -21,6 +21,10 @@ Hay dos formas validas de indicarle a Jest que espere:
 1. Marcar el test como `async` y usar `await` dentro.
 2. Retornar la Promise directamente desde la funcion de test.
 
+![Event loop y testing asincrono](../0-assets/04-event-loop-testing.svg)
+
+Los `.then/.catch` y los `await` corren en la cola de microtasks; los `setTimeout` en la cola de tareas. Un test que no espera la Promise termina antes de que se vacie la cola de microtasks, por eso sus `expect` llegan tarde.
+
 ---
 
 ## Patrones correctos

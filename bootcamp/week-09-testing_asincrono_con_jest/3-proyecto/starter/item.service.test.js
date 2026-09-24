@@ -8,9 +8,9 @@ const { ItemService } = require("./item.service");
 // NOTA PARA EL APRENDIZ:
 // Adapta esta suite a tu dominio asignado.
 // Ejemplos:
-// - Biblioteca: BookService (libro)
-// - Farmacia: MedicineService (medicamento)
-// - Gimnasio: MemberService (miembro)
+// - Museo: ExhibitService (pieza de exhibicion)
+// - Planetario: ShowService (funcion)
+// - Acuario: TankService (estanque)
 
 describe("ItemService", () => {
   // TODO: Configurar mocks del repositorio
@@ -37,9 +37,11 @@ describe("ItemService", () => {
     // 3. should throw not found error when repository returns null
   });
 
-  describe("retry behavior", () => {
-    // TODO: Implementar escenario con fake timers o reintento controlado
+  describe("findByIdWithRetry", () => {
+    // TODO: Activar fake timers en beforeEach y restaurarlos en afterEach
+    // TODO: Implementar tests con fake timers (usa await jest.advanceTimersByTimeAsync)
     // 1. should resolve after retry when first attempt fails
-    // 2. should reject when retries are exhausted
+    // 2. should reject with last error when retries are exhausted
+    // 3. should not retry when id is missing
   });
 });
