@@ -106,7 +106,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Configuración del entorno: Node.js, pnpm/yarn, Jest
+- Configuración del entorno: Node.js 22, pnpm, Jest
 - Estructura de un test: `describe`, `test/it`, `expect`
 - Matchers básicos: `toBe`, `toEqual`, `toBeTruthy`, `toBeFalsy`, `toBeNull`
 - AAA Pattern: Arrange, Act, Assert
@@ -191,7 +191,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Hooks de ciclo de vida: `beforeAll`, `beforeEach`, `afterEach`, `afterAll`
 - Introducción a `mock`, `stub` y `spy` en escenarios básicos de aislamiento
 - Patrón AAA (Arrange-Act-Assert) y nombres de test profesionales
-- Ejecución de tests por archivo y por patrón con `pnpm`/`yarn`
+- Ejecución de tests por archivo y por patrón con `pnpm`
 - Base de trabajo para mocking avanzado y asincronía (S09-S10)
 
 **Proyecto**: *Suite Modular con Jest* — refactorización de la suite JS de Etapa 0 organizada con `describe` anidados y hooks de ciclo de vida.

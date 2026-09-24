@@ -274,9 +274,9 @@ Las instrucciones deben ser genéricas y adaptables a cualquier dominio.
 // NOTA PARA EL APRENDIZ:
 // Adapta este servicio a tu dominio asignado.
 // Ejemplos:
-// - Biblioteca: BookService (libro)
-// - Farmacia: MedicineService (medicamento)
-// - Gimnasio: MemberService (miembro)
+// - Museo: ExhibitService (pieza)
+// - Planetario: ShowService (función)
+// - Acuario: TankService (tanque)
 
 /**
  * @param {Object} item - Elemento a validar
@@ -320,9 +320,9 @@ Implementar [concepto aprendido] aplicado a tu dominio asignado.
 
 ### 💡 Ejemplos de Adaptación por Dominio
 
-- **Biblioteca**: Testear gestión de libros, préstamos, disponibilidad
-- **Farmacia**: Testear gestión de medicamentos, stock, ventas
-- **Gimnasio**: Testear gestión de miembros, rutinas, pagos
+- **Museo**: Testear gestión de piezas, préstamos entre salas, disponibilidad
+- **Planetario**: Testear gestión de funciones, aforo, venta de entradas
+- **Acuario**: Testear gestión de tanques, especies, mantenimiento
 
 ### 🛠️ Entregables
 
@@ -526,7 +526,7 @@ Antes de considerar una semana completa:
 ### Gestores de Paquetes
 
 - ❌ **NUNCA** usar `npm` en proyectos JavaScript
-- ✅ **SOLO** usar `pnpm` o `yarn`
+- ✅ **SOLO** usar `pnpm` (❌ NUNCA `yarn`)
 - ✅ Python: usar `uv` (recomendado moderno) o `pip` con `venv`
 - ✅ Java: usar `Maven` (por defecto) o `Gradle`
 

@@ -94,7 +94,7 @@ bootcamp/week-XX/
 | Playwright | 1.40+ | E2E testing |
 | k6 | 0.50+ | Performance testing |
 
-**Gestor de paquetes**: `pnpm` o `yarn` (❌ NO usar `npm`)
+**Gestor de paquetes**: `pnpm` únicamente (❌ NO usar `npm` ni `yarn`)
 
 ### Python
 

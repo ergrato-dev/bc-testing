@@ -242,9 +242,9 @@ Cada aprendiz recibe un dominio único asignado por el instructor:
 // NOTA PARA EL APRENDIZ:
 // Adapta esta suite a tu dominio asignado.
 // Ejemplos:
-// - Biblioteca: BookService (libro)
-// - Farmacia: MedicineService (medicamento)
-// - Gimnasio: MemberService (miembro)
+// - Museo: ExhibitService (pieza)
+// - Planetario: ShowService (función)
+// - Acuario: TankService (tanque)
 
 describe("ItemService", () => {
   // TODO: Configurar el servicio bajo prueba
@@ -350,7 +350,12 @@ class MethodName {
 - `const`/`let` (nunca `var`)
 - Arrow functions para callbacks de test
 - `async/await` para tests asíncronos
-- Gestores: `pnpm` o `yarn` (❌ NUNCA `npm`)
+- Gestor: `pnpm` únicamente (❌ NUNCA `npm` ni `yarn`)
+- Node.js 22 (`.nvmrc` en la raíz), CommonJS (`require`/`module.exports`)
+- Cada `starter/` y `solution/` con código JS lleva su propio `package.json`:
+  `"private": true`, `"packageManager": "pnpm@10.34.5"`, `"engines": { "node": ">=22.0.0" }`,
+  scripts `test`, `test:watch`, `test:coverage` y `devDependencies` con versión exacta.
+  La misma versión de cada paquete en todas las semanas. Sin lockfiles versionados.
 
 **Python**:
 
