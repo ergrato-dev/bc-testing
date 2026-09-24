@@ -1,6 +1,7 @@
 const {
   buildPublicProfile,
   buildPublicProfileList,
+  buildProfileResponse,
 } = require("./profile.presenter");
 
 // ============================================
@@ -48,4 +49,38 @@ const {
 //   ]);
 //
 //   expect(list).toMatchSnapshot();
+// });
+
+// ============================================
+// PASO 4: Property matcher para campo volatil
+// ============================================
+// generatedAt cambia en cada ejecucion: se valida su tipo, no su valor.
+// test("should match snapshot for profile response ignoring generatedAt", () => {
+//   const response = buildProfileResponse({
+//     id: "u-1",
+//     firstName: "Ada",
+//     lastName: "Lovelace",
+//     role: "mentor",
+//     isActive: true,
+//   });
+//
+//   expect(response).toMatchSnapshot({
+//     generatedAt: expect.any(String),
+//   });
+// });
+
+// ============================================
+// PASO 5: Inline snapshot
+// ============================================
+// Al ejecutar sin CI, Jest escribe el snapshot dentro de los parentesis.
+// test("should match inline snapshot for public profile", () => {
+//   const profile = buildPublicProfile({
+//     id: "u-3",
+//     firstName: "Grace",
+//     lastName: "Hopper",
+//     role: "mentor",
+//     isActive: true,
+//   });
+//
+//   expect(profile).toMatchInlineSnapshot();
 // });

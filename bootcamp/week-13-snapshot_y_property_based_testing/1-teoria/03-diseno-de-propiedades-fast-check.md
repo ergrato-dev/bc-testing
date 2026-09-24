@@ -59,19 +59,22 @@ test("should keep final ticket price within valid bounds", () => {
 });
 ```
 
-Con `fc.string()` para validar, por ejemplo, que una funcion de slug nunca produce espacios:
+Para textos, `fc.string()` por defecto casi nunca genera tabs ni saltos de linea. Si la regla trata sobre whitespace, conviene un generador que lo incluya de forma explicita con la opcion `unit`:
 
 ```javascript
+// Strings hechos solo con estas unidades: letras y whitespace real.
+const hallName = fc.string({ unit: fc.constantFrom("a", "B", " ", "\t", "\n") });
+
 function slugifyHallName(name) {
   return name.trim().toLowerCase().replace(/\s+/g, "-");
 }
 
 test("should never leave whitespace in hall slug", () => {
   fc.assert(
-    fc.property(fc.string(), (name) => {
+    fc.property(hallName, (name) => {
       const slug = slugifyHallName(name);
       expect(slug).not.toMatch(/\s/);
-    })
+    }),
   );
 });
 ```
@@ -80,21 +83,41 @@ test("should never leave whitespace in hall slug", () => {
 
 ## Interpretar un contraejemplo simplificado
 
-Si una propiedad falla, fast-check imprime el input minimizado (shrunk) que la rompe, no el primer input aleatorio que fallo:
+Supongamos una version con bug que solo reemplaza espacios (`/ +/g`) en lugar de cualquier whitespace (`/\s+/g`):
+
+```javascript
+function slugifyHallName(name) {
+  return name.trim().toLowerCase().replace(/ +/g, "-");
+}
+```
+
+Con la misma propiedad, Jest muestra (salida real, recortada):
 
 ```text
-Property failed after 12 tests
-{ seed: 384712048, path: "3:2:1", endOnFailure: true }
-Counterexample: [50, 65]
-Shrunk 4 time(s)
-Got error: expected 0 to be less than or equal to 50
+FAIL ./slug.test.js
+  ● should never leave whitespace in hall slug
+
+    Property failed after 1 tests
+    { seed: 1987581203, path: "0:1:7:7", endOnFailure: true }
+    Counterexample: ["a\na"]
+    Shrunk 3 time(s)
+
+    ...
+
+    Cause:
+        expect(received).not.toMatch(expected)
+
+        Expected pattern: not /\s/
+        Received string:      "a
+        a"
 ```
 
 Como leerlo:
 
-- `Counterexample: [50, 65]` son los argumentos exactos (`basePrice=50`, `age=65`) que rompen la propiedad — ya reducidos al caso minimo, no el original aleatorio.
-- `Shrunk 4 time(s)`: fast-check partio de un input mas grande/complejo y lo simplifico 4 veces buscando el minimo que sigue fallando; `seed` permite reproducir la misma corrida con `{ seed: 384712048 }`.
-- El mensaje `expected ... to be less than or equal to ...` viene del `expect` que fallo dentro de la propiedad: revisa esa asercion primero, no todo el generador.
+- `Counterexample: ["a\na"]` es el array de argumentos de la propiedad (aqui uno solo, `name`). Ya esta reducido: es el input mas simple que fast-check encontro que sigue fallando, no el string aleatorio original.
+- `Shrunk 3 time(s)`: fast-check partio del primer input que fallo y lo simplifico 3 veces.
+- `seed` y `path` permiten reproducir exactamente la misma corrida: `fc.assert(property, { seed: 1987581203, path: "0:1:7:7" })`. El `seed` cambia en cada ejecucion, por eso hay que copiarlo del fallo.
+- `Cause` es el `expect` que fallo dentro de la propiedad: el slug conserva un salto de linea. El contraejemplo apunta directo al bug (el regex no cubre `\n`).
 
 ---
 

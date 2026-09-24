@@ -11,4 +11,16 @@ function buildPublicProfileList(users) {
   return users.map(buildPublicProfile);
 }
 
-module.exports = { buildPublicProfile, buildPublicProfileList };
+// Respuesta con un campo volatil: generatedAt cambia en cada ejecucion.
+function buildProfileResponse(user) {
+  return {
+    profile: buildPublicProfile(user),
+    generatedAt: new Date().toISOString(),
+  };
+}
+
+module.exports = {
+  buildPublicProfile,
+  buildPublicProfileList,
+  buildProfileResponse,
+};
