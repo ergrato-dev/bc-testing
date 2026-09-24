@@ -52,9 +52,9 @@ const {
 // });
 
 // ============================================
-// PASO 4: Property matcher para campo volatil
+// PASO 4: Property matcher para campo volátil
 // ============================================
-// generatedAt cambia en cada ejecucion: se valida su tipo, no su valor.
+// generatedAt cambia en cada ejecución: se valida su tipo, no su valor.
 // test("should match snapshot for profile response ignoring generatedAt", () => {
 //   const response = buildProfileResponse({
 //     id: "u-1",
@@ -72,7 +72,7 @@ const {
 // ============================================
 // PASO 5: Inline snapshot
 // ============================================
-// Al ejecutar sin CI, Jest escribe el snapshot dentro de los parentesis.
+// Al ejecutar sin CI, Jest escribe el snapshot dentro de los paréntesis.
 // test("should match inline snapshot for public profile", () => {
 //   const profile = buildPublicProfile({
 //     id: "u-3",

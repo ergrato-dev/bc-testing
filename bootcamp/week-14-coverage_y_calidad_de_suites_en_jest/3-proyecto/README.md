@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Mejorar una suite de pruebas para que detecte regresiones reales en tu dominio asignado, usando cobertura como guia y criterio de riesgo.
+Mejorar una suite de pruebas para que detecte regresiones reales en tu dominio asignado, usando cobertura como guía y criterio de riesgo.
 
 ## Contexto
 
@@ -10,10 +10,10 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 
 ## Requisitos
 
-1. Definir un objetivo de coverage por modulo critico y hacerlo obligatorio en `starter/jest.config.js` con `collectCoverageFrom` y `coverageThreshold`.
+1. Definir un objetivo de coverage por módulo crítico y hacerlo obligatorio en `starter/jest.config.js` con `collectCoverageFrom` y `coverageThreshold`.
 2. Agregar tests para al menos 3 rutas de fallo relevantes.
 3. Reducir al menos 2 fuentes de fragilidad de la suite.
-4. Mantener patron AAA y nombres descriptivos.
+4. Mantener patrón AAA y nombres descriptivos.
 5. Justificar que cambios subieron la confianza de calidad.
 
 ## Estructura
@@ -21,14 +21,14 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 - `starter/`: plantilla con TODOs para implementar.
 - `solution/`: referencia local del instructor (no versionada).
 
-## Criterios minimos
+## Criterios mínimos
 
-- Minimo 8 tests en total.
-- Minimo 3 tests de errores/validaciones.
-- Minimo 1 test de borde de negocio.
-- Cobertura del modulo principal >=85% con ramas relevantes cubiertas, exigida por `coverageThreshold` (`pnpm test:coverage` debe fallar si baja).
+- Mínimo 8 tests en total.
+- Mínimo 3 tests de errores/validaciones.
+- Mínimo 1 test de borde de negocio.
+- Cobertura del módulo principal >=85% con ramas relevantes cubiertas, exigida por `coverageThreshold` (`pnpm test:coverage` debe fallar si baja).
 
-## Ejecucion sugerida
+## Ejecución sugerida
 
 ```bash
 pnpm install

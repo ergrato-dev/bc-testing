@@ -2,24 +2,24 @@
 
 ## Objetivo
 
-Definir y validar propiedades invariantes en una funcion de limpieza de texto.
+Definir y validar propiedades invariantes en una función de limpieza de texto.
 
 ## Tiempo estimado
 
 90 minutos.
 
-## Preparacion
+## Preparación
 
-`fast-check` ya esta declarado en `package.json`:
+`fast-check` ya está declarado en `package.json`:
 
 ```bash
 cd starter
 pnpm install
 ```
 
-Los tests usan un generador propio, `textWithWhitespace`, que construye strings solo con `a`, `B`, espacio, tab y salto de linea (`fc.string({ unit: fc.constantFrom(...) })`). Con `fc.string()` por defecto casi nunca aparecerian tabs ni saltos de linea, y el bug de este ejercicio pasaria desapercibido.
+Los tests usan un generador propio, `textWithWhitespace`, que construye strings solo con `a`, `B`, espacio, tab y salto de línea (`fc.string({ unit: fc.constantFrom(...) })`). Con `fc.string()` por defecto casi nunca aparecerían tabs ni saltos de línea, y el bug de este ejercicio pasaría desapercibido.
 
-La implementacion inicial de `normalizeText` tiene un bug a proposito: solo colapsa espacios, no tabs ni saltos de linea.
+La implementación inicial de `normalizeText` tiene un bug a propósito: solo colapsa espacios, no tabs ni saltos de línea.
 
 ## Paso a paso
 
@@ -27,9 +27,9 @@ La implementacion inicial de `normalizeText` tiene un bug a proposito: solo cola
 
 Abre `starter/text-normalizer.test.js` y descomenta PASO 1. Pasa.
 
-### Paso 2: Propiedad de normalizacion de espacios
+### Paso 2: Propiedad de normalización de espacios
 
-Descomenta PASO 2 para validar que no queden espacios dobles. Tambien pasa, a pesar del bug: la propiedad es demasiado debil (solo mira espacios).
+Descomenta PASO 2 para validar que no queden espacios dobles. También pasa, a pesar del bug: la propiedad es demasiado débil (solo mira espacios).
 
 ### Paso 3: Propiedad de trimming
 
@@ -37,7 +37,7 @@ Descomenta PASO 3 para validar que el resultado queda sin espacios extremos. Pas
 
 ### Paso 4: Propiedad que falla y contraejemplo
 
-Descomenta PASO 4 y ejecuta `pnpm test`. La propiedad falla con una salida como esta (el `seed` cambia en cada ejecucion):
+Descomenta PASO 4 y ejecuta `pnpm test`. La propiedad falla con una salida como esta (el `seed` cambia en cada ejecución):
 
 ```text
 Property failed after 1 tests
@@ -46,13 +46,13 @@ Counterexample: ["a\ta"]
 Shrunk 4 time(s)
 ```
 
-Anota el `Counterexample` (el input minimo tras el shrinking), cuantas veces se redujo (`Shrunk`) y el `seed`. Opcional: pasa `{ seed: <tu seed>, path: "<tu path>" }` como segundo argumento de `fc.assert` para reproducir exactamente el mismo fallo.
+Anota el `Counterexample` (el input mínimo tras el shrinking), cuántas veces se redujo (`Shrunk`) y el `seed`. Opcional: pasa `{ seed: <tu seed>, path: "<tu path>" }` como segundo argumento de `fc.assert` para reproducir exactamente el mismo fallo.
 
-### Paso 5: Corregir la implementacion
+### Paso 5: Corregir la implementación
 
-En `starter/text-normalizer.js`, borra la linea marcada con `// PASO 5: borrar` y descomenta la version con `/\s+/g`. Ejecuta de nuevo: las 4 propiedades pasan.
+En `starter/text-normalizer.js`, borra la línea marcada con `// PASO 5: borrar` y descomenta la versión con `/\s+/g`. Ejecuta de nuevo: las 4 propiedades pasan.
 
-### Paso 6: Revisar solucion
+### Paso 6: Revisar solución
 
 Compara con `solution/`.
 

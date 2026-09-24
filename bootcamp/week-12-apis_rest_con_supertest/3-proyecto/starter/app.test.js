@@ -17,7 +17,7 @@ describe("Item API", () => {
   let app;
 
   beforeEach(() => {
-    // App y repositorio nuevos por test: ningun test depende de otro.
+    // App y repositorio nuevos por test: ningún test depende de otro.
     app = createApp();
   });
 

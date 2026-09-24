@@ -1,4 +1,4 @@
-# 01 - Snapshot Testing con Intencion
+# 01 - Snapshot Testing con Intención
 
 > **Lenguaje:** JavaScript (Jest)
 
@@ -12,21 +12,21 @@ Usar snapshots para detectar cambios relevantes sin generar mantenimiento innece
 
 ---
 
-## Cuando conviene snapshot
+## Cuándo conviene snapshot
 
-- Serializacion estable de salidas.
+- Serialización estable de salidas.
 - Estructuras de respuesta con forma amplia pero controlada.
 - Componentes o payloads donde importa estructura completa.
 - Salidas de renderizado (HTML, markup, texto formateado) que deben mantenerse estables entre releases.
 
 ---
 
-## Cuando evitarlo
+## Cuándo evitarlo
 
-- Datos con timestamps, ids random o campos volatiles sin normalizar.
-- Objetos enormes que no expresan intencion de negocio.
-- Casos donde una asercion explicita comunica mejor.
-- Payloads que cambian de forma en cada iteracion del feature (todavia inestables).
+- Datos con timestamps, ids random o campos volátiles sin normalizar.
+- Objetos enormes que no expresan intención de negocio.
+- Casos donde una aserción explícita comunica mejor.
+- Payloads que cambian de forma en cada iteración del feature (todavía inestables).
 
 ---
 
@@ -35,9 +35,9 @@ Usar snapshots para detectar cambios relevantes sin generar mantenimiento innece
 | Aspecto | `toMatchSnapshot()` | `toMatchInlineSnapshot()` |
 |---|---|---|
 | Almacenamiento | Archivo `__snapshots__/*.snap` separado | Dentro del propio archivo de test |
-| Revision en PR | Requiere abrir el `.snap` aparte | Visible directo en el diff del test |
-| Uso recomendado | Snapshots grandes o muchos por archivo | Snapshots pequeños, 1-5 lineas |
-| Actualizacion | `jest --updateSnapshot` reescribe el `.snap` | `jest --updateSnapshot` reescribe el literal inline |
+| Revisión en PR | Requiere abrir el `.snap` aparte | Visible directo en el diff del test |
+| Uso recomendado | Snapshots grandes o muchos por archivo | Snapshots pequeños, 1-5 líneas |
+| Actualización | `jest --updateSnapshot` reescribe el `.snap` | `jest --updateSnapshot` reescribe el literal inline |
 
 ```javascript
 test("should format museum ticket code inline", () => {
@@ -47,19 +47,19 @@ test("should format museum ticket code inline", () => {
 });
 ```
 
-Si el snapshot cabe en una linea y aporta valor de lectura inmediata en el PR, preferi inline. Si es una estructura grande (payload JSON completo, arbol de componentes), usa el archivo `.snap`.
+Si el snapshot cabe en una línea y aporta valor de lectura inmediata en el PR, preferí inline. Si es una estructura grande (payload JSON completo, árbol de componentes), usa el archivo `.snap`.
 
 ---
 
 ## Snapshot amplio vs snapshot enfocado
 
-**Demasiado amplio** — captura el objeto completo, incluye campos volatiles y no comunica que se esta validando:
+**Demasiado amplio** — captura el objeto completo, incluye campos volátiles y no comunica que se está validando:
 
 ```javascript
 test("should match exhibit payload snapshot (too broad)", () => {
   const exhibit = buildExhibitPayload({ id: "exh-04", title: "Sala de Ceramica" });
 
-  // createdAt e internalId cambian en cada corrida -> snapshot fragil
+  // createdAt e internalId cambian en cada corrida -> snapshot frágil
   expect(exhibit).toMatchSnapshot();
 });
 ```
@@ -76,7 +76,7 @@ test("should match exhibit public summary snapshot", () => {
 });
 ```
 
-La segunda version falla solo cuando cambia algo que le importa al negocio, no cuando cambia un `id` interno o un timestamp.
+La segunda versión falla solo cuando cambia algo que le importa al negocio, no cuando cambia un `id` interno o un timestamp.
 
 ---
 
@@ -100,10 +100,10 @@ test("should match public profile payload snapshot", () => {
 
 - Aceptar `--updateSnapshot` sin revisar el diff, "porque el test ya pasa".
 - Meter el objeto completo de un ORM/DB en el snapshot en vez de proyectar solo los campos relevantes.
-- Usar snapshot para validar un unico valor primitivo (ahi una asercion directa es mas clara).
+- Usar snapshot para validar un único valor primitivo (ahí una aserción directa es más clara).
 
 ---
 
-## Regla practica
+## Regla práctica
 
 Snapshot pequeño y estable > snapshot gigante que nadie revisa.

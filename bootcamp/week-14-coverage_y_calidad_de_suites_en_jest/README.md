@@ -8,39 +8,39 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
-1. Ejecutar cobertura en Jest y leer metricas de `statements`, `branches`, `functions` y `lines`.
-2. Diferenciar cobertura alta de cobertura util para el negocio.
-3. Detectar tests fragiles, redundantes o con bajo poder de deteccion.
+1. Ejecutar cobertura en Jest y leer métricas de `statements`, `branches`, `functions` y `lines`.
+2. Diferenciar cobertura alta de cobertura útil para el negocio.
+3. Detectar tests frágiles, redundantes o con bajo poder de detección.
 4. Priorizar mejoras de suite usando riesgo funcional, no solo porcentaje global.
 5. Definir un plan incremental para mantener cobertura saludable en CI.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Coverage en Jest, lectura critica de metricas y calidad de tests | 2.5 h |
-| Practicas | Cobertura inteligente y deteccion de fragilidad | 3 h |
+| Teoría | Coverage en Jest, lectura crítica de métricas y calidad de tests | 2.5 h |
+| Prácticas | Cobertura inteligente y detección de fragilidad | 3 h |
 | Proyecto | Mejora de suite existente con objetivos de calidad | 2 h |
-| Recursos y cierre | Refuerzo, checklist y autoevaluacion | 0.5 h |
+| Recursos y cierre | Refuerzo, checklist y autoevaluación | 0.5 h |
 
 ---
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
 1. [Fundamentos de cobertura en Jest](./1-teoria/01-fundamentos-cobertura-jest.md)
-2. [Interpretar metricas sin autoengano](./1-teoria/02-interpretar-metricas-sin-autoengano.md)
+2. [Interpretar métricas sin autoengaño](./1-teoria/02-interpretar-metricas-sin-autoengano.md)
 3. [Mejorar calidad de suites de forma incremental](./1-teoria/03-mejorar-calidad-suite-incremental.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Cobertura inteligente en Jest](./2-practicas/ejercicio-01-cobertura-inteligente-jest/)
-- [Ejercicio 02 - Deteccion de tests fragiles](./2-practicas/ejercicio-02-deteccion-tests-fragiles/)
+- [Ejercicio 02 - Detección de tests frágiles](./2-practicas/ejercicio-02-deteccion-tests-fragiles/)
 
 ### Proyecto
 
@@ -49,12 +49,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -91,12 +91,12 @@ week-14-coverage_y_calidad_de_suites_en_jest/
 
 ## Nota Importante
 
-Cobertura es una metrica de observabilidad, no una garantia de calidad. El objetivo es aumentar la probabilidad de detectar regresiones criticas, no perseguir un numero aislado.
+Cobertura es una métrica de observabilidad, no una garantía de calidad. El objetivo es aumentar la probabilidad de detectar regresiones críticas, no perseguir un número aislado.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 13 - Snapshot y Property-Based Testing](../week-13-snapshot_y_property_based_testing/README.md) | [Semana 15 - Cierre de etapa JavaScript: integracion de estrategias](../week-15-integracion_de_estrategias_y_calidad_continua/README.md) |
+| [Semana 13 - Snapshot y Property-Based Testing](../week-13-snapshot_y_property_based_testing/README.md) | [Semana 15 - Cierre de etapa JavaScript: integración de estrategias](../week-15-integracion_de_estrategias_y_calidad_continua/README.md) |

@@ -14,7 +14,7 @@ const { calculateFinalPrice } = require("./pricing.service");
 // });
 
 // ============================================
-// PASO 2: Validacion de precio base
+// PASO 2: Validación de precio base
 // ============================================
 // test("should throw error when base price is invalid", () => {
 //   expect(() =>
@@ -49,7 +49,7 @@ const { calculateFinalPrice } = require("./pricing.service");
 // });
 
 // ============================================
-// PASO 6: Cubrir la rama que el reporte marco como no cubierta (Invalid hour)
+// PASO 6: Cubrir la rama que el reporte marcó como no cubierta (Invalid hour)
 // ============================================
 // test.each([-1, 24, "12"])(
 //   "should throw Invalid hour when hour is %p",

@@ -39,7 +39,7 @@ describe("ItemService", () => {
   });
 
   describe("quality notes", () => {
-    // TODO: documentar cobertura objetivo del modulo critico
-    // TODO: listar riesgos no cubiertos aun (maximo 3)
+    // TODO: documentar cobertura objetivo del módulo crítico
+    // TODO: listar riesgos no cubiertos aún (máximo 3)
   });
 });

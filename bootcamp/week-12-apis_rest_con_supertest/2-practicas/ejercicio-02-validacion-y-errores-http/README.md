@@ -1,4 +1,4 @@
-# Ejercicio 02 - Validacion y Errores HTTP
+# Ejercicio 02 - Validación y Errores HTTP
 
 ## Objetivo
 
@@ -8,18 +8,18 @@ Validar respuestas de error (400, 404, 409 y 500) y contratos JSON consistentes 
 
 90 minutos.
 
-## Preparacion
+## Preparación
 
 ```bash
 cd starter
 pnpm install
 ```
 
-`starter/app-errors.js` exporta `createApp({ repository })`. Sin argumentos usa un repositorio en memoria nuevo; tambien acepta un repositorio inyectado, lo que permite simular fallos. Al final de la app hay un middleware de errores de Express 5 (funcion de 4 argumentos) que convierte cualquier excepcion en un 500 con el mismo formato de error.
+`starter/app-errors.js` exporta `createApp({ repository })`. Sin argumentos usa un repositorio en memoria nuevo; también acepta un repositorio inyectado, lo que permite simular fallos. Al final de la app hay un middleware de errores de Express 5 (función de 4 argumentos) que convierte cualquier excepción en un 500 con el mismo formato de error.
 
 ## Paso a paso
 
-### Paso 1: Caso de validacion 400
+### Paso 1: Caso de validación 400
 
 Abre `starter/app-errors.test.js` y descomenta el PASO 1.
 
@@ -33,7 +33,7 @@ Descomenta el PASO 3 y verifica la respuesta. Funciona siempre porque cada test 
 
 ### Paso 4: Caso de error interno 500
 
-Descomenta el PASO 4. El test crea una app con un repositorio cuyo `findById` lanza una excepcion. Express 5 la envia al middleware de errores y el test verifica el 500 y su contrato JSON, sin exponer el mensaje interno (`database down`).
+Descomenta el PASO 4. El test crea una app con un repositorio cuyo `findById` lanza una excepción. Express 5 la envía al middleware de errores y el test verifica el 500 y su contrato JSON, sin exponer el mensaje interno (`database down`).
 
 Compara con `solution/app-errors.test.js`.
 

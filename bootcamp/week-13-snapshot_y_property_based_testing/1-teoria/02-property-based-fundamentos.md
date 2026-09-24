@@ -8,19 +8,19 @@
 
 ## Objetivo
 
-Validar reglas generales (propiedades) sobre muchos datos generados automaticamente.
+Validar reglas generales (propiedades) sobre muchos datos generados automáticamente.
 
 ---
 
 ## Idea central
 
-En lugar de probar pocos ejemplos manuales, defines una propiedad que siempre debe cumplirse. El test-based clasico responde "¿funciona con este dato?"; el property-based responde "¿funciona con cualquier dato valido?".
+En lugar de probar pocos ejemplos manuales, defines una propiedad que siempre debe cumplirse. El test-based clásico responde "¿funciona con este dato?"; el property-based responde "¿funciona con cualquier dato válido?".
 
 ---
 
-## Example-based vs property: mismo codigo, dos enfoques
+## Example-based vs property: mismo código, dos enfoques
 
-Funcion bajo prueba — ordena visitantes de un museo por hora de llegada:
+Función bajo prueba — ordena visitantes de un museo por hora de llegada:
 
 ```javascript
 function sortByArrival(visitors) {
@@ -44,7 +44,7 @@ test("should sort three visitors by arrival minute", () => {
 });
 ```
 
-Cubre solo esa combinacion de tres nombres y minutos. No dice nada sobre listas vacias, con duplicados, o de cien elementos.
+Cubre solo esa combinación de tres nombres y minutos. No dice nada sobre listas vacías, con duplicados, o de cien elementos.
 
 **Property-based** — expresa la regla que debe cumplirse para *cualquier* lista de visitantes:
 
@@ -63,7 +63,7 @@ test("should keep sortByArrival idempotent", () => {
 });
 ```
 
-fast-check genera decenas de listas (vacias, con un elemento, con minutos repetidos o negativos) y valida la propiedad de idempotencia: ordenar algo ya ordenado no lo cambia.
+fast-check genera decenas de listas (vacías, con un elemento, con minutos repetidos o negativos) y valida la propiedad de idempotencia: ordenar algo ya ordenado no lo cambia.
 
 ---
 
@@ -80,16 +80,16 @@ test("should return original array after reversing twice", () => {
 });
 ```
 
-Esta propiedad no depende de valores especificos: es verdadera para cualquier arreglo de enteros, vacio o con miles de elementos.
+Esta propiedad no depende de valores específicos: es verdadera para cualquier arreglo de enteros, vacío o con miles de elementos.
 
 ---
 
 ## Beneficios
 
-1. Explora variedad de inputs automaticamente.
-2. Descubre casos extremos no previstos (arrays vacios, valores negativos, strings vacios).
+1. Explora variedad de inputs automáticamente.
+2. Descubre casos extremos no previstos (arrays vacíos, valores negativos, strings vacíos).
 3. Entrega contraejemplos minimizados cuando falla.
-4. Documenta la regla de negocio como invariante, no como caso anecdotico.
+4. Documenta la regla de negocio como invariante, no como caso anecdótico.
 
 ---
 
@@ -102,11 +102,11 @@ Una propiedad mal definida puede pasar siempre sin valor real. Por ejemplo, `exp
 ## Errores frecuentes
 
 - Escribir una propiedad tan laxa que cualquier salida la cumple.
-- Reimplementar la misma logica de la funcion dentro del test para "calcular" el resultado esperado (el oraculo debe ser independiente).
+- Reimplementar la misma lógica de la función dentro del test para "calcular" el resultado esperado (el oráculo debe ser independiente).
 - Ignorar los tests de ejemplo: las propiedades no reemplazan casos narrativos concretos, los complementan.
 
 ---
 
-## Regla practica
+## Regla práctica
 
 Si puedes describir la regla como "para todo X, se cumple Y" sin nombrar un dato concreto, es candidata a propiedad.

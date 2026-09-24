@@ -1,6 +1,6 @@
 # Ebooks y Lecturas Gratuitas
 
-## Seleccion recomendada
+## Selección recomendada
 
 | Recurso | URL | Por qué leerlo |
 | --- | --- | --- |

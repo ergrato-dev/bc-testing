@@ -4,12 +4,12 @@ const { createApp } = require("./app-errors");
 let app;
 
 beforeEach(() => {
-  // App y repositorio nuevos por test: ningun test hereda datos de otro.
+  // App y repositorio nuevos por test: ningún test hereda datos de otro.
   app = createApp();
 });
 
 // ============================================
-// PASO 1: Error de validacion
+// PASO 1: Error de validación
 // ============================================
 // test("should return 400 when name is missing", async () => {
 //   const response = await request(app).post("/items").send({});

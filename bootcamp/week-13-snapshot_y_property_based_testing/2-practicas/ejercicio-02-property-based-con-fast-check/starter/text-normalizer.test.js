@@ -1,7 +1,7 @@
 const fc = require("fast-check");
 const { normalizeText } = require("./text-normalizer");
 
-// Strings con letras y whitespace real (espacio, tab y salto de linea).
+// Strings con letras y whitespace real (espacio, tab y salto de línea).
 const textWithWhitespace = fc.string({
   unit: fc.constantFrom("a", "B", " ", "\t", "\n"),
 });
@@ -44,9 +44,9 @@ const textWithWhitespace = fc.string({
 // });
 
 // ============================================
-// PASO 4: Ningun tab ni salto de linea (falla a proposito)
+// PASO 4: Ningún tab ni salto de línea (falla a propósito)
 // ============================================
-// Con la implementacion inicial esta propiedad FALLA: lee el Counterexample,
+// Con la implementación inicial esta propiedad FALLA: lee el Counterexample,
 // el seed y "Shrunk N time(s)" en la salida antes de pasar al PASO 5.
 // test("should only contain single spaces as whitespace", () => {
 //   fc.assert(

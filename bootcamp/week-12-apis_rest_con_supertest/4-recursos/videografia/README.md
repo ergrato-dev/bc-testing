@@ -1,4 +1,4 @@
-# Videografia Recomendada
+# Videografía Recomendada
 
 ## Videos clave
 

@@ -8,7 +8,7 @@ describe("user-utils", () => {
   // ============================================
   // PASO 1: Tests de isAdult
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // it("should return true when age is 18", () => {
   //   // Arrange
   //   const age = 18;
@@ -34,7 +34,7 @@ describe("user-utils", () => {
   // ============================================
   // PASO 2: Tests de calculateDiscount
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // it("should return 80 when price is 100 and discount is 20", () => {
   //   // Arrange
   //   const price = 100;
@@ -59,7 +59,7 @@ describe("user-utils", () => {
   // ============================================
   // PASO 3: Tests de isValidEmail
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // it("should return true when email format is valid", () => {
   //   // Arrange
   //   const email = "ana@example.com";

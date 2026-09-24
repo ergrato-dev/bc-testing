@@ -1,6 +1,6 @@
 const { buildDeliveryReport } = require("./report.builder");
 
-// El notifier es la frontera externa (email, cola, etc.): es lo unico que conviene simular.
+// El notifier es la frontera externa (email, cola, etc.): es lo único que conviene simular.
 function notifyDelivery(input, notifier) {
   const report = buildDeliveryReport(input);
 

@@ -1,4 +1,4 @@
-# Semana 15 - JavaScript Testing IX: Integracion de Estrategias y Calidad Continua
+# Semana 15 - JavaScript Testing IX: Integración de Estrategias y Calidad Continua
 
 > **Etapa 1 - Testing con JavaScript** | Semana 15 de 15
 
@@ -8,39 +8,39 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
 1. Integrar en una sola suite los enfoques vistos en la etapa JS (unit, integration, snapshot y properties).
 2. Diseñar una estrategia de calidad por capas y riesgo funcional.
-3. Implementar una plantilla minima de GitHub Actions para ejecutar tests y coverage.
-4. Integrar analisis minimo con SonarQube para quality gate basico.
-5. Diferenciar configuracion para repos publicos (Cloud free tier) y privados (Community Edition).
+3. Implementar una plantilla mínima de GitHub Actions para ejecutar tests y coverage.
+4. Integrar análisis mínimo con SonarQube para quality gate básico.
+5. Diferenciar configuración para repos públicos (Cloud free tier) y privados (Community Edition).
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Integracion de estrategias + CI quality gate con SonarQube | 0.5 h |
-| Practicas | Suite integrada y pipeline minimo Actions + Sonar | 2 h |
+| Teoría | Integración de estrategias + CI quality gate con SonarQube | 0.5 h |
+| Prácticas | Suite integrada y pipeline mínimo Actions + Sonar | 2 h |
 | Proyecto integrador | API Express + Supertest, coverage con umbral y pipeline con quality gate | 5 h |
-| Recursos y cierre | Retro de etapa + plan de transicion a Python | 0.5 h |
+| Recursos y cierre | Retro de etapa + plan de transición a Python | 0.5 h |
 
 ---
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
 1. [Estrategia integrada de testing en JavaScript](./1-teoria/01-estrategia-integrada-testing-javascript.md)
-2. [Plantilla minima GitHub Actions + SonarQube](./1-teoria/02-plantilla-minima-github-actions-sonarqube.md)
+2. [Plantilla mínima GitHub Actions + SonarQube](./1-teoria/02-plantilla-minima-github-actions-sonarqube.md)
 3. [Criterios de salida de la etapa JavaScript](./1-teoria/03-criterios-de-salida-etapa-javascript.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Suite integrada en Jest](./2-practicas/ejercicio-01-suite-integrada-jest/)
-- [Ejercicio 02 - CI + SonarQube minimo](./2-practicas/ejercicio-02-ci-sonarqube-minimo/)
+- [Ejercicio 02 - CI + SonarQube mínimo](./2-practicas/ejercicio-02-ci-sonarqube-minimo/)
 
 ### Proyecto
 
@@ -49,12 +49,12 @@ Al finalizar esta semana seras capaz de:
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -90,11 +90,11 @@ week-15-integracion_de_estrategias_y_calidad_continua/
 
 ## Nota Importante
 
-Esta semana no busca agregar mas tests por cantidad. Busca consolidar criterio de calidad: que testear, por que, y como automatizar una barrera minima en CI.
+Esta semana no busca agregar más tests por cantidad. Busca consolidar criterio de calidad: qué testear, por qué, y cómo automatizar una barrera mínima en CI.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|

@@ -1,11 +1,11 @@
-# Rubrica de Evaluacion - Semana 12
+# Rúbrica de Evaluación - Semana 12
 
-## Evidencias y ponderacion
+## Evidencias y ponderación
 
-| Evidencia | Peso | Descripcion |
+| Evidencia | Peso | Descripción |
 |---|---:|---|
-| Conocimiento | 30% | Comprension de HTTP, contratos JSON y estrategia de pruebas con Supertest |
-| Desempeno | 40% | Ejecucion correcta de practicas guiadas de endpoints y errores |
+| Conocimiento | 30% | Comprensión de HTTP, contratos JSON y estrategia de pruebas con Supertest |
+| Desempeño | 40% | Ejecución correcta de prácticas guiadas de endpoints y errores |
 | Producto | 30% | API del dominio con suite REST funcional y mantenible |
 
 ---
@@ -14,20 +14,20 @@
 
 ### Criterios
 
-1. Explica diferencia entre test unitario y test de integracion de API.
+1. Explica diferencia entre test unitario y test de integración de API.
 2. Define criterios de contrato: status, body, headers y estructura.
-3. Selecciona codigos HTTP correctos por escenario.
+3. Selecciona códigos HTTP correctos por escenario.
 4. Identifica riesgos de flakiness en pruebas de API.
 
 ### Niveles
 
-- **Alto (27-30 pts)**: dominio conceptual claro y aplicacion consistente.
+- **Alto (27-30 pts)**: dominio conceptual claro y aplicación consistente.
 - **Medio (21-26 pts)**: buena base con detalles por afinar.
-- **Bajo (0-20 pts)**: conceptos incompletos o aplicacion incorrecta.
+- **Bajo (0-20 pts)**: conceptos incompletos o aplicación incorrecta.
 
 ---
 
-## 2) Desempeno (40%)
+## 2) Desempeño (40%)
 
 ### Criterios
 
@@ -38,8 +38,8 @@
 
 ### Niveles
 
-- **Alto (36-40 pts)**: ejecucion precisa y estable.
-- **Medio (28-35 pts)**: cumple objetivos con pequenos ajustes necesarios.
+- **Alto (36-40 pts)**: ejecución precisa y estable.
+- **Medio (28-35 pts)**: cumple objetivos con pequeños ajustes necesarios.
 - **Bajo (0-27 pts)**: pruebas incompletas o poco confiables.
 
 ---
@@ -49,9 +49,9 @@
 ### Criterios
 
 1. API adaptada al dominio asignado desde plantilla starter.
-2. Suite cubre CRUD basico y validaciones clave.
+2. Suite cubre CRUD básico y validaciones clave.
 3. Manejo de errores consistente con contrato definido.
-4. Minimo sugerido: 8 tests de endpoint ejecutables.
+4. Mínimo sugerido: 8 tests de endpoint ejecutables.
 
 ### Niveles
 
@@ -66,13 +66,13 @@
 - Solo validar `status` sin validar cuerpo/contrato: hasta -8 pts.
 - Uso de gestor no recomendado en JavaScript (`npm`): hasta -5 pts.
 - Tests con datos acoplados o poco descriptivos: hasta -5 pts.
-- Nomenclatura tecnica fuera de ingles: hasta -5 pts.
+- Nomenclatura técnica fuera de inglés: hasta -5 pts.
 
 ---
 
 ## Checklist de entrega
 
-- [ ] Practicas guiadas completadas.
+- [ ] Prácticas guiadas completadas.
 - [ ] Proyecto en `3-proyecto/starter/` implementado.
 - [ ] Suite ejecuta sin errores en local.
 - [ ] Contratos HTTP validados en casos exitosos y de error.

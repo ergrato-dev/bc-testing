@@ -1,15 +1,15 @@
-# 03 - Diseno de Propiedades con fast-check
+# 03 - Diseño de Propiedades con fast-check
 
 > **Lenguaje:** JavaScript (Jest + fast-check)
 
-![Mapa de diseno de invariantes](../0-assets/03-invariant-design-map.svg)
+![Mapa de diseño de invariantes](../0-assets/03-invariant-design-map.svg)
 ![Flujo de shrinking](../0-assets/04-shrinking-counterexample-flow.svg)
 
 ---
 
 ## Objetivo
 
-Definir propiedades que representen reglas de negocio reales y utiles.
+Definir propiedades que representen reglas de negocio reales y útiles.
 
 ---
 
@@ -17,23 +17,23 @@ Definir propiedades que representen reglas de negocio reales y utiles.
 
 1. Expresa una regla universal del dominio.
 2. Tiene input generado con restricciones coherentes.
-3. Tiene oraculo claro para validar salida.
+3. Tiene oráculo claro para validar salida.
 4. Falla con mensaje interpretable.
 
 ---
 
-## Patrones utiles
+## Patrones útiles
 
 - Idempotencia: aplicar dos veces equivale a una.
-- Conservacion: una magnitud se mantiene (ej. longitud, suma total).
+- Conservación: una magnitud se mantiene (ej. longitud, suma total).
 - Orden: salida debe permanecer ordenada bajo criterio.
-- Limites: resultado dentro de rango permitido.
+- Límites: resultado dentro de rango permitido.
 
 ---
 
 ## Ejemplo completo: generadores combinados
 
-Funcion bajo prueba — calcula el precio final de una entrada de museo aplicando un descuento por edad, sin dejarlo nunca negativo:
+Función bajo prueba — calcula el precio final de una entrada de museo aplicando un descuento por edad, sin dejarlo nunca negativo:
 
 ```javascript
 function applyAgeDiscount(basePrice, age) {
@@ -59,7 +59,7 @@ test("should keep final ticket price within valid bounds", () => {
 });
 ```
 
-Para textos, `fc.string()` por defecto casi nunca genera tabs ni saltos de linea. Si la regla trata sobre whitespace, conviene un generador que lo incluya de forma explicita con la opcion `unit`:
+Para textos, `fc.string()` por defecto casi nunca genera tabs ni saltos de línea. Si la regla trata sobre whitespace, conviene un generador que lo incluya de forma explícita con la opción `unit`:
 
 ```javascript
 // Strings hechos solo con estas unidades: letras y whitespace real.
@@ -83,7 +83,7 @@ test("should never leave whitespace in hall slug", () => {
 
 ## Interpretar un contraejemplo simplificado
 
-Supongamos una version con bug que solo reemplaza espacios (`/ +/g`) en lugar de cualquier whitespace (`/\s+/g`):
+Supongamos una versión con bug que solo reemplaza espacios (`/ +/g`) en lugar de cualquier whitespace (`/\s+/g`):
 
 ```javascript
 function slugifyHallName(name) {
@@ -112,16 +112,16 @@ FAIL ./slug.test.js
         a"
 ```
 
-Como leerlo:
+Cómo leerlo:
 
-- `Counterexample: ["a\na"]` es el array de argumentos de la propiedad (aqui uno solo, `name`). Ya esta reducido: es el input mas simple que fast-check encontro que sigue fallando, no el string aleatorio original.
-- `Shrunk 3 time(s)`: fast-check partio del primer input que fallo y lo simplifico 3 veces.
-- `seed` y `path` permiten reproducir exactamente la misma corrida: `fc.assert(property, { seed: 1987581203, path: "0:1:7:7" })`. El `seed` cambia en cada ejecucion, por eso hay que copiarlo del fallo.
-- `Cause` es el `expect` que fallo dentro de la propiedad: el slug conserva un salto de linea. El contraejemplo apunta directo al bug (el regex no cubre `\n`).
+- `Counterexample: ["a\na"]` es el array de argumentos de la propiedad (aquí uno solo, `name`). Ya está reducido: es el input más simple que fast-check encontró que sigue fallando, no el string aleatorio original.
+- `Shrunk 3 time(s)`: fast-check partió del primer input que falló y lo simplificó 3 veces.
+- `seed` y `path` permiten reproducir exactamente la misma corrida: `fc.assert(property, { seed: 1987581203, path: "0:1:7:7" })`. El `seed` cambia en cada ejecución, por eso hay que copiarlo del fallo.
+- `Cause` es el `expect` que falló dentro de la propiedad: el slug conserva un salto de línea. El contraejemplo apunta directo al bug (el regex no cubre `\n`).
 
 ---
 
-## Recomendacion
+## Recomendación
 
 Combina tests de ejemplo (casos narrativos) con propiedades (cobertura amplia de entradas). Mejora la confianza sin depender solo de snapshots o de ejemplos puntuales.
 
@@ -129,12 +129,12 @@ Combina tests de ejemplo (casos narrativos) con propiedades (cobertura amplia de
 
 ## Errores frecuentes
 
-- Generadores sin restricciones (`fc.integer()` sin `min`/`max`) cuando el dominio real tiene limites conocidos: genera ruido irrelevante.
+- Generadores sin restricciones (`fc.integer()` sin `min`/`max`) cuando el dominio real tiene límites conocidos: genera ruido irrelevante.
 - Ignorar el `seed` del fallo y no poder reproducirlo en la siguiente corrida.
-- Escribir el oraculo con la misma formula que la implementacion (la propiedad nunca podria fallar).
+- Escribir el oráculo con la misma formula que la implementación (la propiedad nunca podría fallar).
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Ante un fallo, lee primero el `Counterexample` shrunkeado: es el caso mas simple posible, no ruido aleatorio.
+Ante un fallo, lee primero el `Counterexample` shrunkeado: es el caso más simple posible, no ruido aleatorio.

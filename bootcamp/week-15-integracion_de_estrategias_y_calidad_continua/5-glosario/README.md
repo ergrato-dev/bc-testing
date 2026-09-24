@@ -1,4 +1,4 @@
-# Glosario Semana 15 - Integracion y Calidad Continua
+# Glosario Semana 15 - Integración y Calidad Continua
 
 ## A
 
@@ -6,24 +6,24 @@
 
 ## C
 
-- **continuous integration (CI)**: practica de integrar cambios frecuentemente con validaciones automaticas.
+- **continuous integration (CI)**: práctica de integrar cambios frecuentemente con validaciones automáticas.
 
 ## P
 
-- **pipeline**: secuencia automatizada de pasos (build, test, analisis) ejecutada en cada cambio.
+- **pipeline**: secuencia automatizada de pasos (build, test, análisis) ejecutada en cada cambio.
 
 ## Q
 
-- **quality gate**: regla automatica que permite o bloquea avance segun metricas.
+- **quality gate**: regla automática que permite o bloquea avance según métricas.
 
 ## S
 
-- **SonarQube Cloud**: plataforma de analisis de calidad de codigo en modalidad cloud.
-- **SonarQube Community Edition**: version autohospedada base para analisis de calidad.
+- **SonarQube Cloud**: plataforma de análisis de calidad de código en modalidad cloud.
+- **SonarQube Community Edition**: versión autohospedada base para análisis de calidad.
 
 ## T
 
-- **test strategy**: decision explicita de que, como y donde probar segun riesgo.
+- **test strategy**: decisión explícita de que, cómo y dónde probar según riesgo.
 
 ## W
 

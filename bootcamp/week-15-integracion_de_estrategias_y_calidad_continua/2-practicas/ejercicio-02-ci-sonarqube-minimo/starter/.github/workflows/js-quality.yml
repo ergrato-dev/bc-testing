@@ -11,7 +11,7 @@ jobs:
 
     steps:
       # ============================================
-      # PASO 1: Checkout + setup de pnpm y Node 22 + instalacion
+      # PASO 1: Checkout + setup de pnpm y Node 22 + instalación
       # ============================================
       # - name: Checkout
       #   # actions/checkout@v7.0.1 (SHA pinado: el tag es mutable, el SHA no)
@@ -20,12 +20,12 @@ jobs:
       #     fetch-depth: 0
       #
       # - name: Setup pnpm
-      #   # pnpm/action-setup@v6.1.0 (sin "version": lee "packageManager" de package.json)
+      #   # pnpm/action-setup@v6.1.0 (sin "versión": lee "packageManager" de package.json)
       #   uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413
       #
       # - name: Setup Node
       #   # actions/setup-node@v7.0.0
-      #   # Sin "cache: pnpm": esa opcion exige pnpm-lock.yaml y este repo no versiona lockfiles
+      #   # Sin "cache: pnpm": esa opción exige pnpm-lock.yaml y este repo no versiona lockfiles
       #   uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
       #   with:
       #     node-version: 22

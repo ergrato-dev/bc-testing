@@ -3,10 +3,10 @@ const { createApp } = require("./app");
 const { createItemService } = require("./item.service");
 
 // ============================================
-// TEST SUITE: API de items (integracion con Supertest)
+// TEST SUITE: API de items (integración con Supertest)
 // ============================================
-// Integracion real: app Express + service real + repository en memoria.
-// Solo el almacenamiento se reemplaza; la logica de negocio NO se mockea.
+// Integración real: app Express + service real + repository en memoria.
+// Solo el almacenamiento se reemplaza; la lógica de negocio NO se mockea.
 
 describe("POST /items", () => {
   // TODO: Declarar app (y el repository en memoria si lo necesitas en los asserts)

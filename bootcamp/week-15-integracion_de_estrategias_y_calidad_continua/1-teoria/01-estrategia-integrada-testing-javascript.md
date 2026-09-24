@@ -4,7 +4,7 @@
 
 Consolidar lo aprendido en etapa JavaScript para construir una suite balanceada, mantenible y orientada a riesgo.
 
-![Mapa de integracion de estrategias](../0-assets/01-mapa-integracion-estrategias.svg)
+![Mapa de integración de estrategias](../0-assets/01-mapa-integracion-estrategias.svg)
 
 ---
 
@@ -34,38 +34,38 @@ Selecciona por riesgo:
 
 ---
 
-## Matriz rapida de decision
+## Matriz rápida de decisión
 
-| Tipo de modulo | Riesgo de fallo | Test minimo recomendado | Test adicional sugerido |
+| Tipo de módulo | Riesgo de fallo | Test mínimo recomendado | Test adicional sugerido |
 |---|---|---|---|
 | Validaciones de entrada | Alto | Unit con errores y bordes | Property para invariantes |
-| Orquestacion de servicios | Alto | Integration con doubles controlados | Contract test de respuesta |
+| Orquestación de servicios | Alto | Integration con doubles controlados | Contract test de respuesta |
 | Formateo de payload estable | Medio | Unit de estructura clave | Snapshot acotado |
 | Utilidades matematicas/texto | Medio | Unit parametrizado | Property-based |
-| Wrappers simples | Bajo | Unit basico | Solo si hay historial de fallos |
+| Wrappers simples | Bajo | Unit básico | Solo si hay historial de fallos |
 
 ---
 
-## Ejemplo de composicion por caso
+## Ejemplo de composición por caso
 
 Caso: `createInvoiceSummary`.
 
 1. Unit tests:
-	- monto invalido,
+	- monto inválido,
 	- descuento fuera de rango,
 	- redondeo esperado.
 2. Integration test:
-	- orquestacion con repositorio y mapper.
+	- orquestación con repositorio y mapper.
 3. Snapshot:
 	- payload final para contrato de respuesta.
 4. Property test:
-	- `total >= 0` para cualquier entrada valida.
+	- `total >= 0` para cualquier entrada válida.
 
-Resultado: si falla, el equipo diagnostica rapido si el problema es regla, integracion o formato.
+Resultado: si falla, el equipo diagnostica rápido si el problema es regla, integración o formato.
 
 ---
 
-## Como evitar redundancia
+## Cómo evitar redundancia
 
 Redundante:
 
@@ -73,12 +73,12 @@ Redundante:
 
 No redundante:
 
-- unit valida calculo interno,
+- unit valida cálculo interno,
 - integration valida contrato externo observable.
 
 Pregunta de control:
 
-"Si elimino este test, pierdo una senal unica de regresion?"
+"Si elimino este test, ¿pierdo una señal única de regresión?"
 
 Si la respuesta es no, probablemente ese test sobra o debe fusionarse.
 
@@ -86,26 +86,26 @@ Si la respuesta es no, probablemente ese test sobra o debe fusionarse.
 
 ## Criterio de mantenimiento
 
-Una suite integrada madura no es la mas grande; es la que:
+Una suite integrada madura no es la más grande; es la que:
 
-- detecta regresiones criticas temprano,
+- detecta regresiones críticas temprano,
 - permite refactor sin ruido innecesario,
-- conserva feedback rapido en cada PR.
+- conserva feedback rápido en cada PR.
 
 ---
 
 ## Anti-patrones en cierre de etapa
 
-- Duplicar tests con el mismo valor diagnostico.
+- Duplicar tests con el mismo valor diagnóstico.
 - Cubrir solo happy path y llamar eso "completo".
 - Agregar snapshots de objetos gigantes sin foco.
-- Forzar properties en codigo sin invariantes claras.
+- Forzar properties en código sin invariantes claras.
 
 ---
 
 ## Checklist de estrategia
 
-- [ ] Cada modulo critico tiene al menos una prueba de error.
+- [ ] Cada módulo crítico tiene al menos una prueba de error.
 - [ ] Hay evidencia de decisiones por riesgo, no por moda.
-- [ ] Los tests fallan por una razon clara.
+- [ ] Los tests fallan por una razón clara.
 - [ ] La suite se ejecuta estable en local y CI.

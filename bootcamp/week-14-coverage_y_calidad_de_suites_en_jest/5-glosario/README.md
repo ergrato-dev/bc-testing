@@ -6,23 +6,23 @@
 
 ## C
 
-- **coverage threshold**: umbral minimo de cobertura exigido para aprobar una suite.
+- **coverage threshold**: umbral mínimo de cobertura exigido para aprobar una suite.
 
 ## F
 
-- **flaky test**: prueba inestable que falla y pasa sin cambios de codigo.
+- **flaky test**: prueba inestable que falla y pasa sin cambios de código.
 
 ## L
 
-- **line coverage**: porcentaje de lineas de codigo ejecutadas por la suite de tests.
+- **line coverage**: porcentaje de líneas de código ejecutadas por la suite de tests.
 
 ## M
 
-- **mutation testing**: tecnica para evaluar fuerza de tests introduciendo cambios artificiales.
+- **mutation testing**: técnica para evaluar fuerza de tests introduciendo cambios artificiales.
 
 ## R
 
-- **risk-based testing**: priorizacion de pruebas segun impacto y probabilidad de fallo.
+- **risk-based testing**: priorización de pruebas según impacto y probabilidad de fallo.
 
 ## T
 
