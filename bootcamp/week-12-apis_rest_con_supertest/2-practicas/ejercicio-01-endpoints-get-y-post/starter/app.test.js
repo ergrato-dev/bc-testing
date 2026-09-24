@@ -1,5 +1,12 @@
 const request = require("supertest");
-const { app } = require("./app");
+const { createApp } = require("./app");
+
+let app;
+
+beforeEach(() => {
+  // App y repositorio nuevos por test: ningun test hereda datos de otro.
+  app = createApp();
+});
 
 // ============================================
 // PASO 1: Health endpoint
@@ -25,14 +32,22 @@ const { app } = require("./app");
 // ============================================
 // PASO 3: POST /items
 // ============================================
+// expect.any(String) acepta cualquier string: el id lo genera el servidor.
 // test("should create item when payload is valid", async () => {
-//   const response = await request(app)
-//     .post("/items")
-//     .send({ name: "Mouse" });
+//   const response = await request(app).post("/items").send({ name: "Mouse" });
 //
 //   expect(response.status).toBe(201);
 //   expect(response.body).toEqual({
 //     id: expect.any(String),
 //     name: "Mouse",
 //   });
+// });
+
+// ============================================
+// PASO 4: Aislamiento entre tests
+// ============================================
+// test("should not see items created by previous tests", async () => {
+//   const response = await request(app).get("/items");
+//
+//   expect(response.body.items).toEqual([{ id: "it-1", name: "Notebook" }]);
 // });

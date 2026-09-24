@@ -33,14 +33,44 @@ Asegurar que la suite de API sea estable y diagnostique fallos con claridad.
 
 ## Repositorio in-memory y reset entre tests
 
-Cuando la app guarda datos en un arreglo o Map en memoria, cada test puede dejar el estado sucio para el siguiente. `beforeEach` reinicia el repositorio antes de cada caso.
+Cuando la app guarda datos en un arreglo o Map en memoria, cada test puede dejar el estado sucio para el siguiente. La solucion es que `createApp()` construya el repositorio dentro de la factory y que `beforeEach` cree una app nueva antes de cada caso.
 
 ```javascript
+// app.js
+const express = require("express");
+
+function createExhibitRepository() {
+  const exhibits = [];
+
+  return {
+    findById: (id) => exhibits.find((exhibit) => exhibit.id === id),
+    create: (name) => {
+      const created = { id: exhibits.length + 1, name };
+      exhibits.push(created);
+      return created;
+    },
+  };
+}
+
+function createApp({ repository = createExhibitRepository() } = {}) {
+  const app = express();
+  app.use(express.json());
+  // ...rutas que usan repository...
+  return app;
+}
+
+module.exports = { createApp };
+```
+
+```javascript
+// app.test.js
 const request = require("supertest");
-const { app, resetExhibits } = require("./app");
+const { createApp } = require("./app");
+
+let app;
 
 beforeEach(() => {
-  resetExhibits();
+  app = createApp(); // repositorio vacio en cada test
 });
 
 test("should create exhibit with unique id", async () => {
@@ -91,6 +121,50 @@ test("should return 409 when exhibit name already exists", async () => {
 
 ---
 
+## Testear un 500 con middleware de errores
+
+En Express 5, una excepcion lanzada en un handler (o una promesa rechazada) llega al **middleware de errores**, que se reconoce por tener 4 argumentos. Se registra al final, despues de las rutas:
+
+```javascript
+// dentro de createApp, despues de las rutas
+app.get("/exhibits/:id", (req, res) => {
+  const found = repository.findById(Number(req.params.id));
+  // ...404 si no existe, 200 si existe...
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: "InternalServerError",
+    message: "unexpected error",
+  });
+});
+```
+
+Para provocar el 500 de forma determinista se inyecta un repositorio que lanza:
+
+```javascript
+test("should return 500 when repository fails", async () => {
+  const failingRepository = {
+    findById: () => {
+      throw new Error("database down");
+    },
+  };
+  const failingApp = createApp({ repository: failingRepository });
+
+  const response = await request(failingApp).get("/exhibits/1");
+
+  expect(response.status).toBe(500);
+  expect(response.body).toEqual({
+    error: "InternalServerError",
+    message: "unexpected error",
+  });
+});
+```
+
+El test verifica tambien que el mensaje interno (`database down`) no se filtra al cliente.
+
+---
+
 ## Plantilla de error recomendada
 
 ```json
@@ -110,7 +184,7 @@ Cuando un test de API falla, primero revisa si el contrato esperado sigue vigent
 
 ## Errores frecuentes
 
-- Compartir un unico array de datos entre tests sin resetearlo en `beforeEach`.
+- Compartir un unico array de datos a nivel de modulo entre tests en lugar de crear la app con `createApp()` en `beforeEach`.
 - Asumir orden de ejecucion entre tests para que un recurso "ya exista".
 - Devolver 500 para errores de validacion que deberian ser 400.
 - No distinguir 404 (no existe) de 409 (conflicto con estado actual).

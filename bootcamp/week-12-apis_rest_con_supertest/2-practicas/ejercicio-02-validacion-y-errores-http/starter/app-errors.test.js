@@ -1,5 +1,12 @@
 const request = require("supertest");
-const { app } = require("./app-errors");
+const { createApp } = require("./app-errors");
+
+let app;
+
+beforeEach(() => {
+  // App y repositorio nuevos por test: ningun test hereda datos de otro.
+  app = createApp();
+});
 
 // ============================================
 // PASO 1: Error de validacion
@@ -39,5 +46,26 @@ const { app } = require("./app-errors");
 //   expect(response.body).toEqual({
 //     error: "ConflictError",
 //     message: "item name already exists",
+//   });
+// });
+
+// ============================================
+// PASO 4: Error interno 500
+// ============================================
+// Se inyecta un repositorio que lanza para forzar el middleware de errores.
+// test("should return 500 when repository fails unexpectedly", async () => {
+//   const failingRepository = {
+//     findById: () => {
+//       throw new Error("database down");
+//     },
+//   };
+//   const failingApp = createApp({ repository: failingRepository });
+//
+//   const response = await request(failingApp).get("/items/it-1");
+//
+//   expect(response.status).toBe(500);
+//   expect(response.body).toEqual({
+//     error: "InternalServerError",
+//     message: "unexpected error",
 //   });
 // });
