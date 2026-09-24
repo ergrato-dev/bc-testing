@@ -23,7 +23,7 @@ Abre `starter/profile.presenter.test.js` y descomenta PASO 1.
 
 ### Paso 2: Snapshot con foco
 
-Descomenta PASO 2 y ejecuta `pnpm test`: Jest crea `__snapshots__/profile.presenter.test.js.snap`. Abrelo y revisa que el contenido es el esperado antes de versionarlo.
+Descomenta PASO 2 y ejecuta `pnpm test`: Jest crea `__snapshots__/profile.presenter.test.js.snap`. Ábrelo y revisa que el contenido es el esperado antes de versionarlo.
 
 ### Paso 3: Snapshot de lista
 
@@ -31,7 +31,7 @@ Descomenta PASO 3 para validar estructura de lista serializada.
 
 ### Paso 4: Property matcher para campo volatil
 
-Descomenta PASO 4. `buildProfileResponse` incluye `generatedAt`, que cambia en cada ejecucion; un snapshot normal fallaria siempre. `toMatchSnapshot({ generatedAt: expect.any(String) })` guarda `Any<String>` en ese campo y compara el resto exacto. Prueba a quitar el argumento, ejecuta dos veces y observa el fallo; despues restauralo.
+Descomenta PASO 4. `buildProfileResponse` incluye `generatedAt`, que cambia en cada ejecucion; un snapshot normal fallaria siempre. `toMatchSnapshot({ generatedAt: expect.any(String) })` guarda `Any<String>` en ese campo y compara el resto exacto. Prueba a quitar el argumento, ejecuta dos veces y observa el fallo; despues restáuralo.
 
 ### Paso 5: Inline snapshot
 

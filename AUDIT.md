@@ -144,5 +144,6 @@ Todas las solutions JS pasan con `CI=true pnpm test`; los starters descomentados
 
 - **`qs` (moderate, GHSA-x5fp-wj9c-mxmx, GHSA-4mjr-xmp4-gh2g)** vía `supertest > superagent > qs` en S12 y S15. Solo dependencia de desarrollo (tests); se acepta hasta que `superagent` publique versión con `qs >= 6.16.0`.
 - **`pom.xml` de S06 proyecto** no compilado en esta revisión (sin Maven en el entorno).
+- **Idioma**: verificado 2026-09 que no hay voseo en el repo (búsqueda de formas `-ás/-és/-ís`, imperativos `-á/-é/-í`, clíticos sin tilde y léxico rioplatense). Se encontraron 8 formas ambiguas sin tilde (`Fijate`, `importalo`, `requierelo`, `declaralo`, `Abrelo`...) y se normalizaron a tuteo con tilde. Regla "tuteo, nunca voseo" añadida a `copilot-instructions.md` y a la guía.
 - **Menores de estilo JS** fuera de alcance: `describe` en todos los tests, nombres con "when", layout `src/tests` uniforme, tildes en READMEs S07–S15.
 - **Python (S04, S16–S18) y Java**: pendiente de revisión equivalente (S04 falla con `pytest -v` por `pythonpath`; S16–S18 sin dependencias declaradas).

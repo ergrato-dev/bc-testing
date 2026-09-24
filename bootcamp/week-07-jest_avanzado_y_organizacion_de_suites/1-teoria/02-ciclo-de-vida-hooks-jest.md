@@ -101,7 +101,7 @@ Aqui `beforeAll` conecta la base de datos una vez para todo el archivo, y `befor
 
 - Usa `beforeEach` cuando el estado debe reiniciarse siempre.
 - Usa `beforeAll` para setup costoso compartido (conexiones, fixtures pesadas) que no se modifica entre tests.
-- Manten los hooks cerca de los tests que los necesitan; si un hook solo aplica a un `describe` interno, declaralo ahi y no en el bloque raiz.
+- Manten los hooks cerca de los tests que los necesitan; si un hook solo aplica a un `describe` interno, decláralo ahi y no en el bloque raiz.
 
 ---
 
