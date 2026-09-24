@@ -23,9 +23,9 @@ Al finalizar esta semana seras capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Plan de pruebas, trazabilidad y equivalencias multilenguaje | 2.5 h |
-| Practicas | Diseno de casos + suite base en JS/Python/Java | 3 h |
-| Proyecto | Entregable integrador del dominio asignado | 2 h |
+| Teoria | Revision de Semanas 1-5, plan de pruebas, trazabilidad y equivalencias multilenguaje | 1 h |
+| Practicas | Diseno de casos + suite base en JS/Python/Java | 1.5 h |
+| Proyecto | `test-plan.md` + suite en JS, Python y Java del dominio asignado | 5 h |
 | Recursos y cierre | Revision de checklist y consolidacion | 0.5 h |
 
 ---

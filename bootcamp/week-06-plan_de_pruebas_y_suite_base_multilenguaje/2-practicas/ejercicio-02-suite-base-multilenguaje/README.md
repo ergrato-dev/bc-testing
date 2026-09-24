@@ -6,7 +6,7 @@ Construir la misma intencion de test en JavaScript, Python y Java.
 
 ## Tiempo estimado
 
-105 minutos.
+50 minutos.
 
 ## Pasos
 
