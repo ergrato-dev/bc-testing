@@ -38,16 +38,22 @@ const taxCalculator = {
   },
 };
 
-test("should use spy to verify getRate call", () => {
+function priceWithTax(amount, country) {
+  return amount * (1 + taxCalculator.getRate(country));
+}
+
+test("should ask the tax rate of the country when pricing", () => {
   const rateSpy = jest.spyOn(taxCalculator, "getRate");
 
-  const rate = taxCalculator.getRate("PE");
+  const price = priceWithTax(100, "PE");
 
-  expect(rate).toBe(0.18);
+  expect(price).toBeCloseTo(118);
   expect(rateSpy).toHaveBeenCalledWith("PE");
   rateSpy.mockRestore();
 });
 ```
+
+El spy se verifica despues de ejecutar la unidad bajo prueba (`priceWithTax`). Si el test llamara a `taxCalculator.getRate` directamente y luego verificara el spy, solo comprobaria su propia llamada: una tautologia que pasa aunque `priceWithTax` deje de usar el calculador.
 
 ---
 

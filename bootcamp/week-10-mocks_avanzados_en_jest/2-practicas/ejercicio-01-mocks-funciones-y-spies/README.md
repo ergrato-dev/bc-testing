@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Practicar `jest.fn()` y `jest.spyOn()` para validar interacciones relevantes.
+Profundizar en `jest.fn()` y `jest.spyOn()` sobre un servicio de venta de entradas de Planetario: implementaciones falsas, orden de llamadas, spies que observan a la unidad bajo prueba y limpieza de mocks.
 
 ## Tiempo estimado
 
@@ -10,25 +10,41 @@ Practicar `jest.fn()` y `jest.spyOn()` para validar interacciones relevantes.
 
 ## Paso a paso
 
-### Paso 1: Preparar un mock function
+Abre `starter/ticket.service.test.js` y revisa `starter/ticket.service.js`. `sellTickets` reserva asientos con `seatApi`, imprime una entrada por asiento con `ticketPrinter` y calcula el total con `pricing.basePrice`.
 
-Abre `starter/notification.service.test.js` y descomenta el bloque del PASO 1.
+### Paso 1: Dobles con `mockImplementation`
 
-### Paso 2: Validar argumentos y cantidad de llamadas
+Descomenta el PASO 1. `seatApi.reserve` usa `mockImplementation` para devolver tantos asientos como entradas se piden, y `afterEach` restaura los spies con `jest.restoreAllMocks()`.
 
-Descomenta el bloque del PASO 2 para verificar payload y numero de invocaciones.
+### Paso 2: Sobrescribir una sola llamada con `mockImplementationOnce`
 
-### Paso 3: Usar spy sobre metodo real
+Descomenta el PASO 2. La primera llamada falla con `sold out` y la segunda vuelve a la implementacion por defecto.
 
-Descomenta el bloque del PASO 3 para observar un metodo real con `jest.spyOn`.
+### Paso 3: Orden de llamadas con `toHaveBeenNthCalledWith`
 
-### Paso 4: Revisar solucion
+Descomenta el PASO 3 y verifica que las entradas se imprimen en el orden de los asientos.
 
-Compara con `solution/notification.service.test.js` y analiza diferencias.
+### Paso 4: Spy sobre la unidad bajo prueba
+
+Descomenta el PASO 4. El spy sobre `pricing.basePrice` se verifica despues de llamar a `sellTickets`, no llamando al metodo desde el test (eso solo comprobaria el propio test). El segundo test sobrescribe el valor con `mockReturnValue`.
+
+### Paso 5: `mockClear` vs `mockReset` vs `mockRestore`
+
+Descomenta el PASO 5 y observa que conserva o borra cada metodo:
+
+| Metodo | Historial de llamadas | Implementacion falsa | Metodo original |
+|---|---|---|---|
+| `mockClear()` | Se borra | Se conserva | No |
+| `mockReset()` | Se borra | Se borra (devuelve `undefined`) | No |
+| `mockRestore()` | Se borra | Se borra | Se restaura (solo spies) |
+
+### Paso 6: Revisar solucion
+
+Compara con `solution/ticket.service.test.js` y analiza diferencias.
 
 ## Comando sugerido
 
 ```bash
 pnpm install
-pnpm test notification.service.test.js
+pnpm test ticket.service.test.js
 ```

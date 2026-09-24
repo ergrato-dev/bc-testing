@@ -26,7 +26,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 - Minimo 8 tests.
 - Minimo 1 error de negocio validado con `rejects.toThrow`.
 - Minimo 1 verificacion de orden o cantidad de llamadas.
-- Cobertura sugerida: >= 85% en archivos del proyecto.
+- Todos los tests en verde con `pnpm test` (sin tests saltados con `.skip` ni `.only`).
 
 ## Ejecucion sugerida
 
