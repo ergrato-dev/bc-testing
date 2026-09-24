@@ -8,7 +8,7 @@
 
 ## Por que existen
 
-Un test unitario no deberia depender de una base de datos real, un servicio externo o un temporizador del sistema. Los test doubles reemplazan esas dependencias por versiones controladas, para que el test sea rapido, repetible y aislado. Esta semana solo se ve el nivel introductorio; la profundidad completa (matchers de mocks, timers falsos, modulos completos mockeados) se cubre en la semana 10.
+Un test unitario no deberia depender de una base de datos real, un servicio externo o un temporizador del sistema. Los test doubles reemplazan esas dependencias por versiones controladas, para que el test sea rapido, repetible y aislado. Esta semana solo se ve el nivel introductorio (`jest.fn` y `jest.spyOn` basicos). Los timers falsos se ven en la Semana 09 y el mocking avanzado (matchers de mocks, modulos completos mockeados, mocks parciales) se profundiza en la Semana 10.
 
 ---
 
@@ -54,7 +54,13 @@ service.run();
 expect(spy).toHaveBeenCalled();
 ```
 
-`logger.info` sigue ejecutando su codigo real; `spy` solo agrega observabilidad encima.
+`logger.info` sigue ejecutando su codigo real; `spy` solo agrega observabilidad encima. Como `jest.spyOn` modifica un objeto real, hay que restaurarlo al terminar para no contaminar otros tests:
+
+```javascript
+afterEach(() => {
+  jest.restoreAllMocks(); // equivale a spy.mockRestore() en cada spy creado con spyOn
+});
+```
 
 ---
 
