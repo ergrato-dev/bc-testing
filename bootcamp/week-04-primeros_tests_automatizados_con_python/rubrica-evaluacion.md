@@ -24,12 +24,12 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 ### Preguntas
 
 1. ¿Qué patrón de nombres debe seguir un archivo de test en pytest?
-2. ¿Qué diferencia hay entre `assert` nativo y una librería de assertions externa?
+2. ¿Qué diferencias hay entre escribir un test con pytest y con `unittest`?
 3. Explica el patrón AAA en un test de Python.
 4. ¿Qué hace `pytest -v` y en qué ayuda?
 5. ¿Para qué sirve `pytest -k "texto"`?
 6. ¿Cómo se representa en pytest un test que espera excepción?
-7. Diferencia entre failure y error en la salida de pytest.
+7. ¿Cuándo marca pytest un test como `FAILED` y cuándo como `ERROR`? Da un ejemplo de cada uno (pista: una excepción inesperada dentro del test es `FAILED`).
 8. ¿Por qué las funciones puras son buen punto de entrada para tests unitarios?
 9. ¿Qué beneficio aporta un nombre de test descriptivo en snake_case?
 10. ¿Qué problema evita ejecutar tests de forma repetible en un entorno aislado?
@@ -70,7 +70,7 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 
 ## 📦 Producto (30 puntos)
 
-### Suite inicial del dominio (`item_service_test.py`)
+### Suite inicial del dominio (`test_item_service.py`)
 
 | Criterio | Pts |
 |---|---|
@@ -79,8 +79,8 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 | Mantiene AAA de forma consistente | 6 |
 | Nombres de test legibles y descriptivos | 4 |
 | No depende de recursos externos reales | 4 |
-| Usa setup compartido cuando aplica | 3 |
-| Suite ejecuta correctamente en local | 3 |
+| Incluye la tabla comparativa JS ↔ Python (3 intenciones equivalentes) | 3 |
+| Suite ejecuta correctamente en local con `uv run pytest` | 3 |
 | **Total** | **30** |
 
 ---

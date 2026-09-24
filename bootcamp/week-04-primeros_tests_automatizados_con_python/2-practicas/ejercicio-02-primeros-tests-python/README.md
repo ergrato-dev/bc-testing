@@ -1,15 +1,15 @@
 # Ejercicio 02 — Primeros Tests Unitarios en Python
 
-> **Semana 04 · Practicas · Ejercicio 02** | Duracion estimada: 2 h
+> **Semana 04 · Prácticas · Ejercicio 02** | Duración estimada: 2 h
 
 ---
 
 ## Objetivo
 
-Escribir una suite inicial con pytest para funciones puras aplicando:
+Construir una suite inicial con pytest para funciones puras aplicando:
 
-- Nombres descriptivos
-- Patron AAA
+- Nombres descriptivos (`test_[contexto]_[resultado]_when_[condicion]`)
+- Patrón AAA
 - Assertions claras
 - Manejo de excepciones con `pytest.raises`
 
@@ -17,46 +17,47 @@ Escribir una suite inicial con pytest para funciones puras aplicando:
 
 ## Instrucciones
 
-### Paso 1 — Abre `starter/tests/test_user_utils.py`
-
-Encontraras bloques comentados por pasos para descomentar.
-
-### Paso 2 — Ejecuta tests
-
-Con `uv` (recomendado):
+### Paso 1 — Preparar el entorno
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
-pytest -v
+cd starter
+uv sync
+uv run pytest -v
 ```
 
-Alternativa con `pip` + `venv`:
+Todos los tests están comentados, así que pytest informa `no tests ran`. Revisa `src/user_utils.py` para conocer las funciones que vas a probar.
+
+### Paso 2 — PASO 1: tests de `is_adult`
+
+Abre `starter/tests/test_user_utils.py` y descomenta el bloque `PASO 1`. Cubre el límite de edad: 18 (adulto) y 17 (no adulto).
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-pytest -v
+uv run pytest -v
 ```
 
-### Paso 3 — Completa casos
+### Paso 3 — PASO 2: tests de `calculate_discount`
 
-Completa assertions faltantes y valida excepciones.
+Descomenta el bloque `PASO 2`: un caso válido con `==` y un porcentaje inválido verificado con `pytest.raises(ValueError, match="Invalid percent")`. Observa que en los tests de excepción Act y Assert van juntos dentro del `with`.
 
-### Paso 4 — Ajusta nombres
+### Paso 4 — PASO 3: tests de `is_valid_email`
 
-Patron sugerido:
+Descomenta el bloque `PASO 3`: un email válido y uno inválido.
 
-```text
-test_[contexto]_[resultado]_when_[condicion]
+```bash
+uv run pytest -v
+uv run pytest -k calculate_discount
 ```
+
+Deben pasar los 6 tests; con `-k calculate_discount` solo se ejecutan los 2 de esa función.
+
+### Paso 5 — Reto opcional
+
+Añade por tu cuenta un test más por función (por ejemplo, `calculate_discount` con `percent = 0` o un email sin punto) siguiendo el mismo patrón AAA y de nombres.
 
 ---
 
 ## Resultado esperado
 
-- Al menos 6 tests en verde
-- Happy path + casos invalidos
+- 6 tests en verde (más los del reto, si lo haces)
+- Happy path + casos inválidos
 - AAA visible en cada test

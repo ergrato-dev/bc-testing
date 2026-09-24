@@ -13,11 +13,61 @@ def test_add_returns_five_when_inputs_are_two_and_three() -> None:
     assert 2 + 3 == 5
 ```
 
-No requiere clases, aunque pueden usarse para organización.
+No requiere clases ni herencia: basta una función y un `assert`.
+
+---
+
+## pytest frente a `unittest`
+
+Python trae de serie el módulo [`unittest`](https://docs.python.org/3/library/unittest.html) (estilo xUnit, como JUnit). El mismo test en ambos estilos:
+
+```python
+# unittest: clase que hereda de TestCase y métodos assert*
+import unittest
+
+from src.calculator import add, divide
+
+
+class TestCalculator(unittest.TestCase):
+    def test_add_returns_five_when_inputs_are_two_and_three(self) -> None:
+        self.assertEqual(add(2, 3), 5)
+
+    def test_divide_raises_value_error_when_divisor_is_zero(self) -> None:
+        with self.assertRaises(ValueError):
+            divide(10, 0)
+```
+
+```python
+# pytest: funciones sueltas y assert nativo
+import pytest
+
+from src.calculator import add, divide
+
+
+def test_add_returns_five_when_inputs_are_two_and_three() -> None:
+    assert add(2, 3) == 5
+
+
+def test_divide_raises_value_error_when_divisor_is_zero() -> None:
+    with pytest.raises(ValueError):
+        divide(10, 0)
+```
+
+| Aspecto | `unittest` | pytest |
+|---|---|---|
+| Instalación | Incluido en Python | Dependencia externa (`uv add --dev pytest`) |
+| Estructura | Clase que hereda de `unittest.TestCase` | Funciones `test_*` (clases opcionales) |
+| Verificación | Métodos `self.assertEqual`, `self.assertTrue`, `self.assertIn`… | `assert` nativo con mensajes detallados |
+| Excepciones | `self.assertRaises` | `pytest.raises` |
+| Ejecución | `python -m unittest` | `pytest` (también ejecuta tests escritos con `unittest`) |
+
+En el bootcamp usamos pytest: menos código repetido y mejores mensajes de fallo. Aun así conviene reconocer `unittest`, porque aparece en muchos proyectos existentes y pytest puede ejecutarlo sin cambios.
 
 ---
 
 ## Patrón AAA
+
+![Patrón AAA en pytest](../0-assets/02-patron-aaa-python.svg)
 
 AAA mantiene legibilidad y claridad:
 

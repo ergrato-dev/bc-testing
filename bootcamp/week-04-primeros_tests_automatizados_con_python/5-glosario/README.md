@@ -10,31 +10,31 @@
 Sentencia nativa de Python usada para verificar expectativas en tests.
 
 **AAA (Arrange-Act-Assert)**
-Patron estructural para escribir tests claros y mantenibles.
+Patrón estructural para escribir tests claros y mantenibles.
 
 ---
 
 ## C
 
 **Conftest**
-Archivo especial de pytest para compartir fixtures y configuracion (se profundiza en semanas futuras).
+Archivo especial de pytest para compartir fixtures y configuración (se profundiza en semanas futuras).
 
 ---
 
 ## E
 
-**Error**
-Fallo por excepcion inesperada antes de llegar a la assertion.
+**Error (ERROR)**
+Estado de pytest cuando falla algo fuera del cuerpo del test: la colección del archivo (import roto, error de sintaxis) o el setup/teardown de un fixture. El test no llega a ejecutarse.
 
 **Edge Case**
-Caso extremo cercano a limites donde aparecen muchos defects.
+Caso extremo cercano a los límites, donde suelen aparecer muchos defectos.
 
 ---
 
 ## F
 
-**Failure**
-Test ejecutado pero con assertion no satisfecha.
+**Failure (FAILED)**
+Estado de pytest cuando el test se ejecuta y lanza cualquier excepción en su cuerpo: una assertion no satisfecha o una excepción inesperada (`TypeError`, `KeyError`…).
 
 **Fixture**
 Mecanismo de pytest para preparar y reutilizar contexto de prueba.
@@ -44,7 +44,7 @@ Mecanismo de pytest para preparar y reutilizar contexto de prueba.
 ## K
 
 **-k (pytest -k)**
-Filtro por nombre de test para ejecutar subconjuntos rapidamente.
+Filtro por nombre de test para ejecutar subconjuntos rápidamente.
 
 ---
 
@@ -57,38 +57,48 @@ Estado de test que cumple todas las verificaciones.
 Framework de testing en Python usado esta semana.
 
 **pyproject.toml**
-Archivo de configuracion del proyecto, incluyendo opciones de pytest.
+Archivo de configuración del proyecto: dependencias y opciones de pytest en la tabla `[tool.pytest]`.
 
 ---
 
 ## R
 
 **Red-Green-Refactor**
-Ciclo de desarrollo guiado por tests: test falla, solucion minima, mejora.
+Ciclo de desarrollo guiado por tests: test falla, solución mínima, mejora.
 
 ---
 
 ## S
 
 **Setup**
-Preparacion previa a ejecutar tests (entorno, datos, dependencias).
+Preparación previa a ejecutar tests (entorno, datos, dependencias).
 
 **Snake Case**
-Convencion de nombres en Python con palabras separadas por guion bajo.
+Convención de nombres en Python con palabras separadas por guion bajo.
 
 ---
 
 ## T
 
 **test_*.py**
-Patron de nombre para que pytest detecte archivos de test.
+Patrón de nombre para que pytest detecte archivos de test.
 
 **test function**
-Funcion con prefijo `test_` que representa un caso de prueba individual.
+Función con prefijo `test_` que representa un caso de prueba individual.
+
+---
+
+## U
+
+**unittest**
+Framework de testing incluido en la biblioteca estándar de Python, basado en clases `TestCase`; pytest puede ejecutar sus tests.
+
+**uv**
+Gestor de proyectos Python: instala Python, crea el entorno virtual y las dependencias (`uv sync`) y ejecuta comandos dentro de él (`uv run pytest`).
 
 ---
 
 ## V
 
 **venv**
-Entorno virtual aislado para dependencias Python por proyecto.
+Entorno virtual aislado para dependencias Python por proyecto; `uv` lo crea automáticamente en `.venv`.
