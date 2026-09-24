@@ -398,6 +398,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Testing de autenticación: Basic Auth, Bearer Token
 - Testing de errores HTTP (4xx, 5xx) y timeouts
 - Fixtures para cliente HTTP y datos de prueba
+- Testing asíncrono: `httpx.AsyncClient`, `pytest-asyncio` (modo `auto` vs `strict`) y `AsyncMock` (tema reubicado aquí; quedó sin semana tras el reordenamiento de S16–S18)
 - Contract testing básico con Pact (introducción)
 
 **Proyecto**: Suite de integration tests en Python para el API del dominio asignado usando `httpx` + `respx` para mocks HTTP. Incluir validación de esquemas JSON con pydantic.
