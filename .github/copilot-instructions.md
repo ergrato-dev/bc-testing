@@ -142,6 +142,7 @@ Seguir **siempre** este orden:
 - Archivos markdown con explicaciones conceptuales
 - Longitud objetivo: mantener los archivos de teoría en un promedio de ~100 líneas por semana (rango recomendado por archivo: 80-120, ajustable por complejidad)
 - Ejemplos de código con comentarios educativos en español
+- Español neutro con **tuteo** (tú: "ejecuta", "puedes", "fíjate"). ❌ NUNCA voseo ("ejecutá", "podés", "fijate", "vos")
 - Indicar claramente a qué lenguaje aplica cada sección (JS / Python / Java / Transversal)
 - Cuando un concepto aplica a los tres lenguajes, mostrar el equivalente en cada uno
 - Diagramas SVG referenciados con `![Descripción](../0-assets/01-nombre.svg)`

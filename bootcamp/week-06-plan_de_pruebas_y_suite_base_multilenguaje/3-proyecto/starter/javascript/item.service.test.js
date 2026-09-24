@@ -1,7 +1,7 @@
 // ============================================
 // TEST SUITE: ItemService (JavaScript)
 // ============================================
-// TODO: crea `item.service.js` con la logica de tu dominio y requierelo aqui.
+// TODO: crea `item.service.js` con la logica de tu dominio y requiérelo aqui.
 // TODO: sustituye cada `test.todo` por un test AAA real. Usa los mismos
 //       Test Case ID que en `test-plan.md` y que en las suites Python y Java.
 

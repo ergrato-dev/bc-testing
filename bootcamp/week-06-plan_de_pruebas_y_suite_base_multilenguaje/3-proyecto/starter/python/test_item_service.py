@@ -1,7 +1,7 @@
 # ============================================
 # TEST SUITE: ItemService (Python)
 # ============================================
-# TODO: crea `item_service.py` con la logica de tu dominio e importalo aqui.
+# TODO: crea `item_service.py` con la logica de tu dominio e impórtalo aqui.
 # TODO: sustituye cada `pytest.skip` por un test AAA real (mismos TC que en test-plan.md).
 import pytest
 

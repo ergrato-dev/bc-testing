@@ -103,4 +103,4 @@ Confundir "ejecutar tests" con "tener estrategia de calidad". Una suite sin traz
 
 ## Regla practica
 
-Si no puedes responder "¿que requerimiento valida este test?" en menos de cinco segundos, la trazabilidad esta rota. Arreglala antes de agregar mas tests.
+Si no puedes responder "¿que requerimiento valida este test?" en menos de cinco segundos, la trazabilidad esta rota. Arréglala antes de agregar mas tests.

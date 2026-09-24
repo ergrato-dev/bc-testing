@@ -498,7 +498,7 @@ Antes de considerar una semana completa:
 - ✅ Markdown bien formateado
 - ✅ Bloques de código con lenguaje especificado (` ```javascript `, ` ```python `, ` ```java `)
 - ✅ Emojis para mejorar legibilidad (con moderación)
-- ✅ Español claro y directo
+- ✅ Español claro y directo, neutro, con **tuteo** (tú: "ejecuta", "puedes", "fíjate"). ❌ NUNCA voseo ("ejecutá", "podés", "vos")
 - ✅ Siempre indicar a qué lenguaje aplica cada fragmento de código
 
 ### Assets Visuales

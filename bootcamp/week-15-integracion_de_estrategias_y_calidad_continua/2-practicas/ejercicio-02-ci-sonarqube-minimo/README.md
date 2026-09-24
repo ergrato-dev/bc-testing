@@ -36,7 +36,7 @@ Descomenta PASO 3 y crea el secreto `SONAR_TOKEN` en tu repositorio (Settings > 
 
 ### Paso 4: Configurar `sonar-project.properties`
 
-Descomenta la configuracion en `starter/sonar-project.properties` y reemplaza `sonar.organization` y `sonar.projectKey` por los de tu proyecto en SonarQube Cloud. Fijate en `sonar.exclusions=**/*.test.js`: sin esa linea los tests quedan dentro de `sonar.sources` y de `sonar.tests` a la vez, y el analisis falla con `File can't be indexed twice`.
+Descomenta la configuracion en `starter/sonar-project.properties` y reemplaza `sonar.organization` y `sonar.projectKey` por los de tu proyecto en SonarQube Cloud. Fíjate en `sonar.exclusions=**/*.test.js`: sin esa linea los tests quedan dentro de `sonar.sources` y de `sonar.tests` a la vez, y el analisis falla con `File can't be indexed twice`.
 
 ## Cierre
 
