@@ -1,7 +1,9 @@
-# Ebooks Free - Semana 17
+# Ebooks Gratuitos - Semana 17
 
-1. *Python Testing with pytest* - secciones de parametrizacion y marks.
-2. *Pragmatic Unit Testing* - diseño de casos y legibilidad.
-3. *Building Maintainable Test Suites* - estrategias de segmentacion.
+| Recurso | URL | Por qué leerlo |
+|---|---|---|
+| Documentación oficial de pytest (PDF descargable) | https://docs.pytest.org/_/downloads/en/stable/pdf/ | Versión completa y offline de la documentación: capítulos de parametrize, marks, skip/xfail y configuración. |
+| The Hitchhiker's Guide to Python - Testing Your Code | https://docs.python-guide.org/writing/tests/ | Libro libre de la comunidad; su capítulo de testing resume buenas prácticas y el lugar de pytest en el ecosistema. |
+| Obey the Testing Goat (Harry Percival) | https://www.obeythetestinggoat.com/pages/book.html | Libro de TDD con Python, gratuito online bajo licencia CC; útil para pensar qué casos merecen un test. |
 
-> Prioriza criterios de seleccion de casos por riesgo, no por cantidad.
+> Prioriza criterios de selección de casos por riesgo, no por cantidad.

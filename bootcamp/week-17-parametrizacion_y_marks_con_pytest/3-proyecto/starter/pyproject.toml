@@ -9,3 +9,4 @@ dev = ["pytest==9.1.1"]
 
 [tool.pytest]
 pythonpath = ["."]
+# TODO: activar strict = true y registrar markers (smoke, regression, slow)
