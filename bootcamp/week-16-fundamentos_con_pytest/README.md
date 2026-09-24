@@ -8,53 +8,53 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
-1. Configurar y ejecutar pruebas basicas con `pytest`.
-2. Escribir tests con nomenclatura clara en `snake_case`.
-3. Aplicar el patron AAA en Python de forma consistente.
-4. Utilizar fixtures basicas para evitar duplicacion.
-5. Migrar criterio de calidad desde JavaScript hacia Python.
+1. Distinguir los resultados de pytest (`passed`, `failed`, `error`, `skipped`, `xfailed`, `xpassed`) y diagnosticar un `error` de setup o teardown.
+2. Configurar pytest en `[tool.pytest]` de `pyproject.toml` e inspeccionar fixtures con `--setup-show` y `--fixtures`.
+3. Escribir fixtures con `yield` que limpian el estado automáticamente al terminar cada test.
+4. Elegir el scope de una fixture (`function`, `class`, `module`, `package`, `session`) y componer fixtures entre sí.
+5. Compartir fixtures con `conftest.py`, usar `autouse` con criterio y aprovechar `tmp_path`, `monkeypatch` y `capsys`.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Fundamentos pytest, asserts, fixtures iniciales | 2.5 h |
-| Practicas | Primeros tests + setup reusable con fixtures | 3 h |
-| Proyecto | Suite inicial del dominio en Python | 2 h |
-| Recursos y cierre | Refuerzo + checklist de transicion | 0.5 h |
+| Teoría | Repaso de S04, entorno de pytest, fixtures a fondo, `conftest.py` y fixtures integradas | 2.5 h |
+| Prácticas | Fixtures con `yield` y scopes + `conftest.py`, `autouse`, `tmp_path` y `monkeypatch` | 3 h |
+| Proyecto | Suite del dominio organizada con fixtures | 2 h |
+| Recursos y cierre | Refuerzo con documentación oficial y checklist | 0.5 h |
 
 ---
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
-1. [Introduccion a pytest y flujo de ejecucion](./1-teoria/01-introduccion-pytest-flujo-ejecucion.md)
-2. [Asserts efectivos y estructura AAA en Python](./1-teoria/02-asserts-efectivos-y-patron-aaa-python.md)
-3. [Fixtures basicas para reducir duplicacion](./1-teoria/03-fixtures-basicas-reduccion-duplicacion.md)
+1. [Repaso de la semana 04 y entorno de pytest](./1-teoria/01-repaso-y-entorno-pytest.md)
+2. [Fixtures a fondo: yield, scopes y composición](./1-teoria/02-fixtures-yield-scopes-y-composicion.md)
+3. [conftest.py, autouse y fixtures integradas](./1-teoria/03-conftest-autouse-y-fixtures-integradas.md)
 
-### Practicas
+### Prácticas
 
-- [Ejercicio 01 - Primeros tests con pytest](./2-practicas/ejercicio-01-primeros-tests-pytest/)
-- [Ejercicio 02 - Fixtures basicas y setup reusable](./2-practicas/ejercicio-02-fixtures-basicas/)
+- [Ejercicio 01 - Fixtures con yield, composición y scopes](./2-practicas/ejercicio-01-fixtures-yield-y-scopes/README.md)
+- [Ejercicio 02 - conftest.py, autouse y fixtures integradas](./2-practicas/ejercicio-02-conftest-y-fixtures-integradas/README.md)
 
 ### Proyecto
 
-- [Proyecto semanal: Base de suite Python para dominio asignado](./3-proyecto/README.md)
+- [Proyecto semanal: Suite Python con fixtures para el dominio asignado](./3-proyecto/README.md)
 
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -69,12 +69,12 @@ week-16-fundamentos_con_pytest/
 |   |-- 02-aaa-python-assertions-map.svg
 |   `-- 03-fixture-scope-and-reuse.svg
 |-- 1-teoria/
-|   |-- 01-introduccion-pytest-flujo-ejecucion.md
-|   |-- 02-asserts-efectivos-y-patron-aaa-python.md
-|   `-- 03-fixtures-basicas-reduccion-duplicacion.md
+|   |-- 01-repaso-y-entorno-pytest.md
+|   |-- 02-fixtures-yield-scopes-y-composicion.md
+|   `-- 03-conftest-autouse-y-fixtures-integradas.md
 |-- 2-practicas/
-|   |-- ejercicio-01-primeros-tests-pytest/
-|   `-- ejercicio-02-fixtures-basicas/
+|   |-- ejercicio-01-fixtures-yield-y-scopes/
+|   `-- ejercicio-02-conftest-y-fixtures-integradas/
 |-- 3-proyecto/
 |   |-- README.md
 |   `-- starter/
@@ -90,12 +90,14 @@ week-16-fundamentos_con_pytest/
 
 ## Nota Importante
 
-Esta semana inicia Python desde fundamentos, pero con criterio profesional: testear comportamiento observable, no solo ejecutar codigo.
+La semana 04 ya cubrió la instalación con `uv`, la estructura AAA, los nombres de test, `pytest.raises` y los filtros `-k`/`-x`: aquí solo se repasan en unos minutos. El foco de esta semana son las **fixtures y el entorno de pytest**, la base sobre la que se apoyan la parametrización (S17) y el mocking con limpieza automática (S18).
+
+Requisitos: Python 3.14 y `uv`. En cada carpeta `starter/` o `solution/`: `uv sync` y `uv run pytest`.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 15 - Integracion de estrategias y calidad continua](../week-15-integracion_de_estrategias_y_calidad_continua/README.md) | [Semana 17 - pytest avanzado: parametrizacion y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) |
+| [Semana 15 - Integración de estrategias y calidad continua](../week-15-integracion_de_estrategias_y_calidad_continua/README.md) | [Semana 17 - pytest avanzado: parametrización y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) |

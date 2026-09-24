@@ -1,5 +1,5 @@
 [project]
-name = "week16-ejercicio02-solution"
+name = "week16-ejercicio01-fixtures-yield-scopes-starter"
 version = "1.0.0"
 requires-python = ">=3.14"
 dependencies = []

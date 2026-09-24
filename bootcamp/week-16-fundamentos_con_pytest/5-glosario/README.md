@@ -1,33 +1,44 @@
-# Glosario Semana 16 - Fundamentos pytest
+# Glosario Semana 16 - Fixtures y entorno de pytest
 
 ## A
 
-- **assertion**: verificacion que compara resultado esperado contra el real.
+- **addopts**: opción de `[tool.pytest]` con flags que se agregan siempre a la línea de comandos (por ejemplo, `-ra`).
+- **autouse**: fixture declarada con `autouse=True` que se aplica a todos los tests de su alcance sin que la pidan.
 
 ## C
 
-- **conftest.py**: archivo especial de pytest para compartir fixtures entre modulos de test.
+- **capsys**: fixture integrada que captura lo impreso en `stdout` y `stderr` durante un test.
+- **conftest.py**: archivo que pytest carga automáticamente; sus fixtures están disponibles en su carpeta y subcarpetas sin importarlas.
 
 ## E
 
-- **exit code**: valor numerico que retorna pytest para indicar exito o fallo de la ejecucion.
+- **error (resultado)**: el test no pudo prepararse o limpiarse porque falló el setup o el teardown de una fixture. Distinto de `failed`.
 
 ## F
 
-- **fixture**: setup reutilizable que provee datos o dependencias a los tests.
+- **failed**: el cuerpo del test falló (assert no cumplido o excepción inesperada dentro del test).
+- **fixture**: función decorada con `@pytest.fixture` que prepara (y opcionalmente limpia) datos o recursos para los tests.
 
-## P
+## M
 
-- **pytest**: framework de testing para Python con foco en simplicidad y extensibilidad.
-
-## R
-
-- **red-green (pytest)**: aplicacion del ciclo de TDD dentro del flujo de trabajo de pytest.
+- **monkeypatch**: fixture integrada que cambia variables de entorno o atributos durante un test y los restaura al terminar.
 
 ## S
 
-- **snake_case**: estilo de nombres en minusculas con guiones bajos.
+- **scope**: vida de una fixture: `function`, `class`, `module`, `package` o `session`.
+- **ScopeMismatch**: error que aparece cuando una fixture pide otra de scope más estrecho.
+- **--setup-show**: flag que muestra el orden real de SETUP y TEARDOWN de cada fixture.
 
 ## T
 
-- **test discovery**: proceso automatico para encontrar tests ejecutables.
+- **teardown**: código de limpieza; en una fixture con `yield`, lo que va después del `yield`.
+- **testpaths**: opción de `[tool.pytest]` que indica dónde buscar tests.
+- **tmp_path**: fixture integrada que entrega un directorio temporal nuevo (`pathlib.Path`) para cada test.
+
+## X
+
+- **xfailed / xpassed**: test marcado como fallo esperado que falla (`xfailed`) o que inesperadamente pasa (`xpassed`).
+
+## Y
+
+- **yield fixture**: fixture que entrega su valor con `yield`; el código posterior se ejecuta como teardown.
