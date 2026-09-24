@@ -1,13 +1,15 @@
-# Ebooks y Lecturas Gratuitas
+# Ebooks Free - Semana 10
 
-## Seleccion recomendada
+| Recurso | URL | Por que leerlo |
+|---|---|---|
+| Jest - Mock Functions (documentacion oficial) | https://jestjs.io/docs/mock-functions | `mockImplementation`, `mockImplementationOnce`, `mock.calls` y mock parcial con `jest.requireActual`. |
+| Mocks Aren't Stubs (Martin Fowler) | https://martinfowler.com/articles/mocksArentStubs.html | Articulo clasico sobre verificacion de estado vs de comportamiento. |
+| Test Double (Martin Fowler) | https://martinfowler.com/bliki/TestDouble.html | Definicion corta de dummy, fake, stub, spy y mock. |
+| But really, what is a JavaScript mock? (Kent C. Dodds) | https://kentcdodds.com/blog/but-really-what-is-a-javascript-mock | Construye un mock a mano y luego lo reemplaza por `jest.fn`, `jest.spyOn` y `jest.mock`. |
+| JavaScript & Node.js Testing Best Practices (Yoni Goldberg) | https://github.com/goldbergyoni/javascript-testing-best-practices | Guia gratuita que recomienda stubs y spies frente a mocks para no acoplar los tests a la implementacion. |
 
-1. The Jest Handbook (capitulos de mocks y spies)
-2. JavaScript Testing Best Practices
-3. You Don't Know JS Yet - Scope and Closures (para comprender spies sobre metodos)
+## Sugerencia de estudio
 
-## Enfoque de lectura
-
-- Criterios para decidir tipo de test double.
-- Patrones para evitar tests fragiles por exceso de mocks.
-- Estrategias de aislamiento en servicios de negocio.
+- 20 min: tipos de test doubles.
+- 20 min: mocks de funciones e interacciones.
+- 20 min: mocks de modulos.

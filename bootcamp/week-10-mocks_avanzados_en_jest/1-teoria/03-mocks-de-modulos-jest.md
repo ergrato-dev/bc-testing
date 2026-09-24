@@ -63,6 +63,21 @@ test("should confirm order when gateway approves charge", async () => {
 
 ---
 
+## Mock parcial con `jest.requireActual`
+
+Si el modulo tiene funciones puras que no vale la pena reemplazar, copia el modulo real y sobrescribe solo lo que sale a la red:
+
+```javascript
+jest.mock("./payment.gateway", () => ({
+  ...jest.requireActual("./payment.gateway"),
+  charge: jest.fn(),
+}));
+```
+
+Asi `charge` es un mock y el resto de exportaciones mantienen su implementacion real.
+
+---
+
 ## Riesgos comunes
 
 - Mockear tanto que el test ya no refleja uso real.

@@ -1,7 +1,7 @@
 const gateway = require("./payment.gateway");
 
 async function confirmOrder(total) {
-  const result = await gateway.charge(total);
+  const result = await gateway.charge(gateway.toCents(total));
 
   if (!result.approved) {
     throw new Error("payment rejected");
