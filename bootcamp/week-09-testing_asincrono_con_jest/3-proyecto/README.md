@@ -12,7 +12,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 
 1. Cubrir casos exitosos y errores asincronos con `async/await`.
 2. Usar `await expect(...).rejects` para errores.
-3. Incluir al menos un escenario de retry con timers.
+3. Incluir al menos un escenario de retry con fake timers sobre `findByIdWithRetry` del starter.
 4. Mantener patron AAA en todos los tests.
 5. Nombrar tests con formato: `should [expected] when [condition]`.
 
@@ -26,7 +26,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 - Minimo 8 tests.
 - Minimo 1 mock con `jest.fn()`.
 - Minimo 1 escenario de validacion de timeout/retry.
-- Cobertura sugerida: >= 85% en archivos del proyecto.
+- Todos los tests en verde con `pnpm test` (sin tests saltados con `.skip` ni `.only`).
 
 ## Ejecucion sugerida
 

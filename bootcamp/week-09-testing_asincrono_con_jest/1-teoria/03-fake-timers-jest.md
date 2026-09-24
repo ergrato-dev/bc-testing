@@ -33,8 +33,15 @@ afterEach(() => {
 | Metodo | Que hace | Cuando usarlo |
 |---|---|---|
 | `jest.advanceTimersByTime(ms)` | Avanza el reloj exactamente `ms` milisegundos, disparando los timers vencidos | Retry con delay fijo, debounce, throttle |
+| `await jest.advanceTimersByTimeAsync(ms)` | Igual que el anterior, pero entre timer y timer deja correr las promesas pendientes | Codigo que combina timers con promesas (`.then`, `await`), como un retry |
 | `jest.runOnlyPendingTimers()` | Ejecuta solo los timers ya agendados en este momento, sin correr los nuevos que se creen durante la corrida | Timers que agendan otros timers (evita loops infinitos) |
 | `jest.runAllTimers()` | Ejecuta todos los timers, incluidos los que se agendan en cadena | `setInterval` con condicion de corte clara |
+
+### Por que la version Async cuando hay promesas
+
+`jest.advanceTimersByTime(ms)` es sincrono: dispara los callbacks de los timers vencidos, pero no cede el control, asi que los `.then/.catch` que esos callbacks encadenan (microtasks) quedan pendientes. En un retry, el siguiente `setTimeout` se agenda justo dentro de un `.catch`, de modo que el reloj avanza sin que el reintento exista todavia y la promesa nunca se resuelve: el test se queda colgado hasta el timeout de 5 s.
+
+`await jest.advanceTimersByTimeAsync(ms)` avanza el mismo tiempo, pero espera a que se vacie la cola de promesas despues de cada timer. Regla: si el codigo bajo prueba mezcla timers y promesas, usa la version Async y ponle `await`.
 
 ---
 
@@ -111,7 +118,13 @@ test("should call search only once after rapid typing", () => {
 ## Errores frecuentes
 
 - Dejar fake timers activos entre tests por no restaurar en `afterEach`, o usar `advanceTimersByTime` en vez de `advanceTimersByTimeAsync` cuando hay `await` de por medio.
-- Usar `runAllTimers()` sobre un `setInterval` sin condicion de corte: loop infinito que cuelga el test.
+- Usar `runAllTimers()` sobre un `setInterval` sin condicion de corte: el test no se cuelga, pero Jest corta tras 100000 timers y lo marca como fallido:
+
+```
+Aborting after running 100000 timers, assuming an infinite loop!
+```
+
+  Con intervalos usa `jest.runOnlyPendingTimers()` o `advanceTimersByTime(ms)` con un tiempo concreto.
 
 ---
 

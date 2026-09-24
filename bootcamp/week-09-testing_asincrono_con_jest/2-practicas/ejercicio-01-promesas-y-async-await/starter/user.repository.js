@@ -6,4 +6,12 @@ async function getUserById(id) {
   return Promise.resolve({ id, name: "Ada" });
 }
 
-module.exports = { getUserById };
+async function getUserProfile(id, profileApi) {
+  try {
+    return await profileApi.fetchProfile(id);
+  } catch {
+    throw new Error("ProfileUnavailable");
+  }
+}
+
+module.exports = { getUserById, getUserProfile };

@@ -94,6 +94,8 @@ test("should propagate error from repository", async () => {
 
 ## Errores frecuentes
 
+![Diagnostico de errores asincronos](../0-assets/05-errores-asincronos-diagnostico.svg)
+
 - Usar `try/catch` sin `expect.assertions(n)`: el test pasa aunque la promesa nunca rechace.
 - Olvidar `await` antes de `expect(promise).rejects`.
 - Mockear la dependencia con `mockResolvedValue` cuando el escenario requiere `mockRejectedValue`.
