@@ -6,15 +6,15 @@
 
 ---
 
-## Por que parametrizar
+## Por qué parametrizar
 
-Cuando varios tests solo cambian datos de entrada/salida, `test.each` evita duplicacion y hace explicita la tabla de casos que el codigo debe cumplir.
+Cuando varios tests solo cambian datos de entrada/salida, `test.each` evita duplicación y hace explícita la tabla de casos que el código debe cumplir.
 
 ---
 
 ## Sintaxis: array de arrays
 
-Cada fila es un array posicional; los valores se desestructuran como argumentos de la funcion de test.
+Cada fila es un array posicional; los valores se desestructuran como argumentos de la función de test.
 
 ```javascript
 test.each([
@@ -26,13 +26,13 @@ test.each([
 });
 ```
 
-Los placeholders `%i` (entero), `%s` (string) y `%d` (numero) en el titulo se reemplazan en orden con los valores de la fila, asi cada caso aparece con nombre propio en el reporte.
+Los placeholders `%i` (entero), `%s` (string) y `%d` (número) en el título se reemplazan en orden con los valores de la fila, así cada caso aparece con nombre propio en el reporte.
 
 ---
 
 ## Sintaxis: template literal con tabla
 
-Para casos con muchas columnas o datos con nombre, la tabla en template literal es mas legible que arrays posicionales.
+Para casos con muchas columnas o datos con nombre, la tabla en template literal es más legible que arrays posicionales.
 
 ```javascript
 test.each`
@@ -45,22 +45,22 @@ test.each`
 });
 ```
 
-Aqui los nombres de columna (`$ticketType`, `$discount`) se interpolan directo en el titulo del test, sin depender del orden posicional.
+Aquí los nombres de columna (`$ticketType`, `$discount`) se interpolan directo en el título del test, sin depender del orden posicional.
 
 ---
 
-## Cuando usar cada sintaxis
+## Cuándo usar cada sintaxis
 
 | Sintaxis | Conviene cuando... |
 |---|---|
-| Array de arrays | Pocos parametros (2-4), tipos simples |
+| Array de arrays | Pocos parámetros (2-4), tipos simples |
 | Template literal | Muchas columnas, datos con nombre, mejor lectura tabular |
 
 ---
 
 ## Combinando con `describe.each`
 
-`describe.each` parametriza un bloque completo, util cuando varios tests comparten el mismo dato variable (por ejemplo, distintos tipos de visita a un planetario).
+`describe.each` parametriza un bloque completo, útil cuando varios tests comparten el mismo dato variable (por ejemplo, distintos tipos de visita a un planetario).
 
 ```javascript
 describe.each(["general", "student", "senior"])("visit type: %s", (ticketType) => {
@@ -74,36 +74,36 @@ describe.each(["general", "student", "senior"])("visit type: %s", (ticketType) =
 });
 ```
 
-Cada combinacion de `describe.each` crea su propio grupo en el reporte, asi los fallos se ubican por tipo de visita sin leer todo el archivo.
+Cada combinación de `describe.each` crea su propio grupo en el reporte, así los fallos se ubican por tipo de visita sin leer todo el archivo.
 
 ---
 
 ## Beneficios
 
-1. Menos codigo repetido.
-2. Cobertura de mas combinaciones rapidamente.
-3. Errores mas faciles de detectar por fila de datos.
-4. La tabla de casos documenta reglas de negocio (limites, descuentos, validaciones) en un solo lugar.
+1. Menos código repetido.
+2. Cobertura de más combinaciones rápidamente.
+3. Errores más fáciles de detectar por fila de datos.
+4. La tabla de casos documenta reglas de negocio (límites, descuentos, validaciones) en un solo lugar.
 
 ---
 
-## Buenas practicas
+## Buenas prácticas
 
-- Nombra bien cada fila/caso: usa `%s`/`%i` o interpolacion `$campo`, nunca dejes el titulo generico.
-- Manten pocas columnas por tabla; si crecen mucho, separa en varias tablas por escenario.
-- Combina `test.each` con AAA de forma explicita: arrange de datos ya esta en la fila, solo act y assert van en el cuerpo.
-- Incluye casos limite (cero, negativos, vacios) junto a los casos felices en la misma tabla.
+- Nombra bien cada fila/caso: usa `%s`/`%i` o interpolación `$campo`, nunca dejes el título genérico.
+- Mantén pocas columnas por tabla; si crecen mucho, separa en varias tablas por escenario.
+- Combina `test.each` con AAA de forma explícita: arrange de datos ya está en la fila, solo act y assert van en el cuerpo.
+- Incluye casos límite (cero, negativos, vacíos) junto a los casos felices en la misma tabla.
 
 ---
 
 ## Errores frecuentes
 
-- Mezclar array de arrays y template literal en el mismo archivo sin razon, dificulta la lectura.
-- Usar `%s` para un numero (el output se ve como texto), preferir `%i`/`%d` segun el tipo.
-- Tablas con 8+ columnas: senal de que el caso de prueba necesita dividirse.
+- Mezclar array de arrays y template literal en el mismo archivo sin razón, dificulta la lectura.
+- Usar `%s` para un número (el output se ve como texto), preferir `%i`/`%d` según el tipo.
+- Tablas con 8+ columnas: señal de que el caso de prueba necesita dividirse.
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Si copias y pegas un test cambiando solo un par de valores, esa es la senal para pasar a `test.each`.
+Si copias y pegas un test cambiando solo un par de valores, esa es la señal para pasar a `test.each`.

@@ -24,8 +24,8 @@ const { debounce } = require("./debounce");
 //
 //   const promise = retryOperation(operation, 2, 1000);
 //
-//   // La version Async avanza el reloj y ademas drena las promesas pendientes
-//   // (.then/.catch) entre timers; advanceTimersByTime sincrono no lo hace.
+//   // La versión Async avanza el reloj y además drena las promesas pendientes
+//   // (.then/.catch) entre timers; advanceTimersByTime síncrono no lo hace.
 //   await jest.advanceTimersByTimeAsync(1000);
 //
 //   await expect(promise).resolves.toBe("ok");

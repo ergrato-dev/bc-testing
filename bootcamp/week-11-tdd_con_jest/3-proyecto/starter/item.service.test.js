@@ -2,14 +2,14 @@ const { ItemService } = require("./item.service");
 
 // ============================================
 // TEST SUITE: ItemService
-// Implementacion incremental guiada por TDD
+// Implementación incremental guiada por TDD
 // ============================================
 
 // NOTA PARA EL APRENDIZ:
 // Adapta esta suite a tu dominio asignado.
 // Ejemplos:
-// - Museo: ExhibitService (exhibicion)
-// - Planetario: SessionService (sesion)
+// - Museo: ExhibitService (exhibición)
+// - Planetario: SessionService (sesión)
 // - Acuario: SpeciesService (especie)
 
 describe("ItemService", () => {
@@ -28,9 +28,9 @@ describe("ItemService", () => {
 
   describe("create", () => {
     // TODO (Red 1): should create item when input is valid
-    // TODO (Green 1): implementacion minima para pasar
+    // TODO (Green 1): implementación mínima para pasar
     // TODO (Red 2): should throw validation error when name is missing
-    // TODO (Refactor 1): limpiar duplicacion en setup
+    // TODO (Refactor 1): limpiar duplicación en setup
   });
 
   describe("updateStock", () => {

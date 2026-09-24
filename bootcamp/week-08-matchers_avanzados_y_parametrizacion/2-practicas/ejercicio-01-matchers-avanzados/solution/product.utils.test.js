@@ -27,7 +27,7 @@ describe("toEqual vs toStrictEqual", () => {
   });
 });
 
-describe("inclusion, forma parcial y propiedades", () => {
+describe("inclusión, forma parcial y propiedades", () => {
   test("should include active tag when product is built", () => {
     const result = buildProduct("Notebook", 1200);
     expect(result.tags).toContain("active");
@@ -54,7 +54,7 @@ describe("inclusion, forma parcial y propiedades", () => {
   });
 });
 
-describe("numeros decimales", () => {
+describe("números decimales", () => {
   test("should sum decimal prices with floating point tolerance", () => {
     const total = sumPrices([0.1, 0.2]);
     expect(total).not.toBe(0.3);

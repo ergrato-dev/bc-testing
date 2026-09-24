@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Aplicar matchers avanzados para validar estructuras, inclusiones y errores con mayor precision.
+Aplicar matchers avanzados para validar estructuras, inclusiones y errores con mayor precisión.
 
 ## Tiempo estimado
 

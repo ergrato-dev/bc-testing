@@ -1,7 +1,7 @@
 const { sendWelcomeEmail } = require("../src/notification.service");
 
 // Colaborador real (no es un doble): un logger en memoria compartido,
-// como lo seria un logger de la aplicacion.
+// como lo sería un logger de la aplicación.
 const logger = {
   entries: [],
   info(event, data) {
@@ -15,7 +15,7 @@ describe("NotificationService", () => {
   // ============================================
   // PASO 1: Inicializa dobles por test y restaura spies
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // beforeEach(() => {
   //   gateway = { send: jest.fn() };
   //   logger.entries = [];
@@ -28,7 +28,7 @@ describe("NotificationService", () => {
   // ============================================
   // PASO 2: Stub de respuesta de dependencia
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // test("should return queued status when gateway accepts request", () => {
   //   gateway.send.mockReturnValue({ status: "queued" });
   //
@@ -44,7 +44,7 @@ describe("NotificationService", () => {
   // ============================================
   // PASO 3: Spy sobre el colaborador real con jest.spyOn
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // test("should call logger when email is sent", () => {
   //   const infoSpy = jest.spyOn(logger, "info");
   //   gateway.send.mockReturnValue({ status: "queued" });
@@ -58,9 +58,9 @@ describe("NotificationService", () => {
   // });
 
   // ============================================
-  // PASO 4: Caso de validacion
+  // PASO 4: Caso de validación
   // ============================================
-  // Descomenta las siguientes lineas:
+  // Descomenta las siguientes líneas:
   // test("should throw ValidationError when email is missing", () => {
   //   expect(() => sendWelcomeEmail({}, gateway, logger)).toThrow("ValidationError");
   // });

@@ -1,5 +1,5 @@
-// Mock parcial: se conserva la implementacion real del modulo (toCents)
-// y solo se reemplaza la funcion que sale a la red (charge).
+// Mock parcial: se conserva la implementación real del módulo (toCents)
+// y solo se reemplaza la función que sale a la red (charge).
 jest.mock("./payment.gateway", () => ({
   ...jest.requireActual("./payment.gateway"),
   charge: jest.fn(),
@@ -23,7 +23,7 @@ test("should confirm order when gateway approves", async () => {
   const result = await confirmOrder(200);
 
   expect(result).toEqual({ status: "confirmed", transactionId: "tx-123" });
-  // 200 llega convertido a centimos por la implementacion real de toCents.
+  // 200 llega convertido a céntimos por la implementación real de toCents.
   expect(gateway.charge).toHaveBeenCalledWith(20000);
 });
 

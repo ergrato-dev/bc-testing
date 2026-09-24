@@ -2,7 +2,7 @@
 
 ## A
 
-- **Assertion Diff**: comparacion visual entre valor esperado y recibido en un fallo.
+- **Assertion Diff**: comparación visual entre valor esperado y recibido en un fallo.
 
 ## C
 
@@ -10,15 +10,15 @@
 
 ## M
 
-- **Matcher**: funcion de Jest que compara un valor recibido contra una expectativa y determina si un test pasa o falla.
+- **Matcher**: función de Jest que compara un valor recibido contra una expectativa y determina si un test pasa o falla.
 
 ## P
 
-- **Parameterized Test**: test que ejecuta la misma logica con multiples datasets.
+- **Parameterized Test**: test que ejecuta la misma lógica con múltiples datasets.
 
 ## S
 
-- **Strict Equality (testing)**: comparacion estricta de estructura y tipo.
+- **Strict Equality (testing)**: comparación estricta de estructura y tipo.
 
 ## T
 

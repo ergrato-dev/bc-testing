@@ -1,9 +1,9 @@
-# Glosario Semana 09 - Testing Asincrono en Jest
+# Glosario Semana 09 - Testing Asíncrono en Jest
 
 ## A
 
 - **async test**: prueba que valida comportamientos que terminan en el futuro.
-- **await**: palabra clave para pausar la ejecucion hasta resolver una Promise.
+- **await**: palabra clave para pausar la ejecución hasta resolver una Promise.
 
 ## E
 
@@ -15,14 +15,14 @@
 
 ## P
 
-- **Promise**: objeto que representa el resultado eventual de una operacion asincrona.
+- **Promise**: objeto que representa el resultado eventual de una operación asíncrona.
 
 ## R
 
 - **rejects matcher**: matcher de Jest para afirmar que una Promise falla.
 - **resolves matcher**: matcher de Jest para afirmar que una Promise se resuelve.
-- **retry**: reintento automatico de una operacion luego de un fallo temporal.
+- **retry**: reintento automático de una operación luego de un fallo temporal.
 
 ## T
 
-- **timeout**: limite de tiempo para completar una operacion o test.
+- **timeout**: límite de tiempo para completar una operación o test.

@@ -14,7 +14,7 @@ test("should reject when id is invalid", async () => {
 });
 
 // Falso positivo (NO usar): si la promesa no rechaza, el catch nunca corre,
-// no se ejecuta ningun expect y el test queda en verde sin comprobar nada.
+// no se ejecuta ningún expect y el test queda en verde sin comprobar nada.
 // test("should reject when id is invalid", async () => {
 //   try {
 //     await getUserById(5);

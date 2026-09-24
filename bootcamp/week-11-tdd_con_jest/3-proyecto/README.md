@@ -19,7 +19,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 
 ## Evidencia del ciclo Red-Green-Refactor
 
-Por cada ciclo entrega evidencia de las tres fases. Opcion recomendada: un commit por fase, por ejemplo:
+Por cada ciclo entrega evidencia de las tres fases. Opción recomendada: un commit por fase, por ejemplo:
 
 ```text
 test(item): red - should throw validation error when name is missing
@@ -34,15 +34,15 @@ Si no usas git, entrega capturas o la salida de `pnpm test` de cada fase: en Red
 - `starter/`: plantilla con TODOs para implementar.
 - `solution/`: referencia local del instructor (no versionada).
 
-## Criterios minimos
+## Criterios mínimos
 
-- Minimo 8 tests.
-- Minimo 3 iteraciones TDD visibles.
-- Minimo 1 validacion de error de negocio.
+- Mínimo 8 tests.
+- Mínimo 3 iteraciones TDD visibles.
+- Mínimo 1 validación de error de negocio.
 - Todos los tests en verde al final de cada ciclo.
 - Evidencia de al menos 3 ciclos completos (Red, Green y Refactor).
 
-## Ejecucion sugerida
+## Ejecución sugerida
 
 ```bash
 pnpm install

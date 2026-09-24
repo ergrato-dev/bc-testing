@@ -1,7 +1,7 @@
 const { sendWelcomeEmail } = require("../src/notification.service");
 
 // Colaborador real (no es un doble): un logger en memoria compartido,
-// como lo seria un logger de la aplicacion.
+// como lo sería un logger de la aplicación.
 const logger = {
   entries: [],
   info(event, data) {

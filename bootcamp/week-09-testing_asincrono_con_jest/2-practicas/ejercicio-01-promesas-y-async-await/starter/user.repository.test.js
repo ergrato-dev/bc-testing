@@ -1,7 +1,7 @@
 const { getUserById, getUserProfile } = require("./user.repository");
 
 // ============================================
-// PASO 1: Async/Await basico
+// PASO 1: Async/Await básico
 // ============================================
 // test("should return user when id is valid", async () => {
 //   const result = await getUserById(1);
@@ -26,7 +26,7 @@ const { getUserById, getUserProfile } = require("./user.repository");
 // PASO 4: Falso positivo, expect.assertions y return
 // ============================================
 // // Falso positivo (NO usar): si la promesa no rechaza, el catch nunca corre,
-// // no se ejecuta ningun expect y el test queda en verde sin comprobar nada.
+// // no se ejecuta ningún expect y el test queda en verde sin comprobar nada.
 // // test("should reject when id is invalid", async () => {
 // //   try {
 // //     await getUserById(5);

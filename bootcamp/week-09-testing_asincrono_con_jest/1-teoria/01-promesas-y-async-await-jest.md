@@ -8,22 +8,22 @@
 
 ## Objetivo
 
-Asegurar que cada test espere correctamente la operacion asincrona antes de validar, y reconocer el falso positivo mas comun de testing asincrono: un test que "pasa" sin haber ejecutado ningun assert.
+Asegurar que cada test espere correctamente la operación asíncrona antes de validar, y reconocer el falso positivo más común de testing asíncrono: un test que "pasa" sin haber ejecutado ningún assert.
 
 ---
 
-## Por que Jest necesita ayuda con lo asincrono
+## Por qué Jest necesita ayuda con lo asíncrono
 
-Jest ejecuta cada test de forma sincrona salvo que le indiques lo contrario. Si una funcion retorna una Promise y el test no la espera, Jest da el test por finalizado antes de que la Promise se resuelva o rechace. El resultado: un test verde que nunca corrio sus expects.
+Jest ejecuta cada test de forma síncrona salvo que le indiques lo contrario. Si una función retorna una Promise y el test no la espera, Jest da el test por finalizado antes de que la Promise se resuelva o rechace. El resultado: un test verde que nunca corrió sus expects.
 
-Hay dos formas validas de indicarle a Jest que espere:
+Hay dos formas válidas de indicarle a Jest que espere:
 
 1. Marcar el test como `async` y usar `await` dentro.
-2. Retornar la Promise directamente desde la funcion de test.
+2. Retornar la Promise directamente desde la función de test.
 
-![Event loop y testing asincrono](../0-assets/04-event-loop-testing.svg)
+![Event loop y testing asíncrono](../0-assets/04-event-loop-testing.svg)
 
-Los `.then/.catch` y los `await` corren en la cola de microtasks; los `setTimeout` en la cola de tareas. Un test que no espera la Promise termina antes de que se vacie la cola de microtasks, por eso sus `expect` llegan tarde.
+Los `.then/.catch` y los `await` corren en la cola de microtasks; los `setTimeout` en la cola de tareas. Un test que no espera la Promise termina antes de que se vacíe la cola de microtasks, por eso sus `expect` llegan tarde.
 
 ---
 
@@ -46,11 +46,11 @@ test("should resolve show data with resolves helper", async () => {
 });
 ```
 
-`.resolves` desenvuelve la Promise y aplica el matcher al valor resuelto. Sigue necesitando `await` (o `return`) porque en si mismo tambien es asincrono.
+`.resolves` desenvuelve la Promise y aplica el matcher al valor resuelto. Sigue necesitando `await` (o `return`) porque en si mismo también es asíncrono.
 
 ---
 
-## El falso positivo clasico: olvidar `return`/`await`
+## El falso positivo clásico: olvidar `return`/`await`
 
 ```javascript
 // MAL: el test termina antes de que la Promise se resuelva
@@ -63,24 +63,24 @@ test("should reject invalid reservation", () => {
 ```
 
 ```javascript
-// BIEN: Jest espera la resolucion antes de cerrar el test
+// BIEN: Jest espera la resolución antes de cerrar el test
 test("should reject invalid reservation", async () => {
   await expect(getReservationById(999)).rejects.toThrow("NotFound");
 });
 ```
 
-Si borras el `expect` de adentro del `.catch()` mal escrito, el test sigue pasando: esa es la señal de alarma. Un test asincrono que "no puede fallar" casi siempre tiene una Promise sin esperar.
+Si borras el `expect` de adentro del `.catch()` mal escrito, el test sigue pasando: esa es la señal de alarma. Un test asíncrono que "no puede fallar" casi siempre tiene una Promise sin esperar.
 
 ---
 
 ## Tabla comparativa
 
-| Forma | Cuando usarla | Riesgo si se omite `await`/`return` |
+| Forma | Cuándo usarla | Riesgo si se omite `await`/`return` |
 |---|---|---|
-| `async/await` | Flujo con multiples pasos asincronos | Test pasa sin ejecutar asserts |
+| `async/await` | Flujo con múltiples pasos asíncronos | Test pasa sin ejecutar asserts |
 | `return promise.then(...)` | Un solo paso, sin necesidad de `async` | Test pasa sin ejecutar asserts |
-| `await expect(promise).resolves` | Validar valor resuelto en una linea | Test pasa sin ejecutar asserts |
-| `await expect(promise).rejects` | Validar rechazo en una linea | Test pasa aunque nunca rechace |
+| `await expect(promise).resolves` | Validar valor resuelto en una línea | Test pasa sin ejecutar asserts |
+| `await expect(promise).rejects` | Validar rechazo en una línea | Test pasa aunque nunca rechace |
 
 ---
 
@@ -109,13 +109,13 @@ test("should confirm reservation with resolves", async () => {
 
 ## Errores frecuentes
 
-- Llamar a una funcion async sin `await` ni `return` dentro del test.
+- Llamar a una función async sin `await` ni `return` dentro del test.
 - Poner el `expect` dentro de un `.then()`/`.catch()` que el test no espera.
 - Mezclar callback (`done`) con `async/await` en el mismo test.
 - Usar `.resolves`/`.rejects` sin `await` delante del `expect`.
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Si una funcion retorna una Promise, el test debe tener `async` + `await`, o `return` la Promise. Sin una de las dos, Jest no garantiza que los asserts se ejecuten antes de marcar el test como exitoso.
+Si una función retorna una Promise, el test debe tener `async` + `await`, o `return` la Promise. Sin una de las dos, Jest no garantiza que los asserts se ejecuten antes de marcar el test como exitoso.

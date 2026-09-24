@@ -1,4 +1,4 @@
-# 01 - Organizacion de Suites y Convenciones de Jest
+# 01 - Organización de Suites y Convenciones de Jest
 
 **Tipo**: JavaScript (Jest)
 
@@ -38,8 +38,8 @@ describe("UserService", () => {
 
 ## Reglas de oro
 
-1. Un `describe` principal por modulo o clase.
-2. Un `describe` secundario por metodo o comportamiento.
+1. Un `describe` principal por módulo o clase.
+2. Un `describe` secundario por método o comportamiento.
 3. Tests nombrados con formato `should [expected] when [condition]`.
 4. Evitar repetir setup en cada test cuando un hook puede simplificar.
 5. Un `it`/`test` valida un solo comportamiento, no una lista de casos encadenados.
@@ -48,7 +48,7 @@ describe("UserService", () => {
 
 ## Ejemplo completo: organizar por comportamiento
 
-Un servicio con varios metodos se agrupa por metodo primero y por escenario despues, no por orden de escritura del codigo:
+Un servicio con varios métodos se agrupa por método primero y por escenario después, no por orden de escritura del código:
 
 ```javascript
 describe("PlanetariumSessionService", () => {
@@ -80,21 +80,21 @@ describe("PlanetariumSessionService", () => {
 });
 ```
 
-Cada `describe` interno responde a una sola pregunta: "que hace este metodo en este escenario". Si un `describe` crece mas de 6-7 tests, suele ser señal de que el metodo hace demasiado.
+Cada `describe` interno responde a una sola pregunta: "qué hace este método en este escenario". Si un `describe` crece más de 6-7 tests, suele ser señal de que el método hace demasiado.
 
 ---
 
 ## Olores comunes
 
-- Suite plana con 30 tests sin agrupacion.
+- Suite plana con 30 tests sin agrupación.
 - Nombres ambiguos como `works` o `test1`.
-- Multiples comportamientos mezclados en un solo test.
-- `describe` que agrupa por tipo de dato en vez de por comportamiento (ej. "tests de strings", "tests de numeros").
-- Tests que dependen del orden de ejecucion de otros tests dentro del mismo `describe`.
+- Múltiples comportamientos mezclados en un solo test.
+- `describe` que agrupa por tipo de dato en vez de por comportamiento (ej. "tests de strings", "tests de números").
+- Tests que dependen del orden de ejecución de otros tests dentro del mismo `describe`.
 
 ---
 
-## Ejecucion selectiva
+## Ejecución selectiva
 
 Con la suite organizada por archivo y `describe`, correr un subconjunto es directo:
 
@@ -103,10 +103,10 @@ pnpm test PlanetariumSessionService
 pnpm test -- -t "should throw SlotTakenError"
 ```
 
-Nombrar bien los archivos y los `describe` no es cosmetica: es lo que hace posible ejecutar solo lo relevante durante desarrollo.
+Nombrar bien los archivos y los `describe` no es cosmética: es lo que hace posible ejecutar solo lo relevante durante desarrollo.
 
 ---
 
 ## Beneficio clave
 
-Una buena estructura reduce friccion en code review y acelera debugging: localizar el test que falla toma segundos, no minutos.
+Una buena estructura reduce fricción en code review y acelera debugging: localizar el test que falla toma segundos, no minutos.

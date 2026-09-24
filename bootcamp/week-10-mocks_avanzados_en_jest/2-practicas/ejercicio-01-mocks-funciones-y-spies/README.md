@@ -18,7 +18,7 @@ Descomenta el PASO 1. `seatApi.reserve` usa `mockImplementation` para devolver t
 
 ### Paso 2: Sobrescribir una sola llamada con `mockImplementationOnce`
 
-Descomenta el PASO 2. La primera llamada falla con `sold out` y la segunda vuelve a la implementacion por defecto.
+Descomenta el PASO 2. La primera llamada falla con `sold out` y la segunda vuelve a la implementación por defecto.
 
 ### Paso 3: Orden de llamadas con `toHaveBeenNthCalledWith`
 
@@ -26,19 +26,19 @@ Descomenta el PASO 3 y verifica que las entradas se imprimen en el orden de los 
 
 ### Paso 4: Spy sobre la unidad bajo prueba
 
-Descomenta el PASO 4. El spy sobre `pricing.basePrice` se verifica despues de llamar a `sellTickets`, no llamando al metodo desde el test (eso solo comprobaria el propio test). El segundo test sobrescribe el valor con `mockReturnValue`.
+Descomenta el PASO 4. El spy sobre `pricing.basePrice` se verifica después de llamar a `sellTickets`, no llamando al método desde el test (eso solo comprobaría el propio test). El segundo test sobrescribe el valor con `mockReturnValue`.
 
 ### Paso 5: `mockClear` vs `mockReset` vs `mockRestore`
 
-Descomenta el PASO 5 y observa que conserva o borra cada metodo:
+Descomenta el PASO 5 y observa que conserva o borra cada método:
 
-| Metodo | Historial de llamadas | Implementacion falsa | Metodo original |
+| Método | Historial de llamadas | Implementación falsa | Método original |
 |---|---|---|---|
 | `mockClear()` | Se borra | Se conserva | No |
 | `mockReset()` | Se borra | Se borra (devuelve `undefined`) | No |
 | `mockRestore()` | Se borra | Se borra | Se restaura (solo spies) |
 
-### Paso 6: Revisar solucion
+### Paso 6: Revisar solución
 
 Compara con `solution/ticket.service.test.js` y analiza diferencias.
 

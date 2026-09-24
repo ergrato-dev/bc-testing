@@ -8,27 +8,27 @@
 
 ## Objetivo
 
-Entender que problema resuelve cada tipo de test double y elegirlo con criterio.
+Entender qué problema resuelve cada tipo de test double y elegirlo con criterio.
 
 ---
 
-## Que es un test double
+## Qué es un test double
 
-Un test double es una version controlada de una dependencia real. Su funcion principal es aislar la unidad bajo prueba para validar comportamiento sin depender de sistemas externos.
+Un test double es una versión controlada de una dependencia real. Su función principal es aislar la unidad bajo prueba para validar comportamiento sin depender de sistemas externos.
 
 ---
 
 ## Diferencias clave
 
-| Tipo | Proposito | Ejemplo en Jest |
+| Tipo | Propósito | Ejemplo en Jest |
 |---|---|---|
 | Mock | Reemplazar y verificar interacciones | `const fn = jest.fn()` |
 | Stub | Retornar datos predecibles | `fn.mockResolvedValue(data)` |
-| Spy | Observar una funcion real sin reescribir toda la dependencia | `jest.spyOn(obj, "method")` |
+| Spy | Observar una función real sin reescribir toda la dependencia | `jest.spyOn(obj, "method")` |
 
 ---
 
-## Ejemplo rapido
+## Ejemplo rápido
 
 ```javascript
 const taxCalculator = {
@@ -53,20 +53,20 @@ test("should ask the tax rate of the country when pricing", () => {
 });
 ```
 
-El spy se verifica despues de ejecutar la unidad bajo prueba (`priceWithTax`). Si el test llamara a `taxCalculator.getRate` directamente y luego verificara el spy, solo comprobaria su propia llamada: una tautologia que pasa aunque `priceWithTax` deje de usar el calculador.
+El spy se verifica después de ejecutar la unidad bajo prueba (`priceWithTax`). Si el test llamara a `taxCalculator.getRate` directamente y luego verificara el spy, solo comprobaría su propia llamada: una tautología que pasa aunque `priceWithTax` deje de usar el calculador.
 
 ---
 
-## Regla practica de eleccion
+## Regla práctica de elección
 
 1. Si solo necesitas respuestas controladas: usa stub.
-2. Si necesitas validar cuantas veces o con que argumentos se invoca: usa mock.
-3. Si quieres observar una implementacion existente sin perder su logica por defecto: usa spy.
+2. Si necesitas validar cuántas veces o con qué argumentos se invoca: usa mock.
+3. Si quieres observar una implementación existente sin perder su lógica por defecto: usa spy.
 
 ---
 
 ## Errores frecuentes
 
-- Mockear la funcion que realmente quieres validar.
+- Mockear la función que realmente quieres validar.
 - No restaurar spies y contaminar otros tests.
 - Assertar demasiados detalles internos que cambian con refactors.

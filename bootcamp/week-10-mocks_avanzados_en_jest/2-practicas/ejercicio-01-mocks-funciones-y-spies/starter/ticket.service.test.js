@@ -59,7 +59,7 @@ const { sellTickets, pricing } = require("./ticket.service");
 //
 //   const result = await sellTickets({ showId: "S2", showType: "dome", quantity: 2 }, seatApi, ticketPrinter);
 //
-//   // El spy observa la llamada que hace sellTickets, sin reemplazar la logica real.
+//   // El spy observa la llamada que hace sellTickets, sin reemplazar la lógica real.
 //   expect(priceSpy).toHaveBeenCalledWith("dome");
 //   expect(result.total).toBe(40);
 // });
@@ -79,16 +79,16 @@ const { sellTickets, pricing } = require("./ticket.service");
 //   const priceSpy = jest.spyOn(pricing, "basePrice").mockReturnValue(99);
 //   pricing.basePrice("dome");
 //
-//   // mockClear: borra el historial de llamadas, conserva la implementacion falsa.
+//   // mockClear: borra el historial de llamadas, conserva la implementación falsa.
 //   priceSpy.mockClear();
 //   expect(priceSpy).not.toHaveBeenCalled();
 //   expect(pricing.basePrice("dome")).toBe(99);
 //
-//   // mockReset: ademas borra la implementacion; el mock devuelve undefined.
+//   // mockReset: además borra la implementación; el mock devuelve undefined.
 //   priceSpy.mockReset();
 //   expect(pricing.basePrice("dome")).toBeUndefined();
 //
-//   // mockRestore: vuelve a poner el metodo original (solo aplica a spies).
+//   // mockRestore: vuelve a poner el método original (solo aplica a spies).
 //   priceSpy.mockRestore();
 //   expect(pricing.basePrice("dome")).toBe(20);
 //   expect(jest.isMockFunction(pricing.basePrice)).toBe(false);

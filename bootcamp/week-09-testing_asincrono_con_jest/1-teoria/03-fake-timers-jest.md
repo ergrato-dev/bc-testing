@@ -10,11 +10,11 @@
 
 Hacer deterministas los tests que dependen de `setTimeout`, `setInterval` o reintentos, sin esperar tiempo real ni introducir tests lentos o flaky.
 
-Un test que espera con `setTimeout` real es lento (agrega segundos reales a la suite) y flaky (depende de la carga de la maquina que ejecuta CI). Fake timers reemplazan el reloj interno de Node: el tiempo solo avanza cuando el test lo pide explicitamente con `jest.advanceTimersByTime()` o funciones equivalentes.
+Un test que espera con `setTimeout` real es lento (agrega segundos reales a la suite) y flaky (depende de la carga de la máquina que ejecuta CI). Fake timers reemplazan el reloj interno de Node: el tiempo solo avanza cuando el test lo pide explícitamente con `jest.advanceTimersByTime()` o funciones equivalentes.
 
 ---
 
-## Configuracion base
+## Configuración base
 
 ```javascript
 beforeEach(() => {
@@ -30,24 +30,24 @@ afterEach(() => {
 
 ## Controlando el avance del tiempo
 
-| Metodo | Que hace | Cuando usarlo |
+| Método | Qué hace | Cuándo usarlo |
 |---|---|---|
 | `jest.advanceTimersByTime(ms)` | Avanza el reloj exactamente `ms` milisegundos, disparando los timers vencidos | Retry con delay fijo, debounce, throttle |
-| `await jest.advanceTimersByTimeAsync(ms)` | Igual que el anterior, pero entre timer y timer deja correr las promesas pendientes | Codigo que combina timers con promesas (`.then`, `await`), como un retry |
+| `await jest.advanceTimersByTimeAsync(ms)` | Igual que el anterior, pero entre timer y timer deja correr las promesas pendientes | Código que combina timers con promesas (`.then`, `await`), como un retry |
 | `jest.runOnlyPendingTimers()` | Ejecuta solo los timers ya agendados en este momento, sin correr los nuevos que se creen durante la corrida | Timers que agendan otros timers (evita loops infinitos) |
-| `jest.runAllTimers()` | Ejecuta todos los timers, incluidos los que se agendan en cadena | `setInterval` con condicion de corte clara |
+| `jest.runAllTimers()` | Ejecuta todos los timers, incluidos los que se agendan en cadena | `setInterval` con condición de corte clara |
 
-### Por que la version Async cuando hay promesas
+### Por qué la versión Async cuando hay promesas
 
-`jest.advanceTimersByTime(ms)` es sincrono: dispara los callbacks de los timers vencidos, pero no cede el control, asi que los `.then/.catch` que esos callbacks encadenan (microtasks) quedan pendientes. En un retry, el siguiente `setTimeout` se agenda justo dentro de un `.catch`, de modo que el reloj avanza sin que el reintento exista todavia y la promesa nunca se resuelve: el test se queda colgado hasta el timeout de 5 s.
+`jest.advanceTimersByTime(ms)` es síncrono: dispara los callbacks de los timers vencidos, pero no cede el control, así que los `.then/.catch` que esos callbacks encadenan (microtasks) quedan pendientes. En un retry, el siguiente `setTimeout` se agenda justo dentro de un `.catch`, de modo que el reloj avanza sin que el reintento exista todavía y la promesa nunca se resuelve: el test se queda colgado hasta el timeout de 5 s.
 
-`await jest.advanceTimersByTimeAsync(ms)` avanza el mismo tiempo, pero espera a que se vacie la cola de promesas despues de cada timer. Regla: si el codigo bajo prueba mezcla timers y promesas, usa la version Async y ponle `await`.
+`await jest.advanceTimersByTimeAsync(ms)` avanza el mismo tiempo, pero espera a que se vacíe la cola de promesas después de cada timer. Regla: si el código bajo prueba mezcla timers y promesas, usa la versión Async y ponle `await`.
 
 ---
 
 ## Ejemplo end-to-end: reintentos con backoff
 
-Un fetch al catalogo del museo falla dos veces y reintenta cada 500ms antes de resolver:
+Un fetch al catálogo del museo falla dos veces y reintenta cada 500ms antes de resolver:
 
 ```javascript
 async function fetchExhibitWithRetry(fetcher, maxAttempts = 3) {
@@ -80,7 +80,7 @@ test("should resolve after two failed attempts", async () => {
 
 ---
 
-## Ejemplo end-to-end: debounce de busqueda
+## Ejemplo end-to-end: debounce de búsqueda
 
 ```javascript
 function debounce(fn, delay) {
@@ -107,7 +107,7 @@ test("should call search only once after rapid typing", () => {
 
 ---
 
-## Buenas practicas
+## Buenas prácticas
 
 1. Activar fake timers solo donde sea necesario, no en toda la suite.
 2. Restaurar timers reales al final de cada test (`afterEach` + `useRealTimers`).
@@ -118,7 +118,7 @@ test("should call search only once after rapid typing", () => {
 ## Errores frecuentes
 
 - Dejar fake timers activos entre tests por no restaurar en `afterEach`, o usar `advanceTimersByTime` en vez de `advanceTimersByTimeAsync` cuando hay `await` de por medio.
-- Usar `runAllTimers()` sobre un `setInterval` sin condicion de corte: el test no se cuelga, pero Jest corta tras 100000 timers y lo marca como fallido:
+- Usar `runAllTimers()` sobre un `setInterval` sin condición de corte: el test no se cuelga, pero Jest corta tras 100000 timers y lo marca como fallido:
 
 ```
 Aborting after running 100000 timers, assuming an infinite loop!
@@ -128,6 +128,6 @@ Aborting after running 100000 timers, assuming an infinite loop!
 
 ---
 
-## Regla practica
+## Regla práctica
 
-Si el codigo usa `setTimeout`, `setInterval` o un delay entre reintentos, el test debe usar fake timers y avanzar el reloj explicitamente. Nunca esperes tiempo real para validar un temporizador.
+Si el código usa `setTimeout`, `setInterval` o un delay entre reintentos, el test debe usar fake timers y avanzar el reloj explícitamente. Nunca esperes tiempo real para validar un temporizador.

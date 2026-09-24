@@ -1,8 +1,8 @@
-# Ejercicio 02 - Mocks de Modulos con jest.mock
+# Ejercicio 02 - Mocks de Módulos con jest.mock
 
 ## Objetivo
 
-Aislar una dependencia de infraestructura usando `jest.mock`, mockeando solo parte del modulo con `jest.requireActual`.
+Aislar una dependencia de infraestructura usando `jest.mock`, mockeando solo parte del módulo con `jest.requireActual`.
 
 ## Tiempo estimado
 
@@ -10,17 +10,17 @@ Aislar una dependencia de infraestructura usando `jest.mock`, mockeando solo par
 
 ## Paso a paso
 
-### Paso 1: Mock parcial del modulo con `jest.requireActual`
+### Paso 1: Mock parcial del módulo con `jest.requireActual`
 
-Abre `starter/order.service.test.js` y descomenta PASO 1. El factory de `jest.mock` copia el modulo real con `jest.requireActual` y solo reemplaza `charge`, que es la funcion que saldria a la red.
+Abre `starter/order.service.test.js` y descomenta PASO 1. El factory de `jest.mock` copia el módulo real con `jest.requireActual` y solo reemplaza `charge`, que es la función que saldría a la red.
 
-### Paso 2: Verificar que parte es real y que parte es mock
+### Paso 2: Verificar qué parte es real y qué parte es mock
 
 Descomenta PASO 2 y comprueba con `jest.isMockFunction` que `toCents` es real y `charge` es mock.
 
-### Paso 3: Simular aprobacion de pago
+### Paso 3: Simular aprobación de pago
 
-Descomenta PASO 3 y valida la respuesta exitosa. `charge` recibe `20000` porque `toCents` real convirtio `200` a centimos.
+Descomenta PASO 3 y valida la respuesta exitosa. `charge` recibe `20000` porque `toCents` real convirtió `200` a céntimos.
 
 ### Paso 4: Simular rechazo del pago
 
@@ -28,9 +28,9 @@ Descomenta PASO 4 y verifica el error esperado.
 
 ### Paso 5: Simular fallo de red con `mockImplementation`
 
-Descomenta PASO 5: la implementacion falsa lanza `gateway timeout` y el servicio lo propaga.
+Descomenta PASO 5: la implementación falsa lanza `gateway timeout` y el servicio lo propaga.
 
-### Paso 6: Revisar solucion
+### Paso 6: Revisar solución
 
 Compara con `solution/order.service.test.js`.
 

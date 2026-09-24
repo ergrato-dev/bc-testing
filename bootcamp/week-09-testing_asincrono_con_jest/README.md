@@ -1,4 +1,4 @@
-# Semana 09 - JavaScript Testing III: Testing Asincrono con Jest
+# Semana 09 - JavaScript Testing III: Testing Asíncrono con Jest
 
 > **Etapa 1 - Testing con JavaScript** | Semana 9 de 15
 
@@ -8,54 +8,54 @@
 
 ## Objetivos de la Semana
 
-Al finalizar esta semana seras capaz de:
+Al finalizar esta semana serás capaz de:
 
-1. Escribir tests para funciones asincronas con `async/await` y Promises.
-2. Validar errores asincronos con `rejects` y `toThrow` de forma correcta.
+1. Escribir tests para funciones asíncronas con `async/await` y Promises.
+2. Validar errores asíncronos con `rejects` y `toThrow` de forma correcta.
 3. Controlar el tiempo con fake timers en escenarios de retry y debounce.
-4. Evitar falsos positivos por no esperar la finalizacion de tareas asincronas.
-5. Diseñar suites asincronas legibles siguiendo patron AAA.
+4. Evitar falsos positivos por no esperar la finalización de tareas asíncronas.
+5. Diseñar suites asíncronas legibles siguiendo patrón AAA.
 6. Preparar base para integrar mocks avanzados y APIs en semanas siguientes.
 
 ---
 
-## Distribucion del Tiempo (8 horas)
+## Distribución del Tiempo (8 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Promesas, async/await, rejects y timers | 2.5 h |
-| Practicas | Ejercicios guiados de asincronia y control de tiempo | 3 h |
-| Proyecto | Suite asincrona del dominio asignado | 2 h |
+| Teoría | Promesas, async/await, rejects y timers | 2.5 h |
+| Prácticas | Ejercicios guiados de asincronía y control de tiempo | 3 h |
+| Proyecto | Suite asíncrona del dominio asignado | 2 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
 ---
 
 ## Contenido de la Semana
 
-### Teoria
+### Teoría
 
 1. [Promesas y async/await en testing](./1-teoria/01-promesas-y-async-await-jest.md)
-2. [Validacion de errores asincronos](./1-teoria/02-errores-asincronos-jest.md)
+2. [Validación de errores asíncronos](./1-teoria/02-errores-asincronos-jest.md)
 3. [Fake timers y control del tiempo](./1-teoria/03-fake-timers-jest.md)
 
-### Practicas
+### Prácticas
 
 - [Ejercicio 01 - Promesas y async/await](./2-practicas/ejercicio-01-promesas-y-async-await/)
 - [Ejercicio 02 - Fake timers y reintentos](./2-practicas/ejercicio-02-fake-timers-y-reintentos/)
 
 ### Proyecto
 
-- [Proyecto semanal: Suite asincrona del dominio](./3-proyecto/README.md)
+- [Proyecto semanal: Suite asíncrona del dominio](./3-proyecto/README.md)
 
 ### Recursos
 
 - [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
-- [Videografia](./4-recursos/videografia/README.md)
-- [Webgrafia](./4-recursos/webgrafia/README.md)
+- [Videografía](./4-recursos/videografia/README.md)
+- [Webgrafía](./4-recursos/webgrafia/README.md)
 
 ### Glosario
 
-- [Terminos clave de la semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
@@ -93,12 +93,12 @@ week-09-testing_asincrono_con_jest/
 
 ## Nota Importante
 
-En testing asincrono, el error mas frecuente no esta en la logica de negocio sino en no esperar correctamente la promesa. Esta semana prioriza confiabilidad sobre cantidad de tests.
+En testing asíncrono, el error más frecuente no está en la lógica de negocio sino en no esperar correctamente la promesa. Esta semana prioriza confiabilidad sobre cantidad de tests.
 
 ---
 
-## Navegacion
+## Navegación
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 08 - Matchers avanzados y parametrizacion](../week-08-matchers_avanzados_y_parametrizacion/README.md) | [Semana 10 - Mocks avanzados en Jest](../week-10-mocks_avanzados_en_jest/README.md) |
+| [Semana 08 - Matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) | [Semana 10 - Mocks avanzados en Jest](../week-10-mocks_avanzados_en_jest/README.md) |

@@ -1,4 +1,4 @@
-# Ejercicio 02 - Hooks y Mocks Basicos
+# Ejercicio 02 - Hooks y Mocks Básicos
 
 ## Objetivo
 

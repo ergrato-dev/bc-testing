@@ -1,4 +1,4 @@
-# Webgrafia - Semana 07
+# Webgrafía - Semana 07
 
 ## Referencias oficiales
 
