@@ -11,24 +11,33 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        # actions/checkout@v7.0.1 (SHA pinado: el tag es mutable, el SHA no)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        # pnpm/action-setup@v6.1.0 (sin "version": lee "packageManager" de package.json)
+        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413
+
       - name: Setup Node
-        uses: actions/setup-node@v4
+        # actions/setup-node@v7.0.0
+        # Sin "cache: pnpm": esa opcion exige pnpm-lock.yaml y este repo no versiona lockfiles
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
-          node-version: 20
-          cache: yarn
+          node-version: 22
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Run tests with coverage
-        run: yarn test --coverage
+        run: pnpm test:coverage
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        # SonarSource/sonarqube-scan-action@v8.2.2
+        # Con sonar.qualitygate.wait=true este paso falla si el quality gate no se cumple
+        uses: SonarSource/sonarqube-scan-action@ba9859eae8dd6bd29e412f25ddbbef3d032000f4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          # Solo para SonarQube Server/Community autohospedado (en Cloud no hace falta):
+          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

@@ -1,18 +1,20 @@
-const { createItemQualityService } = require("./item.quality.service");
+const { createItemService } = require("./item.service");
 
 // ============================================
-// TEST SUITE: ItemQualityService
+// TEST SUITE: ItemService (unit)
 // Cierre de etapa JS con estrategia integrada
 // ============================================
 
 // NOTA PARA EL APRENDIZ:
 // Adapta esta suite a tu dominio asignado.
 // Ejemplos:
-// - Museo: ExhibitQualityService
-// - Planetario: SessionQualityService
-// - Acuario: SpeciesQualityService
+// - Museo: ExhibitService
+// - Planetario: SessionService
+// - Acuario: SpeciesService
+//
+// Los tests de la capa HTTP (Supertest) van en app.test.js.
 
-describe("ItemQualityService", () => {
+describe("ItemService", () => {
   // TODO: Configurar repository double y service
   // let repository;
   // let service;
@@ -27,7 +29,7 @@ describe("ItemQualityService", () => {
     // TODO: should throw Quantity must be a non-negative integer when quantity is invalid
   });
 
-  describe("integration-like tests", () => {
+  describe("repository interaction", () => {
     // TODO: should throw Duplicated item when repository has existing name
     // TODO: should persist normalized item when input is valid
   });

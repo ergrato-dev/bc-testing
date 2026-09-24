@@ -22,9 +22,9 @@ Al finalizar esta semana seras capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoria | Integracion de estrategias + CI quality gate con SonarQube | 2.5 h |
-| Practicas | Suite integrada y pipeline minimo Actions + Sonar | 3 h |
-| Proyecto | Implementacion final de etapa JS con guardrails de calidad | 2 h |
+| Teoria | Integracion de estrategias + CI quality gate con SonarQube | 0.5 h |
+| Practicas | Suite integrada y pipeline minimo Actions + Sonar | 2 h |
+| Proyecto integrador | API Express + Supertest, coverage con umbral y pipeline con quality gate | 5 h |
 | Recursos y cierre | Retro de etapa + plan de transicion a Python | 0.5 h |
 
 ---
