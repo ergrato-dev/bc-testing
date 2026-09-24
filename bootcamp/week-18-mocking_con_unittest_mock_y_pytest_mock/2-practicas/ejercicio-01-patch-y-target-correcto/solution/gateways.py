@@ -1,3 +1,5 @@
 class PaymentGateway:
+    """Cliente HTTP real (simulado). En un test unitario nunca debe ejecutarse."""
+
     def charge(self, order_id: str, amount: float) -> dict:
-        return {"status": "approved", "order_id": order_id, "amount": amount}
+        raise ConnectionError(f"POST https://payments.example/charges/{order_id}: sin red en los tests")

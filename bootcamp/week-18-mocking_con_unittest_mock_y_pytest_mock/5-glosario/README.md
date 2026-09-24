@@ -2,26 +2,30 @@
 
 ## A
 
-- **autospec**: opcion para alinear un mock con la firma real del objeto objetivo.
+- **assert_not_called**: verificación que falla si el mock recibió alguna llamada.
+- **autospec**: opción (`autospec=True`, `create_autospec`) que alinea un mock con la firma real del objeto: rechaza atributos inexistentes y llamadas con argumentos incorrectos.
 
 ## C
 
-- **call_count**: numero de veces que un mock fue invocado durante el test.
+- **call_args**: argumentos de la última llamada a un mock (`.args`, `.kwargs`).
+- **call_args_list**: lista ordenada de todas las llamadas a un mock, comparable con `call(...)`.
+- **call_count**: número de veces que un mock fue invocado durante el test.
 
 ## M
 
 - **mock**: doble de prueba que permite verificar interacciones y llamadas.
+- **monkeypatch**: fixture de pytest que reemplaza atributos, variables de entorno o entradas de diccionarios y los restaura al terminar; no registra llamadas.
 
 ## P
 
-- **patch**: tecnica para reemplazar temporalmente un simbolo durante un test.
-
-## T
-
-- **target (patch)**: ruta exacta donde se aplica `patch` para reemplazar la dependencia correcta.
+- **patch**: técnica para reemplazar temporalmente un símbolo durante un test.
 
 ## S
 
-- **side_effect**: comportamiento alternativo del mock (error, secuencia o funcion).
-- **spy**: observador de llamadas sobre una implementacion real.
-- **stub**: doble que entrega respuestas predefinidas sin foco en interacciones.
+- **side_effect**: comportamiento alternativo del mock (error, secuencia o función).
+- **spy**: observador de llamadas sobre una implementación real.
+- **stub**: doble que entrega respuestas predefinidas sin verificar interacciones.
+
+## T
+
+- **target (patch)**: ruta del nombre que se reemplaza; debe ser el módulo donde el símbolo se usa, no donde se define.
