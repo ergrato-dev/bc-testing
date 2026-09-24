@@ -105,3 +105,44 @@ Comparado contra `bc-javascript-es2023-cf` (repo de referencia citado en `docs/g
 
 - **Renumeración de S19-S36**: el corrimiento de temas observado en S07-S18 probablemente requiera un ajuste similar en el roadmap no publicado. En particular, el tema "Testing Asíncrono en Python" no tiene semana asignada tras el corrimiento de S16-S18. Requiere decisión del instructor antes de construir esas semanas.
 - **JUnit 6 (`junit-framework`)**: evaluar en una revisión futura si migrar el contenido Java (S05, S25-S31 cuando se construyan) al nuevo artefacto, dado el rebranding completo del proyecto.
+
+---
+
+# Revisión integral JavaScript — 2026-09
+
+**Alcance**: contenido JavaScript publicado (S03, S06 parte JS, S07–S15). Criterio: pertinencia frente a `docs/plan-estudios.md`, calidad técnica (Jest 30) y completitud, tomando `bc-expressjs` como referencia de la organización.
+**Rama**: `fix/revision-integral-js`.
+
+## Metodología
+
+1. Ejecución real de cada `solution/` y `3-proyecto/starter/` con `pnpm install` + `CI=true pnpm test`.
+2. Para cada starter de `2-practicas`: copia temporal con todos los PASO descomentados, comparada contra su solution.
+3. Auditoría por semana de pertinencia (temas del plan practicados o no), corrección técnica, coherencia README ↔ starter, solapamientos y recursos.
+4. Verificación de URLs de recursos (WebFetch/curl; YouTube vía oEmbed) y de SHAs de GitHub Actions contra sus tags.
+
+## Hallazgos principales y estado
+
+| Hallazgo | Estado |
+|---|---|
+| S07–S15 sin `package.json`: ningún comando de los README era ejecutable | ✅ `package.json` en cada starter/solution/proyecto (`packageManager: pnpm@10.34.5`, `engines.node >=22`, versiones exactas) |
+| `yarn` en 35 archivos pese a la política pnpm-only (la auditoría de julio solo buscó `npm`); reglas contradictorias en `copilot-instructions.md` y la guía | ✅ Migrado a `pnpm`; reglas unificadas a solo pnpm; `.nvmrc` = 22; lockfiles no versionados |
+| S09 ej02: solution colgada (`advanceTimersByTime` tras un solo `await Promise.resolve()`) | ✅ `advanceTimersByTimeAsync`, explicado en teoría |
+| S11: TDD sin fase Red (starter de ejercicio y proyecto ya implementados) | ✅ Ciclos Red/Green/Refactor reales; proyecto con stubs `Not implemented` |
+| S15: `sonar-project.properties` inválido (indexación doble), quality gate no bloqueante, Node 20 EOL | ✅ Corregido; actions pinneadas por SHA |
+| S03 instalaba `jest@29`; S08 títulos de `test.each` cruzados; S13 contraejemplo imposible | ✅ Corregido con salidas reales |
+| Temas del plan no practicados: `coverageThreshold`/`collectCoverageFrom` (S14), `requireActual`, orden de llamadas, clear/reset/restore (S10), `describe.each` (S08), aislamiento de repos y 500 (S12), shrinking, property matchers, inline snapshots (S13), debounce (S09) | ✅ Añadidos como PASO en ejercicios |
+| README ↔ starter incoherentes (S03, S07, S08) y solapamiento S07/S10 | ✅ Alineados 1:1; S10 con ejemplos propios |
+| S06 proyecto no seguía el plan (`test-plan.md` + 3 lenguajes) | ✅ Alineado; pesos de rúbrica 30/40/30 mantenidos |
+| Proyectos S09–S12 exigían ≥85% de coverage antes de enseñarlo (S14) | ✅ Reemplazado por "todos los tests en verde" |
+| Videografía/ebooks sin URLs (S03, S06–S15) | ✅ URLs reales verificadas en formato tabla |
+
+## Resultado
+
+Todas las solutions JS pasan con `CI=true pnpm test`; los starters descomentados equivalen a su solution. Los starters de proyecto (TODOs) reportan "0 tests" por diseño.
+
+## Ítems abiertos
+
+- **`qs` (moderate, GHSA-x5fp-wj9c-mxmx, GHSA-4mjr-xmp4-gh2g)** vía `supertest > superagent > qs` en S12 y S15. Solo dependencia de desarrollo (tests); se acepta hasta que `superagent` publique versión con `qs >= 6.16.0`.
+- **`pom.xml` de S06 proyecto** no compilado en esta revisión (sin Maven en el entorno).
+- **Menores de estilo JS** fuera de alcance: `describe` en todos los tests, nombres con "when", layout `src/tests` uniforme, tildes en READMEs S07–S15.
+- **Python (S04, S16–S18) y Java**: pendiente de revisión equivalente (S04 falla con `pytest -v` por `pythonpath`; S16–S18 sin dependencias declaradas).
