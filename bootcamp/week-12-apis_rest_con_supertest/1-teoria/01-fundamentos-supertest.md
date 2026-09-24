@@ -22,25 +22,37 @@ Supertest permite hacer requests HTTP contra una app de Express sin levantar ser
 
 La app de Express se exporta sin invocar `listen()`. Asi cada test importa la app directamente, sin abrir puertos reales ni pelear con conflictos de puerto en ejecucion paralela.
 
+Ademas, en vez de exportar una app ya construida, se exporta una **factory** `createApp()`. Cada llamada crea una app con su propio repositorio en memoria, de modo que un test nunca ve datos creados por otro.
+
 ```javascript
 // app.js
 const express = require("express");
-const app = express();
-app.use(express.json());
 
-const exhibits = [{ id: 1, name: "Sala de dinosaurios" }];
+function createApp() {
+  const exhibits = [{ id: 1, name: "Sala de dinosaurios" }];
 
-app.get("/health", (req, res) => res.json({ status: "ok" }));
-app.get("/exhibits", (req, res) => res.json(exhibits));
+  const app = express();
+  app.use(express.json());
 
-module.exports = { app };
+  app.get("/health", (req, res) => res.json({ status: "ok" }));
+  app.get("/exhibits", (req, res) => res.json(exhibits));
+  app.post("/exhibits", (req, res) => {
+    const created = { id: exhibits.length + 1, name: req.body.name };
+    exhibits.push(created);
+    res.status(201).json(created);
+  });
+
+  return app;
+}
+
+module.exports = { createApp };
 ```
 
 ```javascript
 // server.js (solo para produccion, no se importa en tests)
-const { app } = require("./app");
+const { createApp } = require("./app");
 
-app.listen(3000, () => console.log("API escuchando en :3000"));
+createApp().listen(3000, () => console.log("API escuchando en :3000"));
 ```
 
 ---
@@ -49,7 +61,13 @@ app.listen(3000, () => console.log("API escuchando en :3000"));
 
 ```javascript
 const request = require("supertest");
-const { app } = require("./app");
+const { createApp } = require("./app");
+
+let app;
+
+beforeEach(() => {
+  app = createApp();
+});
 
 test("should return health status", async () => {
   const response = await request(app).get("/health");
@@ -75,6 +93,30 @@ test("should return list of exhibits", async () => {
   expect(response.body).toEqual([{ id: 1, name: "Sala de dinosaurios" }]);
 });
 ```
+
+---
+
+## Matchers asimetricos para campos generados
+
+Algunos campos los genera el servidor (ids, fechas) y el test no puede conocer su valor exacto. Jest ofrece **matchers asimetricos**: se colocan dentro de `toEqual` en lugar de un valor concreto y aceptan cualquier valor que cumpla una condicion.
+
+```javascript
+test("should create exhibit with generated id", async () => {
+  const response = await request(app)
+    .post("/exhibits")
+    .send({ name: "Sala de aves" });
+
+  expect(response.body).toEqual({
+    id: expect.any(Number), // cualquier number
+    name: "Sala de aves", // valor exacto
+  });
+  // Solo exige que existan estas propiedades; ignora las demas.
+  expect(response.body).toEqual(expect.objectContaining({ name: "Sala de aves" }));
+});
+```
+
+- `expect.any(Constructor)`: cualquier valor de ese tipo (`String`, `Number`, `Date`...).
+- `expect.objectContaining(obj)`: un objeto que contenga al menos esas propiedades.
 
 ---
 

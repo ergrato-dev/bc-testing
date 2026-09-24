@@ -1,5 +1,5 @@
 const request = require("supertest");
-const { app } = require("./app");
+const { createApp } = require("./app");
 
 // ============================================
 // TEST SUITE: API REST ItemService
@@ -14,6 +14,13 @@ const { app } = require("./app");
 // - Acuario: SpeciesApi
 
 describe("Item API", () => {
+  let app;
+
+  beforeEach(() => {
+    // App y repositorio nuevos por test: ningun test depende de otro.
+    app = createApp();
+  });
+
   describe("GET /items", () => {
     // TODO: should return list of items
   });
@@ -31,5 +38,7 @@ describe("Item API", () => {
 
   describe("Error contracts", () => {
     // TODO: validar shape de errores { error, message }
+    // TODO: should return 500 when repository fails
+    //       (usa createApp({ repository }) con un repositorio que lance)
   });
 });

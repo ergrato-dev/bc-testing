@@ -1,5 +1,12 @@
 const request = require("supertest");
-const { app } = require("./app");
+const { createApp } = require("./app");
+
+let app;
+
+beforeEach(() => {
+  // App y repositorio nuevos por test: ningun test hereda datos de otro.
+  app = createApp();
+});
 
 test("should return api health status", async () => {
   const response = await request(app).get("/health");
@@ -24,4 +31,10 @@ test("should create item when payload is valid", async () => {
     id: expect.any(String),
     name: "Mouse",
   });
+});
+
+test("should not see items created by previous tests", async () => {
+  const response = await request(app).get("/items");
+
+  expect(response.body.items).toEqual([{ id: "it-1", name: "Notebook" }]);
 });
