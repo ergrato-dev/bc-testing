@@ -14,4 +14,27 @@ function buildDeliveryReport({ id, customerName, delivered, items }) {
   };
 }
 
-module.exports = { buildDeliveryReport };
+// Depende del reloj del sistema: sin controlarlo, el test cambia de resultado con el tiempo.
+function isDeliveryOverdue(dueDate) {
+  return Date.now() > new Date(dueDate).getTime();
+}
+
+// Estado interno mutable: si varios tests comparten la misma instancia, dependen del orden.
+function createReportStore() {
+  const reports = [];
+
+  return {
+    add(report) {
+      reports.push(report);
+    },
+    count() {
+      return reports.length;
+    },
+  };
+}
+
+module.exports = {
+  buildDeliveryReport,
+  isDeliveryOverdue,
+  createReportStore,
+};

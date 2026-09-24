@@ -13,7 +13,7 @@ Aplicar una estrategia progresiva para endurecer suites de tests sin bloquear el
 1. **Mapear riesgo**: identifica modulos mas sensibles (dinero, identidad, estados).
 2. **Cerrar huecos criticos**: agrega tests para ramas de fallo y bordes de dominio.
 3. **Fortalecer asserts**: valida comportamiento observable, no detalles internos fragiles.
-4. **Automatizar guardrails**: aplica umbrales de coverage y ejecucion estable en CI.
+4. **Automatizar guardrails**: aplica umbrales de coverage (`coverageThreshold` + `collectCoverageFrom`, ver [teoria 02](./02-interpretar-metricas-sin-autoengano.md)) y ejecucion estable en CI.
 
 ---
 
@@ -35,6 +35,8 @@ Prioridad baja:
 ---
 
 ## Anti-patrones a evitar
+
+![Senales de calidad y alertas de fragilidad](../0-assets/03-quality-signals-suite.svg)
 
 - Tests que solo validan que "no crashea".
 - Snapshots gigantes sin foco.
@@ -61,7 +63,7 @@ module.exports = { needsFeedingAlert };
 **Antes (test debil):**
 
 ```javascript
-test("needsFeedingAlert works", () => {
+test("should return a boolean when called", () => {
   const result = needsFeedingAlert(50, "shark");
   expect(typeof result).toBe("boolean");
 });
@@ -72,15 +74,15 @@ Este test pasa aunque reemplaces toda la funcion por `return true;`. No verifica
 **Despues (test fortalecido):**
 
 ```javascript
-test("flags a shark not fed in 48+ hours", () => {
+test("should flag alert when shark was not fed for 48+ hours", () => {
   expect(needsFeedingAlert(50, "shark")).toBe(true);
 });
 
-test("does not flag a shark fed within its threshold", () => {
+test("should not flag alert when shark was fed within its threshold", () => {
   expect(needsFeedingAlert(40, "shark")).toBe(false);
 });
 
-test("falls back to the default threshold for unknown species", () => {
+test("should use default threshold when species is unknown", () => {
   expect(needsFeedingAlert(30, "otter")).toBe(true);
 });
 ```

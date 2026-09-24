@@ -58,11 +58,11 @@ module.exports = { calculateTicketPrice };
 // pricing.test.js
 const { calculateTicketPrice } = require("./pricing");
 
-test("member alone gets 15% off", () => {
+test("should apply 15% off when visitor is member only", () => {
   expect(calculateTicketPrice(100, true, false)).toBe(85);
 });
 
-test("no discounts applies full price", () => {
+test("should charge full price when visitor has no discounts", () => {
   expect(calculateTicketPrice(100, false, false)).toBe(100);
 });
 ```
@@ -70,6 +70,53 @@ test("no discounts applies full price", () => {
 Estos dos tests ejecutan la unica sentencia `return` de la funcion en cada corrida, asi que `statements`, `lines` y `functions` marcan **100%**. Nunca se llama con `isMember = true` y `hasGroupDiscount = true` a la vez, que es la rama con el bug: `calculateTicketPrice(100, true, true)` devuelve `-30` (precio negativo) en produccion.
 
 `branches` es la unica metrica que delata el hueco: el reporte marca la rama `isMember && hasGroupDiscount` como no ejecutada, aunque `lines` diga 100%. Un test que combine ambos flags rompe inmediatamente y expone el typo.
+
+---
+
+## Archivos invisibles: `collectCoverageFrom` y `coverageThreshold`
+
+Por defecto, Jest solo mide los archivos que **algun test importa**. Un modulo sin ningun test no aparece en el reporte, asi que el porcentaje global sale alto justamente porque falta lo peor. Supongamos que junto a `pricing.js` existe `refund.js` (reembolsos del Acuario) y nadie le escribio tests. Con `pnpm test:coverage` sin configuracion:
+
+```text
+------------|---------|----------|---------|---------|-------------------
+File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------|---------|----------|---------|---------|-------------------
+All files   |     100 |     87.5 |     100 |     100 |
+ pricing.js |     100 |     87.5 |     100 |     100 | 2
+------------|---------|----------|---------|---------|-------------------
+```
+
+`refund.js` no existe para el reporte. La solucion es declarar que archivos **deben** medirse y un umbral minimo que haga fallar el comando:
+
+```javascript
+// jest.config.js (tambien vale la clave "jest" en package.json)
+module.exports = {
+  // Todos los .js de la raiz cuentan, los importe un test o no.
+  collectCoverageFrom: ["*.js", "!*.test.js", "!jest.config.js"],
+  // Si una metrica queda por debajo, Jest termina con codigo de salida 1.
+  coverageThreshold: {
+    global: { branches: 80, lines: 80 },
+  },
+};
+```
+
+Salida real con esa configuracion:
+
+```text
+------------|---------|----------|---------|---------|-------------------
+File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+------------|---------|----------|---------|---------|-------------------
+All files   |   42.85 |       70 |      50 |   42.85 |
+ pricing.js |     100 |     87.5 |     100 |     100 | 2
+ refund.js  |       0 |        0 |       0 |       0 | 2-9
+------------|---------|----------|---------|---------|-------------------
+Jest: Coverage for branches (70%) does not meet "global" threshold (80%)
+Jest: Coverage for lines (42.85%) does not meet "global" threshold (80%)
+```
+
+El 100% de lineas era un autoengano: el proyecto real esta al 42.85%. Con el umbral, `pnpm test:coverage` falla en local y en CI hasta que alguien cubra `refund.js` o baje el umbral de forma explicita y justificada.
+
+Los patrones de `collectCoverageFrom` son globs relativos a la raiz del proyecto; en proyectos con carpeta `src/` lo habitual es `["src/**/*.js", "!src/**/*.test.js"]`. `coverageThreshold` acepta tambien claves por ruta (por ejemplo `"./src/pricing.js": { branches: 100 }`) para exigir mas en modulos criticos.
 
 ---
 
@@ -101,6 +148,8 @@ En el ejemplo anterior, la linea del ternario aparece en **amarillo**, con un ma
 
 ## Mini checklist operativo
 
+- [ ] Configurar `collectCoverageFrom` para que ningun archivo quede fuera del reporte.
+- [ ] Definir `coverageThreshold` para que el comando falle si la cobertura baja.
 - [ ] Revisar `branches` primero en modulos criticos.
 - [ ] Agregar pruebas de error/validacion.
 - [ ] Refactorizar tests fragiles antes de agregar mas cantidad.

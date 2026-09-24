@@ -10,7 +10,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 
 ## Requisitos
 
-1. Definir un objetivo de coverage por modulo critico.
+1. Definir un objetivo de coverage por modulo critico y hacerlo obligatorio en `starter/jest.config.js` con `collectCoverageFrom` y `coverageThreshold`.
 2. Agregar tests para al menos 3 rutas de fallo relevantes.
 3. Reducir al menos 2 fuentes de fragilidad de la suite.
 4. Mantener patron AAA y nombres descriptivos.
@@ -26,7 +26,7 @@ Este proyecto es el entregable obligatorio de la semana. Debes adaptar el starte
 - Minimo 8 tests en total.
 - Minimo 3 tests de errores/validaciones.
 - Minimo 1 test de borde de negocio.
-- Cobertura del modulo principal >=85% con ramas relevantes cubiertas.
+- Cobertura del modulo principal >=85% con ramas relevantes cubiertas, exigida por `coverageThreshold` (`pnpm test:coverage` debe fallar si baja).
 
 ## Ejecucion sugerida
 
