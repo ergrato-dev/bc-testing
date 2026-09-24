@@ -94,7 +94,7 @@ bootcamp/week-XX/
 | Playwright | 1.40+ | E2E testing |
 | k6 | 0.50+ | Performance testing |
 
-**Package manager**: `pnpm` or `yarn` (❌ NOT `npm`)
+**Package manager**: `pnpm` only (❌ NOT `npm` nor `yarn`)
 
 ### Python
 
