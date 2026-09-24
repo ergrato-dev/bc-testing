@@ -5,37 +5,73 @@ import pytest
 # ============================================
 # PASO 1: Tests de is_adult
 # ============================================
-# Descomenta las siguientes lineas:
+# Descomenta las siguientes líneas:
 # def test_is_adult_returns_true_when_age_is_18() -> None:
-#     result = is_adult(18)
+#     # Arrange
+#     age = 18
+#
+#     # Act
+#     result = is_adult(age)
+#
+#     # Assert
 #     assert result is True
-
+#
 # def test_is_adult_returns_false_when_age_is_17() -> None:
-#     result = is_adult(17)
+#     # Arrange
+#     age = 17
+#
+#     # Act
+#     result = is_adult(age)
+#
+#     # Assert
 #     assert result is False
 
 
 # ============================================
 # PASO 2: Tests de calculate_discount
 # ============================================
-# Descomenta las siguientes lineas:
+# Descomenta las siguientes líneas:
 # def test_calculate_discount_returns_80_when_price_100_and_percent_20() -> None:
-#     result = calculate_discount(100, 20)
+#     # Arrange
+#     price = 100
+#     percent = 20
+#
+#     # Act
+#     result = calculate_discount(price, percent)
+#
+#     # Assert
 #     assert result == 80
-
+#
 # def test_calculate_discount_raises_error_when_percent_is_invalid() -> None:
+#     # Arrange
+#     price = 100
+#     invalid_percent = 120
+#
+#     # Act + Assert
 #     with pytest.raises(ValueError, match="Invalid percent"):
-#         calculate_discount(100, 120)
+#         calculate_discount(price, invalid_percent)
 
 
 # ============================================
 # PASO 3: Tests de is_valid_email
 # ============================================
-# Descomenta las siguientes lineas:
+# Descomenta las siguientes líneas:
 # def test_is_valid_email_returns_true_when_email_has_valid_format() -> None:
-#     result = is_valid_email("ana@example.com")
+#     # Arrange
+#     email = "ana@example.com"
+#
+#     # Act
+#     result = is_valid_email(email)
+#
+#     # Assert
 #     assert result is True
-
+#
 # def test_is_valid_email_returns_false_when_email_is_invalid() -> None:
-#     result = is_valid_email("anaexamplecom")
+#     # Arrange
+#     email = "anaexamplecom"
+#
+#     # Act
+#     result = is_valid_email(email)
+#
+#     # Assert
 #     assert result is False

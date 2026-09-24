@@ -6,21 +6,22 @@
 
 ## Objetivo
 
-Configurar un entorno mínimo para ejecutar tests unitarios con `pytest` en Python 3.12+.
+Configurar un entorno mínimo para ejecutar tests unitarios con `pytest` 9 en Python 3.14.
+
+![Ciclo de ejecución de tests con pytest](../0-assets/01-ciclo-pytest.svg)
 
 ---
 
 ## Requisitos
 
-- Python 3.12 o superior
-- Entorno virtual gestionado con [`uv`](https://docs.astral.sh/uv/) (recomendado) o `venv` + `pip`
-- `pytest` instalado en el entorno
+- [`uv`](https://docs.astral.sh/uv/) instalado (gestiona Python, el entorno virtual y las dependencias)
+- Python 3.14 (si no lo tienes, `uv` lo descarga automáticamente)
 
 Comprobación rápida:
 
 ```bash
-python --version
 uv --version
+uv run python --version   # en Linux/macOS también sirve: python3 --version
 ```
 
 ---
@@ -39,32 +40,48 @@ mi-proyecto-python/
 
 ---
 
-## Configuración inicial
-
-**Con `uv` (recomendado)** — más rápido y con resolución de dependencias determinista:
+## Configuración inicial con `uv`
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install pytest
+mkdir mi-proyecto-python && cd mi-proyecto-python
+uv init --bare                  # crea solo pyproject.toml
+uv add --dev pytest==9.1.1      # añade pytest al grupo de desarrollo y crea .venv
+uv run pytest                   # ejecuta pytest dentro del entorno del proyecto
 ```
 
-**Alternativa con `pip` + `venv`**:
+`uv run` usa siempre el entorno virtual del proyecto: no hace falta activarlo a mano. Si clonas un proyecto que ya tiene `pyproject.toml`, basta con `uv sync` para instalar sus dependencias.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -U pip
-python -m pip install pytest
-```
-
-Crear `pyproject.toml` mínimo:
+Después añade la configuración de pytest al final de `pyproject.toml`. El archivo completo queda así:
 
 ```toml
-[tool.pytest.ini_options]
+[project]
+name = "mi-proyecto-python"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+]
+
+[tool.pytest]
+pythonpath = ["."]
 testpaths = ["tests"]
-python_files = ["test_*.py"]
-addopts = "-q"
+```
+
+- `pythonpath = ["."]`: añade la raíz del proyecto al `sys.path`, para que `from src.calculator import add` funcione desde `tests/`. Sin esta línea obtendrás `ModuleNotFoundError: No module named 'src'`.
+- `testpaths = ["tests"]`: indica a pytest dónde buscar tests.
+
+> **Formas antiguas o alternativas**: antes de pytest 9 la configuración iba en `[tool.pytest.ini_options]` (todavía funciona) o en un archivo `pytest.ini`. Elige **una sola** fuente de configuración: si existe `pytest.ini`, pytest lo usa e ignora lo que pongas en `pyproject.toml` (lo avisa con `WARNING: ignoring pytest config in pyproject.toml!`), y si pones `[tool.pytest]` y `[tool.pytest.ini_options]` a la vez, pytest 9 se detiene con un error. En este bootcamp usamos siempre `[tool.pytest]`.
+
+**Alternativa sin `uv` (`venv` + `pip`)**:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate        # en Windows: .venv\Scripts\activate
+python -m pip install pytest==9.1.1
+pytest
 ```
 
 ---
@@ -91,8 +108,9 @@ def divide(a: float, b: float) -> float:
 `tests/test_calculator.py`
 
 ```python
-from src.calculator import add, divide
 import pytest
+
+from src.calculator import add, divide
 
 
 def test_add_returns_five_when_inputs_are_two_and_three() -> None:
@@ -107,9 +125,14 @@ def test_add_returns_five_when_inputs_are_two_and_three() -> None:
     assert result == 5
 
 
-def test_divide_raises_error_when_dividing_by_zero() -> None:
+def test_divide_raises_value_error_when_divisor_is_zero() -> None:
+    # Arrange
+    dividend = 10
+    divisor = 0
+
+    # Act + Assert
     with pytest.raises(ValueError, match="Division by zero"):
-        divide(10, 0)
+        divide(dividend, divisor)
 ```
 
 ---
@@ -117,14 +140,32 @@ def test_divide_raises_error_when_dividing_by_zero() -> None:
 ## Ejecutar tests
 
 ```bash
-pytest
-pytest -v
-pytest -k divide
+uv run pytest
+uv run pytest -v
+uv run pytest -k divide
 ```
 
-- `pytest`: ejecución estándar
-- `pytest -v`: muestra nombres completos
-- `pytest -k`: filtra por nombre de test
+- `uv run pytest`: ejecución estándar
+- `uv run pytest -v`: muestra el nombre completo de cada test
+- `uv run pytest -k divide`: filtra por nombre de test
+
+Salida real de `uv run pytest -v` con el ejemplo anterior (la ruta se ha acortado):
+
+```text
+============================= test session starts ==============================
+platform linux -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- /ruta/mi-proyecto-python/.venv/bin/python
+rootdir: /ruta/mi-proyecto-python
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 2 items
+
+tests/test_calculator.py::test_add_returns_five_when_inputs_are_two_and_three PASSED [ 50%]
+tests/test_calculator.py::test_divide_raises_value_error_when_divisor_is_zero PASSED [100%]
+
+============================== 2 passed in 0.00s ===============================
+```
+
+Fíjate en `configfile: pyproject.toml`: confirma que pytest está leyendo tu configuración.
 
 ---
 
@@ -132,15 +173,16 @@ pytest -k divide
 
 | Error | Causa probable | Solución |
 |---|---|---|
-| `ModuleNotFoundError` | Import o estructura de carpetas incorrecta | Revisar `src/` e imports |
-| `pytest: command not found` | Entorno virtual no activo | Activar `.venv` |
+| `ModuleNotFoundError: No module named 'src'` | Falta `pythonpath = ["."]` en `[tool.pytest]` | Añadirlo en `pyproject.toml` |
+| `pytest: command not found` | Se ejecuta `pytest` fuera del entorno | Usar `uv run pytest` |
+| Se ignora la config de `pyproject.toml` | Hay un `pytest.ini` en la carpeta | Dejar una sola fuente de configuración |
 | No se detectan tests | Nombre de archivo/función no cumple convención | Usar `test_*.py` y `def test_*` |
 
 ---
 
 ## Buenas prácticas base
 
-- Aislar entorno virtual por proyecto
+- Aislar entorno virtual por proyecto (`uv` lo hace por ti)
 - Mantener tests en carpeta `tests/`
 - Empezar con funciones puras
 - Nombrar tests con intención de negocio

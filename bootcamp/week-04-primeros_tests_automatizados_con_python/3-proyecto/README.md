@@ -6,12 +6,12 @@
 
 ## 🎯 Objetivo
 
-Construir una suite inicial de tests unitarios con `pytest` para funciones puras de tu dominio asignado.
+Construir una suite inicial de tests unitarios con `pytest` para las mismas funciones puras de tu dominio que testeaste en JavaScript en la semana 03, y comparar cómo se expresa cada intención en ambos lenguajes.
 
 Debes aplicar:
 
 - Convenciones de pytest (`test_*.py`, `def test_*`)
-- Patron AAA
+- Patrón AAA
 - Assertions claras y manejo de excepciones
 
 ---
@@ -19,13 +19,13 @@ Debes aplicar:
 ## Reglas del proyecto
 
 1. Definir al menos 3 funciones de negocio del dominio
-2. Escribir minimo 8 tests unitarios
+2. Escribir mínimo 8 tests unitarios
 3. Cubrir al menos:
    - 3 happy path
-   - 3 casos invalidos o error
+   - 3 casos inválidos o error
    - 2 edge cases
-4. Mantener nombres descriptivos en snake_case
-5. Ejecutar con `pytest -v`
+4. Nombrar tests con el patrón `test_[contexto]_[resultado]_when_[condicion]`
+5. Ejecutar con `uv run pytest -v` desde `starter/` (antes, `uv sync`)
 
 ---
 
@@ -34,7 +34,7 @@ Debes aplicar:
 Usar funciones puras, por ejemplo:
 
 - validaciones
-- calculos
+- cálculos
 - transformaciones de datos
 
 No usar:
@@ -45,18 +45,26 @@ No usar:
 
 ---
 
-## Guia de trabajo (2 horas)
+## Guía de trabajo (2 horas)
 
 - **20 min**: definir funciones y reglas
 - **25 min**: tests happy path
-- **35 min**: tests de validacion y errores
+- **35 min**: tests de validación y errores
 - **25 min**: edge cases
-- **15 min**: limpieza y ejecucion final
+- **15 min**: limpieza, ejecución final y tabla comparativa
 
 ---
 
 ## Entregable
 
-Completar `starter/item_service_test.py` con tu suite adaptada al dominio asignado.
+1. `starter/item_service.py` con las funciones de tu dominio.
+2. `starter/test_item_service.py` completo, con tu suite adaptada al dominio asignado.
+3. Una tabla comparativa breve (en tu README o al final de la entrega) con 3 tests equivalentes JS ↔ Python:
+
+| Intención | Jest (semana 03) | pytest (semana 04) |
+|---|---|---|
+| Igualdad | `expect(result).toBe(80)` | `assert result == 80` |
+| Excepción | `expect(() => fn()).toThrow("...")` | `with pytest.raises(ValueError, match="..."):` |
+| ... | ... | ... |
 
 > `solution/` del proyecto no se publica en el repositorio.

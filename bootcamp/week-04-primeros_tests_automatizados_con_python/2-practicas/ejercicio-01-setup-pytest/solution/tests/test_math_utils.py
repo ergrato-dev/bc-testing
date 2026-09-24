@@ -13,7 +13,7 @@ def test_add_returns_five_when_inputs_are_two_and_three() -> None:
     assert result == 5
 
 
-def test_is_even_returns_true_for_even_number() -> None:
+def test_is_even_returns_true_when_number_is_even() -> None:
     # Arrange
     value = 10
 
@@ -24,7 +24,7 @@ def test_is_even_returns_true_for_even_number() -> None:
     assert result is True
 
 
-def test_is_even_returns_false_for_odd_number() -> None:
+def test_is_even_returns_false_when_number_is_odd() -> None:
     # Arrange
     value = 7
 

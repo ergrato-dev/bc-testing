@@ -10,11 +10,11 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Configurar un entorno mínimo de testing con **Python 3.12+ y pytest**
+1. Configurar un entorno mínimo de testing con **Python 3.14, uv y pytest 9**
 2. Entender la estructura básica de tests con `test_*.py` y `def test_*`
 3. Escribir assertions claras usando `assert` nativo de Python
-4. Ejecutar tests con `pytest`, `pytest -v` y filtrado por nombre con `-k`
-5. Distinguir errores de ejecución vs fallos de assertion en reportes de pytest
+4. Ejecutar tests con `uv run pytest`, `-v` y filtrado por nombre con `-k`, y comparar pytest con `unittest`
+5. Distinguir los estados `FAILED` y `ERROR` en los reportes de pytest
 6. Aplicar patrón AAA de forma consistente en tests unitarios simples
 7. Construir una suite inicial de tests para funciones puras del dominio asignado
 
@@ -86,7 +86,8 @@ week-04-primeros_tests_automatizados_con_python/
 ├── 3-proyecto/
 │   ├── README.md
 │   └── starter/
-│       └── item_service_test.py
+│       ├── pyproject.toml
+│       └── test_item_service.py
 ├── 4-recursos/
 │   ├── ebooks-free/README.md
 │   ├── videografia/README.md

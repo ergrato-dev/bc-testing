@@ -1,16 +1,16 @@
-# Ejercicio 01 — Setup y Primera Ejecucion con pytest
+# Ejercicio 01 — Setup y Primera Ejecución con pytest
 
-> **Semana 04 · Practicas · Ejercicio 01** | Duracion estimada: 1.5 h
+> **Semana 04 · Prácticas · Ejercicio 01** | Duración estimada: 1.5 h
 
 ---
 
 ## Objetivo
 
-Configurar pytest por primera vez y ejecutar el ciclo minimo:
+Configurar pytest por primera vez y recorrer el ciclo mínimo:
 
-1. Test en rojo
-2. Correccion minima
-3. Test en verde
+1. Test en rojo (falla)
+2. Corrección mínima
+3. Test en verde (pasa)
 
 ---
 
@@ -18,56 +18,52 @@ Configurar pytest por primera vez y ejecutar el ciclo minimo:
 
 ### Paso 1 — Revisar estructura
 
-Abre carpeta `starter/`:
+Abre la carpeta `starter/`. Encontrarás:
 
 - `src/math_utils.py`
 - `tests/test_math_utils.py`
-- `requirements.txt`
+- `pyproject.toml` (dependencias y configuración `[tool.pytest]`)
 
 ### Paso 2 — Instalar dependencias
 
-Con `uv` (recomendado):
+Desde la terminal:
 
 ```bash
-uv venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
+cd starter
+uv sync
 ```
 
-Alternativa con `pip` + `venv`:
+`uv sync` crea `.venv` e instala pytest 9.1.1 según `pyproject.toml`.
+
+### Paso 3 — Ejecutar tests (rojo)
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+uv run pytest -v
 ```
 
-### Paso 3 — Ejecutar tests
+Verás un test fallando por diseño: `test_add_returns_five_when_inputs_are_two_and_three` está activo en `tests/test_math_utils.py`, pero `add` tiene un bug. Lee el mensaje de error (`assert -1 == 5`): es un `FAILED` por assertion.
+
+### Paso 4 — PASO 1: corregir la función (verde)
+
+Abre `starter/src/math_utils.py` y sigue el bloque `PASO 1`: sustituye la resta por la suma. Ejecuta `uv run pytest -v` y comprueba que el test pasa a verde.
+
+### Paso 5 — PASO 2 y PASO 3: añadir tests de `is_even`
+
+Abre `starter/tests/test_math_utils.py` y descomenta los bloques `PASO 2` (número par) y `PASO 3` (número impar). Observa la estructura AAA de cada test.
+
+### Paso 6 — Ejecutar de nuevo hasta ver todo en verde
 
 ```bash
-pytest -v
+uv run pytest -v
+uv run pytest -k is_even
 ```
 
-Uno de los tests esta preparado para fallar inicialmente.
-
-### Paso 4 — Descomentar secciones guiadas
-
-Abre `starter/tests/test_math_utils.py` y descomenta los pasos 1, 2 y 3.
-
-### Paso 5 — Corregir implementacion
-
-Abre `starter/src/math_utils.py` y corrige el bug intencional.
-
-### Paso 6 — Verificar en verde
-
-```bash
-pytest -v
-```
+Deben pasar los 3 tests; con `-k is_even` solo se ejecutan los 2 de `is_even`.
 
 ---
 
 ## Resultado esperado
 
-- Entorno pytest funcional
-- Comprension de error de assertion
-- Correccion minima para pasar tests
+- Entorno pytest funcional con `uv`
+- Comprensión de un fallo de assertion
+- Corrección mínima para pasar los tests
