@@ -8,6 +8,8 @@
 
 Configurar un proyecto mínimo de tests unitarios con JDK 21, Maven y JUnit 5.
 
+![Ciclo de ejecución de tests con JUnit 5](../0-assets/01-ciclo-junit.svg)
+
 ---
 
 ## Requisitos
@@ -49,8 +51,7 @@ mi-proyecto-java/
   <version>1.0.0</version>
 
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.jupiter.version>5.14.4</junit.jupiter.version>
   </properties>
@@ -75,6 +76,13 @@ mi-proyecto-java/
   </build>
 </project>
 ```
+
+Puntos clave:
+
+- `maven.compiler.release` compila para Java 21 y valida que solo uses APIs de esa versión.
+- `junit-jupiter` agrupa la API para escribir tests y el motor que los ejecuta.
+- `<scope>test</scope>`: la dependencia solo existe para `src/test`, no se empaqueta con tu aplicación.
+- Versiones exactas (`5.14.4`, `3.5.6`): el build da el mismo resultado hoy y dentro de seis meses.
 
 ---
 
@@ -157,7 +165,9 @@ BUILD SUCCESS
 |---|---|---|
 | No encuentra `@Test` | Dependencia JUnit faltante | Revisar `pom.xml` |
 | Tests no corren | Archivo fuera de `src/test/java` | Ajustar estructura Maven |
-| `Source option ... not supported` | Versión de Java incompatible | Configurar JDK 21 |
+| `release version 21 not supported` | Maven usa un JDK anterior a 21 | Revisar `mvn -version` y `JAVA_HOME` |
+| `Tests run: 0` | Clase o método sin `@Test`, o clase que no termina en `Test` | Revisar anotaciones y nombre de la clase |
+| `Using platform encoding ... build is platform dependent` | Falta `project.build.sourceEncoding` | Añadir `UTF-8` en `<properties>` |
 
 ---
 

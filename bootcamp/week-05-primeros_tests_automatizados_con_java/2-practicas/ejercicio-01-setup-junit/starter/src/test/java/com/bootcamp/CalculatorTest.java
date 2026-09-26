@@ -10,33 +10,52 @@ class CalculatorTest {
     // ============================================
     // PASO 1: Mi primer test con JUnit 5
     // ============================================
-    // Descomenta las siguientes lineas:
+    // Descomenta las siguientes líneas:
     // @Test
     // @DisplayName("should return 5 when adding 2 and 3")
     // void shouldReturnFiveWhenAddingTwoAndThree() {
-    //     int result = Calculator.add(2, 3);
+    //     // Arrange
+    //     int a = 2;
+    //     int b = 3;
+    //
+    //     // Act
+    //     int result = Calculator.add(a, b);
+    //
+    //     // Assert
     //     assertEquals(5, result);
     // }
 
     // ============================================
-    // PASO 2: Test booleano simple
+    // PASO 2: Test booleano: número par
     // ============================================
-    // Descomenta las siguientes lineas:
+    // Descomenta las siguientes líneas:
     // @Test
     // @DisplayName("should return true when number is even")
     // void shouldReturnTrueWhenNumberIsEven() {
-    //     boolean result = Calculator.isEven(10);
+    //     // Arrange
+    //     int value = 10;
+    //
+    //     // Act
+    //     boolean result = Calculator.isEven(value);
+    //
+    //     // Assert
     //     assertTrue(result);
     // }
 
     // ============================================
-    // PASO 3: Test para numero impar
+    // PASO 3: Test booleano: número impar
     // ============================================
-    // Descomenta las siguientes lineas:
+    // Descomenta las siguientes líneas:
     // @Test
     // @DisplayName("should return false when number is odd")
     // void shouldReturnFalseWhenNumberIsOdd() {
-    //     boolean result = Calculator.isEven(7);
+    //     // Arrange
+    //     int value = 7;
+    //
+    //     // Act
+    //     boolean result = Calculator.isEven(value);
+    //
+    //     // Assert
     //     assertFalse(result);
     // }
 }

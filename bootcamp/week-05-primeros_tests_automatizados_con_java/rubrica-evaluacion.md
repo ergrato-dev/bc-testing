@@ -27,11 +27,11 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 2. ¿Por qué `@DisplayName` mejora la legibilidad de reportes?
 3. Explica AAA aplicado a un test en Java.
 4. ¿Cuándo usar `assertEquals` y cuándo `assertTrue`?
-5. ¿Cómo se valida una excepción esperada con JUnit 5?
+5. ¿Cómo se valida una excepción esperada y su mensaje con JUnit 5? ¿Y con AssertJ?
 6. ¿Qué comando se usa para ejecutar tests con Maven?
-7. Diferencia entre failure y error en una ejecución de tests.
-8. ¿Por qué conviene empezar con funciones puras?
-9. ¿Qué problema evita usar nombres de test descriptivos?
+7. ¿Cuándo reporta Surefire un test como Failure y cuándo como Error? Da un ejemplo de cada uno.
+8. ¿Por qué `assertEquals(15.992, result)` puede fallar con un `double` y cómo se corrige?
+9. ¿En qué orden se ejecutan `@BeforeAll`, `@BeforeEach`, `@AfterEach` y `@AfterAll`, y por qué un test no debe depender de otro?
 10. ¿Cuál es la diferencia entre JUnit 4 y JUnit 5 a nivel de anotaciones básicas?
 
 ---
@@ -54,9 +54,9 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 | Criterio | Pts |
 |---|---|
 | Aplicó patrón AAA con claridad | 6 |
-| Usó assertions adecuadas (`assertEquals`, `assertThrows`) | 6 |
-| Nombres de tests y `@DisplayName` descriptivos | 4 |
-| Cubre happy path + casos inválidos | 4 |
+| Usó assertions adecuadas (`assertEquals` con delta, `assertThrows`, AssertJ) | 6 |
+| Explicó el Error del PASO 5 y corrigió `isValidEmail` | 4 |
+| Nombres de métodos y `@DisplayName` descriptivos | 4 |
 | **Total** | **20** |
 
 ---
@@ -69,11 +69,11 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 |---|---|
 | Incluye al menos 8 tests funcionales | 4 |
 | Cubre happy path, validaciones y errores | 6 |
-| Mantiene estructura AAA en la suite | 6 |
-| Usa `@DisplayName` para legibilidad | 4 |
-| No depende de servicios externos reales | 4 |
-| Usa setup compartido cuando aplica | 3 |
-| La suite ejecuta correctamente con Maven | 3 |
+| Mantiene AAA y usa `@BeforeEach` para el servicio bajo prueba | 6 |
+| Nombres de métodos y `@DisplayName` legibles | 4 |
+| No depende de recursos externos reales | 4 |
+| Incluye la tabla comparativa JS ↔ Python ↔ Java (3 intenciones equivalentes) | 3 |
+| `mvn test` sin failures, errors ni tests `@Disabled` | 3 |
 | **Total** | **30** |
 
 ---

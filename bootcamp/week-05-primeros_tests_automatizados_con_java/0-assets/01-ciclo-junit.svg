@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" font-family="system-ui, -apple-system, sans-serif">
   <rect width="920" height="520" fill="#0f172a" rx="12"/>
-  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de Ejecucion de Tests con JUnit 5</text>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de Ejecución de Tests con JUnit 5</text>
   <text x="460" y="62" text-anchor="middle" font-size="13" fill="#94a3b8">Escribir -> Ejecutar -> Analizar -> Corregir</text>
 
   <rect x="60" y="110" width="180" height="72" rx="10" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
@@ -17,7 +17,7 @@
 
   <rect x="690" y="110" width="170" height="72" rx="10" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
   <text x="775" y="138" text-anchor="middle" font-size="14" fill="#3572A5" font-weight="700">4. Corregir</text>
-  <text x="775" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">codigo o test</text>
+  <text x="775" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">código o test</text>
 
   <line x1="240" y1="146" x2="270" y2="146" stroke="#475569" stroke-width="2"/>
   <polygon points="270,146 260,140 260,152" fill="#475569"/>

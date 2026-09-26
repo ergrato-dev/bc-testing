@@ -4,36 +4,10 @@
 
 ---
 
-## Lectura obligatoria
-
-### JUnit 5 User Guide (secciones iniciales)
-
-- URL: https://junit.org/junit5/docs/current/user-guide/
-- Enfoque: `@Test`, assertions, lifecycle
-- Tiempo estimado: 30 min
-
-### Maven Surefire Plugin
-
-- URL: https://maven.apache.org/surefire/maven-surefire-plugin/
-- Enfoque: ejecución de tests con Maven
-- Tiempo estimado: 15 min
-
----
-
-## Lectura recomendada
-
-### AssertJ Documentation (preview)
-
-- URL: https://assertj.github.io/doc/
-- Enfoque: assertions fluentes (se profundiza más adelante)
-
-### Practical Test Pyramid
-
-- URL: https://martinfowler.com/articles/practical-test-pyramid.html
-
----
-
-## Lecturas cortas
-
-- https://www.baeldung.com/junit-5
-- https://www.baeldung.com/junit-assertions
+| Recurso | URL | Por qué leerlo |
+|---|---|---|
+| JUnit 5.14.4 User Guide — Writing Tests | https://docs.junit.org/5.14.4/writing-tests/intro.html | Lectura obligatoria (30 min): primer test, anotaciones y assertions en la versión que usa el bootcamp. |
+| JUnit 5.14.4 User Guide — Test Instance Lifecycle | https://docs.junit.org/5.14.4/writing-tests/test-instance-lifecycle.html | Lectura obligatoria (15 min): por qué JUnit crea una instancia nueva por test. |
+| JUnit 5.14.4 User Guide — Migrating from JUnit 4 | https://docs.junit.org/5.14.4/migrating-from-junit4.html | Equivalencias de anotaciones JUnit 4 ↔ 5 para reconocer tutoriales antiguos. |
+| AssertJ — Quick Start | https://assertj.github.io/doc/#assertj-core-quick-start | Dependencia Maven, `assertThat` y primeras assertions fluentes. |
+| The Practical Test Pyramid (Martin Fowler) | https://martinfowler.com/articles/practical-test-pyramid.html | Estrategia de testing transferible entre lenguajes: dónde encajan los tests unitarios. |
