@@ -4,18 +4,18 @@
 
   <circle cx="220" cy="230" r="95" fill="#1e293b" stroke="#6366f1" stroke-width="3"/>
   <text x="220" y="220" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Alcance</text>
-  <text x="220" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Que probar / no probar</text>
+  <text x="220" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Qué probar / no probar</text>
 
   <circle cx="520" cy="230" r="95" fill="#1e293b" stroke="#f89820" stroke-width="3"/>
   <text x="520" y="220" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Riesgos</text>
-  <text x="520" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Priorizacion</text>
+  <text x="520" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Priorización</text>
 
   <circle cx="820" cy="230" r="95" fill="#1e293b" stroke="#3572A5" stroke-width="3"/>
   <text x="820" y="220" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Casos</text>
-  <text x="820" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Diseno y datos</text>
+  <text x="820" y="248" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">Diseño y datos</text>
 
   <circle cx="380" cy="490" r="95" fill="#1e293b" stroke="#F7DF1E" stroke-width="3"/>
-  <text x="380" y="480" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Ejecucion</text>
+  <text x="380" y="480" fill="#f1f5f9" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Ejecución</text>
   <text x="380" y="508" fill="#94a3b8" font-size="16" text-anchor="middle" font-family="Inter, Arial, sans-serif">JS / Python / Java</text>
 
   <circle cx="700" cy="490" r="95" fill="#1e293b" stroke="#22c55e" stroke-width="3"/>

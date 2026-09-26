@@ -59,13 +59,20 @@ Cada lenguaje necesita además el módulo bajo prueba (`item.service.js`, `item_
    pnpm test
    ```
 
-4. Replica los mismos TC en Python y Java (`mvn test`). Para Python:
+4. Replica los mismos TC en Python y Java:
 
    ```bash
    cd starter/python
    uv sync
    uv run pytest -q
    ```
+
+   ```bash
+   cd starter/java
+   mvn test
+   ```
+
+   Mientras queden TC pendientes verás `skipped` en pytest y `Skipped` en Maven (`@Disabled`), igual que `todo` en Jest. La entrega final no debe tener ninguno.
 
 5. Marca en la matriz las columnas JS/Python/Java y pega las evidencias en la sección 8.
 
