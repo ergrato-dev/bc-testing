@@ -354,7 +354,7 @@ Implementar [concepto aprendido] aplicado a tu dominio asignado.
 
 - [Jest Docs](url) - Descripción
 - [pytest Docs](url) - Descripción
-- [JUnit 5 Docs](url) - Descripción
+- [JUnit 6 Docs](url) - Descripción
 
 ## Artículos Recomendados
 
@@ -369,7 +369,7 @@ Implementar [concepto aprendido] aplicado a tu dominio asignado.
 
 - JavaScript/Jest: [jestjs.io](https://jestjs.io), [testing-library.com](https://testing-library.com)
 - Python/pytest: [docs.pytest.org](https://docs.pytest.org), [realpython.com](https://realpython.com)
-- Java/JUnit 5: [junit.org/junit5](https://junit.org/junit5), [baeldung.com](https://www.baeldung.com)
+- Java/JUnit 6: [docs.junit.org](https://docs.junit.org/6.0.3/overview.html), [baeldung.com](https://www.baeldung.com)
 - Testing en general: [martinfowler.com](https://martinfowler.com), [testingjavascript.com](https://testingjavascript.com)
 
 **Propósito**: Proporcionar recursos complementarios de calidad para profundizar en los temas.
@@ -487,7 +487,7 @@ Antes de considerar una semana completa:
 
 ### Código
 
-- ✅ Versiones modernas: Jest 30+, pytest 9+, JUnit 5.14+
+- ✅ Versiones exactas y unificadas: la tabla "Herramientas por Lenguaje" de `.github/copilot-instructions.md` es la fuente única
 - ✅ Nombres descriptivos en tests: `should_return_null_when_input_is_empty`
 - ✅ Comentarios educativos en español para explicar el "por qué"
 - ✅ Ejemplos progresivos (simple → complejo)
@@ -532,17 +532,20 @@ Antes de considerar una semana completa:
 
 ### Versiones de Lenguajes y Frameworks
 
-| Tecnología | Versión mínima recomendada |
-| ---------- | -------------------------- |
-| Node.js    | 22 LTS                     |
-| Python     | 3.12+                      |
-| Java (JDK) | 21 LTS                     |
-| Jest       | 30+                        |
-| pytest     | 9+                         |
-| JUnit 5    | 5.14+                      |
-| Mockito    | 5+                         |
-| Playwright | 1.40+                      |
-| k6         | 0.50+                      |
+| Tecnología | Versión fijada |
+| ---------- | -------------- |
+| Node.js    | 22 LTS         |
+| pnpm       | 12.6.0         |
+| Python     | 3.14           |
+| Java (JDK) | 21 LTS         |
+| Jest       | 30.5.2         |
+| pytest     | 9.1.1          |
+| JUnit      | 6.0.3          |
+| AssertJ    | 3.27.7         |
+| Mockito    | 5.23.0         |
+| Playwright | 1.63.0         |
+
+La lista completa (incluidas las herramientas que se fijan al construir su semana) está en `.github/copilot-instructions.md`, sección "Herramientas por Lenguaje".
 
 ### Bases de Datos en Tests
 
@@ -572,7 +575,7 @@ class TestUserService:
     def test_create_user_raises_validation_error_when_email_is_missing(self): ...
 ```
 
-**Java (JUnit 5)**:
+**Java (JUnit 6)**:
 
 ```java
 @Nested
@@ -592,7 +595,7 @@ class CreateUser {
 - [Repo de referencia — BC JavaScript ES2023](https://github.com/ergrato-dev/bc-javascript-es2023-cf)
 - [Jest Documentation](https://jestjs.io/docs/getting-started)
 - [pytest Documentation](https://docs.pytest.org/en/stable/)
-- [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/)
+- [JUnit 6 User Guide](https://docs.junit.org/6.0.3/overview.html)
 - [Playwright Documentation](https://playwright.dev/docs/intro)
 - [k6 Documentation](https://k6.io/docs/)
 - [Behave Documentation](https://behave.readthedocs.io/)

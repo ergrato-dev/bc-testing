@@ -224,3 +224,27 @@ Los 8 proyectos Maven compilan y pasan con `mvn test` (solutions: 3, 10 y 3 test
 
 - El ciclo de vida (`@BeforeAll`/`@AfterEach`/`@AfterAll`) se practica solo en teoría; en ejercicios y proyecto se usa `@BeforeEach`.
 - JUnit 6: sigue pendiente la decisión antes de construir S25–S31.
+
+---
+
+# Unificación de versiones — 2026-09
+
+**Objetivo**: una sola versión por herramienta en todo el repo y la misma que usa `bc-testing-adso`, para que el contenido y la documentación no se contradigan.
+**Rama**: `chore/unificar-versiones`.
+
+## Cambios
+
+| Herramienta | Antes | Ahora | Motivo |
+|---|---|---|---|
+| pnpm | 10.34.5 | **12.6.0** | Igual que `bc-testing-adso` |
+| JUnit (Jupiter) | 5.14.4 | **6.0.3** | Versión que gestiona Spring Boot 4.1.1 en `bc-testing-adso`; cierra el ítem abierto sobre JUnit 6 |
+| Tablas de herramientas (README, README_EN, reglas, guía, S01, plan) | rangos (`29+`, `3+`, `5.10+`, `1.19+`...) y versiones viejas (Python 3.12, pytest 8) | versiones exactas; las herramientas aún sin semana dicen "se fija en SXX" | Una sola fuente: `.github/copilot-instructions.md`, sección "Herramientas por Lenguaje" |
+
+- pnpm 12 ya no lee el campo `"pnpm"` de `package.json` y termina con `ERR_PNPM_IGNORED_BUILDS` cuando una dependencia trae build scripts sin decidir. Jest arrastra `@parcel/watcher` y `unrs-resolver`, que no necesitan compilar: cada `package.json` tiene al lado un `pnpm-workspace.yaml` idéntico con `allowBuilds` en `false` para ambos.
+- JUnit 6 mantiene la API Jupiter: sin cambios en los tests. El texto dice "JUnit 6"; la tabla de S05 compara JUnit 4 con Jupiter (JUnit 5 y 6), y los títulos de videos que dicen "JUnit 5" se conservan con una nota.
+- Enlaces de documentación de JUnit fijados a `docs.junit.org/6.0.3`.
+
+## Verificación
+
+- 53 proyectos JS: `pnpm install` limpio con pnpm 12.6.0 (solo el aviso de `glob@10.5.0` deprecado que trae Jest) y `CI=true pnpm test`: las 23 solutions en verde; los starters igual que antes (0 tests o el rojo intencional de S03).
+- 8 proyectos Maven con JUnit 6.0.3: todos en verde; las salidas documentadas en S05 (números de línea, mensajes, orden del ciclo de vida, Failure vs Error, AssertJ) son idénticas.
