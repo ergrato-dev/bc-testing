@@ -372,9 +372,14 @@ class MethodName {
 **Java**:
 
 - JDK 21 LTS
-- Maven como build tool por defecto
-- `@DisplayName` siempre en methods de test para legibilidad
-- Assertions con AssertJ (no solo JUnit assertions)
+- Maven como build tool por defecto; comandos siempre desde la carpeta del proyecto (`cd starter && mvn test`)
+- Cada `starter/` y `solution/` con código Java lleva su propio `pom.xml` con layout estándar
+  (`src/main/java/com/bootcamp`, `src/test/java/com/bootcamp`), `maven.compiler.release` = 21,
+  `project.build.sourceEncoding` = UTF-8 y versiones exactas: `junit-jupiter` 5.14.4,
+  `assertj-core` 3.27.7 (cuando se use), `maven-surefire-plugin` 3.5.6
+- Tests pendientes en starters de proyecto: `@Disabled("TODO: ...")` (equivalente a `test.todo` / `pytest.skip`), nunca métodos vacíos que pasan en verde
+- `@DisplayName` siempre en methods de test para legibilidad (el resumen de Surefire muestra el nombre del método, que también debe ser descriptivo)
+- Assertions con AssertJ (no solo JUnit assertions) a partir de su introducción en S05
 
 ---
 
