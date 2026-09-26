@@ -94,7 +94,7 @@
     "bootcamp", "pytest", "pnpm", "mockito", "testcontainers",
     "behave", "cucumber", "playwright", "supertest", "assertj",
     "jacoco", "mutmut", "respx", "asyncio", "dataclass",
-    "parametrize", "conftest", "httpx", "locust", "sdet"
+    "parametrize", "conftest", "httpx", "httpx2", "locust", "sdet"
   ],
 
   // ── Git ───────────────────────────────────────────────────────────────────

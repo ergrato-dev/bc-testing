@@ -40,7 +40,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### 🟩 Etapa 2: Testing con Python (Semanas 16–24)
 
-72 horas totales — pytest, unittest, fixtures, parametrize, mocking con `unittest.mock`, testing de APIs con `requests` y `httpx`, BDD con Behave.
+72 horas totales — pytest, unittest, fixtures, parametrize, mocking con `unittest.mock`, testing de APIs con `httpx2` (y su equivalente en `requests`), BDD con Behave.
 
 ### 🟧 Etapa 3: Testing con Java (Semanas 25–31)
 
@@ -333,7 +333,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### 🟩 ETAPA 2: TESTING CON PYTHON (Semanas 16–24)
 
-> Se introduce pytest en profundidad, fixtures, parametrize, mocking, testing de APIs con `requests`/`httpx`, y BDD con Behave. El estudiante aplica los mismos conceptos del Etapa 1 al ecosistema Python.
+> Se introduce pytest en profundidad, fixtures, parametrize, mocking, testing de APIs con `httpx2`, y BDD con Behave. El estudiante aplica los mismos conceptos del Etapa 1 al ecosistema Python.
 
 ---
 
@@ -386,23 +386,24 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-#### Week 19: Testing de APIs con Python (requests + httpx)
+#### Week 19: Testing de APIs con Python (httpx2)
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- Testing de APIs REST con `requests` y `responses` (mock de HTTP)
-- `pytest-httpserver` para simular servidor HTTP real
-- Testing con `httpx` y `respx` para mockear responses
-- Validación de esquemas JSON con `jsonschema` y `pydantic`
-- Testing de autenticación: Basic Auth, Bearer Token
-- Testing de errores HTTP (4xx, 5xx) y timeouts
-- Fixtures para cliente HTTP y datos de prueba
-- Testing asíncrono: `httpx.AsyncClient`, `pytest-asyncio` (modo `auto` vs `strict`) y `AsyncMock` (tema reubicado aquí; quedó sin semana tras el reordenamiento de S16–S18)
-- Contract testing básico con Pact (introducción)
+- Niveles para aislar HTTP: parchear la función, transporte simulado, servidor local (`pytest-httpserver`) y API real
+- Testing de clientes `httpx2` con `MockTransport` (sin red); equivalencia con `requests` + `responses`
+- Verificar la request enviada: ruta, query params, cuerpo JSON y autenticación (Bearer Token, Basic Auth)
+- Traducción de errores HTTP (4xx, 5xx con cuerpo HTML) y timeouts a excepciones del dominio
+- Validación de contratos con `pydantic` (`jsonschema` como alternativa)
+- Fixtures para el cliente HTTP y las requests registradas
+- Testing asíncrono: `httpx2.AsyncClient`, `pytest-asyncio` (modo `strict` vs `auto`), fixtures asíncronas y `AsyncMock`
+- Contract testing con Pact (introducción conceptual)
 
-**Proyecto**: Suite de integration tests en Python para el API del dominio asignado usando `httpx` + `respx` para mocks HTTP. Incluir validación de esquemas JSON con pydantic.
+> `respx` se descartó: no intercepta `httpx2`, el sucesor de `httpx` que usa `bc-testing-adso`. `MockTransport` viene incluido en `httpx2`.
+
+**Proyecto**: Suite de tests del cliente HTTP del API del dominio asignado con `httpx2` + `MockTransport`: happy path con verificación de la request, 404, 422, 5xx, timeout y contrato validado con `pydantic`.
 
 ---
 
@@ -490,7 +491,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Temas**:
 
 - Integración de Semanas 16–23
-- Arquitectura: unitarios (pytest) + integración (httpx) + BDD (Behave) + BD
+- Arquitectura: unitarios (pytest) + integración (httpx2) + BDD (Behave) + BD
 - Coverage ≥85% en toda la suite Python
 - Reporte de testing con análisis de calidad
 
@@ -765,7 +766,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Fundamentos con pytest: AAA, fixtures básicas (S16)
 - Parametrización y marks con pytest (S17)
 - Mocking con unittest.mock y pytest-mock (S18)
-- Testing de APIs con httpx/respx (S19)
+- Testing de APIs con httpx2 y MockTransport (S19)
 - TDD en Python con hypothesis (S20)
 - Coverage con pytest-cov y mutation testing (S21)
 - BDD con Behave/pytest-bdd (S22)
@@ -811,7 +812,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S16    | Fundamentos con pytest                         | ✅ Completo |
 | S17    | Parametrización y Marks con pytest             | ✅ Completo |
 | S18    | Mocking con unittest.mock y pytest-mock        | ✅ Completo |
-| S19    | Testing de APIs con Python (requests + httpx)  | ⏳ Pendiente |
+| S19    | Testing de APIs con Python (httpx2)            | ✅ Completo |
 | S20    | TDD con Python                                 | ⏳ Pendiente |
 | S21    | Coverage y Calidad en Python                   | ⏳ Pendiente |
 | S22    | BDD con Python — Behave                        | ⏳ Pendiente |

@@ -46,7 +46,7 @@ By the end of the bootcamp, students will be able to:
 | :---: | :---: | :---: | --- |
 | **Stage 0** — Testing Fundamentals | 1–6 | 48h | Quality mindset, terminology, testing pyramid, first tests in all 3 languages in parallel |
 | **Stage 1** — Testing with JavaScript | 7–15 | 72h | Advanced Jest, mocks/stubs/spies, async testing, TDD, Supertest, snapshot, fast-check |
-| **Stage 2** — Testing with Python | 16–24 | 72h | pytest, fixtures, unittest.mock, TDD, Behave (BDD), httpx, Testcontainers |
+| **Stage 2** — Testing with Python | 16–24 | 72h | pytest, fixtures, unittest.mock, TDD, Behave (BDD), httpx2, Testcontainers |
 | **Stage 3** — Testing with Java | 25–31 | 56h | JUnit 6, AssertJ, Mockito, TDD, Spring Boot Test, Testcontainers, Cucumber |
 | **Stage 4** — Advanced Transversal Testing | 32–36 | 40h | Playwright E2E, k6/Locust performance, OWASP security basics, CI/CD with GitHub Actions |
 
@@ -108,7 +108,9 @@ bootcamp/week-XX/
 | pytest | 9.1.1 | Main testing framework |
 | pytest-mock | 3.15.1 | unittest.mock wrapper |
 | pytest-cov | 7.1.0 | Code coverage |
-| pytest-asyncio, httpx, respx | pinned in S19 | Async and API testing |
+| httpx2 | 2.13.1 | HTTP client (`MockTransport` for tests) |
+| pydantic | 2.13.5 | Contract validation |
+| pytest-asyncio | 1.4.0 | Async testing |
 | hypothesis | pinned in S20 | Property-based testing |
 | Behave | pinned in S22 | BDD (Gherkin) |
 | Factory Boy | pinned in S23 | Test data factories |
