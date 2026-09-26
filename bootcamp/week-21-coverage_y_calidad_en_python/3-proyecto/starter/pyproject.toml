@@ -1,0 +1,31 @@
+[project]
+name = "week21-proyecto-starter"
+version = "1.0.0"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "pytest-cov==7.1.0", "mutmut==3.8.0", "ruff==0.16.7"]
+
+[tool.pytest]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
+[tool.mutmut]
+source_paths = ["src/"]
+
+[tool.ruff.lint]
+select = ["C901"]
+
+[tool.ruff.lint.mccabe]
+# Umbral del proyecto: más estricto que el valor habitual (10) para practicar el refactor.
+max-complexity = 5

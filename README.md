@@ -108,6 +108,8 @@ bootcamp/week-XX/
 | pytest | 9.1.1 | Testing framework principal |
 | pytest-mock | 3.15.1 | Wrapper de unittest.mock |
 | pytest-cov | 7.1.0 | Code coverage |
+| mutmut | 3.8.0 | Mutation testing (en Windows, dentro de WSL) |
+| ruff | 0.16.7 | Umbral de complejidad (`C901`) |
 | httpx2 | 2.13.1 | Cliente HTTP (`MockTransport` para tests) |
 | pydantic | 2.13.5 | Validación de contratos |
 | pytest-asyncio | 1.4.0 | Testing asíncrono |

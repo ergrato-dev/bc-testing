@@ -432,17 +432,18 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- `pytest-cov`: configuración y ejecución
+- `pytest-cov`: configuración en `pyproject.toml` y ejecución
 - Reportes: terminal, HTML, XML (para CI)
-- Branch coverage en Python: `.coveragerc` / `pyproject.toml`
-- Excluir código del coverage: `# pragma: no cover`
-- `coverage combine` para proyectos multi-módulo
-- Mutation testing con `mutmut`
-- SonarQube para Python: métricas de calidad (SonarQube Cloud free tier en repos públicos)
+- Branch coverage en Python: `branch = true` y lectura de `a->b`
+- Excluir código del coverage: `# pragma: no cover` y `exclude_also`
+- `fail_under` como umbral que falla la suite
+- `coverage combine` (y `--cov-append`) para varias ejecuciones
+- Mutation testing con `mutmut` (en Windows, dentro de WSL): mutantes matables y equivalentes
+- SonarQube para Python: `coverage.xml` con `relative_files`, `sonar-project.properties` y workflow con `setup-uv` (SonarQube Cloud free tier en repos públicos)
 - Alternativa para repos privados: SonarQube Community Edition autohospedado (opcional)
-- Definir umbrales de calidad: coverage, duplicados, complejidad ciclomática
+- Definir umbrales de calidad: coverage (`fail_under`), complejidad ciclomática (`ruff` C901) y duplicados (quality gate)
 
-**Proyecto**: Alcanzar 90%+ de coverage en la suite Python. Ejecutar `mutmut` y analizar los mutantes vivos. Documentar `quality-report-python.md`.
+**Proyecto**: Llevar una suite heredada a 90%+ de branch coverage, ejecutar `mutmut` y clasificar los mutantes vivos, refactorizar hasta cumplir el umbral de complejidad. Documentar `quality-report-python.md`.
 
 ---
 
@@ -814,7 +815,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S18    | Mocking con unittest.mock y pytest-mock        | ✅ Completo |
 | S19    | Testing de APIs con Python (httpx2)            | ✅ Completo |
 | S20    | TDD con Python                                 | ✅ Completo |
-| S21    | Coverage y Calidad en Python                   | ⏳ Pendiente |
+| S21    | Coverage y Calidad en Python                   | ✅ Completo |
 | S22    | BDD con Python — Behave                        | ⏳ Pendiente |
 | S23    | Testing de Bases de Datos en Python            | ⏳ Pendiente |
 | S24    | Proyecto Integrador — Etapa 2 (Python)         | ⏳ Pendiente |
