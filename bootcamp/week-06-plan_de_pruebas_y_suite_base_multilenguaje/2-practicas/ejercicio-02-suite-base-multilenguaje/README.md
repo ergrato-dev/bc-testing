@@ -21,6 +21,7 @@ Construir la misma intención de test en JavaScript, Python y Java.
 ### JavaScript (Jest)
 
 ```bash
+cd starter/javascript
 pnpm install
 pnpm test
 ```
@@ -38,5 +39,8 @@ Para ejecutar la solución de referencia: `cd solution/python && uv sync && uv r
 ### Java (JUnit 5 + Maven)
 
 ```bash
+cd starter/java
 mvn test
 ```
+
+Para ejecutar la solución de referencia: `cd solution/java && mvn test`.

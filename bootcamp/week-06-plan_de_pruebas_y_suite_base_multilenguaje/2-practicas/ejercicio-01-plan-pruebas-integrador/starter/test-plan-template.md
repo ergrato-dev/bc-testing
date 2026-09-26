@@ -2,7 +2,7 @@
 
 ## 1. Alcance
 
-- Modulo bajo prueba:
+- Módulo bajo prueba:
 - Incluye:
 - Excluye:
 
@@ -14,7 +14,7 @@
 
 ## 3. Casos de Prueba
 
-| Requirement ID | Test Case ID | Titulo | Prioridad | Resultado Esperado |
+| Requirement ID | Test Case ID | Título | Prioridad | Resultado Esperado |
 |---|---|---|---|---|
 | REQ-001 | TC-001 | | | |
 | REQ-002 | TC-002 | | | |
@@ -31,6 +31,6 @@
 
 ## 6. Evidencias
 
-- Captura de ejecucion:
+- Captura de ejecución:
 - Resumen de fallos:
 - Acciones de mejora:

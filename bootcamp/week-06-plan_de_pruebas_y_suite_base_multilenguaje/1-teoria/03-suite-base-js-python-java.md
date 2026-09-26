@@ -44,16 +44,18 @@ def test_is_valid_amount_returns_false_when_amount_is_negative() -> None:
 ## Ejemplo Java (JUnit 5)
 
 ```java
+private final AmountValidator validator = new AmountValidator();
+
 @Test
 @DisplayName("should return true when amount is positive")
 void shouldReturnTrueWhenAmountIsPositive() {
-    assertTrue(AmountValidator.isValid(20));
+    assertTrue(validator.isValid(20));
 }
 
 @Test
 @DisplayName("should return false when amount is negative")
 void shouldReturnFalseWhenAmountIsNegative() {
-    assertFalse(AmountValidator.isValid(-1));
+    assertFalse(validator.isValid(-1));
 }
 ```
 

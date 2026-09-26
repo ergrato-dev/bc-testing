@@ -27,7 +27,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 4. Qué información mínima debe tener un caso de prueba.
 5. Qué son criterios de entrada y salida.
 6. Cómo cambia la sintaxis del assert entre JS, Python y Java.
-7. Por que mantener equivalencia de intención entre lenguajes.
+7. Por qué mantener equivalencia de intención entre lenguajes.
 8. Cuándo conviene automatizar y cuándo mantener manual.
 9. Qué rol tiene AAA en suites multilenguaje.
 10. Qué riesgos aparecen cuando los nombres de test son vagos.
