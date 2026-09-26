@@ -1,4 +1,4 @@
-# Estructura de un Test en JUnit 5
+# Estructura de un Test en JUnit 6
 
 > **Semana 05 — Teoría 02** | Lenguaje: Java
 
@@ -6,13 +6,13 @@
 
 ## Anatomía base
 
-Un test en JUnit 5 se apoya en:
+Un test en JUnit 6 se apoya en:
 
 - `@Test` para marcar un método de prueba (sin `public`: basta con visibilidad de paquete)
 - `@DisplayName` para darle un nombre legible
 - Assertions estáticas de `org.junit.jupiter.api.Assertions`
 
-![Patrón AAA en JUnit 5](../0-assets/02-patron-aaa-java.svg)
+![Patrón AAA en JUnit 6](../0-assets/02-patron-aaa-java.svg)
 
 ---
 
@@ -107,9 +107,9 @@ void setUp() {
 
 ---
 
-## JUnit 4 vs JUnit 5
+## JUnit 4 vs JUnit Jupiter (JUnit 5 y 6)
 
-| Concepto | JUnit 4 | JUnit 5 (Jupiter) |
+| Concepto | JUnit 4 | JUnit Jupiter (JUnit 5 y 6) |
 |---|---|---|
 | Paquete | `org.junit` | `org.junit.jupiter.api` |
 | Antes/después de cada test | `@Before` / `@After` | `@BeforeEach` / `@AfterEach` |
@@ -119,6 +119,8 @@ void setUp() {
 | Visibilidad | clase y métodos `public` | visibilidad de paquete suficiente |
 
 `assertThrows` es más preciso que `expected`: verifica que la excepción la lance **esa línea** y devuelve la excepción para revisar su mensaje. Si ves `import org.junit.Test;` en un tutorial, es JUnit 4.
+
+JUnit 6 (la versión del bootcamp, 6.0.3) mantiene la misma API Jupiter que JUnit 5: mismas anotaciones, mismo paquete `org.junit.jupiter.api` y mismas assertions. Cambia la base (requiere Java 17 o superior) y la numeración del proyecto. Por eso un tutorial titulado "JUnit 5" sigue siendo válido para escribir tests en JUnit 6.
 
 ---
 

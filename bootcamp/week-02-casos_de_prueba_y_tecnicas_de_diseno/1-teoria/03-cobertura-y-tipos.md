@@ -212,7 +212,7 @@ Con las tres teorías de esta semana tienes el toolkit conceptual completo para 
 03 — Cobertura y tipos → qué medir, smoke/sanity/regression, exploratorio
 ```
 
-En las semanas 3–5 automatizarás estos mismos casos usando Jest, pytest y JUnit 5.
+En las semanas 3–5 automatizarás estos mismos casos usando Jest, pytest y JUnit 6.
 
 ---
 

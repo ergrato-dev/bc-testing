@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
     // ============================================
-    // PASO 1: Mi primer test con JUnit 5
+    // PASO 1: Mi primer test con JUnit 6
     // ============================================
     // Descomenta las siguientes líneas:
     // @Test

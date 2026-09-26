@@ -6,7 +6,7 @@
 
 ## 🎯 Objetivo
 
-Construir una suite inicial de tests unitarios con JUnit 5 para las mismas funciones puras de tu dominio que testeaste en JavaScript (semana 03) y Python (semana 04), y comparar cómo se expresa cada intención en los tres lenguajes.
+Construir una suite inicial de tests unitarios con JUnit 6 para las mismas funciones puras de tu dominio que testeaste en JavaScript (semana 03) y Python (semana 04), y comparar cómo se expresa cada intención en los tres lenguajes.
 
 Debes aplicar:
 
@@ -79,7 +79,7 @@ Los tres tests del starter están marcados con `@Disabled` (equivalen a `test.to
 3. Salida de `mvn test` con `Failures: 0, Errors: 0, Skipped: 0`.
 4. Una tabla comparativa breve (en tu README o al final de la entrega) con 3 tests equivalentes en los tres lenguajes:
 
-| Intención | Jest (semana 03) | pytest (semana 04) | JUnit 5 (semana 05) |
+| Intención | Jest (semana 03) | pytest (semana 04) | JUnit 6 (semana 05) |
 |---|---|---|---|
 | Igualdad | `expect(result).toBe(80)` | `assert result == 80` | `assertEquals(80, result)` |
 | Excepción | `expect(() => fn()).toThrow("...")` | `with pytest.raises(ValueError, match="..."):` | `assertThrows(IllegalArgumentException.class, () -> ...)` |

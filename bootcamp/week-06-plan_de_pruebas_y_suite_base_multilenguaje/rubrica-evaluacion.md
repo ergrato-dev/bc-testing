@@ -68,7 +68,7 @@ Cuestionario de 10 preguntas (3 pts c/u):
 | Matriz de trazabilidad Requirement ID -> Test Case ID -> test en cada lenguaje | 4 |
 | Mínimo 6 TC implementados en JavaScript (Jest) | 5 |
 | Los mismos TC implementados en Python (pytest) | 3 |
-| Los mismos TC implementados en Java (JUnit 5) | 3 |
+| Los mismos TC implementados en Java (JUnit 6) | 3 |
 | Cobertura de happy path, validaciones y casos límite | 3 |
 | Nombres descriptivos, AAA y equivalencia de intención entre lenguajes | 3 |
 | Evidencia de ejecución de las tres suites | 3 |

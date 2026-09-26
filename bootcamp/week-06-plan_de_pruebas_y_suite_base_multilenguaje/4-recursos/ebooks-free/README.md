@@ -11,7 +11,7 @@
 | The Practical Test Pyramid (Ham Vocke, martinfowler.com) | [martinfowler.com/articles/practical-test-pyramid.html](https://martinfowler.com/articles/practical-test-pyramid.html) | Qué tipo de prueba aplica a cada capa del sistema |
 | Jest — Getting Started | [jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started) | Referencia rápida de la suite JavaScript |
 | pytest — Get Started | [docs.pytest.org/en/stable/getting-started.html](https://docs.pytest.org/en/stable/getting-started.html) | Referencia rápida de la suite Python (`assert`, `pytest.raises`) |
-| JUnit User Guide | [docs.junit.org/current/user-guide](https://docs.junit.org/current/user-guide/) | Referencia rápida de la suite Java (anotaciones y assertions) |
+| JUnit User Guide | [docs.junit.org/6.0.3](https://docs.junit.org/6.0.3/overview.html) | Referencia rápida de la suite Java (anotaciones y assertions) |
 
 ---
 

@@ -1,4 +1,4 @@
-# Ejercicio 01 — Setup y Primera Ejecución con JUnit 5
+# Ejercicio 01 — Setup y Primera Ejecución con JUnit 6
 
 > **Semana 05 · Prácticas · Ejercicio 01** | Duración estimada: 1.5 h
 
@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Configurar un proyecto Maven con JUnit 5 y completar el ciclo inicial:
+Configurar un proyecto Maven con JUnit 6 y completar el ciclo inicial:
 
 1. Suite vacía que compila
 2. Test en rojo que revela un bug

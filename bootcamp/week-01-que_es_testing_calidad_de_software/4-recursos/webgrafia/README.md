@@ -52,5 +52,5 @@ Referencias web para consulta rápida y profundización en calidad de software, 
 | --- | --- | :---: |
 | Jest (JavaScript) | https://jestjs.io | Semana 07 |
 | pytest (Python) | https://docs.pytest.org | Semana 16 |
-| JUnit 5 (Java) | https://junit.org/junit5 | Semana 25 |
+| JUnit 6 (Java) | https://docs.junit.org/6.0.3/overview.html | Semana 25 |
 | Playwright (E2E) | https://playwright.dev | Semana 32 |

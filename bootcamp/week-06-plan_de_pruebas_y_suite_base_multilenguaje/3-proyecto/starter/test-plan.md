@@ -11,7 +11,7 @@
 ## 2. Enfoque
 
 - Tipo de pruebas: TODO (unitarias, sin servicios externos reales)
-- Lenguajes y frameworks: JavaScript (Jest), Python (pytest), Java (JUnit 5)
+- Lenguajes y frameworks: JavaScript (Jest), Python (pytest), Java (JUnit 6)
 - Criterio de equivalencia: el mismo Test Case ID se implementa en los tres lenguajes con la misma intención.
 
 ## 3. Riesgos

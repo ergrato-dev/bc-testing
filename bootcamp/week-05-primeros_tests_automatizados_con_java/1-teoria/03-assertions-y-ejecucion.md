@@ -4,7 +4,7 @@
 
 ---
 
-## Assertions más usadas en JUnit 5
+## Assertions más usadas en JUnit 6
 
 ```java
 assertEquals(10, total);
@@ -145,4 +145,4 @@ En esta semana basta con conocer `assertThat` y `assertThatThrownBy`; la semana 
 
 Con esta base ya puedes expresar en Java la misma intención de pruebas que viste en JavaScript y Python.
 
-← [Estructura en JUnit 5](./02-estructura-test-junit.md) | [Volver al README](../README.md)
+← [Estructura en JUnit 6](./02-estructura-test-junit.md) | [Volver al README](../README.md)

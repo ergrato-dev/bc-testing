@@ -10,13 +10,13 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Configurar un entorno de testing con **JDK 21 + Maven + JUnit 5**
+1. Configurar un entorno de testing con **JDK 21 + Maven + JUnit 6**
 2. Entender la estructura base de un test con `@Test`, `@DisplayName` y el ciclo de vida (`@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll`)
 3. Aplicar patrón AAA en tests unitarios en Java
 4. Usar assertions básicas: `assertEquals` (con delta para `double`), `assertTrue`, `assertFalse`, `assertNotNull`, `assertThrows`
 5. Ejecutar tests con `mvn test` y leer la consola y los reportes de `target/surefire-reports/`
 6. Distinguir Failure vs Error en el reporte de Surefire
-7. Reconocer las diferencias de anotaciones entre JUnit 4 y JUnit 5
+7. Reconocer las diferencias de anotaciones entre JUnit 4 y JUnit Jupiter (JUnit 5 y 6)
 8. Escribir las primeras assertions fluentes con AssertJ
 9. Construir una suite inicial de tests unitarios para funciones del dominio asignado y compararla con JS y Python
 
@@ -26,7 +26,7 @@ Al finalizar esta semana serás capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| 📖 Teoría | Setup Java, estructura y ciclo de vida de JUnit 5, assertions, Surefire y AssertJ | 2 h |
+| 📖 Teoría | Setup Java, estructura y ciclo de vida de JUnit 6, assertions, Surefire y AssertJ | 2 h |
 | 💻 Prácticas | 2 ejercicios guiados de tests unitarios básicos | 3.5 h |
 | 🏗 Proyecto | Suite inicial de tests Java del dominio asignado | 2 h |
 | 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
@@ -37,8 +37,8 @@ Al finalizar esta semana serás capaz de:
 
 ### 📖 Teoría
 
-1. [Setup de entorno Java + Maven + JUnit 5](./1-teoria/01-setup-junit.md)
-2. [Estructura de un test en JUnit 5](./1-teoria/02-estructura-test-junit.md)
+1. [Setup de entorno Java + Maven + JUnit 6](./1-teoria/01-setup-junit.md)
+2. [Estructura de un test en JUnit 6](./1-teoria/02-estructura-test-junit.md)
 3. [Assertions y ejecución con Maven](./1-teoria/03-assertions-y-ejecucion.md)
 
 ### 💻 Prácticas

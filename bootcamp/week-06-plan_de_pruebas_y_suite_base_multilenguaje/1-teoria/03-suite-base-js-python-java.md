@@ -41,7 +41,7 @@ def test_is_valid_amount_returns_false_when_amount_is_negative() -> None:
     assert is_valid_amount(-1) is False
 ```
 
-## Ejemplo Java (JUnit 5)
+## Ejemplo Java (JUnit 6)
 
 ```java
 private final AmountValidator validator = new AmountValidator();

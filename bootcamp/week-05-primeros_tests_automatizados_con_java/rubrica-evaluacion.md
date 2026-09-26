@@ -1,6 +1,6 @@
 # Rúbrica de Evaluación — Semana 05
 
-> Primeros Tests Automatizados con Java (JUnit 5)
+> Primeros Tests Automatizados con Java (JUnit 6)
 
 ---
 
@@ -23,16 +23,16 @@ Cuestionario teórico de 10 preguntas — 3 puntos cada una.
 
 ### Preguntas
 
-1. ¿Qué función cumple `@Test` en JUnit 5?
+1. ¿Qué función cumple `@Test` en JUnit 6?
 2. ¿Por qué `@DisplayName` mejora la legibilidad de reportes?
 3. Explica AAA aplicado a un test en Java.
 4. ¿Cuándo usar `assertEquals` y cuándo `assertTrue`?
-5. ¿Cómo se valida una excepción esperada y su mensaje con JUnit 5? ¿Y con AssertJ?
+5. ¿Cómo se valida una excepción esperada y su mensaje con JUnit 6? ¿Y con AssertJ?
 6. ¿Qué comando se usa para ejecutar tests con Maven?
 7. ¿Cuándo reporta Surefire un test como Failure y cuándo como Error? Da un ejemplo de cada uno.
 8. ¿Por qué `assertEquals(15.992, result)` puede fallar con un `double` y cómo se corrige?
 9. ¿En qué orden se ejecutan `@BeforeAll`, `@BeforeEach`, `@AfterEach` y `@AfterAll`, y por qué un test no debe depender de otro?
-10. ¿Cuál es la diferencia entre JUnit 4 y JUnit 5 a nivel de anotaciones básicas?
+10. ¿Cuál es la diferencia entre JUnit 4 y JUnit Jupiter (JUnit 5 y 6) a nivel de anotaciones básicas?
 
 ---
 
