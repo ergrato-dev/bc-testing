@@ -111,7 +111,8 @@ bootcamp/week-XX/
 | httpx2 | 2.13.1 | Cliente HTTP (`MockTransport` para tests) |
 | pydantic | 2.13.5 | Validación de contratos |
 | pytest-asyncio | 1.4.0 | Testing asíncrono |
-| hypothesis | se fija en S20 | Property-based testing |
+| hypothesis | 6.168.0 | Property-based testing |
+| mypy | 2.3.1 | Verificación de tipos (`strict = true`) |
 | Behave | se fija en S22 | BDD (Gherkin) |
 | Factory Boy | se fija en S23 | Factories de datos de prueba |
 | Locust | se fija en S33 | Performance testing |

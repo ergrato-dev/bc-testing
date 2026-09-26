@@ -413,7 +413,8 @@ class MethodName {
 | httpx2 | 2.13.1 | Cliente HTTP (`MockTransport` para tests; `respx` no intercepta `httpx2`) |
 | pydantic | 2.13.5 | Validación de contratos |
 | pytest-asyncio | 1.4.0 | Testing asíncrono (`asyncio_mode = "strict"`) |
-| hypothesis | se fija en S20 | Property-based testing |
+| hypothesis | 6.168.0 | Property-based testing |
+| mypy | 2.3.1 | Verificación de tipos (`[tool.mypy] strict = true`) |
 | Behave | se fija en S22 | BDD (Gherkin) |
 | Factory Boy | se fija en S23 | Factories de datos de prueba |
 | Locust | se fija en S33 | Performance testing |

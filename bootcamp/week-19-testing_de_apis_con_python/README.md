@@ -120,4 +120,4 @@ Un test de cliente HTTP vale por los casos que el API real casi nunca te da: un 
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 18 - Mocking con unittest.mock y pytest-mock](../week-18-mocking_con_unittest_mock_y_pytest_mock/README.md) | Semana 20 - Próximamente |
+| [Semana 18 - Mocking con unittest.mock y pytest-mock](../week-18-mocking_con_unittest_mock_y_pytest_mock/README.md) | [Semana 20 - TDD con Python](../week-20-tdd_con_python/README.md) |

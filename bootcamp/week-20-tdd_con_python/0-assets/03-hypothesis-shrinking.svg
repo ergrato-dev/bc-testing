@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Cómo trabaja @given: generar, fallar, reducir</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Propiedad: sum(split_bill(total_cents, people)) == total_cents</text>
+  <!-- step 1 -->
+  <rect x="40" y="100" width="250" height="150" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <text x="165" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">1. Generar</text>
+  <text x="165" y="158" text-anchor="middle" font-size="12" fill="#f1f5f9">st.integers(0, 1_000_000)</text>
+  <text x="165" y="180" text-anchor="middle" font-size="12" fill="#f1f5f9">st.integers(1, 50)</text>
+  <text x="165" y="208" text-anchor="middle" font-size="12" fill="#cbd5e1">100 entradas por defecto</text>
+  <text x="165" y="228" text-anchor="middle" font-size="12" fill="#cbd5e1">(max_examples)</text>
+  <!-- step 2 -->
+  <rect x="335" y="100" width="250" height="150" rx="10" fill="#1e293b" stroke="#ef4444"/>
+  <text x="460" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#ef4444">2. Encontrar un fallo</text>
+  <text x="460" y="158" text-anchor="middle" font-size="12" fill="#f1f5f9">una entrada grande que</text>
+  <text x="460" y="180" text-anchor="middle" font-size="12" fill="#f1f5f9">no divide exacto</text>
+  <text x="460" y="208" text-anchor="middle" font-size="12" fill="#cbd5e1">difícil de entender</text>
+  <text x="460" y="228" text-anchor="middle" font-size="12" fill="#cbd5e1">tal como aparece</text>
+  <!-- step 3 -->
+  <rect x="630" y="100" width="250" height="150" rx="10" fill="#1e293b" stroke="#22c55e"/>
+  <text x="755" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#22c55e">3. Reducir (shrinking)</text>
+  <text x="755" y="158" text-anchor="middle" font-size="12" fill="#f1f5f9">prueba entradas más simples</text>
+  <text x="755" y="180" text-anchor="middle" font-size="12" fill="#f1f5f9">mientras sigan fallando</text>
+  <text x="755" y="214" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">total_cents=1, people=2</text>
+  <text x="755" y="236" text-anchor="middle" font-size="12" fill="#cbd5e1">salida real del ejercicio 02</text>
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="290" y1="175" x2="331" y2="175"/>
+    <line x1="585" y1="175" x2="626" y2="175"/>
+  </g>
+  <!-- database + example -->
+  <rect x="40" y="290" width="410" height="120" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="245" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">.hypothesis/ (no se versiona)</text>
+  <text x="245" y="348" text-anchor="middle" font-size="12" fill="#f1f5f9">guarda el contraejemplo y lo repite</text>
+  <text x="245" y="370" text-anchor="middle" font-size="12" fill="#f1f5f9">primero en la siguiente ejecución</text>
+  <rect x="470" y="290" width="410" height="120" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="675" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">@example(total_cents=0, people=3)</text>
+  <text x="675" y="348" text-anchor="middle" font-size="12" fill="#f1f5f9">caso fijo que se ejecuta siempre,</text>
+  <text x="675" y="370" text-anchor="middle" font-size="12" fill="#f1f5f9">además de los generados</text>
+  <text x="460" y="455" text-anchor="middle" font-size="13" fill="#cbd5e1">El shrinking no garantiza el mínimo absoluto, pero casi siempre deja el bug a la vista.</text>
+</svg>
