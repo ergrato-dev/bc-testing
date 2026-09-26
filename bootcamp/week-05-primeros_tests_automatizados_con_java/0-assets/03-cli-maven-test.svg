@@ -17,7 +17,7 @@
 
   <rect x="70" y="354" width="780" height="72" rx="10" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
   <text x="90" y="384" font-size="16" fill="#3572A5" font-weight="700">mvn -q test</text>
-  <text x="90" y="406" font-size="12" fill="#e2e8f0">Salida resumida para revisar solo lo esencial.</text>
+  <text x="90" y="406" font-size="12" fill="#e2e8f0">Modo silencioso: solo imprime errores; en verde no muestra nada.</text>
 
   <rect x="70" y="438" width="780" height="42" rx="8" fill="#111827" stroke="#334155"/>
   <text x="90" y="464" font-size="12" fill="#94a3b8">Tip: ejecutar primero toda la suite y luego aislar fallos con -Dtest para depurar rápido.</text>

@@ -6,53 +6,85 @@
 
 ## 🎯 Objetivo
 
-Construir una suite inicial de tests unitarios con JUnit 5 para funciones del dominio asignado.
+Construir una suite inicial de tests unitarios con JUnit 5 para las mismas funciones puras de tu dominio que testeaste en JavaScript (semana 03) y Python (semana 04), y comparar cómo se expresa cada intención en los tres lenguajes.
 
 Debes aplicar:
 
 - `@Test` y `@DisplayName`
-- Patron AAA
-- Assertions y `assertThrows`
+- Patrón AAA
+- `@BeforeEach` para crear el servicio bajo prueba
+- Assertions de JUnit (`assertEquals` con delta si usas `double`, `assertThrows`) y al menos una assertion de AssertJ
 
 ---
 
 ## Reglas del proyecto
 
-1. Definir al menos 3 funciones de negocio
-2. Escribir minimo 8 tests
-3. Cubrir:
+1. Definir al menos 3 funciones de negocio del dominio en `src/main/java/com/bootcamp/ItemService.java`
+2. Escribir mínimo 8 tests unitarios
+3. Cubrir al menos:
    - 3 happy path
-   - 3 casos invalidos/error
+   - 3 casos inválidos o error
    - 2 edge cases
-4. Nombres descriptivos en metodos de test
-5. Ejecutar con `mvn test`
+4. Nombrar métodos con el patrón `should[ExpectedResult]When[Condition]`
+5. Ningún test queda con `@Disabled` en la entrega
+6. Ejecutar con `mvn test` desde `starter/`
 
 ---
 
 ## Alcance recomendado
 
-Siendo semana de fundamentos:
+Usar funciones puras, por ejemplo:
 
-- funciones puras
-- reglas de validacion
-- calculos simples
+- validaciones
+- cálculos
+- transformaciones de datos
 
-Evitar dependencias externas reales.
+No usar:
+
+- API externas
+- base de datos real
+- IO de archivos
 
 ---
 
-## Plan sugerido (2 horas)
+## Punto de partida
 
-- 20 min: definir funciones
-- 25 min: happy path
-- 35 min: invalidos y excepciones
-- 25 min: edge cases
-- 15 min: limpieza y ejecución final
+```bash
+cd starter
+mvn test
+```
+
+```text
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3
+```
+
+Los tres tests del starter están marcados con `@Disabled` (equivalen a `test.todo` en Jest y a `pytest.skip` en pytest). Un `Skipped` distinto de 0 indica trabajo pendiente.
+
+---
+
+## Guía de trabajo (2 horas)
+
+- **20 min**: definir funciones y reglas
+- **25 min**: tests happy path
+- **35 min**: tests de validación y errores
+- **25 min**: edge cases
+- **15 min**: limpieza, ejecución final y tabla comparativa
 
 ---
 
 ## Entregable
 
-Completar `starter/ItemServiceTest.java` adaptado al dominio asignado.
+1. `starter/src/main/java/com/bootcamp/ItemService.java` con las funciones de tu dominio.
+2. `starter/src/test/java/com/bootcamp/ItemServiceTest.java` completo, con tu suite adaptada al dominio asignado.
+3. Salida de `mvn test` con `Failures: 0, Errors: 0, Skipped: 0`.
+4. Una tabla comparativa breve (en tu README o al final de la entrega) con 3 tests equivalentes en los tres lenguajes:
 
-> `solution/` del proyecto no se publica en el repo.
+| Intención | Jest (semana 03) | pytest (semana 04) | JUnit 5 (semana 05) |
+|---|---|---|---|
+| Igualdad | `expect(result).toBe(80)` | `assert result == 80` | `assertEquals(80, result)` |
+| Excepción | `expect(() => fn()).toThrow("...")` | `with pytest.raises(ValueError, match="..."):` | `assertThrows(IllegalArgumentException.class, () -> ...)` |
+| ... | ... | ... | ... |
+
+Añade dos o tres frases con las diferencias que encontraste (tipado, forma de verificar excepciones, cómo reporta cada herramienta un fallo).
+
+> `solution/` del proyecto no se publica en el repositorio.

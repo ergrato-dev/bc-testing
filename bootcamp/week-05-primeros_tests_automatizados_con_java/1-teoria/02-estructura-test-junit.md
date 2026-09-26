@@ -8,19 +8,11 @@
 
 Un test en JUnit 5 se apoya en:
 
-- `@Test` para marcar método de prueba
-- `@DisplayName` para legibilidad
-- Assertions de `org.junit.jupiter.api.Assertions`
+- `@Test` para marcar un método de prueba (sin `public`: basta con visibilidad de paquete)
+- `@DisplayName` para darle un nombre legible
+- Assertions estáticas de `org.junit.jupiter.api.Assertions`
 
-Ejemplo simple:
-
-```java
-@Test
-@DisplayName("should return true when age is 18")
-void shouldReturnTrueWhenAgeIs18() {
-    assertTrue(isAdult(18));
-}
-```
+![Patrón AAA en JUnit 5](../0-assets/02-patron-aaa-java.svg)
 
 ---
 
@@ -35,7 +27,7 @@ void shouldReturn80WhenPriceIs100AndDiscountIs20() {
     int percent = 20;
 
     // Act
-    double result = PriceService.calculateDiscount(price, percent);
+    double result = UserUtils.calculateDiscount(price, percent);
 
     // Assert
     assertEquals(80, result);
@@ -44,70 +36,99 @@ void shouldReturn80WhenPriceIs100AndDiscountIs20() {
 
 ---
 
-## Nombres de métodos de test
+## Nombres de métodos y `@DisplayName`
 
-Recomendación:
+Patrón del bootcamp: `should[ExpectedResult]When[Condition]`, por ejemplo `shouldReturnFalseWhenEmailIsInvalid`.
+
+`@DisplayName` se muestra en el panel de tests del IDE (VS Code, IntelliJ). **El resumen de Maven Surefire usa el nombre del método**, no el `@DisplayName`:
 
 ```text
-should[ExpectedResult]When[Condition]
+[ERROR]   UserUtilsTest.shouldReturnFalseWhenEmailIsNull:137 » NullPointer ...
 ```
 
-Ejemplos:
-
-- `shouldReturnFalseWhenEmailIsInvalid`
-- `shouldThrowValidationErrorWhenNameIsNull`
-
-Con `@DisplayName` puedes usar una frase más natural para reportes.
+Por eso ambos deben ser descriptivos: un método llamado `test1` deja un reporte de Maven ilegible aunque tenga un buen `@DisplayName`.
 
 ---
 
-## Setup compartido con `@BeforeEach`
+## Ciclo de vida: `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll`
 
 ```java
-import org.junit.jupiter.api.BeforeEach;
+class LifecycleTest {
 
-class UserServiceTest {
-
-    private UserService service;
+    @BeforeAll
+    static void beforeAll() { System.out.println("@BeforeAll"); }
 
     @BeforeEach
-    void setup() {
-        service = new UserService();
-    }
+    void beforeEach() { System.out.println("  @BeforeEach"); }
+
+    @AfterEach
+    void afterEach() { System.out.println("  @AfterEach"); }
+
+    @AfterAll
+    static void afterAll() { System.out.println("@AfterAll"); }
+
+    @Test
+    void first() { System.out.println("    test 1"); }
+
+    @Test
+    void second() { System.out.println("    test 2"); }
 }
 ```
 
-Esto evita duplicar inicialización en cada test.
+Salida real con `mvn test`:
+
+```text
+@BeforeAll
+  @BeforeEach
+    test 2
+  @AfterEach
+  @BeforeEach
+    test 1
+  @AfterEach
+@AfterAll
+```
+
+Tres lecciones:
+
+1. `@BeforeEach`/`@AfterEach` rodean **cada** test; `@BeforeAll`/`@AfterAll` se ejecutan una sola vez y deben ser `static`.
+2. JUnit crea **una instancia nueva de la clase por cada test**: los campos no se comparten entre tests, y eso los aísla.
+3. El orden de los métodos es determinista pero no es el orden del archivo (`test 2` corrió primero). Un test nunca debe depender de otro.
+
+Uso típico de `@BeforeEach`: crear el objeto bajo prueba sin duplicar código.
+
+```java
+private UserService service;
+
+@BeforeEach
+void setUp() {
+    service = new UserService();
+}
+```
 
 ---
 
-## Assertions clave
+## JUnit 4 vs JUnit 5
 
-- `assertEquals(expected, actual)`
-- `assertTrue(condition)`
-- `assertFalse(condition)`
-- `assertNotNull(value)`
-- `assertThrows(Exception.class, executable)`
+| Concepto | JUnit 4 | JUnit 5 (Jupiter) |
+|---|---|---|
+| Paquete | `org.junit` | `org.junit.jupiter.api` |
+| Antes/después de cada test | `@Before` / `@After` | `@BeforeEach` / `@AfterEach` |
+| Antes/después de la clase | `@BeforeClass` / `@AfterClass` | `@BeforeAll` / `@AfterAll` |
+| Desactivar un test | `@Ignore` | `@Disabled` |
+| Excepciones | `@Test(expected = X.class)` | `assertThrows(X.class, () -> ...)` |
+| Visibilidad | clase y métodos `public` | visibilidad de paquete suficiente |
+
+`assertThrows` es más preciso que `expected`: verifica que la excepción la lance **esa línea** y devuelve la excepción para revisar su mensaje. Si ves `import org.junit.Test;` en un tutorial, es JUnit 4.
 
 ---
 
 ## Señales de mala calidad en tests
 
 - Verifican varias cosas no relacionadas
-- Nombre del test no comunica intención
-- No usan AAA
-- Dependencia de estado externo
-- Fallos intermitentes
-
----
-
-## Resumen
-
-```text
-@Test + @DisplayName
-Arrange -> Act -> Assert
-assertions claras y específicas
-```
+- El nombre del método no comunica intención
+- No siguen AAA
+- Dependen de estado externo o del orden de ejecución
+- Fallan de forma intermitente
 
 ---
 

@@ -14,6 +14,9 @@ public class UserUtils {
     }
 
     public static boolean isValidEmail(String email) {
+        if (email == null) {
+            return false;
+        }
         return email.contains("@") && email.contains(".");
     }
 }

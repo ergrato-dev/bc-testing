@@ -1,16 +1,17 @@
-# Ejercicio 01 — Setup y Primera Ejecucion con JUnit 5
+# Ejercicio 01 — Setup y Primera Ejecución con JUnit 5
 
-> **Semana 05 · Practicas · Ejercicio 01** | Duracion estimada: 1.5 h
+> **Semana 05 · Prácticas · Ejercicio 01** | Duración estimada: 1.5 h
 
 ---
 
 ## Objetivo
 
-Configurar proyecto Maven con JUnit 5 y completar el ciclo inicial:
+Configurar un proyecto Maven con JUnit 5 y completar el ciclo inicial:
 
-1. Test en rojo
-2. Correccion minima
-3. Suite en verde
+1. Suite vacía que compila
+2. Test en rojo que revela un bug
+3. Corrección mínima
+4. Suite en verde
 
 ---
 
@@ -18,28 +19,51 @@ Configurar proyecto Maven con JUnit 5 y completar el ciclo inicial:
 
 ### Paso 1 — Revisar estructura
 
-Abre carpeta `starter/`.
+```bash
+cd starter
+```
 
-### Paso 2 — Ejecutar tests
+Revisa `pom.xml` (dependencia `junit-jupiter` con `scope` `test` y `maven-surefire-plugin`) y la estructura `src/main/java` / `src/test/java`.
+
+### Paso 2 — Primera ejecución
 
 ```bash
 mvn test
 ```
 
-Encontraras un fallo inicial intencional.
+Todos los tests están comentados, así que Maven compila y termina en verde sin ejecutar nada:
 
-### Paso 3 — Descomentar tests por pasos
+```text
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+```
 
-Abre `starter/src/test/java/com/bootcamp/CalculatorTest.java` y descomenta cada bloque.
+Una suite en verde con 0 tests no prueba nada: por eso siempre hay que leer el número de tests ejecutados, no solo `BUILD SUCCESS`.
 
-### Paso 4 — Corregir implementacion
+### Paso 3 — Descomentar el PASO 1 y ver el rojo
 
-Abre `starter/src/main/java/com/bootcamp/Calculator.java` y corrige la logica errónea.
+Abre `starter/src/test/java/com/bootcamp/CalculatorTest.java`, descomenta el bloque del `PASO 1` y ejecuta `mvn test` de nuevo:
 
-### Paso 5 — Reejecutar en verde
+```text
+[ERROR] Failures:
+[ERROR]   CalculatorTest.shouldReturnFiveWhenAddingTwoAndThree:25 expected: <5> but was: <-1>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+BUILD FAILURE
+```
 
-```bash
-mvn test
+Lee la línea completa: clase, método, número de línea del test y valor esperado frente al real.
+
+### Paso 4 — Corregir la implementación
+
+Abre `starter/src/main/java/com/bootcamp/Calculator.java` y corrige el bug intencional de `add`. Ejecuta `mvn test` hasta ver `Tests run: 1, Failures: 0`.
+
+### Paso 5 — Descomentar los PASO 2 y 3
+
+Descomenta los bloques restantes y vuelve a ejecutar. Debes terminar con:
+
+```text
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
 ```
 
 ---
@@ -47,5 +71,5 @@ mvn test
 ## Resultado esperado
 
 - Estructura Maven + JUnit funcional
-- Comprension de fallos basicos
-- Correccion minima y reproducible
+- Lectura del resumen de Surefire (tests ejecutados, failures, errors)
+- Corrección mínima y reproducible

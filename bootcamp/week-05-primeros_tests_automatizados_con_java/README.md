@@ -11,12 +11,14 @@
 Al finalizar esta semana serás capaz de:
 
 1. Configurar un entorno de testing con **JDK 21 + Maven + JUnit 5**
-2. Entender la estructura base de un test con `@Test` y `@DisplayName`
+2. Entender la estructura base de un test con `@Test`, `@DisplayName` y el ciclo de vida (`@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll`)
 3. Aplicar patrón AAA en tests unitarios en Java
-4. Usar assertions básicas: `assertEquals`, `assertTrue`, `assertFalse`, `assertThrows`
-5. Ejecutar tests con `mvn test` y leer reportes de salida
-6. Distinguir assertion failure vs error de ejecución en JUnit
-7. Construir una suite inicial de tests unitarios para funciones del dominio asignado
+4. Usar assertions básicas: `assertEquals` (con delta para `double`), `assertTrue`, `assertFalse`, `assertNotNull`, `assertThrows`
+5. Ejecutar tests con `mvn test` y leer la consola y los reportes de `target/surefire-reports/`
+6. Distinguir Failure vs Error en el reporte de Surefire
+7. Reconocer las diferencias de anotaciones entre JUnit 4 y JUnit 5
+8. Escribir las primeras assertions fluentes con AssertJ
+9. Construir una suite inicial de tests unitarios para funciones del dominio asignado y compararla con JS y Python
 
 ---
 
@@ -24,7 +26,7 @@ Al finalizar esta semana serás capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| 📖 Teoría | Setup Java, estructura de JUnit 5 y assertions | 2 h |
+| 📖 Teoría | Setup Java, estructura y ciclo de vida de JUnit 5, assertions, Surefire y AssertJ | 2 h |
 | 💻 Prácticas | 2 ejercicios guiados de tests unitarios básicos | 3.5 h |
 | 🏗 Proyecto | Suite inicial de tests Java del dominio asignado | 2 h |
 | 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
@@ -86,7 +88,8 @@ week-05-primeros_tests_automatizados_con_java/
 ├── 3-proyecto/
 │   ├── README.md
 │   └── starter/
-│       └── ItemServiceTest.java
+│       ├── pom.xml
+│       └── src/test/java/com/bootcamp/ItemServiceTest.java
 ├── 4-recursos/
 │   ├── ebooks-free/README.md
 │   ├── videografia/README.md

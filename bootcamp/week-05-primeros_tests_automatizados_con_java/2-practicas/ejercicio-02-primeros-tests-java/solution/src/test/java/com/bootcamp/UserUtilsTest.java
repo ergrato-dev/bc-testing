@@ -3,6 +3,8 @@ package com.bootcamp;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserUtilsTest {
@@ -50,9 +52,14 @@ class UserUtilsTest {
     @Test
     @DisplayName("should throw error when discount percent is invalid")
     void shouldThrowErrorWhenDiscountPercentIsInvalid() {
+        // Arrange
+        double price = 100;
+        int percent = 120;
+
+        // Act + Assert
         IllegalArgumentException ex = assertThrows(
             IllegalArgumentException.class,
-            () -> UserUtils.calculateDiscount(100, 120)
+            () -> UserUtils.calculateDiscount(price, percent)
         );
         assertEquals("Invalid percent", ex.getMessage());
     }
@@ -60,14 +67,80 @@ class UserUtilsTest {
     @Test
     @DisplayName("should return true when email has valid format")
     void shouldReturnTrueWhenEmailHasValidFormat() {
-        boolean result = UserUtils.isValidEmail("ana@example.com");
+        // Arrange
+        String email = "ana@example.com";
+
+        // Act
+        boolean result = UserUtils.isValidEmail(email);
+
+        // Assert
         assertTrue(result);
     }
 
     @Test
     @DisplayName("should return false when email format is invalid")
     void shouldReturnFalseWhenEmailFormatIsInvalid() {
-        boolean result = UserUtils.isValidEmail("anaexamplecom");
+        // Arrange
+        String email = "anaexamplecom";
+
+        // Act
+        boolean result = UserUtils.isValidEmail(email);
+
+        // Assert
         assertFalse(result);
+    }
+
+    @Test
+    @DisplayName("should return 15.992 when price is 19.99 and discount is 20")
+    void shouldReturnDiscountedPriceWithinDeltaWhenPriceHasDecimals() {
+        // Arrange
+        double price = 19.99;
+        int percent = 20;
+
+        // Act
+        double result = UserUtils.calculateDiscount(price, percent);
+
+        // Assert
+        assertEquals(15.992, result, 0.0001);
+    }
+
+    @Test
+    @DisplayName("should return false when email is null")
+    void shouldReturnFalseWhenEmailIsNull() {
+        // Arrange
+        String email = null;
+
+        // Act
+        boolean result = UserUtils.isValidEmail(email);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @Test
+    @DisplayName("should return 80 when price is 100 and discount is 20 (AssertJ)")
+    void shouldReturn80WhenPriceIs100AndDiscountIs20WithAssertJ() {
+        // Arrange
+        double price = 100;
+        int percent = 20;
+
+        // Act
+        double result = UserUtils.calculateDiscount(price, percent);
+
+        // Assert
+        assertThat(result).isEqualTo(80.0);
+    }
+
+    @Test
+    @DisplayName("should throw error when discount percent is negative (AssertJ)")
+    void shouldThrowErrorWhenDiscountPercentIsNegativeWithAssertJ() {
+        // Arrange
+        double price = 100;
+        int percent = -5;
+
+        // Act + Assert
+        assertThatThrownBy(() -> UserUtils.calculateDiscount(price, percent))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("Invalid percent");
     }
 }
