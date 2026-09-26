@@ -107,7 +107,7 @@ sonar.qualitygate.wait=true
 5. `sonar.qualitygate.wait=true` hace que el scanner espere el resultado del quality gate y marque el job en rojo si falla. Sin esa línea el pipeline pasa aunque el gate falle.
 6. `sonar.sources` y `sonar.tests` apuntan a la misma carpeta, así que los tests se excluyen de `sources` con `sonar.exclusions`. Si no, el análisis falla con `File can't be indexed twice`.
 7. Las actions se fijan por SHA (con la versión en un comentario) porque un tag como `v7` puede moverse; el SHA es inmutable.
-8. `pnpm/action-setup` sin `version` lee el campo `packageManager` de `package.json` (su sucesor `pnpm/setup` solo soporta pnpm 11+, y este bootcamp fija pnpm 10). No usamos `cache: pnpm` en `actions/setup-node` porque exige `pnpm-lock.yaml` y este bootcamp no versiona lockfiles; si tu proyecto si lo versiona, agrega `cache: pnpm`.
+8. `pnpm/action-setup` sin `version` lee el campo `packageManager` de `package.json` (`pnpm@12.6.0`), así que CI y tu máquina usan la misma versión de pnpm. El `pnpm-workspace.yaml` junto a `package.json` declara `allowBuilds`: sin él, pnpm 12 termina con `ERR_PNPM_IGNORED_BUILDS`. No usamos `cache: pnpm` en `actions/setup-node` porque exige `pnpm-lock.yaml` y este bootcamp no versiona lockfiles; si tu proyecto sí lo versiona, agrega `cache: pnpm`.
 
 ---
 

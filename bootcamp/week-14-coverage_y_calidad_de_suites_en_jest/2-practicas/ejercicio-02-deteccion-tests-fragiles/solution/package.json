@@ -2,7 +2,7 @@
   "name": "week14-ejercicio02-solution",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": ">=22.0.0"
   },
