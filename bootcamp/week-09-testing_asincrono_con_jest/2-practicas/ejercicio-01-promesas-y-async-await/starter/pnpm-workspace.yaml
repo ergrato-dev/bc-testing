@@ -1,0 +1,5 @@
+# pnpm 12 falla si una dependencia trae build scripts sin decidir qué hacer con ellos.
+# Jest no necesita compilar estos dos paquetes: se declaran sin build para una instalación limpia.
+allowBuilds:
+  "@parcel/watcher": false
+  unrs-resolver: false
