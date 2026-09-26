@@ -119,4 +119,4 @@ TDD no es escribir tests primero por disciplina: es dejar que cada test te diga 
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 19 - Testing de APIs con httpx2](../week-19-testing_de_apis_con_python/README.md) | Semana 21 - Próximamente |
+| [Semana 19 - Testing de APIs con httpx2](../week-19-testing_de_apis_con_python/README.md) | [Semana 21 - Coverage y calidad en Python](../week-21-coverage_y_calidad_en_python/README.md) |

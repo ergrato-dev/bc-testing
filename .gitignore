@@ -75,6 +75,7 @@ coverage.xml
 
 # mutmut
 .mutmut-cache
+mutants/
 
 # hypothesis
 .hypothesis/

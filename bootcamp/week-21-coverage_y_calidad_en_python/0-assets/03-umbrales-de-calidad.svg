@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Umbrales de calidad en el pipeline</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Cada umbral tiene una herramienta que lo hace cumplir y detiene el pipeline</text>
+  <g font-size="12" fill="#f1f5f9">
+    <rect x="30" y="110" width="200" height="190" rx="10" fill="#1e293b" stroke="#3572A5"/>
+    <text x="130" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">Coverage</text>
+    <text x="130" y="168" text-anchor="middle" font-family="ui-monospace, monospace">pytest --cov</text>
+    <text x="130" y="196" text-anchor="middle">fail_under = 90</text>
+    <text x="130" y="224" text-anchor="middle">branch = true</text>
+    <text x="130" y="262" text-anchor="middle" fill="#cbd5e1">genera coverage.xml</text>
+    <rect x="255" y="110" width="200" height="190" rx="10" fill="#1e293b" stroke="#3572A5"/>
+    <text x="355" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">Complejidad</text>
+    <text x="355" y="168" text-anchor="middle" font-family="ui-monospace, monospace">ruff check src</text>
+    <text x="355" y="196" text-anchor="middle">C901</text>
+    <text x="355" y="224" text-anchor="middle">max-complexity</text>
+    <text x="355" y="262" text-anchor="middle" fill="#cbd5e1">código de salida 1</text>
+    <rect x="480" y="110" width="200" height="190" rx="10" fill="#1e293b" stroke="#3572A5"/>
+    <text x="580" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">Mutantes</text>
+    <text x="580" y="168" text-anchor="middle" font-family="ui-monospace, monospace">mutmut run</text>
+    <text x="580" y="196" text-anchor="middle">sobrevivientes</text>
+    <text x="580" y="224" text-anchor="middle">revisados</text>
+    <text x="580" y="262" text-anchor="middle" fill="#cbd5e1">periódico (lento)</text>
+    <rect x="705" y="110" width="185" height="190" rx="10" fill="#1e293b" stroke="#6366f1"/>
+    <text x="797" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">SonarQube</text>
+    <text x="797" y="168" text-anchor="middle">quality gate</text>
+    <text x="797" y="196" text-anchor="middle">duplicados ≤ 3%</text>
+    <text x="797" y="224" text-anchor="middle">lee coverage.xml</text>
+    <text x="797" y="262" text-anchor="middle" fill="#cbd5e1">qualitygate.wait</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="230" y1="205" x2="251" y2="205"/>
+    <line x1="455" y1="205" x2="476" y2="205"/>
+    <line x1="680" y1="205" x2="701" y2="205"/>
+  </g>
+  <rect x="30" y="340" width="860" height="90" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="460" y="370" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">En cada commit: coverage + complejidad (rápidos)</text>
+  <text x="460" y="398" text-anchor="middle" font-size="13" fill="#cbd5e1">De forma periódica: mutation testing · En cada push a GitHub: SonarQube</text>
+  <text x="460" y="465" text-anchor="middle" font-size="13" fill="#cbd5e1">Un umbral que no detiene el pipeline es solo una sugerencia.</text>
+</svg>

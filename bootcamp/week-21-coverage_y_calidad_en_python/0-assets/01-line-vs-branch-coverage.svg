@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Line coverage frente a branch coverage</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">ticket_price con dos tests: niño socio (8, True) y edad negativa (-1)</text>
+  <!-- code panel -->
+  <rect x="40" y="90" width="400" height="300" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">
+    <text x="60" y="120" fill="#94a3b8">3</text><text x="90" y="120" fill="#f1f5f9">if age &lt; 0:</text>
+    <text x="60" y="146" fill="#94a3b8">4</text><text x="110" y="146" fill="#f1f5f9">raise ValueError(...)</text>
+    <text x="60" y="172" fill="#94a3b8">5</text><text x="90" y="172" fill="#f1f5f9">price = 20</text>
+    <text x="60" y="198" fill="#94a3b8">6</text><text x="90" y="198" fill="#FFD43B">if age &lt; 12:</text>
+    <text x="60" y="224" fill="#94a3b8">7</text><text x="110" y="224" fill="#f1f5f9">price = 10</text>
+    <text x="60" y="250" fill="#94a3b8">8</text><text x="90" y="250" fill="#FFD43B">if is_member:</text>
+    <text x="60" y="276" fill="#94a3b8">9</text><text x="110" y="276" fill="#f1f5f9">price -= 5</text>
+    <text x="55" y="302" fill="#94a3b8">10</text><text x="90" y="302" fill="#f1f5f9">return price</text>
+  </g>
+  <text x="240" y="350" text-anchor="middle" font-size="13" fill="#22c55e">✓ todas las líneas de la lógica se ejecutan</text>
+  <text x="240" y="372" text-anchor="middle" font-size="12" fill="#94a3b8">line coverage: 91% (solo falta el bloque __main__)</text>
+  <!-- branch panel -->
+  <rect x="480" y="90" width="400" height="300" rx="10" fill="#1e293b" stroke="#6366f1"/>
+  <text x="680" y="120" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">Ramas de cada decisión</text>
+  <text x="500" y="160" font-size="13" font-weight="600" fill="#FFD43B">línea 6: if age &lt; 12</text>
+  <text x="520" y="186" font-size="13" fill="#22c55e">✓ verdadero (6 -&gt; 7): niño</text>
+  <text x="520" y="210" font-size="13" fill="#ef4444">✗ falso (6 -&gt; 8): ningún adulto</text>
+  <text x="500" y="250" font-size="13" font-weight="600" fill="#FFD43B">línea 8: if is_member</text>
+  <text x="520" y="276" font-size="13" fill="#22c55e">✓ verdadero (8 -&gt; 9): socio</text>
+  <text x="520" y="300" font-size="13" fill="#ef4444">✗ falso (8 -&gt; 10): ningún no socio</text>
+  <text x="680" y="350" text-anchor="middle" font-size="13" fill="#ef4444">Missing: 6-&gt;8, 8-&gt;10</text>
+  <text x="680" y="372" text-anchor="middle" font-size="12" fill="#94a3b8">branch coverage: 79% (BrPart 3)</text>
+  <text x="460" y="440" text-anchor="middle" font-size="13" fill="#cbd5e1">Cada "a-&gt;b" del reporte es una rama que ningún test recorrió: un caso de prueba pendiente.</text>
+</svg>
