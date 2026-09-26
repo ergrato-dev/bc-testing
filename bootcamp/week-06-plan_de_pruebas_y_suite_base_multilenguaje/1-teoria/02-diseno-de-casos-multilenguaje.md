@@ -54,7 +54,7 @@ def test_create_item_raises_value_error_when_price_is_negative() -> None:
 
 El tipo de excepción se comprueba con el primer argumento (`ValueError`); `match` es una expresión regular que se busca en el **mensaje** de la excepción (`str(error)`), no en el nombre de la clase. Si el servicio lanza `ValueError("price must be greater than or equal to 0")`, el test pasa; con cualquier otro tipo o mensaje, falla.
 
-### Java (JUnit 5)
+### Java (JUnit 6)
 
 ```java
 @Test

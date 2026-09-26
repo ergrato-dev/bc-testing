@@ -5,7 +5,7 @@
 - ISTQB Glossary: https://glossary.istqb.org/
 - Jest Docs: https://jestjs.io/docs/getting-started
 - pytest Docs: https://docs.pytest.org/en/stable/
-- JUnit 5 User Guide: https://junit.org/junit5/docs/current/user-guide/
+- JUnit 6 User Guide: https://docs.junit.org/6.0.3/overview.html
 
 ## Referencias complementarias
 

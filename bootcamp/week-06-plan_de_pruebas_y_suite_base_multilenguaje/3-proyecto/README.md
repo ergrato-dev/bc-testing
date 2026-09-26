@@ -12,7 +12,7 @@ Documentar un plan de pruebas para tu dominio asignado y construir, a partir de 
 2. Suite de pruebas en los **tres lenguajes** sobre las mismas reglas del dominio:
    - `javascript/item.service.test.js` (Jest)
    - `python/test_item_service.py` (pytest)
-   - `java/src/test/java/com/bootcamp/ItemServiceTest.java` (JUnit 5)
+   - `java/src/test/java/com/bootcamp/ItemServiceTest.java` (JUnit 6)
 
 ## Reglas del proyecto
 

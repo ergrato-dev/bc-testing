@@ -71,7 +71,7 @@ El nombre del test también es trazabilidad. Sin importar el lenguaje, el nombre
 |---|---|---|
 | JavaScript (Jest) | `should` + comportamiento esperado | `should reject booking when capacity is full` |
 | Python (pytest) | `test_` + snake_case descriptivo | `test_rejects_booking_when_capacity_is_full` |
-| Java (JUnit 5) | `@DisplayName` + método camelCase | `rejectsBookingWhenCapacityIsFull` |
+| Java (JUnit 6) | `@DisplayName` + método camelCase | `rejectsBookingWhenCapacityIsFull` |
 
 El lenguaje cambia, la trazabilidad hacia `REQ-002` no.
 

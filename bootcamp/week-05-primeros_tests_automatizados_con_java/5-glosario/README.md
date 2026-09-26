@@ -1,6 +1,6 @@
 # Glosario — Semana 05
 
-> Primeros Tests Automatizados con Java (JUnit 5)
+> Primeros Tests Automatizados con Java (JUnit 6)
 
 ---
 
@@ -39,7 +39,7 @@ Tolerancia máxima aceptada al comparar `double` con `assertEquals(expected, act
 Anotación que desactiva un test; Surefire lo cuenta como `Skipped`.
 
 **DisplayName**
-Anotación de JUnit 5 para dar un nombre legible al test en el IDE; el resumen de Surefire usa el nombre del método.
+Anotación de JUnit 6 para dar un nombre legible al test en el IDE; el resumen de Surefire usa el nombre del método.
 
 ---
 
@@ -59,8 +59,8 @@ Resultado de Surefire cuando una assertion no se cumple (`AssertionFailedError`)
 
 ## J
 
-**JUnit 5**
-Framework de testing para Java usado en esta semana.
+**JUnit 6**
+Framework de testing para Java usado en el bootcamp (6.0.3). Usa la API Jupiter (`org.junit.jupiter.api`), la misma que JUnit 5.
 
 ---
 

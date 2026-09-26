@@ -11,6 +11,8 @@
 | Pytest Tutorial – How to Test Python Code (freeCodeCamp.org) | [youtube.com/watch?v=cHYq1MRoyI0](https://www.youtube.com/watch?v=cHYq1MRoyI0) | Repaso de la suite Python (Semana 04) |
 | Java Testing - JUnit 5 Crash Course (freeCodeCamp.org) | [youtube.com/watch?v=flpmSXVTqBI](https://www.youtube.com/watch?v=flpmSXVTqBI) | Repaso de la suite Java (Semana 05) |
 
+> El video dice "JUnit 5": la API Jupiter que muestra es la misma que usas con JUnit 6.0.3.
+
 ---
 
 ## Dinámica sugerida

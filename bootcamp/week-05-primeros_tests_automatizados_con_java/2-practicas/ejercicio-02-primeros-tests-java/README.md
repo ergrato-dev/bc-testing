@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Escribir una suite inicial en JUnit 5 aplicando:
+Escribir una suite inicial en JUnit 6 aplicando:
 
 - Patrón AAA
 - Assertions básicas (`assertTrue`, `assertFalse`, `assertEquals`, `assertThrows`)
@@ -60,7 +60,7 @@ La assertion nunca llegó a ejecutarse: el código de producción lanzó una exc
 
 Descomenta el `PASO 6`. Compara el estilo fluente de AssertJ con las assertions de JUnit:
 
-| Intención | JUnit 5 | AssertJ |
+| Intención | JUnit 6 | AssertJ |
 |---|---|---|
 | Igualdad | `assertEquals(80.0, result)` | `assertThat(result).isEqualTo(80.0)` |
 | Excepción | `assertThrows(IllegalArgumentException.class, () -> ...)` | `assertThatThrownBy(() -> ...).isInstanceOf(IllegalArgumentException.class).hasMessage("...")` |

@@ -1,4 +1,4 @@
-# Setup de Entorno Java + Maven + JUnit 5
+# Setup de Entorno Java + Maven + JUnit 6
 
 > **Semana 05 — Teoría 01** | Lenguaje: Java
 
@@ -6,9 +6,9 @@
 
 ## Objetivo
 
-Configurar un proyecto mínimo de tests unitarios con JDK 21, Maven y JUnit 5.
+Configurar un proyecto mínimo de tests unitarios con JDK 21, Maven y JUnit 6.
 
-![Ciclo de ejecución de tests con JUnit 5](../0-assets/01-ciclo-junit.svg)
+![Ciclo de ejecución de tests con JUnit 6](../0-assets/01-ciclo-junit.svg)
 
 ---
 
@@ -39,7 +39,7 @@ mi-proyecto-java/
 
 ---
 
-## `pom.xml` mínimo para JUnit 5
+## `pom.xml` mínimo para JUnit 6
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -53,7 +53,7 @@ mi-proyecto-java/
   <properties>
     <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.jupiter.version>5.14.4</junit.jupiter.version>
+    <junit.jupiter.version>6.0.3</junit.jupiter.version>
   </properties>
 
   <dependencies>
@@ -82,7 +82,7 @@ Puntos clave:
 - `maven.compiler.release` compila para Java 21 y valida que solo uses APIs de esa versión.
 - `junit-jupiter` agrupa la API para escribir tests y el motor que los ejecuta.
 - `<scope>test</scope>`: la dependencia solo existe para `src/test`, no se empaqueta con tu aplicación.
-- Versiones exactas (`5.14.4`, `3.5.6`): el build da el mismo resultado hoy y dentro de seis meses.
+- Versiones exactas (`6.0.3`, `3.5.6`): el build da el mismo resultado hoy y dentro de seis meses.
 
 ---
 
@@ -173,4 +173,4 @@ BUILD SUCCESS
 
 ## Próximo tema
 
-→ [Estructura de un test en JUnit 5](./02-estructura-test-junit.md)
+→ [Estructura de un test en JUnit 6](./02-estructura-test-junit.md)

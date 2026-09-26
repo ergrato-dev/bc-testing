@@ -1,6 +1,6 @@
 # Videografía — Semana 05
 
-> Primeros Tests Automatizados con Java (JUnit 5)
+> Primeros Tests Automatizados con Java (JUnit 6)
 
 ---
 
@@ -13,6 +13,8 @@
 | Cómo hacer tests de excepciones en JUnit 5 con assertThrows (makigas) | https://www.youtube.com/watch?v=0By889o7JLM | La misma idea de `assertThrows` explicada en español. |
 | Java Testing Made Easy: Why using Assertj assertions much better? (SivaLabs) | https://www.youtube.com/watch?v=Ri_fiEr3wMg | Comparación de assertions de JUnit con AssertJ. |
 | JUnit 5 Full Course (Java Guides) | https://www.youtube.com/watch?v=F3TAi-l8Mpk | Curso completo de referencia; útil como consulta, no para ver entero. |
+
+> Varios títulos dicen "JUnit 5": la API Jupiter que muestran (`@Test`, `@BeforeEach`, `assertThrows`) es la misma en JUnit 6.
 
 ## Dinámica sugerida
 

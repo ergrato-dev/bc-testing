@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" font-family="system-ui, -apple-system, sans-serif">
   <rect width="920" height="520" fill="#0f172a" rx="12"/>
-  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de Ejecución de Tests con JUnit 5</text>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de Ejecución de Tests con JUnit 6</text>
   <text x="460" y="62" text-anchor="middle" font-size="13" fill="#94a3b8">Escribir -> Ejecutar -> Analizar -> Corregir</text>
 
   <rect x="60" y="110" width="180" height="72" rx="10" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
@@ -46,5 +46,5 @@
   <text x="628" y="352" font-size="12" fill="#e2e8f0">- NullPointerException u otro</text>
   <text x="628" y="372" font-size="12" fill="#e2e8f0">- falla antes del assert</text>
 
-  <text x="460" y="486" text-anchor="middle" font-size="12" fill="#64748b">Semana 05 · Etapa 0 · Java + JUnit 5</text>
+  <text x="460" y="486" text-anchor="middle" font-size="12" fill="#64748b">Semana 05 · Etapa 0 · Java + JUnit 6</text>
 </svg>

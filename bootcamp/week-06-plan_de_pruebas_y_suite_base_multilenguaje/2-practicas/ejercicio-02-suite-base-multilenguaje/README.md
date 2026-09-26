@@ -36,7 +36,7 @@ uv run pytest -q
 
 Para ejecutar la solución de referencia: `cd solution/python && uv sync && uv run pytest -q`.
 
-### Java (JUnit 5 + Maven)
+### Java (JUnit 6 + Maven)
 
 ```bash
 cd starter/java
