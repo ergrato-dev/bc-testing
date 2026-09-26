@@ -184,3 +184,43 @@ Todas las solutions Python pasan con `uv run pytest` (S17 ej02: 5 passed + 1 xfa
 
 - `skip`/`skipif` en S17 solo en teoría (en la práctica se usa `xfail(strict=True)`; un `skipif` exigía una condición ajena al dominio).
 - Revisión equivalente de Java (S05, S06 parte Java) pendiente.
+
+---
+
+# Revisión integral Java — 2026-09
+
+**Alcance**: contenido Java publicado (S05 completa y parte Java de S06) + tildes pendientes en S06.
+**Rama**: `fix/revision-integral-java`. Entorno: Temurin 21.0.12 y Maven 3.9.16.
+
+## Decisiones
+
+- `pom.xml` con `maven.compiler.release` 21, `project.build.sourceEncoding` UTF-8 y versiones exactas (`junit-jupiter` 5.14.4, `assertj-core` 3.27.7, `maven-surefire-plugin` 3.5.6). Se mantiene JUnit 5 (el ítem abierto sobre JUnit 6 sigue pendiente).
+- AssertJ se introduce en S05 (lo pide el plan) solo con `assertThat` y `assertThatThrownBy`; la profundización queda en S25.
+- Tests pendientes de proyecto con `@Disabled("TODO: ...")`, equivalente a `test.todo` y `pytest.skip`.
+- Sin configuración extra de Surefire para mostrar `@DisplayName` en consola: la teoría explica que el resumen usa el nombre del método.
+
+## Hallazgos principales y estado
+
+| Hallazgo | Estado |
+|---|---|
+| S06 proyecto: el starter Java tenía 3 tests vacíos que pasaban en verde (falso positivo), a diferencia de `test.todo`/`pytest.skip` | ✅ `@Disabled` con su TC; `Skipped: 3` |
+| S06 teoría 03: el ejemplo Java llamaba `AmountValidator.isValid` como estático sobre un método de instancia (no compilaba) | ✅ Usa una instancia, igual que el ejercicio |
+| S05 proyecto: `ItemServiceTest.java` suelto (sin `pom.xml`, sin paquete, fuera del layout Maven), dominios restringidos (Biblioteca/Farmacia/Gimnasio) y sin la comparación JS/Python/Java que pide el plan | ✅ Proyecto Maven ejecutable, dominios Museo/Planetario/Acuario, tabla comparativa de tres lenguajes |
+| S05 ejercicio 01: "encontrarás un fallo inicial" en la primera ejecución, que en realidad da `Tests run: 0` y `BUILD SUCCESS` | ✅ Pasos con salida real: 0 tests, rojo al descomentar el PASO 1 y verde tras corregir |
+| S05 ejercicio 02: starter idéntico a la solution y un "completar assertions faltantes" sin nada que completar | ✅ PASO 4 `double` con delta (falla real `15.991999999999999`), PASO 5 failure vs error (NPE real con `null`, bug corregido en `src/main`), PASO 6 AssertJ |
+| Temas del plan sin cubrir: ciclo de vida completo, JUnit 4 vs 5 (preguntado en la rúbrica), reportes de Surefire, AssertJ | ✅ En teoría con salida real (orden de hooks verificado) |
+| La teoría afirmaba que `@DisplayName` mejora los reportes; Surefire muestra el nombre del método | ✅ Corregido con salida real |
+| SVG de CLI: "`mvn -q test` muestra salida resumida" (en verde no imprime nada); SVG de S05 sin referenciar desde la teoría | ✅ Texto corregido y SVG enlazados |
+| Comandos Maven y pnpm de S06 ejercicio 02 sin `cd` a la carpeta del lenguaje | ✅ Corregido |
+| Warning `Using platform encoding` en los `pom.xml` de S05 | ✅ `sourceEncoding` UTF-8 |
+| Recursos de S05: videos sin URL y enlace de pago (Effective Java en O'Reilly) | ✅ URLs verificadas (docs JUnit 5.14.4 versionadas, videos vía oEmbed); solo recursos gratuitos |
+| Tildes ausentes en S05 (ejercicios) y S06 (plantillas de test plan, rúbrica, SVG) | ✅ Corregidas |
+
+## Resultado
+
+Los 8 proyectos Maven compilan y pasan con `mvn test` (solutions: 3, 10 y 3 tests; starters de proyecto: 3 skipped). Los starters descomentados equivalen a su solution, con los rojos intencionales documentados en cada README. Sin enlaces internos rotos ni formas de voseo.
+
+## Ítems abiertos
+
+- El ciclo de vida (`@BeforeAll`/`@AfterEach`/`@AfterAll`) se practica solo en teoría; en ejercicios y proyecto se usa `@BeforeEach`.
+- JUnit 6: sigue pendiente la decisión antes de construir S25–S31.
