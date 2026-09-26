@@ -413,16 +413,16 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- El ciclo Red → Green → Refactor en Python con pytest
+- El ciclo Red → Green → Refactor en Python con pytest; qué es un Red válido
 - TDD en Python: diferencias culturales con JS/Java
-- Kata de TDD en Python: Roman Numerals, Bowling Game
-- Diseño emergente con TDD en Python: dataclasses, protocols
-- Testing con tipos: `mypy` en el ciclo TDD
-- `hypothesis` — property-based testing en Python
-- Integración de TDD con fixtures de pytest
-- TDD en código legado: el problema del código no testeable
+- Kata de TDD en Python: Roman Numerals (práctica) y Bowling Game (kata extra)
+- Diseño emergente con TDD en Python: dataclasses, protocols y fakes
+- Testing con tipos: `mypy --strict` en el ciclo TDD
+- `hypothesis` — property-based testing en Python: estrategias, shrinking, `@example`
+- Integración de TDD con fixtures de pytest (y su choque con `@given`)
+- TDD en código legado: tests de caracterización y seams
 
-**Proyecto**: Implementación TDD de un módulo complejo del dominio asignado en Python. Commits por ciclo R-G-R, al menos 15 tests, integrar 2 property-based tests con `hypothesis`.
+**Proyecto**: Implementación TDD de un servicio del dominio asignado en Python. Evidencia de al menos 5 ciclos R-G-R, al menos 15 tests, 2 property-based tests con `hypothesis` y `mypy --strict` en verde.
 
 ---
 
@@ -813,7 +813,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S17    | Parametrización y Marks con pytest             | ✅ Completo |
 | S18    | Mocking con unittest.mock y pytest-mock        | ✅ Completo |
 | S19    | Testing de APIs con Python (httpx2)            | ✅ Completo |
-| S20    | TDD con Python                                 | ⏳ Pendiente |
+| S20    | TDD con Python                                 | ✅ Completo |
 | S21    | Coverage y Calidad en Python                   | ⏳ Pendiente |
 | S22    | BDD con Python — Behave                        | ⏳ Pendiente |
 | S23    | Testing de Bases de Datos en Python            | ⏳ Pendiente |

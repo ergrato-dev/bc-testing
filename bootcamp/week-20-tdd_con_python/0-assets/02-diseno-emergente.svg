@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Diseño que emerge de los tests</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">El test pide lo que necesita; el Protocol lo describe; el fake lo cumple</text>
+  <!-- test -->
+  <rect x="40" y="110" width="250" height="110" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <text x="165" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">test_item_service.py</text>
+  <text x="165" y="168" text-anchor="middle" font-size="12" fill="#f1f5f9">fixture service()</text>
+  <text x="165" y="190" text-anchor="middle" font-size="12" fill="#f1f5f9">assert ... == Item(1, "a", 3)</text>
+  <!-- service -->
+  <rect x="345" y="110" width="230" height="110" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <text x="460" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#f1f5f9">ItemService</text>
+  <text x="460" y="168" text-anchor="middle" font-size="12" fill="#f1f5f9">create_item, restock</text>
+  <text x="460" y="190" text-anchor="middle" font-size="12" fill="#f1f5f9">devuelve Item (dataclass)</text>
+  <!-- protocol -->
+  <rect x="630" y="110" width="250" height="110" rx="10" fill="#1e293b" stroke="#6366f1" stroke-dasharray="6 4"/>
+  <text x="755" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">ItemRepository</text>
+  <text x="755" y="162" text-anchor="middle" font-size="12" fill="#94a3b8">(Protocol)</text>
+  <text x="755" y="190" text-anchor="middle" font-size="12" fill="#f1f5f9">save(item) · get(item_id)</text>
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="290" y1="165" x2="341" y2="165"/>
+    <line x1="575" y1="165" x2="626" y2="165"/>
+  </g>
+  <text x="315" y="155" text-anchor="middle" font-size="11" fill="#94a3b8">usa</text>
+  <text x="600" y="155" text-anchor="middle" font-size="11" fill="#94a3b8">depende de</text>
+  <!-- implementations -->
+  <rect x="500" y="300" width="230" height="100" rx="10" fill="#14532d" stroke="#22c55e"/>
+  <text x="615" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">InMemoryItemRepository</text>
+  <text x="615" y="356" text-anchor="middle" font-size="12" fill="#f1f5f9">fake para los tests</text>
+  <text x="615" y="378" text-anchor="middle" font-size="12" fill="#f1f5f9">dict en memoria</text>
+  <rect x="760" y="300" width="130" height="100" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="825" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#cbd5e1">SQL / API</text>
+  <text x="825" y="356" text-anchor="middle" font-size="12" fill="#94a3b8">producción</text>
+  <text x="825" y="378" text-anchor="middle" font-size="12" fill="#94a3b8">(semana 23)</text>
+  <g stroke="#6366f1" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrow)">
+    <line x1="615" y1="300" x2="720" y2="224"/>
+    <line x1="825" y1="300" x2="790" y2="224"/>
+  </g>
+  <text x="560" y="262" font-size="11" fill="#a5b4fc">cumple sin heredar</text>
+  <rect x="40" y="300" width="400" height="100" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="240" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">mypy --strict</text>
+  <text x="240" y="356" text-anchor="middle" font-size="12" fill="#f1f5f9">si al fake le falta get():</text>
+  <text x="240" y="378" text-anchor="middle" font-size="12" fill="#ef4444">missing following protocol member: get</text>
+  <text x="460" y="452" text-anchor="middle" font-size="13" fill="#cbd5e1">Nada de esto se diseña antes del primer test: aparece cuando un test lo necesita.</text>
+</svg>

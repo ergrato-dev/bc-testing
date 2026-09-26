@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Red → Green → Refactor en Python</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">pytest ejecuta el comportamiento · mypy revisa los tipos sin ejecutar</text>
+  <!-- Red -->
+  <rect x="50" y="110" width="240" height="170" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="170" y="145" text-anchor="middle" font-size="18" font-weight="700" fill="#ef4444">1. Red</text>
+  <text x="170" y="178" text-anchor="middle" font-size="13" fill="#f1f5f9">Escribe un test nuevo</text>
+  <text x="170" y="202" text-anchor="middle" font-size="12" fill="#cbd5e1">uv run pytest -q --tb=line</text>
+  <text x="170" y="232" text-anchor="middle" font-size="12" fill="#f1f5f9">✓ E   NotImplementedError</text>
+  <text x="170" y="256" text-anchor="middle" font-size="12" fill="#f1f5f9">✗ ModuleNotFoundError</text>
+  <!-- Green -->
+  <rect x="340" y="110" width="240" height="170" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="460" y="145" text-anchor="middle" font-size="18" font-weight="700" fill="#22c55e">2. Green</text>
+  <text x="460" y="178" text-anchor="middle" font-size="13" fill="#f1f5f9">Código mínimo</text>
+  <text x="460" y="202" text-anchor="middle" font-size="12" fill="#cbd5e1">return "I"</text>
+  <text x="460" y="232" text-anchor="middle" font-size="12" fill="#f1f5f9">Aunque sea ingenuo:</text>
+  <text x="460" y="256" text-anchor="middle" font-size="12" fill="#f1f5f9">el siguiente test lo corrige</text>
+  <!-- Refactor -->
+  <rect x="630" y="110" width="240" height="170" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="750" y="145" text-anchor="middle" font-size="18" font-weight="700" fill="#a5b4fc">3. Refactor</text>
+  <text x="750" y="178" text-anchor="middle" font-size="13" fill="#f1f5f9">Mejora sin cambiar</text>
+  <text x="750" y="202" text-anchor="middle" font-size="12" fill="#cbd5e1">el comportamiento</text>
+  <text x="750" y="232" text-anchor="middle" font-size="12" fill="#f1f5f9">nombres, tabla de datos,</text>
+  <text x="750" y="256" text-anchor="middle" font-size="12" fill="#f1f5f9">tipos anotados</text>
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="290" y1="195" x2="336" y2="195"/>
+    <line x1="580" y1="195" x2="626" y2="195"/>
+    <path d="M750,280 C750,340 170,340 170,284"/>
+  </g>
+  <text x="460" y="350" text-anchor="middle" font-size="12" fill="#94a3b8">siguiente comportamiento</text>
+  <!-- gate -->
+  <rect x="190" y="370" width="540" height="90" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <text x="460" y="400" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">Puerta de salida de cada ciclo</text>
+  <text x="460" y="428" text-anchor="middle" font-size="13" fill="#f1f5f9">uv run pytest -q  →  N passed</text>
+  <text x="460" y="448" text-anchor="middle" font-size="13" fill="#f1f5f9">uv run mypy .  →  Success: no issues found</text>
+</svg>

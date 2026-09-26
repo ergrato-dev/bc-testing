@@ -1,0 +1,14 @@
+[project]
+name = "week20-ejercicio02-starter"
+version = "1.0.0"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "hypothesis==6.168.0", "mypy==2.3.1"]
+
+[tool.pytest]
+pythonpath = ["."]
+
+[tool.mypy]
+strict = true
