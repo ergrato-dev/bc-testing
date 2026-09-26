@@ -15,15 +15,15 @@
 
   <!-- Language labels — JavaScript zone (y 4–68) -->
   <text x="20" y="40" fill="#F7DF1E" font-size="11" font-weight="700" letter-spacing="0.5">JavaScript</text>
-  <text x="20" y="56" fill="#475569" font-size="9.5">Jest 29+</text>
+  <text x="20" y="56" fill="#475569" font-size="9.5">Jest 30</text>
 
   <!-- Language labels — Python zone (y 68–132) -->
   <text x="20" y="104" fill="#FFD43B" font-size="11" font-weight="700" letter-spacing="0.5">Python</text>
-  <text x="20" y="120" fill="#475569" font-size="9.5">pytest 8+</text>
+  <text x="20" y="120" fill="#475569" font-size="9.5">pytest 9</text>
 
   <!-- Language labels — Java zone (y 132–196) -->
   <text x="20" y="168" fill="#F89820" font-size="11" font-weight="700" letter-spacing="0.5">Java</text>
-  <text x="20" y="184" fill="#475569" font-size="9.5">JUnit 5</text>
+  <text x="20" y="184" fill="#475569" font-size="9.5">JUnit 6</text>
 
   <!-- Vertical divider -->
   <line x1="112" y1="12" x2="112" y2="188" stroke="#1e293b" stroke-width="1.5"/>

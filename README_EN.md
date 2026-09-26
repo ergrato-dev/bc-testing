@@ -8,7 +8,7 @@
   <a href="#"><img src="https://img.shields.io/badge/hours-288-6366f1.svg" alt="288 Hours"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-Jest-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript Jest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Python-pytest-3572A5?logo=python&logoColor=white" alt="Python pytest"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Java-JUnit5-F89820?logo=openjdk&logoColor=white" alt="Java JUnit 5"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Java-JUnit6-F89820?logo=openjdk&logoColor=white" alt="Java JUnit 6"></a>
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@ An intensive **36-week (~9 months)** bootcamp focused on mastering **automated s
 By the end of the bootcamp, students will be able to:
 
 - ✅ Apply a quality mindset and design professional test cases
-- ✅ Write unit tests in JavaScript (Jest), Python (pytest), and Java (JUnit 5)
+- ✅ Write unit tests in JavaScript (Jest), Python (pytest), and Java (JUnit 6)
 - ✅ Use mocks, stubs, and spies to isolate dependencies in all three languages
 - ✅ Apply TDD (Red-Green-Refactor) in JavaScript, Python, and Java
 - ✅ Implement BDD with Behave (Python) and Cucumber (Java)
@@ -47,7 +47,7 @@ By the end of the bootcamp, students will be able to:
 | **Stage 0** — Testing Fundamentals | 1–6 | 48h | Quality mindset, terminology, testing pyramid, first tests in all 3 languages in parallel |
 | **Stage 1** — Testing with JavaScript | 7–15 | 72h | Advanced Jest, mocks/stubs/spies, async testing, TDD, Supertest, snapshot, fast-check |
 | **Stage 2** — Testing with Python | 16–24 | 72h | pytest, fixtures, unittest.mock, TDD, Behave (BDD), httpx, Testcontainers |
-| **Stage 3** — Testing with Java | 25–31 | 56h | JUnit 5, AssertJ, Mockito, TDD, Spring Boot Test, Testcontainers, Cucumber |
+| **Stage 3** — Testing with Java | 25–31 | 56h | JUnit 6, AssertJ, Mockito, TDD, Spring Boot Test, Testcontainers, Cucumber |
 | **Stage 4** — Advanced Transversal Testing | 32–36 | 40h | Playwright E2E, k6/Locust performance, OWASP security basics, CI/CD with GitHub Actions |
 
 **Total: 36 weeks** | **~288 hours** of intensive training
@@ -88,11 +88,14 @@ bootcamp/week-XX/
 
 | Tool | Version | Purpose |
 | --- | --- | --- |
-| Jest | 29+ | Unit and integration testing |
-| Supertest | 6+ | Express API testing |
-| fast-check | 3+ | Property-based testing |
-| Playwright | 1.40+ | E2E testing |
-| k6 | 0.50+ | Performance testing |
+| Node.js | 22 (`.nvmrc`) | Runtime |
+| pnpm | 12.6.0 (`packageManager`) | Package manager (only one) |
+| Jest | 30.5.2 | Unit and integration testing |
+| Supertest | 7.3.0 | Express API testing |
+| Express | 5.2.1 | API under test (S12, S15) |
+| fast-check | 4.10.2 | Property-based testing |
+| Playwright | 1.63.0 | E2E testing |
+| k6 | pinned in S33 | Performance testing |
 
 **Package manager**: `pnpm` only (❌ NOT `npm` nor `yarn`)
 
@@ -100,14 +103,16 @@ bootcamp/week-XX/
 
 | Tool | Version | Purpose |
 | --- | --- | --- |
-| pytest | 8+ | Main testing framework |
-| pytest-cov | 4+ | Code coverage |
-| pytest-asyncio | 0.23+ | Async testing |
-| pytest-mock | 3+ | unittest.mock wrapper |
-| httpx + respx | latest | Async API testing |
-| Behave | 1.2+ | BDD (Gherkin) |
-| hypothesis | 6+ | Property-based testing |
-| Locust | 2+ | Performance testing |
+| Python | 3.14 (`.python-version`) | Runtime |
+| uv | latest stable | Environments and dependencies |
+| pytest | 9.1.1 | Main testing framework |
+| pytest-mock | 3.15.1 | unittest.mock wrapper |
+| pytest-cov | 7.1.0 | Code coverage |
+| pytest-asyncio, httpx, respx | pinned in S19 | Async and API testing |
+| hypothesis | pinned in S20 | Property-based testing |
+| Behave | pinned in S22 | BDD (Gherkin) |
+| Factory Boy | pinned in S23 | Test data factories |
+| Locust | pinned in S33 | Performance testing |
 
 **Package manager**: `uv` (recommended) or `pip` + `venv`
 
@@ -115,13 +120,16 @@ bootcamp/week-XX/
 
 | Tool | Version | Purpose |
 | --- | --- | --- |
-| JUnit 5 | 5.10+ | Main testing framework |
-| Mockito | 5+ | Mocking |
-| AssertJ | 3+ | Fluent assertions |
-| Spring Boot Test | 3+ | Spring Boot testing |
-| Testcontainers | 1.19+ | Real databases in tests |
-| Cucumber | 7+ | BDD (Gherkin) |
-| JaCoCo | 0.8+ | Code coverage |
+| JDK | 21 LTS | Runtime |
+| Maven | 3.9+ | Build tool |
+| JUnit (Jupiter) | 6.0.3 | Main testing framework |
+| AssertJ | 3.27.7 | Fluent assertions |
+| maven-surefire-plugin | 3.5.6 | Test execution |
+| Mockito | 5.23.0 | Mocking |
+| Spring Boot (Test) | 4.1.1 | Spring Boot testing |
+| Testcontainers | 2.0.5 | Real databases in tests |
+| JaCoCo | 0.8.15 | Code coverage |
+| Cucumber | pinned in S30 | BDD (Gherkin) |
 
 **Build tool**: Maven · **JDK**: 21 LTS
 
@@ -241,7 +249,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 🏆 Acknowledgements
 
-- [Jest](https://jestjs.io/) · [pytest](https://docs.pytest.org/) · [JUnit 5](https://junit.org/junit5/) — For the testing frameworks
+- [Jest](https://jestjs.io/) · [pytest](https://docs.pytest.org/) · [JUnit 6](https://docs.junit.org/6.0.3/overview.html) — For the testing frameworks
 - [Playwright](https://playwright.dev/) — For the best E2E framework
 - [Testcontainers](https://testcontainers.com/) — For making integration tests realistic
 - [OWASP](https://owasp.org/) — For security guidelines
@@ -267,7 +275,7 @@ This repository is an open-source educational resource provided **"as is"**, wit
 - The authors and contributors are **not liable** for any direct, indirect, incidental, or consequential damages arising from the use of this material.
 - Code examples are included for didactic purposes. Their use in production environments is the **sole responsibility of the user**.
 - Third-party tools, frameworks, and libraries mentioned are subject to their own licenses and terms of use.
-- This project is not affiliated with or officially endorsed by any of the mentioned tools or frameworks (Jest, pytest, JUnit 5, Playwright, etc.).
+- This project is not affiliated with or officially endorsed by any of the mentioned tools or frameworks (Jest, pytest, JUnit 6, Playwright, etc.).
 
 See the [LICENSE](LICENSE) file for the CC BY-NC-SA 4.0 license terms applicable to this project.
 

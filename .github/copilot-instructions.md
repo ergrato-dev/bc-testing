@@ -11,7 +11,7 @@ Este es un **Bootcamp de Testing de Software Zero to Hero** que cubre testing au
 - **Total de horas**: ~288 horas
 - **Nivel de entrada**: Cero (sin experiencia previa en testing)
 - **Nivel de salida**: QA Engineer / SDET Junior
-- **Lenguajes**: JavaScript (Jest), Python (pytest), Java (JUnit 5)
+- **Lenguajes**: JavaScript (Jest), Python (pytest), Java (JUnit 6)
 - **Enfoque**: Testing desde fundamentos hasta automatización avanzada, TDD, BDD y CI/CD
 
 ---
@@ -21,7 +21,7 @@ Este es un **Bootcamp de Testing de Software Zero to Hero** que cubre testing au
 Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 - ✅ Aplicar la mentalidad de calidad y diseñar casos de prueba profesionales
-- ✅ Escribir tests unitarios en JavaScript (Jest), Python (pytest) y Java (JUnit 5)
+- ✅ Escribir tests unitarios en JavaScript (Jest), Python (pytest) y Java (JUnit 6)
 - ✅ Usar mocks, stubs y spies para aislar dependencias en los tres lenguajes
 - ✅ Aplicar TDD (Red-Green-Refactor) en JavaScript, Python y Java
 - ✅ Implementar BDD con Behave (Python) y Cucumber (Java)
@@ -68,7 +68,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 #### 🟧 Etapa 3: Testing con Java (Semanas 25–31) — 56 horas
 
-- JUnit 5 avanzado: `@ParameterizedTest`, `@Nested`, `@Tag`
+- JUnit 6 avanzado: `@ParameterizedTest`, `@Nested`, `@Tag`
 - AssertJ: aserciones fluentes y soft assertions
 - Mockito: `@Mock`, `@InjectMocks`, `@Spy`, `@Captor`, `ArgumentCaptor`
 - TDD con Java: diseño emergente OOP
@@ -195,7 +195,7 @@ describe("Calculator", () => {
 
 ```java
 // ============================================
-// PASO 1: Mi primer test con JUnit 5
+// PASO 1: Mi primer test con JUnit 6
 // ============================================
 class CalculatorTest {
     // Descomenta las siguientes líneas:
@@ -332,7 +332,7 @@ class TestClassName:
 def test_function_name_description(): ...
 ```
 
-**Java (JUnit 5) — patrón recomendado**:
+**Java (JUnit 6) — patrón recomendado**:
 
 ```java
 @Nested
@@ -354,9 +354,12 @@ class MethodName {
 - Gestor: `pnpm` únicamente (❌ NUNCA `npm` ni `yarn`)
 - Node.js 22 (`.nvmrc` en la raíz), CommonJS (`require`/`module.exports`)
 - Cada `starter/` y `solution/` con código JS lleva su propio `package.json`:
-  `"private": true`, `"packageManager": "pnpm@10.34.5"`, `"engines": { "node": ">=22.0.0" }`,
+  `"private": true`, `"packageManager": "pnpm@12.6.0"`, `"engines": { "node": ">=22.0.0" }`,
   scripts `test`, `test:watch`, `test:coverage` y `devDependencies` con versión exacta.
   La misma versión de cada paquete en todas las semanas. Sin lockfiles versionados.
+- Junto a cada `package.json`, un `pnpm-workspace.yaml` con `allowBuilds` (`"@parcel/watcher": false`,
+  `unrs-resolver: false`): pnpm 12 ya no lee el campo `"pnpm"` de `package.json` y sin esa decisión
+  la instalación termina con `ERR_PNPM_IGNORED_BUILDS`
 
 **Python**:
 
@@ -375,7 +378,7 @@ class MethodName {
 - Maven como build tool por defecto; comandos siempre desde la carpeta del proyecto (`cd starter && mvn test`)
 - Cada `starter/` y `solution/` con código Java lleva su propio `pom.xml` con layout estándar
   (`src/main/java/com/bootcamp`, `src/test/java/com/bootcamp`), `maven.compiler.release` = 21,
-  `project.build.sourceEncoding` = UTF-8 y versiones exactas: `junit-jupiter` 5.14.4,
+  `project.build.sourceEncoding` = UTF-8 y versiones exactas: `junit-jupiter` 6.0.3,
   `assertj-core` 3.27.7 (cuando se use), `maven-surefire-plugin` 3.5.6
 - Tests pendientes en starters de proyecto: `@Disabled("TODO: ...")` (equivalente a `test.todo` / `pytest.skip`), nunca métodos vacíos que pasan en verde
 - `@DisplayName` siempre en methods de test para legibilidad (el resumen de Surefire muestra el nombre del método, que también debe ser descriptivo)
@@ -387,39 +390,46 @@ class MethodName {
 
 ### JavaScript
 
-| Herramienta | Versión | Propósito                      |
-| ----------- | ------- | ------------------------------ |
-| Jest        | 30+     | Testing unitario e integración |
-| Supertest   | 6+      | Testing de APIs Express        |
-| fast-check  | 3+      | Property-based testing         |
-| Playwright  | 1.40+   | E2E testing                    |
-| k6          | 0.50+   | Performance testing            |
+| Herramienta | Versión | Propósito |
+| --- | --- | --- |
+| Node.js | 22 (`.nvmrc`) | Runtime |
+| pnpm | 12.6.0 (`packageManager`) | Gestor de paquetes (único) |
+| Jest | 30.5.2 | Testing unitario e integración |
+| Supertest | 7.3.0 | Testing de APIs Express |
+| Express | 5.2.1 | API bajo prueba (S12, S15) |
+| fast-check | 4.10.2 | Property-based testing |
+| Playwright | 1.63.0 | E2E testing |
+| k6 | se fija en S33 | Performance testing |
 
 ### Python
 
-| Herramienta    | Versión | Propósito                    |
-| -------------- | ------- | ---------------------------- |
-| pytest         | 9+      | Testing framework principal  |
-| pytest-cov     | 7+      | Code coverage                |
-| pytest-asyncio | 1.4+    | Testing asíncrono (S19)      |
-| pytest-mock    | 3+      | Wrapper de unittest.mock     |
-| httpx + respx  | latest  | Testing de APIs async        |
-| Behave         | 1.2+    | BDD (Gherkin)                |
-| hypothesis     | 6+      | Property-based testing       |
-| Factory Boy    | 3+      | Factories de datos de prueba |
-| Locust         | 2+      | Performance testing          |
+| Herramienta | Versión | Propósito |
+| --- | --- | --- |
+| Python | 3.14 (`.python-version`) | Runtime |
+| uv | última estable | Entornos y dependencias |
+| pytest | 9.1.1 | Testing framework principal |
+| pytest-mock | 3.15.1 | Wrapper de unittest.mock |
+| pytest-cov | 7.1.0 | Code coverage |
+| pytest-asyncio, httpx, respx | se fijan en S19 | Testing asíncrono y de APIs |
+| hypothesis | se fija en S20 | Property-based testing |
+| Behave | se fija en S22 | BDD (Gherkin) |
+| Factory Boy | se fija en S23 | Factories de datos de prueba |
+| Locust | se fija en S33 | Performance testing |
 
 ### Java
 
-| Herramienta      | Versión | Propósito                   |
-| ---------------- | ------- | --------------------------- |
-| JUnit 5          | 5.14+   | Testing framework principal |
-| Mockito          | 5+      | Mocking                     |
-| AssertJ          | 3+      | Aserciones fluentes         |
-| Spring Boot Test | 3+      | Testing de Spring Boot      |
-| Testcontainers   | 1.19+   | BD reales en tests          |
-| Cucumber         | 7+      | BDD (Gherkin)               |
-| JaCoCo           | 0.8+    | Code coverage               |
+| Herramienta | Versión | Propósito |
+| --- | --- | --- |
+| JDK | 21 LTS | Runtime |
+| Maven | 3.9+ | Build tool |
+| JUnit (Jupiter) | 6.0.3 | Testing framework principal |
+| AssertJ | 3.27.7 | Aserciones fluentes |
+| maven-surefire-plugin | 3.5.6 | Ejecución de tests |
+| Mockito | 5.23.0 | Mocking |
+| Spring Boot (Test) | 4.1.1 | Testing de Spring Boot |
+| Testcontainers | 2.0.5 | BD reales en tests |
+| JaCoCo | 0.8.15 | Code coverage |
+| Cucumber | se fija en S30 | BDD (Gherkin) |
 
 ---
 
@@ -633,9 +643,9 @@ grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
 ### Generación de Tests
 
 1. **Usa siempre las herramientas correctas por lenguaje**
-   - JavaScript: Jest 30+ con `pnpm` (❌ NUNCA `npm` ni `yarn`)
-   - Python: pytest 9+ con `uv` (`uv sync` + `uv run pytest`)
-   - Java: JUnit 5 + AssertJ + Mockito con Maven
+   - JavaScript: Jest 30.5.2 con `pnpm` 12.6.0 (❌ NUNCA `npm` ni `yarn`)
+   - Python: pytest 9.1.1 con `uv` (`uv sync` + `uv run pytest`)
+   - Java: JUnit 6.0.3 + AssertJ + Mockito con Maven
 
 2. **Sigue el patrón AAA en todos los tests**
 
@@ -680,7 +690,7 @@ grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
 3. **Referencias recomendadas**:
    - Jest: [jestjs.io](https://jestjs.io)
    - pytest: [docs.pytest.org](https://docs.pytest.org)
-   - JUnit 5: [junit.org/junit5](https://junit.org/junit5)
+   - JUnit 6: [docs.junit.org](https://docs.junit.org/6.0.3/overview.html)
    - Playwright: [playwright.dev](https://playwright.dev)
    - Testcontainers: [testcontainers.com](https://testcontainers.com)
 
@@ -690,7 +700,7 @@ grep -E 'LATEST|RELEASE|\[.*,.*\]' pom.xml
 
 - **Jest**: https://jestjs.io/docs/getting-started
 - **pytest**: https://docs.pytest.org/en/stable/
-- **JUnit 5**: https://junit.org/junit5/docs/current/user-guide/
+- **JUnit 6**: https://docs.junit.org/6.0.3/overview.html
 - **Mockito**: https://site.mockito.org/
 - **AssertJ**: https://assertj.github.io/doc/
 - **Playwright**: https://playwright.dev/docs/intro

@@ -44,7 +44,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### 🟧 Etapa 3: Testing con Java (Semanas 25–31)
 
-56 horas totales — JUnit 5, Mockito, AssertJ, testing de Spring Boot con MockMvc, Testcontainers y BDD con Cucumber.
+56 horas totales — JUnit 6, Mockito, AssertJ, testing de Spring Boot con MockMvc, Testcontainers y BDD con Cucumber.
 
 ### 🟪 Etapa 4: Testing Avanzado Transversal (Semanas 32–36)
 
@@ -125,7 +125,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Configuración del entorno: Python 3.12+, pip/uv, pytest
+- Configuración del entorno: Python 3.14, uv (pip + venv como alternativa), pytest 9.1.1
 - Estructura de un test en pytest: convenciones de nombres (`test_*.py`, `def test_*`)
 - Assertions nativas con `assert`
 - Comparación pytest vs unittest
@@ -144,11 +144,11 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Configuración del entorno: JDK 21 LTS, Maven/Gradle, JUnit 5
-- Estructura de un test en JUnit 5: `@Test`, `@DisplayName`, `Assertions.*`
+- Configuración del entorno: JDK 21 LTS, Maven/Gradle, JUnit 6
+- Estructura de un test en JUnit 6: `@Test`, `@DisplayName`, `Assertions.*`
 - `assertEquals`, `assertTrue`, `assertNotNull`, `assertThrows`
 - Ciclo de vida: `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll`
-- Diferentes entre JUnit 4 y JUnit 5 (por qué JUnit 5)
+- Diferencias entre JUnit 4 y JUnit Jupiter (JUnit 5 y 6)
 - Ejecutar tests con Maven: `mvn test`
 - Leer reportes en consola y en Surefire
 - Agregar AssertJ como librería de aserciones fluente
@@ -500,21 +500,21 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### 🟧 ETAPA 3: TESTING CON JAVA (Semanas 25–31)
 
-> Se profundiza en JUnit 5 y el ecosistema Java de testing: Mockito, AssertJ, testing de Spring Boot, Testcontainers y BDD con Cucumber.
+> Se profundiza en JUnit 6 y el ecosistema Java de testing: Mockito, AssertJ, testing de Spring Boot, Testcontainers y BDD con Cucumber.
 
 ---
 
-#### Week 25: JUnit 5 Avanzado y AssertJ
+#### Week 25: JUnit 6 Avanzado y AssertJ
 
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 
-- JUnit 5 en profundidad: `@ParameterizedTest`, `@MethodSource`, `@CsvSource`, `@ValueSource`
+- JUnit 6 en profundidad: `@ParameterizedTest`, `@MethodSource`, `@CsvSource`, `@ValueSource`
 - `@Nested` para organizar tests por contexto
 - `@Tag` y filtrado de tests
 - `@TempDir`, `@RegisterExtension`
-- JUnit 5 Extensions: `@ExtendWith`
+- JUnit 6 Extensions: `@ExtendWith`
 - AssertJ: aserciones fluentes y legibles
 - `assertThat().isEqualTo()`, `containsExactly()`, `satisfies()`
 - Soft assertions con `SoftAssertions`
@@ -533,7 +533,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - `when().thenReturn()`, `when().thenThrow()`, `doReturn()`
 - `verify()`: verificar interacciones
 - `ArgumentCaptor`: capturar argumentos de llamadas
-- `@MockitoExtension` con JUnit 5
+- `@MockitoExtension` con JUnit 6
 - Mockito strict stubbing: detectar stubs no utilizados
 - Mockear métodos estáticos con `mockStatic()` (Mockito 3.4+)
 - Diferencia entre `@Mock` y `@Spy`
@@ -548,7 +548,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- El ciclo Red → Green → Refactor en Java con JUnit 5
+- El ciclo Red → Green → Refactor en Java con JUnit 6
 - TDD y diseño: cómo emerge el diseño OOP desde los tests
 - Kata de TDD en Java: Prime Factors, Game of Life
 - Outside-in TDD con Mockito
@@ -587,7 +587,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 **Temas**:
 
 - ¿Qué es Testcontainers? Contenedores Docker en tests
-- Testcontainers con JUnit 5: `@Testcontainers`, `@Container`
+- Testcontainers con JUnit 6: `@Testcontainers`, `@Container`
 - PostgreSQL container, MySQL container
 - Inicialización de schemas: `init.sql`, Flyway, Liquibase
 - Kafka container para tests de mensajería
@@ -629,7 +629,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Coverage con JaCoCo ≥85%
 - Reporte de testing con análisis de calidad
 
-**Proyecto**: Suite completa Java del dominio asignado: JUnit 5 + AssertJ + Mockito + Spring Boot + Testcontainers + Cucumber. JaCoCo ≥85%, reporte `testing-report-java.md`.
+**Proyecto**: Suite completa Java del dominio asignado: JUnit 6 + AssertJ + Mockito + Spring Boot + Testcontainers + Cucumber. JaCoCo ≥85%, reporte `testing-report-java.md`.
 
 ---
 
@@ -732,7 +732,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 - Suite JS (Jest): tests unitarios + integración (Supertest) + coverage ≥85%
 - Suite Python (pytest + Behave): unitarios + BD + BDD + coverage ≥85%
-- Suite Java (JUnit 5 + Mockito + Cucumber): unitarios + Spring + Testcontainers + coverage ≥85%
+- Suite Java (JUnit 6 + Mockito + Cucumber): unitarios + Spring + Testcontainers + coverage ≥85%
 - E2E con Playwright (≥10 tests en POM)
 - Performance: k6 load test + criterios de aceptación
 - Security: tests básicos OWASP
@@ -773,7 +773,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### Testing con Java (Etapa 3)
 
-- JUnit 5 avanzado y AssertJ (S25)
+- JUnit 6 avanzado y AssertJ (S25)
 - Mockito: mocks, spies, captors (S26)
 - TDD con Java y ArchUnit (S27)
 - Testing de Spring Boot: MockMvc, slices (S28)
@@ -817,7 +817,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S22    | BDD con Python — Behave                        | ⏳ Pendiente |
 | S23    | Testing de Bases de Datos en Python            | ⏳ Pendiente |
 | S24    | Proyecto Integrador — Etapa 2 (Python)         | ⏳ Pendiente |
-| S25    | JUnit 5 Avanzado y AssertJ                     | ⏳ Pendiente |
+| S25    | JUnit 6 Avanzado y AssertJ                     | ⏳ Pendiente |
 | S26    | Mockito — Mocking en Java                      | ⏳ Pendiente |
 | S27    | TDD con Java                                   | ⏳ Pendiente |
 | S28    | Testing de Spring Boot                         | ⏳ Pendiente |
