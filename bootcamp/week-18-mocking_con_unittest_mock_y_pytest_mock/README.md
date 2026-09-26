@@ -98,4 +98,4 @@ Mockear no es simular todo: es aislar solo lo necesario para validar una decisi�
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 17 - Parametrización y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) | Semana 19 - Próximamente |
+| [Semana 17 - Parametrización y marks](../week-17-parametrizacion_y_marks_con_pytest/README.md) | [Semana 19 - Testing de APIs con httpx2](../week-19-testing_de_apis_con_python/README.md) |

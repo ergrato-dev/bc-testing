@@ -60,7 +60,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 - pytest avanzado: fixtures, `@pytest.mark.parametrize`, `conftest.py`
 - Mocking con `unittest.mock`, `MagicMock`, `@patch`, `pytest-mock`
 - Testing asíncrono con `pytest-asyncio` y `AsyncMock`
-- Testing de APIs con `httpx` + `respx`
+- Testing de APIs con `httpx2` + `MockTransport`
 - TDD en Python con `hypothesis` (property-based)
 - Coverage con `pytest-cov`, mutation testing con `mutmut`
 - BDD con Behave (Gherkin + step definitions)
@@ -410,7 +410,9 @@ class MethodName {
 | pytest | 9.1.1 | Testing framework principal |
 | pytest-mock | 3.15.1 | Wrapper de unittest.mock |
 | pytest-cov | 7.1.0 | Code coverage |
-| pytest-asyncio, httpx, respx | se fijan en S19 | Testing asíncrono y de APIs |
+| httpx2 | 2.13.1 | Cliente HTTP (`MockTransport` para tests; `respx` no intercepta `httpx2`) |
+| pydantic | 2.13.5 | Validación de contratos |
+| pytest-asyncio | 1.4.0 | Testing asíncrono (`asyncio_mode = "strict"`) |
 | hypothesis | se fija en S20 | Property-based testing |
 | Behave | se fija en S22 | BDD (Gherkin) |
 | Factory Boy | se fija en S23 | Factories de datos de prueba |

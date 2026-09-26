@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Niveles para aislar HTTP en tests</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Verde: código real que el test ejercita · Índigo: donde entra el doble</text>
+  <!-- column headers -->
+  <text x="330" y="104" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Lógica de negocio</text>
+  <text x="490" y="104" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Cliente HTTP</text>
+  <text x="490" y="120" text-anchor="middle" font-size="11" fill="#94a3b8">headers, errores, parsing</text>
+  <text x="650" y="104" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Transporte / red</text>
+  <text x="810" y="104" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">API</text>
+  <!-- row 1 -->
+  <text x="40" y="163" font-size="14" font-weight="600" fill="#FFD43B">patch / mocker.patch</text>
+  <text x="40" y="181" font-size="11" fill="#94a3b8">semana 18</text>
+  <rect x="260" y="140" width="140" height="50" rx="8" fill="#14532d" stroke="#22c55e"/>
+  <text x="330" y="170" text-anchor="middle" font-size="13" fill="#f1f5f9">real</text>
+  <rect x="420" y="140" width="460" height="50" rx="8" fill="#1e1b4b" stroke="#6366f1"/>
+  <text x="650" y="170" text-anchor="middle" font-size="13" fill="#f1f5f9">sustituido por el mock</text>
+  <!-- row 2 -->
+  <text x="40" y="233" font-size="14" font-weight="600" fill="#FFD43B">httpx2.MockTransport</text>
+  <text x="40" y="251" font-size="11" fill="#94a3b8">esta semana</text>
+  <rect x="260" y="210" width="300" height="50" rx="8" fill="#14532d" stroke="#22c55e"/>
+  <text x="410" y="240" text-anchor="middle" font-size="13" fill="#f1f5f9">real</text>
+  <rect x="580" y="210" width="300" height="50" rx="8" fill="#1e1b4b" stroke="#6366f1"/>
+  <text x="730" y="240" text-anchor="middle" font-size="13" fill="#f1f5f9">handler(request) -&gt; Response</text>
+  <!-- row 3 -->
+  <text x="40" y="303" font-size="14" font-weight="600" fill="#FFD43B">pytest-httpserver</text>
+  <text x="40" y="321" font-size="11" fill="#94a3b8">servidor local</text>
+  <rect x="260" y="280" width="460" height="50" rx="8" fill="#14532d" stroke="#22c55e"/>
+  <text x="490" y="310" text-anchor="middle" font-size="13" fill="#f1f5f9">real (incluye sockets)</text>
+  <rect x="740" y="280" width="140" height="50" rx="8" fill="#1e1b4b" stroke="#6366f1"/>
+  <text x="810" y="310" text-anchor="middle" font-size="13" fill="#f1f5f9">servidor falso</text>
+  <!-- row 4 -->
+  <text x="40" y="373" font-size="14" font-weight="600" fill="#FFD43B">API real / sandbox</text>
+  <text x="40" y="391" font-size="11" fill="#94a3b8">contract testing, E2E</text>
+  <rect x="260" y="350" width="620" height="50" rx="8" fill="#14532d" stroke="#22c55e"/>
+  <text x="570" y="380" text-anchor="middle" font-size="13" fill="#f1f5f9">todo real: más lento y menos estable</text>
+  <!-- footer -->
+  <rect x="40" y="425" width="840" height="48" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="460" y="454" text-anchor="middle" font-size="13" fill="#cbd5e1">Cuanto más verde, más confianza y menos velocidad. La suite rápida vive en la fila 2.</text>
+</svg>

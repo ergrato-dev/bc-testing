@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de un test asíncrono con pytest-asyncio</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Cada test corre en su propio event loop (alcance function por defecto)</text>
+  <!-- event loop container -->
+  <rect x="40" y="90" width="840" height="170" rx="10" fill="#1e293b" stroke="#6366f1" stroke-dasharray="6 4"/>
+  <text x="60" y="114" font-size="13" font-weight="600" fill="#a5b4fc">event loop del test</text>
+  <rect x="70" y="135" width="230" height="95" rx="8" fill="#0f172a" stroke="#3572A5"/>
+  <text x="185" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="#FFD43B">1. Setup</text>
+  <text x="185" y="186" text-anchor="middle" font-size="12" fill="#f1f5f9">@pytest_asyncio.fixture</text>
+  <text x="185" y="206" text-anchor="middle" font-size="12" fill="#f1f5f9">crea AsyncClient</text>
+  <rect x="345" y="135" width="230" height="95" rx="8" fill="#0f172a" stroke="#3572A5"/>
+  <text x="460" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="#FFD43B">2. Test</text>
+  <text x="460" y="186" text-anchor="middle" font-size="12" fill="#f1f5f9">@pytest.mark.asyncio</text>
+  <text x="460" y="206" text-anchor="middle" font-size="12" fill="#f1f5f9">await client.get_...()</text>
+  <rect x="620" y="135" width="230" height="95" rx="8" fill="#0f172a" stroke="#3572A5"/>
+  <text x="735" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="#FFD43B">3. Teardown</text>
+  <text x="735" y="186" text-anchor="middle" font-size="12" fill="#f1f5f9">código tras el yield</text>
+  <text x="735" y="206" text-anchor="middle" font-size="12" fill="#f1f5f9">await client.aclose()</text>
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="300" y1="182" x2="342" y2="182"/>
+    <line x1="575" y1="182" x2="617" y2="182"/>
+  </g>
+  <!-- modes -->
+  <rect x="40" y="290" width="410" height="150" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="245" y="320" text-anchor="middle" font-size="15" font-weight="700" fill="#f1f5f9">asyncio_mode = "strict"</text>
+  <text x="245" y="342" text-anchor="middle" font-size="12" fill="#94a3b8">(por defecto)</text>
+  <text x="70" y="372" font-size="13" fill="#f1f5f9">✓ solo tests con @pytest.mark.asyncio</text>
+  <text x="70" y="396" font-size="13" fill="#f1f5f9">✓ solo fixtures con @pytest_asyncio.fixture</text>
+  <text x="70" y="420" font-size="13" fill="#f1f5f9">✗ sin marcador: "not natively supported"</text>
+  <rect x="470" y="290" width="410" height="150" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="675" y="320" text-anchor="middle" font-size="15" font-weight="700" fill="#f1f5f9">asyncio_mode = "auto"</text>
+  <text x="675" y="342" text-anchor="middle" font-size="12" fill="#94a3b8">(solo asyncio en el proyecto)</text>
+  <text x="500" y="372" font-size="13" fill="#f1f5f9">✓ todo test async def se ejecuta</text>
+  <text x="500" y="396" font-size="13" fill="#f1f5f9">✓ @pytest.fixture sirve para fixtures async</text>
+  <text x="500" y="420" font-size="13" fill="#f1f5f9">✓ sin marcadores en los tests</text>
+  <text x="460" y="472" text-anchor="middle" font-size="13" fill="#cbd5e1">Con AsyncMock verifica await_count, no call_count: una corutina creada no es una corutina esperada.</text>
+</svg>
