@@ -1,0 +1,20 @@
+[project]
+name = "week22-ejercicio02-starter"
+version = "1.0.0"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = ["behave==1.3.3", "pytest==9.1.1", "pytest-bdd==8.1.0"]
+
+[tool.pytest]
+pythonpath = ["."]
+testpaths = ["tests"]
+strict = true
+markers = ["smoke: escenarios críticos"]
+# Avisos de dependencias, no de tu código: pytest-bdd 8.1.0 (última versión, dic. 2024)
+# usa APIs que pytest 10 eliminará, y gherkin-official usa un argumento deprecado en Python 3.14.
+filterwarnings = [
+    "ignore::pytest.PytestRemovedIn10Warning",
+    "ignore::DeprecationWarning:gherkin.gherkin_line",
+]
