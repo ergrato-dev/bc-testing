@@ -453,13 +453,14 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- ¿Qué es BDD? Behavior Driven Development
-- Gherkin: `Feature`, `Scenario`, `Given`, `When`, `Then`, `And`, `But`
+- ¿Qué es BDD? Behavior Driven Development, tres amigos y ejemplos acordados
+- Gherkin: `Feature`, `Scenario`, `Given`, `When`, `Then`, `And`, `But`, `Background` (en español con `# language: es`)
+- Escenarios declarativos frente a imperativos
 - Behave: instalación, estructura de proyecto (`features/`, `steps/`)
-- Escribir step definitions en Python
-- `context` object en Behave
+- Escribir step definitions en Python con parámetros tipados
+- `context` object en Behave, tablas de datos y tags
 - Scenario Outline con `Examples`
-- Hooks: `before_scenario`, `after_scenario`, `before_feature`
+- Hooks: `before_scenario`, `after_scenario`, `before_feature` (y el alcance del estado)
 - Integrar Behave con pytest (`pytest-bdd` como alternativa)
 
 **Proyecto**: Suite BDD con Behave para el flujo de negocio principal del dominio asignado: al menos 3 features con múltiples scenarios y Scenario Outline.
@@ -816,7 +817,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S19    | Testing de APIs con Python (httpx2)            | ✅ Completo |
 | S20    | TDD con Python                                 | ✅ Completo |
 | S21    | Coverage y Calidad en Python                   | ✅ Completo |
-| S22    | BDD con Python — Behave                        | ⏳ Pendiente |
+| S22    | BDD con Python — Behave                        | ✅ Completo |
 | S23    | Testing de Bases de Datos en Python            | ⏳ Pendiente |
 | S24    | Proyecto Integrador — Etapa 2 (Python)         | ⏳ Pendiente |
 | S25    | JUnit 6 Avanzado y AssertJ                     | ⏳ Pendiente |

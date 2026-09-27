@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Un feature, dos ejecutores</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">El mismo inscripcion.feature se ejecuta con Behave y con pytest-bdd</text>
+  <rect x="330" y="90" width="260" height="80" rx="10" fill="#1e293b" stroke="#6366f1"/>
+  <text x="460" y="122" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">inscripcion.feature</text>
+  <text x="460" y="148" text-anchor="middle" font-size="12" fill="#f1f5f9">Gherkin en español · @smoke</text>
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="400" y1="170" x2="240" y2="206"/>
+    <line x1="520" y1="170" x2="680" y2="206"/>
+  </g>
+  <g font-size="13" fill="#f1f5f9">
+    <rect x="40" y="210" width="390" height="210" rx="10" fill="#1e293b" stroke="#3572A5"/>
+    <text x="235" y="240" text-anchor="middle" font-size="16" font-weight="700" fill="#FFD43B">Behave</text>
+    <text x="60" y="272">Estado: context.registry</text>
+    <text x="60" y="298">Estado nuevo: before_scenario</text>
+    <text x="60" y="324">Tabla: context.table (dict por fila)</text>
+    <text x="60" y="350">Tags: --tags=smoke</text>
+    <text x="60" y="376">Comando: uv run behave</text>
+    <text x="60" y="402" fill="#94a3b8">1.3.3 · septiembre de 2025</text>
+    <rect x="490" y="210" width="390" height="210" rx="10" fill="#1e293b" stroke="#3572A5"/>
+    <text x="685" y="240" text-anchor="middle" font-size="16" font-weight="700" fill="#FFD43B">pytest-bdd</text>
+    <text x="510" y="272">Estado: fixtures + target_fixture</text>
+    <text x="510" y="298">Estado nuevo: fixture de alcance function</text>
+    <text x="510" y="324">Tabla: datatable (lista de listas)</text>
+    <text x="510" y="350">Tags: marcadores, -m smoke</text>
+    <text x="510" y="376">Comando: uv run pytest</text>
+    <text x="510" y="402" fill="#94a3b8">8.1.0 · diciembre de 2024 · avisos en pytest 9</text>
+  </g>
+  <text x="460" y="462" text-anchor="middle" font-size="13" fill="#cbd5e1">Elige por el equipo: suite de negocio aparte (Behave) o integrada con pytest y sus plugins (pytest-bdd).</text>
+</svg>

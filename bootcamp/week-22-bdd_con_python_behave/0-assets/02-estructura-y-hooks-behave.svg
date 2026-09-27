@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="920" height="500" fill="#0f172a" rx="12"/>
+  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Behave: estructura y ciclo de hooks</text>
+  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Lo que un escenario modifica se crea en before_scenario</text>
+  <!-- structure -->
+  <rect x="30" y="95" width="290" height="250" rx="10" fill="#1e293b" stroke="#3572A5"/>
+  <text x="175" y="123" text-anchor="middle" font-size="15" font-weight="700" fill="#FFD43B">Proyecto</text>
+  <g font-family="ui-monospace, monospace" font-size="12" fill="#f1f5f9">
+    <text x="50" y="155">booking.py</text>
+    <text x="50" y="181">features/</text>
+    <text x="70" y="207">reserva_de_salas.feature</text>
+    <text x="70" y="233">environment.py</text>
+    <text x="70" y="259">steps/</text>
+    <text x="90" y="285">reserva_steps.py</text>
+  </g>
+  <text x="175" y="322" text-anchor="middle" font-size="12" fill="#cbd5e1">uv run behave</text>
+  <!-- hooks timeline -->
+  <rect x="350" y="95" width="540" height="250" rx="10" fill="#1e293b" stroke="#6366f1"/>
+  <text x="620" y="123" text-anchor="middle" font-size="15" font-weight="700" fill="#a5b4fc">Orden de ejecución</text>
+  <g font-size="13" fill="#f1f5f9" font-family="ui-monospace, monospace">
+    <text x="375" y="155">before_all</text>
+    <text x="395" y="181">before_feature</text>
+    <text x="415" y="207" fill="#22c55e">before_scenario   (estado nuevo)</text>
+    <text x="435" y="233">Antecedentes + Dado / Cuando / Entonces</text>
+    <text x="415" y="259">after_scenario    (limpieza)</text>
+    <text x="415" y="285" fill="#94a3b8">... siguiente escenario ...</text>
+    <text x="395" y="311">after_feature</text>
+    <text x="375" y="335">after_all</text>
+  </g>
+  <!-- bug panel -->
+  <rect x="30" y="370" width="860" height="95" rx="10" fill="#450a0a" stroke="#ef4444"/>
+  <text x="460" y="398" text-anchor="middle" font-size="14" font-weight="700" fill="#f1f5f9">✗ Registro creado en before_feature (ejercicio 02)</text>
+  <text x="460" y="424" text-anchor="middle" font-size="13" fill="#f1f5f9">El segundo escenario repite Antecedentes sobre el mismo registro:</text>
+  <text x="460" y="446" text-anchor="middle" font-size="13" fill="#fecaca" font-family="ui-monospace, monospace">RegistrationError: workshop Python already exists</text>
+</svg>

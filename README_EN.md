@@ -115,7 +115,8 @@ bootcamp/week-XX/
 | pytest-asyncio | 1.4.0 | Async testing |
 | hypothesis | 6.168.0 | Property-based testing |
 | mypy | 2.3.1 | Type checking (`strict = true`) |
-| Behave | pinned in S22 | BDD (Gherkin) |
+| Behave | 1.3.3 | BDD (Gherkin) |
+| pytest-bdd | 8.1.0 | BDD inside pytest (`PytestRemovedIn10Warning` on pytest 9) |
 | Factory Boy | pinned in S23 | Test data factories |
 | Locust | pinned in S33 | Performance testing |
 

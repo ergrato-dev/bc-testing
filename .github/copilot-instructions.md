@@ -417,7 +417,8 @@ class MethodName {
 | pytest-asyncio | 1.4.0 | Testing asíncrono (`asyncio_mode = "strict"`) |
 | hypothesis | 6.168.0 | Property-based testing |
 | mypy | 2.3.1 | Verificación de tipos (`[tool.mypy] strict = true`) |
-| Behave | se fija en S22 | BDD (Gherkin) |
+| Behave | 1.3.3 | BDD (Gherkin, `# language: es`) |
+| pytest-bdd | 8.1.0 | BDD dentro de pytest (filtrar `PytestRemovedIn10Warning`) |
 | Factory Boy | se fija en S23 | Factories de datos de prueba |
 | Locust | se fija en S33 | Performance testing |
 
