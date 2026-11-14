@@ -1,0 +1,41 @@
+{
+  "semana": "24",
+  "titulo": "Proyecto Integrador — Etapa 2 (Python)",
+  "checks": [
+    {
+      "id": "full-suite",
+      "descripcion": "La suite pytest completa pasa, incluida la capa de repositorio",
+      "cmd": "cd {proyecto}/python && uv run pytest -q",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3 (Docker debe estar en marcha)"
+    },
+    {
+      "id": "layers",
+      "descripcion": "Cada capa (unit, api, repository) tiene tests marcados",
+      "cmd": "cd {proyecto}/python && for m in unit api repository; do uv run pytest --collect-only -q -m $m | tail -1 | grep -qE '^[1-9][0-9]*/' || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "bdd",
+      "descripcion": "Los escenarios de Behave pasan",
+      "cmd": "cd {proyecto}/python && uv run behave",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "coverage",
+      "descripcion": "La cobertura combinada de pytest y Behave llega al 85 %",
+      "cmd": "cd {proyecto}/python && uv run coverage run -m pytest -q && uv run coverage run --append -m behave && uv run coverage report --fail-under=85",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "report",
+      "descripcion": "testing-report-python.md tiene sus cinco secciones y ningún TODO",
+      "cmd": "f={proyecto}/python/testing-report-python.md; [ $(grep -cE '^## (Suite por capas|Cobertura|Tests más lentos|Riesgos y huecos|Próximos pasos)$' $f) -eq 5 ] && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    }
+  ]
+}

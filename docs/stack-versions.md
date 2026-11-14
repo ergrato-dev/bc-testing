@@ -26,6 +26,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | pytest | 9.1.1 | `[dependency-groups] dev` | Framework de la Etapa 2 |
 | pytest-mock | 3.15.1 | `[dependency-groups] dev` | Wrapper de `unittest.mock` (S18) |
 | pytest-cov | 7.1.0 | `[dependency-groups] dev` | Coverage (S21) |
+| coverage | 7.17.3 | `[dependency-groups] dev` | `coverage run --append` para combinar pytest y Behave (S24) |
 | mutmut | 3.8.0 | `[dependency-groups] dev` | Mutation testing (S21; en Windows, dentro de WSL) |
 | ruff | 0.16.7 | `[dependency-groups] dev` | Umbral de complejidad `C901` (S21) |
 | httpx2 | 2.13.1 | `dependencies` | Cliente HTTP con `MockTransport` (S19; `respx` no intercepta `httpx2`) |

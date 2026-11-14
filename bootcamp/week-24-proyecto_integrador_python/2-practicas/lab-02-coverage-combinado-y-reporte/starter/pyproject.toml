@@ -1,0 +1,30 @@
+[project]
+name = "week24-lab02-starter"
+version = "1.0.0"
+requires-python = ">=3.14"
+dependencies = ["httpx2==2.13.1", "psycopg[binary]==3.3.9", "sqlalchemy==2.1.8"]
+
+[dependency-groups]
+dev = ["behave==1.3.3", "coverage==7.17.3", "pytest==9.1.1", "pytest-asyncio==1.4.0", "testcontainers[postgres]==4.15.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "strict"
+addopts = "--strict-markers"
+markers = [
+    "unit: lógica pura, sin red ni base de datos",
+    "api: cliente HTTP con transporte simulado",
+    "repository: repositorio contra PostgreSQL (necesita Docker)",
+]
+
+# ============================================
+# PASO 1: qué medir y cuándo fallar
+# ============================================
+# [tool.coverage.run]
+# source = ["library"]
+# branch = true
+
+# [tool.coverage.report]
+# show_missing = true
+# fail_under = 85

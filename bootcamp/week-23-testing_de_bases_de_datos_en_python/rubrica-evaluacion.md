@@ -51,10 +51,10 @@
 
 ### Criterios
 
-- Los seis requisitos de `./scripts/verificar-semana.sh 23` en verde.
+- Los cinco requisitos de `./scripts/verificar-semana.sh 23` en verde.
 - Modelos del dominio con código único, estado con `CheckConstraint` y una segunda entidad relacionada.
 - Tests que indican solo los datos que importan (factories) y prueban fronteras: duplicados, estados no válidos, longitud.
-- Párrafo en el README: el error que solo vio PostgreSQL y la restricción que protege la base de datos.
+- Párrafo en el README: la restricción que protege la base de datos y el test que fallaría si la base de datos fuera un mock.
 
 ### Niveles
 

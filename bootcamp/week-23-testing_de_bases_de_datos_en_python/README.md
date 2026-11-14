@@ -129,4 +129,4 @@ Prueba contra el mismo motor que usa producción. Con Testcontainers, PostgreSQL
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 22 - BDD con Python y Behave](../week-22-bdd_con_python_behave/README.md) | Semana 24 - Próximamente |
+| [Semana 22 - BDD con Python y Behave](../week-22-bdd_con_python_behave/README.md) | [Semana 24 - Proyecto Integrador: Etapa 2 (Python)](../week-24-proyecto_integrador_python/README.md) |

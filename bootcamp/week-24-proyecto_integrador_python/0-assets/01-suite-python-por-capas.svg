@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-labelledby="title desc">
+  <title id="title">Una suite Python, cuatro capas, una cobertura</title>
+  <desc id="desc">Las capas unit, api y repository se ejecutan con pytest y se seleccionan con marcas; la capa BDD se ejecuta con Behave. coverage run mide pytest y coverage run --append añade Behave al mismo archivo .coverage. coverage report --fail-under=85 decide si la suite pasa, y sus números van a testing-report-python.md.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Una suite Python, cuatro capas, una cobertura</text>
+
+  <!-- pytest group -->
+  <rect x="30" y="60" width="330" height="290" rx="10" fill="#0d1117" stroke="#3572A5" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="195" y="86" fill="#3572A5" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">uv run pytest</text>
+
+  <rect x="50" y="100" width="290" height="70" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="65" y="126" fill="#c9d1d9" font-family="sans-serif" font-size="15" font-weight="bold">tests/unit/</text>
+  <text x="65" y="150" fill="#c9d1d9" font-family="monospace" font-size="13">-m unit</text>
+  <text x="325" y="150" fill="#8b949e" font-family="sans-serif" font-size="12" text-anchor="end">S16–S18, S20 · ms</text>
+
+  <rect x="50" y="180" width="290" height="70" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="65" y="206" fill="#c9d1d9" font-family="sans-serif" font-size="15" font-weight="bold">tests/api/</text>
+  <text x="65" y="230" fill="#c9d1d9" font-family="monospace" font-size="13">-m api</text>
+  <text x="325" y="230" fill="#8b949e" font-family="sans-serif" font-size="12" text-anchor="end">S19 · MockTransport · ms</text>
+
+  <rect x="50" y="260" width="290" height="70" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="65" y="286" fill="#c9d1d9" font-family="sans-serif" font-size="15" font-weight="bold">tests/repository/</text>
+  <text x="65" y="310" fill="#c9d1d9" font-family="monospace" font-size="13">-m repository</text>
+  <text x="325" y="310" fill="#8b949e" font-family="sans-serif" font-size="12" text-anchor="end">S23 · Docker · segundos</text>
+
+  <!-- behave -->
+  <rect x="30" y="370" width="330" height="80" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="50" y="400" fill="#c9d1d9" font-family="sans-serif" font-size="15" font-weight="bold">features/ (uv run behave)</text>
+  <text x="50" y="426" fill="#8b949e" font-family="sans-serif" font-size="12">S22 · escenarios en español · ms</text>
+
+  <!-- coverage flow -->
+  <path d="M360 205 L478 205" stroke="#c9d1d9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M360 410 L420 410 L420 245 L478 245" stroke="#c9d1d9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="480" y="170" width="390" height="100" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="500" y="198" fill="#c9d1d9" font-family="monospace" font-size="13">coverage run -m pytest</text>
+  <text x="500" y="222" fill="#c9d1d9" font-family="monospace" font-size="13">coverage run --append -m behave</text>
+  <text x="500" y="252" fill="#8b949e" font-family="sans-serif" font-size="12">Las dos ejecuciones escriben en el mismo .coverage</text>
+
+  <path d="M675 270 L675 296" stroke="#c9d1d9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="480" y="300" width="390" height="60" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="500" y="336" fill="#c9d1d9" font-family="monospace" font-size="13">coverage report --fail-under=85</text>
+
+  <path d="M675 360 L675 386" stroke="#c9d1d9" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="480" y="390" width="390" height="60" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="500" y="426" fill="#c9d1d9" font-family="monospace" font-size="13">testing-report-python.md</text>
+
+  <text x="675" y="90" fill="#c9d1d9" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">Una sola cifra de cobertura</text>
+  <text x="675" y="116" fill="#8b949e" font-family="sans-serif" font-size="13" text-anchor="middle">Sin --append, Behave borraría lo que midió pytest</text>
+  <text x="675" y="140" fill="#8b949e" font-family="sans-serif" font-size="13" text-anchor="middle">Sin repository, la cifra baja: el umbral pide todas las capas</text>
+</svg>
