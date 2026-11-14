@@ -35,7 +35,12 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | mypy | 2.3.1 | `[dependency-groups] dev` | Tipado estricto (S20) |
 | Behave | 1.3.3 | `[dependency-groups] dev` | BDD con Gherkin en español (S22) |
 | pytest-bdd | 8.1.0 | `[dependency-groups] dev` | BDD dentro de pytest; filtrar `PytestRemovedIn10Warning` (S22) |
-| SQLAlchemy / Factory Boy / Testcontainers | se fija en S23 | `[dependency-groups] dev` | Testing de BD con PostgreSQL |
+| SQLAlchemy | 2.1.8 | `dependencies` | ORM de la capa de datos; estilo 2.0 con `select()` (S23) |
+| psycopg | 3.3.9 (`[binary]`) | `dependencies` | Driver de PostgreSQL (S23) |
+| Alembic | 1.20.1 | `dependencies` | Migraciones; `command.check` en tests (S23) |
+| Faker | 40.54.0 | `[dependency-groups] dev` | Datos realistas con semilla (S23) |
+| Factory Boy | 3.3.3 | `[dependency-groups] dev` | `SQLAlchemyModelFactory` (S23) |
+| testcontainers | 4.15.0 (`[postgres]`) | `[dependency-groups] dev` | PostgreSQL desechable; importar de `testcontainers.community.postgres` (S23) |
 | Locust | se fija en S43 | `[dependency-groups] dev` | Pruebas de carga |
 
 ## Java
@@ -77,7 +82,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
-| PostgreSQL | se fija en S23 | `compose.yaml` y contenedores de Testcontainers | Única base de datos del curso |
+| PostgreSQL | 18.7 (`postgres:18.7-alpine`) | `compose.yaml` (puerto `127.0.0.1:55432`) y `POSTGRES_IMAGE` de los tests | Única base de datos del curso |
 | Docker + Compose | v2+ | equipo del estudiante | Testcontainers (desde S23) y OWASP ZAP (S44) |
 | jq | 1.7+ | equipo del estudiante | `scripts/verificar-semana.sh` lee `checks.json` |
 

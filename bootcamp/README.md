@@ -30,7 +30,7 @@ Estado de cada semana:
 | [20](week-20-tdd_con_python/README.md) | TDD con Python | Python | 🟡 |
 | [21](week-21-coverage_y_calidad_en_python/README.md) | Coverage y Calidad en Python | Python | 🟡 |
 | [22](week-22-bdd_con_python_behave/README.md) | BDD con Python — Behave | Python | 🟡 |
-| 23 | Testing de Bases de Datos en Python | Python | ⬜ |
+| [23](week-23-testing_de_bases_de_datos_en_python/README.md) | Testing de Bases de Datos en Python | Python | ✅ |
 | 24 | Proyecto Integrador — Etapa 2 (Python) | Python | ⬜ |
 | 25 | JUnit 6 Avanzado y AssertJ | Java | ⬜ |
 | 26 | Mockito — Mocking en Java | Java | ⬜ |

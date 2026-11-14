@@ -180,7 +180,7 @@ verificar_semana() {
     return 0
   fi
   rojo "$pasados/$total comprobaciones superadas."
-  gris "Cada pista dice en que archivo y en que paso se arregla."
+  gris "Cada pista dice en qué archivo y en qué paso se arregla."
   return 1
 }
 

@@ -1,0 +1,48 @@
+{
+  "semana": "23",
+  "titulo": "Testing de Bases de Datos en Python",
+  "checks": [
+    {
+      "id": "sqlite-suite",
+      "descripcion": "La suite de repositorio pasa en SQLite",
+      "cmd": "cd {proyecto}/python && uv run pytest -q tests/repository -k sqlite",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "postgresql-suite",
+      "descripcion": "La misma suite pasa en PostgreSQL con Testcontainers",
+      "cmd": "cd {proyecto}/python && uv run pytest -q tests/repository -k postgresql",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6 (Docker debe estar en marcha)"
+    },
+    {
+      "id": "test-count",
+      "descripcion": "Al menos 10 tests de repositorio por base de datos",
+      "cmd": "cd {proyecto}/python && uv run pytest --collect-only -q tests/repository -k sqlite | tail -1",
+      "assert": "stdout~^[1-9][0-9]+/[0-9]+ tests collected",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "savepoint-rollback",
+      "descripcion": "La fixture session hace rollback por test con savepoint",
+      "cmd": "grep -qE '^[^#]*join_transaction_mode=\"create_savepoint\"' {proyecto}/python/tests/repository/conftest.py",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "factories",
+      "descripcion": "Los datos de prueba salen de factories de Factory Boy",
+      "cmd": "grep -qF '(SQLAlchemyModelFactory):' {proyecto}/python/tests/repository/factories.py",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "migrations",
+      "descripcion": "Las migraciones de Alembic suben, coinciden con los modelos y bajan",
+      "cmd": "cd {proyecto}/python && uv run pytest -q tests/repository/test_migrations.py",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    }
+  ]
+}

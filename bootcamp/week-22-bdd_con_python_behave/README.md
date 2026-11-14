@@ -119,4 +119,4 @@ Un feature que solo lee el equipo técnico es un test con otra sintaxis. BDD apo
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 21 - Coverage y calidad en Python](../week-21-coverage_y_calidad_en_python/README.md) | Semana 23 - Próximamente |
+| [Semana 21 - Coverage y calidad en Python](../week-21-coverage_y_calidad_en_python/README.md) | [Semana 23 - Testing de bases de datos en Python](../week-23-testing_de_bases_de_datos_en_python/README.md) |
