@@ -2,17 +2,24 @@ import factory.random
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+from testcontainers.community.postgres import PostgresContainer
 
 from models import Base
 # PASO 3: descomenta también este import.
 # from tests.factories import BookFactory, LoanFactory
 
+POSTGRES_IMAGE = "postgres:18.7-alpine"
+
 
 @pytest.fixture(scope="session")
-def engine():
-    engine = create_engine(
-        "sqlite+pysqlite:///:memory:", connect_args={"autocommit": False}
-    )
+def postgres_url():
+    with PostgresContainer(POSTGRES_IMAGE, driver="psycopg") as postgres:
+        yield postgres.get_connection_url()
+
+
+@pytest.fixture(scope="session")
+def engine(postgres_url):
+    engine = create_engine(postgres_url)
     Base.metadata.create_all(engine)
     yield engine
     engine.dispose()

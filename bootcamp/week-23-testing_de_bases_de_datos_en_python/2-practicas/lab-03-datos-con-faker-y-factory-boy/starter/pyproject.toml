@@ -2,10 +2,10 @@
 name = "week23-lab03-starter"
 version = "1.0.0"
 requires-python = ">=3.14"
-dependencies = ["sqlalchemy==2.1.8"]
+dependencies = ["psycopg[binary]==3.3.9", "sqlalchemy==2.1.8"]
 
 [dependency-groups]
-dev = ["factory-boy==3.3.3", "faker==40.54.0", "pytest==9.1.1"]
+dev = ["factory-boy==3.3.3", "faker==40.54.0", "pytest==9.1.1", "testcontainers[postgres]==4.15.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

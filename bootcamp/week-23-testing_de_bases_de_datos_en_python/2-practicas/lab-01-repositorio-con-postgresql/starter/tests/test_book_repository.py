@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 from sqlalchemy import select
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import DataError, IntegrityError
 
 from models import Book, Loan
 from repository import BookRepository, DuplicateIsbnError, OutOfStockError
@@ -11,7 +11,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 2: test_add_assigns_an_id
+# PASO 3: test_add_assigns_an_id
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_add_assigns_an_id(session):
@@ -23,7 +23,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 3: test_get_by_isbn_returns_none_when_missing
+# PASO 4: test_get_by_isbn_returns_none_when_missing
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_get_by_isbn_returns_none_when_missing(session):
@@ -33,7 +33,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 4: test_list_available_skips_out_of_stock_and_sorts_by_title
+# PASO 5: test_list_available_skips_out_of_stock_and_sorts_by_title
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_list_available_skips_out_of_stock_and_sorts_by_title(session):
@@ -48,7 +48,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 5: test_lend_decrements_stock_and_records_the_loan
+# PASO 6: test_lend_decrements_stock_and_records_the_loan
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_lend_decrements_stock_and_records_the_loan(session):
@@ -65,7 +65,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 6: test_lend_without_stock_raises
+# PASO 7: test_lend_without_stock_raises
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_lend_without_stock_raises(session):
@@ -77,7 +77,7 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 7: test_duplicate_isbn_raises_domain_error
+# PASO 8: test_duplicate_isbn_raises_domain_error
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_duplicate_isbn_raises_domain_error(session):
@@ -89,11 +89,22 @@ TODAY = date(2026, 3, 2)
 
 
 # ============================================
-# PASO 8: test_negative_stock_violates_check_constraint
+# PASO 9: test_negative_stock_violates_check_constraint
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_negative_stock_violates_check_constraint(session):
 #     session.add(Book(isbn="9780000000001", title="Dune", stock=-1))
 #
 #     with pytest.raises(IntegrityError, match="stock_non_negative"):
+#         session.flush()
+
+
+# ============================================
+# PASO 10: test_title_longer_than_120_characters_is_rejected
+# ============================================
+# Descomenta las siguientes líneas:
+# def test_title_longer_than_120_characters_is_rejected(session):
+#     session.add(Book(isbn="9780000000001", title="x" * 121, stock=1))
+#
+#     with pytest.raises(DataError):
 #         session.flush()

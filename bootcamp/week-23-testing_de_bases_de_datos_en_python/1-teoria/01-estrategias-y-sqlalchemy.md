@@ -6,9 +6,10 @@
 
 ## 🎯 Objetivos
 
-- Elegir dónde testear el acceso a datos: con mocks, con SQLite en memoria o con PostgreSQL real.
+- Elegir dónde testear el acceso a datos: con mocks o con un PostgreSQL real.
 - Leer y escribir lo mínimo de SQLAlchemy 2.0 que necesita un test: modelos, `Session` y `select()`.
-- Escribir el primer test de repositorio contra una base de datos de verdad.
+- Arrancar un PostgreSQL desechable desde pytest con Testcontainers.
+- Escribir el primer test de repositorio contra ese PostgreSQL.
 
 ---
 
@@ -35,17 +36,28 @@ Un mock no ve ninguno de esos errores.
 
 **Qué:** un *test de repositorio* ejecuta la consulta real contra una base de datos real, aunque sea pequeña y temporal.
 **Para qué:** detectar los errores que solo aparecen al hablar SQL.
-**Impacto:** el test es más lento que uno unitario (milisegundos con SQLite, segundos con PostgreSQL en Docker), así que se reserva para la capa de datos.
+**Impacto:** el test es más lento que uno unitario (unos segundos de arranque de PostgreSQL por ejecución), así que se reserva para la capa de datos.
 
-## Tres estrategias
+## Dos estrategias (y una que descartamos)
 
 | Estrategia | Qué detecta | Coste | Cuándo |
 |---|---|---|---|
 | Mock de la sesión | Que se llama a la sesión | Nulo | Lógica de negocio que *usa* el repositorio (semana 18) |
-| SQLite en memoria | Consultas, `UNIQUE` y `CHECK` (las claves foráneas solo con `PRAGMA foreign_keys = ON`) | Milisegundos, sin instalar nada | Ciclo rápido mientras escribes el repositorio |
-| PostgreSQL con Testcontainers | Todo lo anterior + tipos, longitudes y comportamiento del motor de producción | 2–5 s de arranque por sesión de pytest, necesita Docker | Antes de abrir el PR y en CI |
+| PostgreSQL con Testcontainers | Consultas, orden, `UNIQUE`, `CHECK`, claves foráneas, tipos y longitudes, con el motor de producción | 3–5 s de arranque por ejecución de pytest; necesita Docker | Toda la capa de datos: repositorios y migraciones |
 
-En este bootcamp la base de datos de producción es siempre **PostgreSQL**. SQLite es un atajo para iterar rápido, no un sustituto: la [teoría 04](04-postgresql-testcontainers-y-alembic.md) muestra un test que pasa en SQLite y falla en PostgreSQL.
+En este bootcamp la base de datos es siempre **PostgreSQL**, también en los tests.
+
+### ¿Y SQLite en memoria?
+
+Muchos tutoriales prueban con SQLite en memoria porque no necesita instalar nada. Aquí no se usa, porque se comporta distinto que PostgreSQL justo en lo que un test de repositorio quiere comprobar:
+
+| Comportamiento | PostgreSQL | SQLite |
+|---|---|---|
+| Título de 121 caracteres en un `VARCHAR(120)` | Lo rechaza con `DataError` | Lo guarda sin protestar |
+| Claves foráneas | Siempre activas | Desactivadas salvo `PRAGMA foreign_keys = ON` |
+| `SAVEPOINT` desde Python | Funcionan con `psycopg` | El módulo `sqlite3` los ignora salvo con `autocommit=False` |
+
+Un test verde en SQLite no dice cómo se comportará PostgreSQL. Con Testcontainers, el coste de usar el motor real son unos segundos por ejecución, no por test.
 
 ---
 
@@ -56,9 +68,12 @@ SQLAlchemy es el ORM más usado en Python. Aquí solo ves lo que el test necesit
 ### 1. Instalar
 
 ```bash
-uv add sqlalchemy==2.1.8
-uv add --dev pytest==9.1.1
+uv add sqlalchemy==2.1.8 "psycopg[binary]==3.3.9"
+uv add --dev pytest==9.1.1 "testcontainers[postgres]==4.15.0"
 ```
+
+- **`psycopg`:** el driver que conecta Python con PostgreSQL. El extra `[binary]` trae la librería compilada y evita instalar `libpq`.
+- **`testcontainers[postgres]`:** arranca contenedores Docker desde el test; el extra trae el módulo de PostgreSQL.
 
 ### 2. Declarar los modelos
 
@@ -94,19 +109,21 @@ Qué significa cada pieza:
 - **`unique=True` y `CheckConstraint`:** son restricciones de la tabla. Las aplica la base de datos, no Python, y por eso solo un test contra la BD las comprueba.
 - **`relationship`:** permite escribir `loan.book` en lugar de buscar por `book_id`.
 
-El modelo `Loan` (préstamo) completo está en el [lab 01](../2-practicas/lab-01-repositorio-con-sqlite/README.md).
+El modelo `Loan` (préstamo) completo está en el [lab 01](../2-practicas/lab-01-repositorio-con-postgresql/README.md).
 
 ### 3. Crear el engine y las tablas
 
 ```python
 from sqlalchemy import create_engine
 
-engine = create_engine("sqlite+pysqlite:///:memory:")
+engine = create_engine("postgresql+psycopg://test:test@localhost:32771/test")
 Base.metadata.create_all(engine)
 ```
 
-- **`engine`:** sabe cómo conectarse a la base de datos. La URL dice el motor (`sqlite`), el driver (`pysqlite`) y la base (`:memory:`, que vive en RAM y desaparece al cerrar la conexión).
-- **`create_all`:** ejecuta un `CREATE TABLE` por cada modelo de `Base`. En tests es suficiente; en producción el esquema se crea con migraciones ([teoría 04](04-postgresql-testcontainers-y-alembic.md)).
+- **`engine`:** sabe cómo conectarse a la base de datos. La URL dice el motor (`postgresql`), el driver (`psycopg`), el usuario y la contraseña, el host y el puerto, y la base de datos.
+- **`create_all`:** ejecuta un `CREATE TABLE` por cada modelo de `Base`. En tests es suficiente; en producción el esquema se crea con migraciones ([teoría 04](04-migraciones-con-alembic.md)).
+
+En los tests no escribes esa URL a mano: te la da Testcontainers.
 
 ### 4. Consultar con `Session` y `select()`
 
@@ -129,6 +146,55 @@ with Session(engine) as session:
 
 ---
 
+## PostgreSQL desechable con Testcontainers
+
+![Ciclo de vida del contenedor de PostgreSQL en una ejecución de pytest](../0-assets/02-postgresql-con-testcontainers.svg)
+
+### Requisito: Docker
+
+Testcontainers arranca contenedores Docker desde el código del test. Comprueba que Docker responde:
+
+```bash
+docker info --format '{{.ServerVersion}}'
+# 29.9.3
+```
+
+Si el comando falla, arranca Docker Desktop (Windows y macOS) o el servicio `docker` (Linux, Ubuntu 24.04) y vuelve a probar. Docker a fondo está en `bc-docker`.
+
+### La fixture del contenedor
+
+```python
+# tests/conftest.py
+from testcontainers.community.postgres import PostgresContainer
+
+POSTGRES_IMAGE = "postgres:18.7-alpine"
+
+
+@pytest.fixture(scope="session")
+def postgres_url():
+    with PostgresContainer(POSTGRES_IMAGE, driver="psycopg") as postgres:
+        yield postgres.get_connection_url()
+```
+
+Qué ocurre al entrar en el `with`:
+
+1. Testcontainers descarga la imagen si no la tienes; solo la primera vez tarda.
+2. Arranca el contenedor en un puerto libre elegido al azar, así que nunca choca con otro PostgreSQL.
+3. Espera a que PostgreSQL acepte conexiones.
+4. `get_connection_url()` devuelve algo como `postgresql+psycopg://test:test@localhost:32771/test`.
+
+Al salir del `with`, el contenedor se detiene y se borra. Si pytest se interrumpe, el contenedor auxiliar `testcontainers/ryuk` lo borra igualmente.
+
+**Qué:** un PostgreSQL de la misma versión que producción, creado para esta ejecución de pytest.
+**Para qué:** probar contra el motor real sin instalar PostgreSQL ni compartir una base de datos de desarrollo.
+**Impacto:** con scope `session`, el contenedor se arranca una vez por ejecución y no una vez por test.
+
+La imagen lleva versión exacta (`18.7-alpine`), nunca `latest`, para que todos los aprendices y CI prueben contra el mismo motor.
+
+> `from testcontainers.postgres import ...` todavía funciona, pero emite un `DeprecationWarning`. La ruta actual es `testcontainers.community.postgres`.
+
+---
+
 ## El primer test de repositorio
 
 El repositorio encapsula las consultas. Este es su método más simple:
@@ -140,16 +206,17 @@ def get_by_isbn(self, isbn: str) -> Book | None:
     return self.session.scalars(stmt).one_or_none()
 ```
 
-La fixture abre una base de datos nueva para cada test:
+La fixture `session` crea las tablas en el contenedor antes de cada test y las borra después:
 
 ```python
 # tests/conftest.py
 @pytest.fixture
-def session():
-    engine = create_engine("sqlite+pysqlite:///:memory:")
+def session(postgres_url):
+    engine = create_engine(postgres_url)
     Base.metadata.create_all(engine)
     with Session(engine) as session:
         yield session
+    Base.metadata.drop_all(engine)
     engine.dispose()
 ```
 
@@ -169,11 +236,13 @@ def test_list_available_skips_out_of_stock_and_sorts_by_title(session):
 
 ```bash
 uv run pytest -q
-# .......                                                                  [100%]
-# 7 passed in 0.06s
+# ........                                                                 [100%]
+# 8 passed in 3.92s
 ```
 
-También puedes comprobar una restricción. `match` busca el nombre que le diste al `CheckConstraint` dentro del mensaje de error:
+Casi todo ese tiempo es el arranque del contenedor; los ocho tests juntos tardan una fracción de segundo.
+
+También puedes comprobar las restricciones de la tabla. `match` busca el nombre que le diste al `CheckConstraint` dentro del mensaje de error:
 
 ```python
 def test_negative_stock_violates_check_constraint(session):
@@ -181,18 +250,28 @@ def test_negative_stock_violates_check_constraint(session):
 
     with pytest.raises(IntegrityError, match="stock_non_negative"):
         session.flush()
+
+
+def test_title_longer_than_120_characters_is_rejected(session):
+    session.add(Book(isbn="9780000000001", title="x" * 121, stock=1))
+
+    with pytest.raises(DataError):
+        session.flush()
 ```
 
-> Crear el engine en cada test aísla bien, pero repite el `CREATE TABLE` cada vez. Con decenas de tablas o con PostgreSQL eso se nota. La [teoría 02](02-fixtures-y-rollback-por-test.md) crea el esquema una sola vez y aísla los tests con transacciones.
+El segundo es el test que SQLite dejaría pasar: PostgreSQL responde `value too long for type character varying(120)`.
+
+> Crear y borrar las tablas en cada test aísla bien, pero repite el `CREATE TABLE` cada vez. Con decenas de tablas eso se nota. La [teoría 02](02-fixtures-y-rollback-por-test.md) crea el esquema una sola vez y aísla los tests con transacciones.
 
 ---
 
 ## ✅ Resumen
 
 - El mock de la sesión prueba llamadas; el test de repositorio prueba SQL.
-- SQLite en memoria sirve para iterar rápido. PostgreSQL con Testcontainers es la verificación final.
+- Los tests de repositorio se ejecutan contra PostgreSQL, el motor de producción. SQLite se descarta porque no aplica `VARCHAR` ni, por defecto, las claves foráneas.
 - Para testear, SQLAlchemy 2.0 se reduce a modelos con `Mapped`, `create_all`, `Session` y `select()`.
-- `UNIQUE`, `CHECK` y las claves foráneas las aplica la base de datos: solo un test contra la BD las verifica. SQLite no aplica las claves foráneas por defecto; PostgreSQL sí.
+- Testcontainers arranca un PostgreSQL con versión fija en un puerto libre, una vez por ejecución, y lo borra al terminar.
+- `UNIQUE`, `CHECK`, `VARCHAR` y las claves foráneas las aplica la base de datos: solo un test contra la BD las verifica.
 
 <!-- nav -->
 ---

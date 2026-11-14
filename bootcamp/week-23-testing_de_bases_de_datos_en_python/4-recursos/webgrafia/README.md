@@ -3,9 +3,7 @@
 | Recurso | URL | Para qué |
 |---|---|---|
 | SQLAlchemy: Joining a Session into an External Transaction | https://docs.sqlalchemy.org/en/21/orm/session_transaction.html | Documentación oficial del patrón de rollback por test y de `join_transaction_mode`. |
-| SQLAlchemy: dialecto SQLite | https://docs.sqlalchemy.org/en/21/dialects/sqlite.html | Transacciones y savepoints con `pysqlite`. |
-| Python `sqlite3` | https://docs.python.org/3/library/sqlite3.html | El atributo `autocommit` (Python 3.12+) que hace funcionar los savepoints. |
-| SQLite: Datatypes | https://www.sqlite.org/datatype3.html | Por qué SQLite no aplica la longitud de `VARCHAR`. |
+| SQLite: Datatypes | https://www.sqlite.org/datatype3.html | Por qué SQLite no aplica la longitud de `VARCHAR`, uno de los motivos para no usarlo en lugar de PostgreSQL. |
 | PostgreSQL 18: Character Types | https://www.postgresql.org/docs/18/datatype-character.html | `VARCHAR(n)` en PostgreSQL y el error al superar la longitud. |
 | Factory Boy: ORMs (SQLAlchemy) | https://factoryboy.readthedocs.io/en/stable/orms.html | `SQLAlchemyModelFactory` y `sqlalchemy_session_persistence`. |
 | Faker | https://faker.readthedocs.io/en/master/ | Providers, locales y semillas. |

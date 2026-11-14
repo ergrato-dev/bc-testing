@@ -483,16 +483,15 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Estrategias para testear con BD: in-memory, fixtures, transacciones
-- SQLite en tests: `pytest` + SQLAlchemy 2.0 (estilo `select()`) con BD en memoria, y sus límites frente a PostgreSQL
+- Estrategias para testear con BD: mock frente a PostgreSQL real, y por qué no SQLite en memoria
+- Testcontainers en Python con PostgreSQL real desde el primer lab, con SQLAlchemy 2.0 (estilo `select()`)
 - Fixtures de BD: crear esquema, poblar datos, limpiar (scope `session` vs `function`)
 - Rollback por test: conexión con transacción externa + `join_transaction_mode="create_savepoint"`
 - Faker para datos de prueba realistas
 - Factory Boy para objetos de prueba complejos
 - Testing de migraciones (Alembic)
-- Testcontainers en Python con PostgreSQL real
 
-**Proyecto**: Suite de tests para la capa de acceso a datos del dominio asignado: CRUD completo con SQLAlchemy, rollback por test y Factory Boy para datos de prueba; la misma suite corre en SQLite y en PostgreSQL con Testcontainers.
+**Proyecto**: Suite de tests para la capa de acceso a datos del dominio asignado: CRUD completo con SQLAlchemy, rollback por test y Factory Boy para datos de prueba; la suite corre contra PostgreSQL con Testcontainers.
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Crear el esquema una sola vez y aislar cada test con una transacción que termina en rollback. Vas a provocar el fallo que aparece sin aislamiento, aplicar el patrón con savepoint y descubrir por qué SQLite necesita un ajuste extra.
+Crear el esquema una sola vez y aislar cada test con una transacción que termina en rollback. Vas a provocar el fallo que aparece sin aislamiento, aplicar el patrón con savepoint y comprobar qué pasa sin `create_savepoint`.
 
 ## Tiempo estimado
 
@@ -10,17 +10,19 @@ Crear el esquema una sola vez y aislar cada test con una transacción que termin
 
 ## Preparación
 
+Docker debe estar en marcha, como en el lab 01.
+
 ```bash
 cd starter
 uv sync
 ```
 
-- `models.py` y `repository.py` son los del [lab 01](../lab-01-repositorio-con-sqlite/README.md).
+- `models.py` y `repository.py` son los del [lab 01](../lab-01-repositorio-con-postgresql/README.md).
 - `tests/test_isolation.py` trae tres tests activos que **dependen del aislamiento**:
   1. `test_lend_commits_inside_the_test`: presta un libro; `lend` hace `commit()`.
   2. `test_next_test_starts_with_an_empty_database`: espera que no haya libros.
   3. `test_rollback_inside_the_code_keeps_previous_commits`: inserta un libro y luego un duplicado; el repositorio hace `rollback()` y el primer libro debe seguir ahí.
-- `tests/conftest.py` trae una fixture `engine` con scope `session` y una fixture `session` **sin aislamiento** (PASO 1).
+- `tests/conftest.py` trae `postgres_url` del lab 01, una fixture `engine` con scope `session` que crea las tablas una vez y una fixture `session` **sin aislamiento** (PASO 1).
 
 La [teoría 02](../../1-teoria/02-fixtures-y-rollback-por-test.md) explica el patrón paso a paso.
 
@@ -32,19 +34,19 @@ La [teoría 02](../../1-teoria/02-fixtures-y-rollback-por-test.md) explica el pa
 uv run pytest -q
 # FAILED tests/test_isolation.py::test_next_test_starts_with_an_empty_database
 # FAILED tests/test_isolation.py::test_rollback_inside_the_code_keeps_previous_commits
-# 2 failed, 1 passed in 0.39s
+# 2 failed, 1 passed in 4.08s
 ```
 
 Lee los dos errores:
 
-- **Test 2:** `assert [<models.Book ...>] == []`. Encuentra el libro que el test 1 confirmó con `commit()`.
-- **Test 3:** `UNIQUE constraint failed: books.isbn` al insertar el **primer** libro, porque el test 1 ya usó ese ISBN.
+- **Test 2:** `assert [<models.Book...>] == []`. Encuentra el libro que el test 1 confirmó con `commit()`.
+- **Test 3:** `duplicate key value violates unique constraint "books_isbn_key"` al insertar el **primer** libro, porque el test 1 ya usó ese ISBN.
 
 Ejecuta solo el test 2:
 
 ```bash
 uv run pytest -q tests/test_isolation.py::test_next_test_starts_with_an_empty_database
-# 1 passed in 0.02s
+# 1 passed in 3.40s
 ```
 
 Solo pasa si se ejecuta solo: depende del orden de ejecución.
@@ -67,39 +69,18 @@ def session(engine):
 
 ```bash
 uv run pytest -q
-# 2 failed, 1 passed in 0.44s
-```
-
-Fallan los mismos dos tests con los mismos errores, aunque el patrón es el correcto. Sigue al Paso 3.
-
-### Paso 3: `sqlite3` y los savepoints (PASO 3)
-
-El módulo `sqlite3` de Python, en su modo por defecto, decide por su cuenta cuándo empieza y termina una transacción e ignora el `BEGIN` de la fixture. En `engine`, sustituye la línea `create_engine(...)` por las tres comentadas:
-
-```python
-    engine = create_engine(
-        "sqlite+pysqlite:///:memory:", connect_args={"autocommit": False}
-    )
-```
-
-```bash
-uv run pytest -q
 # ...                                                                      [100%]
-# 3 passed in 0.03s
+# 3 passed in 3.53s
 ```
-
-**Qué:** `autocommit=False` (Python 3.12+) hace que `sqlite3` respete las transacciones de SQLAlchemy.
-**Para qué:** que el `BEGIN`, los `SAVEPOINT` y el `ROLLBACK` de la fixture lleguen a SQLite.
-**Impacto:** solo afecta a SQLite. Con PostgreSQL (lab 04) no hace falta.
 
 Ejecuta los tests en orden inverso para confirmar que ya no dependen del orden:
 
 ```bash
 uv run pytest -q tests/test_isolation.py::test_rollback_inside_the_code_keeps_previous_commits tests/test_isolation.py::test_next_test_starts_with_an_empty_database tests/test_isolation.py::test_lend_commits_inside_the_test
-# 3 passed in 0.08s
+# 3 passed in 3.78s
 ```
 
-### Paso 4: experimento sin `create_savepoint`
+### Paso 3: experimento sin `create_savepoint`
 
 Borra `, join_transaction_mode="create_savepoint"` de la fixture y ejecuta:
 
@@ -107,7 +88,7 @@ Borra `, join_transaction_mode="create_savepoint"` de la fixture y ejecuta:
 uv run pytest -q
 # E       AttributeError: 'NoneType' object has no attribute 'title'
 # FAILED tests/test_isolation.py::test_rollback_inside_the_code_keeps_previous_commits
-# 1 failed, 2 passed, 1 warning in 0.04s
+# 1 failed, 2 passed, 1 warning in 3.35s
 ```
 
 Sin ese argumento, el `rollback()` del repositorio deshace la transacción externa entera y se lleva por delante el primer libro. El aviso `SAWarning: transaction already deassociated from connection` lo confirma: cuando la fixture intenta hacer su rollback, la transacción ya no existe.
@@ -120,7 +101,7 @@ Vuelve a añadir el argumento.
 cd ../solution
 uv sync
 uv run pytest -q
-# 3 passed in 0.03s
+# 3 passed in 3.34s
 ```
 
 ## Preguntas de cierre
@@ -135,6 +116,6 @@ uv run pytest -q
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Lab 01 - Repositorio con SQLite en memoria](../lab-01-repositorio-con-sqlite/README.md) | [Lab 03 - Datos de prueba con Faker y Factory Boy](../lab-03-datos-con-faker-y-factory-boy/README.md) → |
+| ← [Lab 01 - Repositorio con PostgreSQL y Testcontainers](../lab-01-repositorio-con-postgresql/README.md) | [Lab 03 - Datos de prueba con Faker y Factory Boy](../lab-03-datos-con-faker-y-factory-boy/README.md) → |
 
 [↑ Semana 23](../../README.md)

@@ -6,7 +6,7 @@ from sqlalchemy.engine import make_url
 
 
 # ============================================
-# PASO 5: alembic_config
+# PASO 1: alembic_config
 # ============================================
 # Descomenta las siguientes líneas:
 # @pytest.fixture
@@ -24,7 +24,7 @@ from sqlalchemy.engine import make_url
 
 
 # ============================================
-# PASO 6: table_names
+# PASO 2: table_names
 # ============================================
 # Descomenta las siguientes líneas:
 # def table_names(config):
@@ -35,7 +35,7 @@ from sqlalchemy.engine import make_url
 
 
 # ============================================
-# PASO 7: test_upgrade_head_matches_the_models
+# PASO 3: test_upgrade_head_matches_the_models
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_upgrade_head_matches_the_models(alembic_config):
@@ -46,7 +46,7 @@ from sqlalchemy.engine import make_url
 
 
 # ============================================
-# PASO 8: test_downgrade_base_removes_every_table
+# PASO 4: test_downgrade_base_removes_every_table
 # ============================================
 # Descomenta las siguientes líneas:
 # def test_downgrade_base_removes_every_table(alembic_config):

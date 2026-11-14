@@ -6,7 +6,7 @@
 |---|---:|---|
 | Conocimiento | 30% | Estrategias de testing de BD, rollback por test, factories, Testcontainers y migraciones |
 | Desempeño | 40% | Labs 01 a 04 completos, con cada fallo provocado y explicado |
-| Producto | 30% | Capa de datos del dominio con su suite en SQLite y PostgreSQL |
+| Producto | 30% | Capa de datos del dominio con su suite contra PostgreSQL con Testcontainers |
 
 ---
 
@@ -19,14 +19,14 @@
 - Explica qué detecta un test de repositorio que un mock de la sesión no ve.
 - Reparte engine, esquema y transacción entre scopes `session` y `function`, y justifica el reparto.
 - Explica qué hace `join_transaction_mode="create_savepoint"` y qué pasa sin él cuando el código hace `rollback()`.
-- Distingue cuándo usar SQLite y cuándo PostgreSQL, con un ejemplo de diferencia real.
+- Explica por qué los tests de repositorio usan PostgreSQL y no SQLite en memoria, con un ejemplo de diferencia real.
 - Explica qué riesgos cubren `upgrade head`, `check` y `downgrade base`.
 
 ### Niveles
 
 - **Alto (27-30):** explica cada concepto con un ejemplo correcto.
 - **Medio (21-26):** comprende los conceptos con una o dos confusiones menores.
-- **Bajo (<21):** trata SQLite y PostgreSQL como equivalentes o no explica el aislamiento.
+- **Bajo (<21):** cree que un mock o SQLite prueban lo mismo que PostgreSQL, o no explica el aislamiento.
 
 ---
 
@@ -34,10 +34,10 @@
 
 ### Criterios
 
-- Lab 01: los siete tests pasan y explica el fallo al quitar `ORDER BY`.
-- Lab 02: provoca el fallo sin aislamiento, aplica el savepoint, explica el ajuste de `sqlite3` y el experimento sin `create_savepoint`.
+- Lab 01: los ocho tests pasan contra el contenedor y explica el fallo al quitar `ORDER BY`.
+- Lab 02: provoca el fallo sin aislamiento, aplica el savepoint y explica el experimento sin `create_savepoint`.
 - Lab 03: factories con `Sequence`, `SubFactory` y semilla fija.
-- Lab 04: la suite en los dos motores, el `VARCHAR` saltado con motivo, la migración generada y el experimento de `check`.
+- Lab 04: la migración generada, `upgrade`/`check`/`downgrade` probados y el experimento de `check`.
 
 ### Niveles
 

@@ -10,6 +10,8 @@ Sustituir los datos escritos a mano por factories: cada test indica solo los cam
 
 ## Preparación
 
+Docker debe estar en marcha, como en el lab 01.
+
 ```bash
 cd starter
 uv sync
@@ -20,7 +22,7 @@ uv run pytest -q
 Qué hay en `starter/`:
 
 - **`pyproject.toml`:** añade `faker==40.54.0` y `factory-boy==3.3.3` al grupo `dev`.
-- **`tests/conftest.py`:** trae `engine` y `session` del lab 02, ya completas. Las fixtures de factories están comentadas (PASOS 3 y 4).
+- **`tests/conftest.py`:** trae `postgres_url`, `engine` y `session` del lab 02, ya completas. Las fixtures de factories están comentadas (PASOS 3 y 4).
 - **`tests/factories.py`:** `BookFactory` y `LoanFactory`, comentadas (PASOS 1 y 2).
 - **`tests/test_with_factories.py`:** cinco tests comentados (PASOS 5 a 9).
 - **`tests/__init__.py`:** convierte `tests/` en paquete para que funcione `from tests.factories import ...`.
@@ -88,7 +90,7 @@ Descomenta `test_lend_last_copy_then_out_of_stock`. La factory crea el libro y e
 ```bash
 uv run pytest -q
 # .....                                                                    [100%]
-# 5 passed in 0.10s
+# 5 passed in 3.80s
 ```
 
 ## Comprobación
@@ -97,7 +99,7 @@ uv run pytest -q
 cd ../solution
 uv sync
 uv run pytest -q
-# 5 passed in 0.10s
+# 5 passed in 3.80s
 ```
 
 ## Preguntas de cierre
@@ -112,6 +114,6 @@ uv run pytest -q
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Lab 02 - Rollback por test](../lab-02-rollback-por-test/README.md) | [Lab 04 - PostgreSQL con Testcontainers y migraciones con Alembic](../lab-04-postgresql-con-testcontainers-y-alembic/README.md) → |
+| ← [Lab 02 - Rollback por test](../lab-02-rollback-por-test/README.md) | [Lab 04 - Migraciones con Alembic](../lab-04-migraciones-con-alembic/README.md) → |
 
 [↑ Semana 23](../../README.md)

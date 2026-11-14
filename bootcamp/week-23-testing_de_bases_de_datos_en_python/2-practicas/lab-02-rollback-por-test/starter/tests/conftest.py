@@ -1,17 +1,22 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+from testcontainers.community.postgres import PostgresContainer
 
 from models import Base
 
+POSTGRES_IMAGE = "postgres:18.7-alpine"
+
 
 @pytest.fixture(scope="session")
-def engine():
-    # PASO 3: sustituye la línea siguiente por las tres comentadas.
-    engine = create_engine("sqlite+pysqlite:///:memory:")
-    # engine = create_engine(
-    #     "sqlite+pysqlite:///:memory:", connect_args={"autocommit": False}
-    # )
+def postgres_url():
+    with PostgresContainer(POSTGRES_IMAGE, driver="psycopg") as postgres:
+        yield postgres.get_connection_url()
+
+
+@pytest.fixture(scope="session")
+def engine(postgres_url):
+    engine = create_engine(postgres_url)
     Base.metadata.create_all(engine)
     yield engine
     engine.dispose()

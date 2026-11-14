@@ -554,7 +554,7 @@ La lista completa (incluidas las herramientas que se fijan al construir su seman
 ### Bases de Datos en Tests
 
 - ✅ **JavaScript/Node.js**: SQLite con `better-sqlite3` para tests de integración
-- ✅ **Python**: SQLite con SQLAlchemy o Testcontainers para BD reales
+- ✅ **Python**: PostgreSQL con Testcontainers y SQLAlchemy (S23)
 - ✅ **Java**: H2 in-memory para unit/slice tests; Testcontainers (PostgreSQL) para integración real
 - ❌ No usar la BD de producción en ningún test automatizado
 

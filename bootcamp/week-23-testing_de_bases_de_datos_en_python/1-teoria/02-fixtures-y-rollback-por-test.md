@@ -11,7 +11,6 @@
 - Repartir el trabajo de la base de datos entre fixtures de scope `session` y `function`.
 - Aislar cada test con una transacción externa que siempre termina en rollback.
 - Entender por qué hace falta `join_transaction_mode="create_savepoint"` cuando el código bajo prueba hace `commit()` o `rollback()`.
-- Configurar `sqlite3` para que los `SAVEPOINT` funcionen.
 
 ---
 
@@ -34,8 +33,8 @@ El rollback deshace los cambios del test sin tener que borrar ni recrear tablas.
 
 ```python
 @pytest.fixture(scope="session")
-def engine():
-    engine = create_engine("sqlite+pysqlite:///:memory:")
+def engine(postgres_url):
+    engine = create_engine(postgres_url)
     Base.metadata.create_all(engine)
     yield engine
     engine.dispose()
@@ -47,16 +46,16 @@ def session(engine):
         yield session
 ```
 
-El esquema se crea una vez, pero los datos también se comparten. Lo que un test confirma con `commit()` lo ve el siguiente:
+`postgres_url` es la fixture del contenedor de la [teoría 01](01-estrategias-y-sqlalchemy.md). El esquema se crea una vez, pero los datos también se comparten. Lo que un test confirma con `commit()` lo ve el siguiente:
 
 ```bash
 uv run pytest -q
 # FAILED tests/test_isolation.py::test_next_test_starts_with_an_empty_database
 # FAILED tests/test_isolation.py::test_rollback_inside_the_code_keeps_previous_commits
-# 2 failed, 1 passed in 0.39s
+# 2 failed, 1 passed in 4.08s
 ```
 
-El segundo test espera una base de datos vacía y encuentra el libro del primero. El tercero falla al insertar, por `UNIQUE constraint failed: books.isbn`, con un ISBN que ya insertó el primero.
+El segundo test espera una base de datos vacía y encuentra el libro del primero. El tercero falla al insertar, por `duplicate key value violates unique constraint "books_isbn_key"`, con un ISBN que ya insertó el primero.
 
 Si cambias el orden de ejecución, fallan otros tests. Este es el síntoma clásico de los tests acoplados por datos.
 
@@ -85,6 +84,12 @@ Qué hace cada línea:
 **Para qué:** los tests se pueden ejecutar en cualquier orden, de uno en uno o todos a la vez.
 **Impacto:** el código bajo prueba no cambia. Puede seguir llamando a `commit()` y a `rollback()` como en producción.
 
+```bash
+uv run pytest -q
+# ...                                                                      [100%]
+# 3 passed in 3.53s
+```
+
 ### ¿Por qué `create_savepoint`?
 
 El repositorio del lab hace `rollback()` cuando detecta un ISBN duplicado:
@@ -106,30 +111,10 @@ Sin `join_transaction_mode`, SQLAlchemy usa el modo `"conservative_savepoint"`. 
 uv run pytest -q
 # E       AttributeError: 'NoneType' object has no attribute 'title'
 # FAILED tests/test_isolation.py::test_rollback_inside_the_code_keeps_previous_commits
-# 1 failed, 2 passed, 1 warning in 0.04s
+# 1 failed, 2 passed, 1 warning in 3.35s
 ```
 
 El aviso confirma que la fixture perdió su transacción: `SAWarning: transaction already deassociated from connection`. Con `"create_savepoint"`, el `rollback()` solo vuelve al último savepoint y el primer libro sigue ahí.
-
-## Paso 3: `sqlite3` y los savepoints
-
-Con el Paso 2 aplicado y SQLite, los tests **siguen fallando igual que en el Paso 1**. El motivo es que el módulo `sqlite3` de Python, en su modo por defecto, gestiona las transacciones por su cuenta y no respeta el `BEGIN` ni los `SAVEPOINT` de SQLAlchemy. Desde Python 3.12 se corrige con un argumento de conexión:
-
-```python
-engine = create_engine(
-    "sqlite+pysqlite:///:memory:", connect_args={"autocommit": False}
-)
-```
-
-```bash
-uv run pytest -q
-# ...                                                                      [100%]
-# 3 passed in 0.03s
-```
-
-**Qué:** `autocommit=False` hace que `sqlite3` siga las transacciones tal como las pide SQLAlchemy.
-**Para qué:** que el rollback por test funcione también en SQLite.
-**Impacto:** solo afecta a SQLite. El driver de PostgreSQL (`psycopg`) ya funciona así.
 
 ---
 
@@ -138,7 +123,6 @@ uv run pytest -q
 - El engine y el esquema van en scope `session`; la transacción, en scope `function`.
 - Transacción externa, `join_transaction_mode="create_savepoint"` y `rollback()` al final: cada test empieza y termina con la base de datos vacía.
 - Sin `create_savepoint`, el `rollback()` del código bajo prueba destruye los datos del test.
-- En SQLite, añade `connect_args={"autocommit": False}`; si no, los savepoints no funcionan.
 
 <!-- nav -->
 ---

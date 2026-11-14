@@ -6,9 +6,9 @@
 
 Dar a tu dominio una capa de datos con SQLAlchemy y probarla como en los labs:
 
-- una suite de repositorio con rollback por test;
+- una suite de repositorio contra PostgreSQL con Testcontainers;
+- rollback por test;
 - factories para los datos;
-- la misma suite ejecutada en SQLite y en PostgreSQL con Testcontainers;
 - migraciones de Alembic probadas.
 
 ## Dónde va
@@ -63,15 +63,15 @@ En `python/data/models.py` y `python/data/repository.py`, sigue los `TODO`:
    - `list_by_status`, ordenado;
    - la operación principal de tu dominio, que cambia el estado y crea la segunda entidad.
 
-Referencia: [lab 01](../2-practicas/lab-01-repositorio-con-sqlite/README.md).
+Referencia: [lab 01](../2-practicas/lab-01-repositorio-con-postgresql/README.md).
 
 ### Paso 3: rollback por test
 
 En `python/tests/repository/conftest.py`:
 
-1. `engine` con `scope="session"`, que crea las tablas una vez.
-2. `session` con transacción externa y `join_transaction_mode="create_savepoint"`.
-3. En SQLite, `connect_args={"autocommit": False}`.
+1. `postgres_url` ya viene completa en el starter: arranca `postgres:18.7-alpine` con Testcontainers.
+2. Añade `engine` con `scope="session"`, que recibe `postgres_url` y crea las tablas una vez.
+3. Cambia `session` para que use una transacción externa y `join_transaction_mode="create_savepoint"`.
 
 Referencia: [lab 02](../2-practicas/lab-02-rollback-por-test/README.md).
 
@@ -84,11 +84,14 @@ En `python/tests/repository/`, renombra `test_item_repository.py` a `test_<entid
 - filtro y orden de `list_by_status`;
 - la operación principal: cambia el estado y crea la segunda entidad;
 - la operación principal rechazada en cada estado no válido (usa `parametrize`);
-- un estado fuera del `CheckConstraint` lanza `IntegrityError`.
+- un estado fuera del `CheckConstraint` lanza `IntegrityError`;
+- un nombre de 121 caracteres lanza `DataError` (`VARCHAR(120)`).
+
+Con Docker en marcha:
 
 ```bash
 cd python
-uv run pytest -q tests/repository -k sqlite
+uv run pytest -q tests/repository
 ```
 
 ### Paso 5: factories
@@ -102,19 +105,7 @@ En `python/tests/repository/factories.py`:
 
 Referencia: [lab 03](../2-practicas/lab-03-datos-con-faker-y-factory-boy/README.md).
 
-### Paso 6: PostgreSQL con Testcontainers
-
-1. Añade a `conftest.py` la fixture `postgres_url`, con `postgres:18.7-alpine`.
-2. Parametriza `engine` con `["sqlite", "postgresql"]`.
-3. Añade un test de longitud del nombre (121 caracteres). En SQLite debe saltarse con `pytest.skip` y un motivo.
-
-```bash
-uv run pytest -q -rs tests/repository
-```
-
-Referencia: [lab 04](../2-practicas/lab-04-postgresql-con-testcontainers-y-alembic/README.md), pasos 1 a 4.
-
-### Paso 7: migraciones
+### Paso 6: migraciones
 
 1. En `python/`, configura Alembic:
    - ejecuta `uv run alembic init migrations`;
@@ -127,9 +118,9 @@ Referencia: [lab 04](../2-practicas/lab-04-postgresql-con-testcontainers-y-alemb
    - `upgrade head` + `check`;
    - `downgrade base`.
 
-Referencia: [lab 04](../2-practicas/lab-04-postgresql-con-testcontainers-y-alembic/README.md), pasos 5 a 8.
+Referencia: [lab 04](../2-practicas/lab-04-migraciones-con-alembic/README.md).
 
-### Paso 8: verificar y entregar
+### Paso 7: verificar y entregar
 
 1. Ejecuta la verificación desde la carpeta del bootcamp, con Docker en marcha:
 
@@ -154,17 +145,16 @@ Referencia: [lab 04](../2-practicas/lab-04-postgresql-con-testcontainers-y-alemb
 
 | Comprobación | Cómo se verifica |
 |---|---|
-| La suite de repositorio pasa en SQLite | `uv run pytest -q tests/repository -k sqlite` termina con 0 |
-| La misma suite pasa en PostgreSQL con Testcontainers | `uv run pytest -q tests/repository -k postgresql` termina con 0 |
-| Al menos 10 tests de repositorio por base de datos | `--collect-only -k sqlite` recoge 10 o más |
+| La suite de repositorio pasa contra PostgreSQL con Testcontainers | `uv run pytest -q tests/repository` termina con 0 |
+| Al menos 10 tests de repositorio, sin contar los de migraciones | `--collect-only` recoge 10 o más fuera de `test_migrations.py` |
 | La fixture `session` hace rollback por test con savepoint | `conftest.py` usa `join_transaction_mode="create_savepoint"` fuera de un comentario |
 | Los datos de prueba salen de factories de Factory Boy | `factories.py` declara al menos una clase `(SQLAlchemyModelFactory):` |
 | Las migraciones de Alembic suben, coinciden con los modelos y bajan | `tests/repository/test_migrations.py` pasa |
 
 Además, en el README de tu repositorio escribe un párrafo con:
 
-- qué error encontró PostgreSQL que SQLite no veía;
-- qué restricción de tu dominio protege la base de datos y no el código Python.
+- qué restricción de tu dominio protege la base de datos y no el código Python;
+- qué test de tu suite fallaría si la base de datos fuera un mock.
 
 > La `solution/` del proyecto no se publica en el repositorio del bootcamp.
 
@@ -175,6 +165,6 @@ Además, en el README de tu repositorio escribe un párrafo con:
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Lab 04 - PostgreSQL con Testcontainers y migraciones con Alembic](../2-practicas/lab-04-postgresql-con-testcontainers-y-alembic/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
+| ← [Lab 04 - Migraciones con Alembic](../2-practicas/lab-04-migraciones-con-alembic/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
 
 [↑ Semana 23](../README.md)

@@ -173,6 +173,6 @@ Las dos se combinan: la fixture `session` da el aislamiento y las factories crea
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Teoría — 02 - Fixtures de base de datos y rollback por test](02-fixtures-y-rollback-por-test.md) | [Teoría — 04 - PostgreSQL real con Testcontainers y migraciones con Alembic](04-postgresql-testcontainers-y-alembic.md) → |
+| ← [Teoría — 02 - Fixtures de base de datos y rollback por test](02-fixtures-y-rollback-por-test.md) | [Teoría — 04 - Migraciones con Alembic](04-migraciones-con-alembic.md) → |
 
 [↑ Semana 23](../README.md)
