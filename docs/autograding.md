@@ -72,8 +72,8 @@ Marcadores:
 
 ## 🔗 Navegación
 
-| Anterior | Actual | Siguiente |
-| -------- | ------ | --------- |
-| [Proyecto hilo conductor](proyecto-hilo-conductor.md) | **Autograding** | [Índice de semanas](../bootcamp/README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto hilo conductor](proyecto-hilo-conductor.md) | [Guía de desarrollo de contenidos](guia-desarrollo-contenidos.md) → |
 
 ← [Volver al inicio del bootcamp](../README.md)

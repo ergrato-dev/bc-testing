@@ -106,7 +106,7 @@ Exact versions, where they are pinned and why: [`docs/stack-versions.md`](docs/s
 ### Prerequisites
 
 - **Node.js** 22 LTS + `pnpm` (for JavaScript weeks)
-- **Python** 3.12+ + `uv` (for Python weeks)
+- **Python** 3.14 + `uv` (for Python weeks; never `pip`)
 - **JDK 21 LTS** + **Maven** (for Java weeks)
 - **Go** (for Go weeks, version in the tools table)
 - **Rust** via `rustup`, stable toolchain (+ nightly only for `cargo-fuzz`)

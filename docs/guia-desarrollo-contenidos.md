@@ -531,7 +531,7 @@ Antes de considerar una semana completa:
 
 - ❌ **NUNCA** usar `npm` en proyectos JavaScript
 - ✅ **SOLO** usar `pnpm` (❌ NUNCA `yarn`)
-- ✅ Python: usar `uv` (`uv sync`, `uv run pytest`) con `pyproject.toml` por starter/solution; `pip` + `venv` solo como alternativa mencionada
+- ✅ Python: usar `uv` (`uv sync`, `uv run pytest`) con `pyproject.toml` por starter/solution. ❌ NUNCA `pip`, ni siquiera como alternativa
 - ✅ Java: usar `Maven` (por defecto) o `Gradle`
 
 ### Versiones de Lenguajes y Frameworks
@@ -610,3 +610,13 @@ class CreateUser {
 ---
 
 _Última actualización: Julio 2026 | Versión: 1.1 — Versiones de herramientas actualizadas tras auditoría (ver AUDIT.md)_
+
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Autograding](autograding.md) | [Decisión de nomenclatura de carpetas](decision-nomenclatura-carpetas-semanas.md) → |
+
+← [Volver al inicio del bootcamp](../README.md)

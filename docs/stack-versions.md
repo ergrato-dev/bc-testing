@@ -85,8 +85,8 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 
 ## 🔗 Navegación
 
-| Anterior | Actual | Siguiente |
-| -------- | ------ | --------- |
-| [Plan de estudios](plan-estudios.md) | **Versiones del stack** | [Decisión de duración](decision-semanas.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Plan de estudios](plan-estudios.md) | [Decisión de duración](decision-semanas.md) → |
 
 ← [Volver al inicio del bootcamp](../README.md)

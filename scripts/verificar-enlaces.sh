@@ -8,12 +8,12 @@
 #      desde algun .md.
 #   5. checks.json valido como JSON.
 #   6. Todo .sh con shebang `env bash`, `set -euo pipefail` y bit de ejecucion.
-#   7. Reglas de estilo del curso (CLAUDE.md): sin pip, npm, MySQL, voseo ni
-#      degradados en SVG.
+#   7. Reglas de estilo del curso (CLAUDE.md): sin pip, npm, MySQL ni voseo;
+#      SVG sin degradados y con fuente sans-serif.
 #   8. Los scripts bash de los starter/ de semanas publicadas parsean
 #      (`bash -n`). El codigo de cada lenguaje lo valida su checks.json.
 #
-# Las comprobaciones 3, 7 y 8 solo se aplican a las semanas
+# Las comprobaciones 3 y 8 solo se aplican a las semanas
 # marcadas con ✅ en bootcamp/README.md: las semanas 🟡 (S01-S22, estructura
 # anterior) fallarian por diseno hasta migrarlas.
 #
@@ -155,17 +155,21 @@ reglas=(
 for r in "${reglas[@]}"; do
   patron=${r%%|*}; msg=${r##*|}
   while IFS= read -r hit; do
-    # Las semanas 🟡 (estructura anterior) se revisan al migrarlas.
-    case "$hit" in ./bootcamp/week-*) esta_publicada "$hit" || continue ;; esac
     echo "REGLA: $msg: $hit"; fail=1
   done < <(grep -rniP "$patron" --include="*.md" --include="*.yaml" --include="*.yml" --include="*.sh" \
              --exclude-dir=.git --exclude-dir=.claude --exclude-dir=node_modules --exclude-dir=.venv --exclude-dir=target --exclude=verificar-enlaces.sh \
              --exclude=CLAUDE.md --exclude=AUDIT.md . 2>/dev/null \
-             | grep -viE '❌|nunca|never|no usar|do not use|no uses|not use')
+             | grep -viE '❌|nunca|never|no usar|do not use|no uses|not use' \
+             | grep -vE 'pnpm|\buv\b|PostgreSQL')
+  # Una línea que nombra la herramienta correcta junto a la prohibida es la
+  # propia regla o su penalización en la rúbrica, no un uso.
 done
 while IFS= read -r svg; do
   echo "REGLA: SVG con degradado (prohibido): $svg"; fail=1
-done < <(grep -rliE "Gradient" --include="*.svg" bootcamp assets 2>/dev/null | while IFS= read -r f; do esta_publicada "$f" && echo "$f"; done)
+done < <(grep -rliE "Gradient" --include="*.svg" bootcamp assets 2>/dev/null)
+while IFS= read -r svg; do
+  echo "REGLA: SVG con texto sin fuente sans-serif: $svg"; fail=1
+done < <(grep -rlE "<text" --include="*.svg" bootcamp assets 2>/dev/null | xargs -r grep -LE "sans-serif|Inter|Roboto|system-ui")
 
 echo "== 8. Scripts bash de los starter/ parsean =="
 while IFS= read -r f; do

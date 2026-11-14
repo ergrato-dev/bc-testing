@@ -14,10 +14,14 @@ Instrucciones de proyecto para Claude Code. Este archivo se carga automáticamen
 
 ## Reglas obligatorias de contenido
 
-- **Idioma:** documentación en español, **siempre tuteo, nunca voseo** (`ejecuta`, `revisa`; nunca `ejecutá`, `revisá`, `vos`). Código, nombres de test y comentarios técnicos en inglés.
-- **Herramientas:** JavaScript siempre con **pnpm** (nunca npm, npx ni yarn). Python siempre con **uv** (nunca pip). Base de datos siempre **PostgreSQL** (nunca MySQL ni MariaDB). **Docker** para Testcontainers y servicios.
-- **Paso a paso:** cada paso lleva el comando exacto y la salida esperada comentada debajo. Nunca "configura X" sin decir cómo.
-- **Qué / Para qué / Impacto:** documenta así cada configuración o decisión relevante. Explícala una vez y enlaza; no repitas el mismo comentario en varios sitios.
+- **Idioma:** documentación en español, **siempre tuteo, nunca voseo** (`ejecuta`, `revisa`; nunca `ejecutá`, `revisá`, `vos`). Nomenclatura técnica en inglés (código, nombres de test, archivos, variables, opciones, comandos).
+- **Herramientas:**
+  - JavaScript siempre con **pnpm** (nunca npm, npx ni yarn).
+  - Python siempre con **uv**, FastAPI incluido (nunca pip, ni como alternativa).
+  - Base de datos siempre **PostgreSQL** (nunca MySQL ni MariaDB).
+  - **Docker** siempre que haga falta un servidor, una red o un servicio. Las imágenes propias parten de `ubuntu:24.04`; los servicios usan su imagen oficial con versión fija (`docs/stack-versions.md`).
+- **Paso a paso, nunca asumir:** ejemplos claros y detallados, con pasos numerados, el comando exacto y la salida esperada comentada debajo. Nunca "configura X" sin decir cómo. Los ejercicios no dan nada por sabido: cada comando, opción o concepto nuevo se explica la primera vez que aparece.
+- **Qué / Para qué / Impacto:** documenta así cada configuración o decisión donde haga falta, en prosa o en comentarios. Explícala una vez y enlaza; no repitas el mismo comentario en varios sitios.
 - **Comparar lenguajes:** cuando un concepto ya se vio en otro lenguaje, enlaza la semana donde se vio y muestra solo la diferencia.
 - **Ejecuciones reales:** las salidas que aparecen en la documentación salen de ejecutar el código, nunca se inventan.
 
@@ -63,7 +67,7 @@ S01–S22 siguen con la estructura anterior (`ejercicio-NN`, navegación a mano)
 
 ## Diagramas SVG (0-assets/)
 
-- **Cuántos:** solo los que la teoría necesite.
+- **Cuántos:** los que la teoría de esa semana necesite, ni uno más ni uno menos. La cantidad no se copia de otros bootcamps ni de otras semanas.
 - **Colores:** tema dark con fondo `#0d1117`, cajas `#161b22`, bordes `#30363d` y texto `#c9d1d9`. Acentos `#58a6ff`, `#3fb950`, `#f85149` y `#d29922`, más el color de cada lenguaje (JS `#F7DF1E`, Python `#3572A5`, Java `#F89820`, Go `#00ADD8`, Rust `#DEA584`).
 - **Sin degradados:** `linearGradient` y `radialGradient` están prohibidos.
 - **Fuentes:** `sans-serif`; `monospace` solo para código.
@@ -71,7 +75,8 @@ S01–S22 siguen con la estructura anterior (`ejercicio-NN`, navegación a mano)
 
 ## Navegación
 
-- **Pie de cada documento:** cada documento de la semana termina con la tabla `| Anterior | Siguiente |`. La genera `scripts/generar-navegacion.sh NN` en el orden teoría, labs, proyecto, rúbrica, recursos y glosario. No se escribe a mano.
+- **Pie de cada documento:** cada documento termina con una tabla `| Anterior | Siguiente |` con el formato `← [recurso anterior]` y `[recurso siguiente] →`.
+- **Generación:** en las semanas la genera `scripts/generar-navegacion.sh NN`, en el orden teoría, labs, proyecto, rúbrica, recursos y glosario; no se escribe a mano. Los documentos de `docs/` llevan la misma tabla.
 - **README de la semana:** lleva su propia tabla de navegación entre semanas.
 
 ## Antes de dar una semana por terminada

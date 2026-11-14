@@ -407,7 +407,7 @@ mod tests {
 **Python**:
 
 - Python 3.14 (`.python-version` en la raíz), type hints donde sea útil
-- Gestor: `uv` únicamente en instrucciones (`uv sync`, `uv run pytest`); `pip` + `venv` solo como alternativa mencionada
+- Gestor: `uv` únicamente (`uv sync`, `uv run pytest`; FastAPI también con `uv`). ❌ NUNCA `pip`, ni siquiera como alternativa
 - Cada `starter/` y `solution/` con código Python lleva su propio `pyproject.toml`:
   `requires-python = ">=3.14"`, `[dependency-groups] dev` con versiones exactas (`pytest==9.1.1`),
   configuración de pytest en la tabla nativa `[tool.pytest]` (`pythonpath = ["."]`, `testpaths` si hay `tests/`).

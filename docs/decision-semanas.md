@@ -39,8 +39,8 @@ Se adoptaron en noviembre de 2026 tomando como referencia `bc-ssh`, `bc-tmux`, `
 
 ## 🔗 Navegación
 
-| Anterior | Actual | Siguiente |
-| -------- | ------ | --------- |
-| [Versiones del stack](stack-versions.md) | **Decisión de duración** | [Proyecto hilo conductor](proyecto-hilo-conductor.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Versiones del stack](stack-versions.md) | [Proyecto hilo conductor](proyecto-hilo-conductor.md) → |
 
 ← [Volver al inicio del bootcamp](../README.md)

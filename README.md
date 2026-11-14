@@ -106,7 +106,7 @@ Versiones exactas, dónde se fijan y por qué: [`docs/stack-versions.md`](docs/s
 ### Prerrequisitos
 
 - **Node.js** 22 LTS + `pnpm` (para semanas de JavaScript)
-- **Python** 3.12+ + `uv` (para semanas de Python)
+- **Python** 3.14 + `uv` (para semanas de Python; nunca `pip`)
 - **JDK 21 LTS** + **Maven** (para semanas de Java)
 - **Go** (para semanas de Go, versión en la tabla de herramientas)
 - **Rust** vía `rustup`, toolchain stable (+ nightly solo para `cargo-fuzz`)

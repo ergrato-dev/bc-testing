@@ -54,8 +54,8 @@ Este formato se aplica desde S23. En S01–S22 cada proyecto semanal es independ
 
 ## 🔗 Navegación
 
-| Anterior | Actual | Siguiente |
-| -------- | ------ | --------- |
-| [Decisión de duración](decision-semanas.md) | **Proyecto hilo conductor** | [Autograding](autograding.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Decisión de duración](decision-semanas.md) | [Autograding](autograding.md) → |
 
 ← [Volver al inicio del bootcamp](../README.md)

@@ -135,7 +135,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 **Temas**:
 
-- Configuración del entorno: Python 3.14, uv (pip + venv como alternativa), pytest 9.1.1
+- Configuración del entorno: Python 3.14 y uv (único gestor), pytest 9.1.1
 - Estructura de un test en pytest: convenciones de nombres (`test_*.py`, `def test_*`)
 - Assertions nativas con `assert`
 - Comparación pytest vs unittest
@@ -1062,3 +1062,13 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 ---
 
 _Última actualización: Noviembre 2026 | Versión: 1.2 — Añadidas las etapas de Go (S32–S36) y Rust (S37–S41); la etapa transversal pasa a S42–S46; dedicación de 10 h por semana. Semanas pendientes actualizadas al stack fijado (Spring Boot 4, Mockito 5, Testcontainers 2)_
+
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Inicio del bootcamp](../README.md) | [Versiones del stack](stack-versions.md) → |
+
+← [Volver al inicio del bootcamp](../README.md)

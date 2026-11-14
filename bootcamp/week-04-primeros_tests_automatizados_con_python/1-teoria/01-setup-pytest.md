@@ -75,15 +75,6 @@ testpaths = ["tests"]
 
 > **Formas antiguas o alternativas**: antes de pytest 9 la configuración iba en `[tool.pytest.ini_options]` (todavía funciona) o en un archivo `pytest.ini`. Elige **una sola** fuente de configuración: si existe `pytest.ini`, pytest lo usa e ignora lo que pongas en `pyproject.toml` (lo avisa con `WARNING: ignoring pytest config in pyproject.toml!`), y si pones `[tool.pytest]` y `[tool.pytest.ini_options]` a la vez, pytest 9 se detiene con un error. En este bootcamp usamos siempre `[tool.pytest]`.
 
-**Alternativa sin `uv` (`venv` + `pip`)**:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate        # en Windows: .venv\Scripts\activate
-python -m pip install pytest==9.1.1
-pytest
-```
-
 ---
 
 ## Primer módulo de ejemplo

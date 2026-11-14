@@ -61,8 +61,8 @@ Estado de cada semana:
 
 ## 🔗 Navegación
 
-| Anterior | Actual | Siguiente |
-| -------- | ------ | --------- |
-| [Autograding](../docs/autograding.md) | **Índice de semanas** | [Semana 01](week-01-que_es_testing_calidad_de_software/README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Decisión de nomenclatura de carpetas](../docs/decision-nomenclatura-carpetas-semanas.md) | [Semana 01](week-01-que_es_testing_calidad_de_software/README.md) → |
 
 ← [Volver al inicio del bootcamp](../README.md)

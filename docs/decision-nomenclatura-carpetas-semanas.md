@@ -74,3 +74,13 @@ Cambiar el esquema de nombres a **`week-XX-tema_principal`**, donde el tema prin
 ## Referencia
 
 Título fuente de cada semana: `README.md` → H1 → texto tras el separador `—` o `-`.
+
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Guía de desarrollo de contenidos](guia-desarrollo-contenidos.md) | [Índice de semanas](../bootcamp/README.md) → |
+
+← [Volver al inicio del bootcamp](../README.md)
