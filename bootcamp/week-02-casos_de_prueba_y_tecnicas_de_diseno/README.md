@@ -20,13 +20,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## ⏱ Distribución del Tiempo (8 horas)
+## ⏱ Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |-----------|-----------|--------|
 | 📖 Teoría | Casos de prueba, técnicas de diseño, cobertura y tipos | 2.5 h |
-| 💻 Prácticas | 2 ejercicios guiados de diseño de casos | 3 h |
-| 🏗 Proyecto | Suite de casos de prueba del dominio asignado | 2 h |
+| 💻 Prácticas | 2 ejercicios guiados de diseño de casos | 4 h |
+| 🏗 Proyecto | Suite de casos de prueba del dominio asignado | 3 h |
 | 📚 Recursos | Lecturas, videos y referencias | 0.5 h |
 
 ---

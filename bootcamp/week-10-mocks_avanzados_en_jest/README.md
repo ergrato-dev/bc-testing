@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Test doubles, spies, mocks de módulo y buenas prácticas | 2.5 h |
-| Prácticas | Ejercicios guiados de funciones mockeadas y módulos aislados | 3 h |
-| Proyecto | Suite con dependencias mockeadas en dominio asignado | 2 h |
+| Prácticas | Ejercicios guiados de funciones mockeadas y módulos aislados | 4 h |
+| Proyecto | Suite con dependencias mockeadas en dominio asignado | 3 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
 ---

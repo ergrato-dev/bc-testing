@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Ciclo TDD, micro-pasos y refactor seguro | 2.5 h |
-| Prácticas | Dos ejercicios guiados de Red-Green-Refactor | 3 h |
-| Proyecto | Suite incremental TDD para dominio asignado | 2 h |
+| Prácticas | Dos ejercicios guiados de Red-Green-Refactor | 4 h |
+| Proyecto | Suite incremental TDD para dominio asignado | 3 h |
 | Recursos y cierre | Refuerzo, autoevaluación y checklist | 0.5 h |
 
 ---

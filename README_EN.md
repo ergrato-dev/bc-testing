@@ -4,11 +4,13 @@
 
 <p align="center">
   <a href="https://github.com/ergrato-dev/bc-testing/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-green.svg" alt="License CC BY-NC-SA 4.0"></a>
-  <a href="#"><img src="https://img.shields.io/badge/weeks-36-6366f1.svg" alt="36 Weeks"></a>
-  <a href="#"><img src="https://img.shields.io/badge/hours-288-6366f1.svg" alt="288 Hours"></a>
+  <a href="#"><img src="https://img.shields.io/badge/weeks-46-6366f1.svg" alt="46 Weeks"></a>
+  <a href="#"><img src="https://img.shields.io/badge/hours-460-6366f1.svg" alt="460 Hours"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-Jest-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript Jest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Python-pytest-3572A5?logo=python&logoColor=white" alt="Python pytest"></a>
   <a href="#"><img src="https://img.shields.io/badge/Java-JUnit6-F89820?logo=openjdk&logoColor=white" alt="Java JUnit 6"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Go-go_test-00ADD8?logo=go&logoColor=white" alt="Go go test"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Rust-cargo_test-DEA584?logo=rust&logoColor=black" alt="Rust cargo test"></a>
 </p>
 
 <p align="center">
@@ -19,7 +21,7 @@
 
 ## 📋 Description
 
-An intensive **36-week (~9 months)** bootcamp focused on mastering **automated software testing** across three languages: JavaScript, Python, and Java. Designed to take students from zero experience to **QA Engineer / SDET Junior**, with emphasis on best practices, TDD, BDD, and testing in CI/CD pipelines.
+An intensive **46-week (~11.5 months)** bootcamp focused on mastering **automated software testing** across five languages: JavaScript, Python, Java, Go, and Rust. Designed to take students from zero experience to **QA Engineer / SDET Junior**, with emphasis on best practices, TDD, BDD, and testing in CI/CD pipelines.
 
 > 🏛️ **Unique Domain Policy (Anti-Copy)**: Each student works on a unique business domain assigned by the instructor (Library, Pharmacy, Gym, etc.). This ensures original test suites and prevents copying between peers.
 
@@ -28,15 +30,16 @@ An intensive **36-week (~9 months)** bootcamp focused on mastering **automated s
 By the end of the bootcamp, students will be able to:
 
 - ✅ Apply a quality mindset and design professional test cases
-- ✅ Write unit tests in JavaScript (Jest), Python (pytest), and Java (JUnit 6)
-- ✅ Use mocks, stubs, and spies to isolate dependencies in all three languages
+- ✅ Write unit tests in JavaScript (Jest), Python (pytest), Java (JUnit 6), Go (`go test`), and Rust (`cargo test`)
+- ✅ Use mocks, stubs, and spies to isolate dependencies in all five languages
 - ✅ Apply TDD (Red-Green-Refactor) in JavaScript, Python, and Java
 - ✅ Implement BDD with Behave (Python) and Cucumber (Java)
-- ✅ Write integration tests for REST APIs in all three languages
+- ✅ Write integration tests for REST APIs in all five languages
+- ✅ Apply fuzzing, property-based testing, and benchmarks (Go and Rust)
 - ✅ Automate E2E tests with Playwright
 - ✅ Run performance tests with k6 and Locust
 - ✅ Integrate testing into CI/CD pipelines with GitHub Actions
-- ✅ Measure and maintain code coverage ≥85% across all three languages
+- ✅ Measure and maintain code coverage ≥85% across all five languages
 
 ---
 
@@ -44,13 +47,15 @@ By the end of the bootcamp, students will be able to:
 
 | Stage | Weeks | Hours | Main Topics |
 | :---: | :---: | :---: | --- |
-| **Stage 0** — Testing Fundamentals | 1–6 | 48h | Quality mindset, terminology, testing pyramid, first tests in all 3 languages in parallel |
-| **Stage 1** — Testing with JavaScript | 7–15 | 72h | Advanced Jest, mocks/stubs/spies, async testing, TDD, Supertest, snapshot, fast-check |
-| **Stage 2** — Testing with Python | 16–24 | 72h | pytest, fixtures, unittest.mock, TDD, Behave (BDD), httpx2, Testcontainers |
-| **Stage 3** — Testing with Java | 25–31 | 56h | JUnit 6, AssertJ, Mockito, TDD, Spring Boot Test, Testcontainers, Cucumber |
-| **Stage 4** — Advanced Transversal Testing | 32–36 | 40h | Playwright E2E, k6/Locust performance, OWASP security basics, CI/CD with GitHub Actions |
+| **Stage 0** — Testing Fundamentals | 1–6 | 60h | Quality mindset, terminology, testing pyramid, first tests in all 3 languages in parallel |
+| **Stage 1** — Testing with JavaScript | 7–15 | 90h | Advanced Jest, mocks/stubs/spies, async testing, TDD, Supertest, snapshot, fast-check |
+| **Stage 2** — Testing with Python | 16–24 | 90h | pytest, fixtures, unittest.mock, TDD, Behave (BDD), httpx2, Testcontainers |
+| **Stage 3** — Testing with Java | 25–31 | 70h | JUnit 6, AssertJ, Mockito, TDD, Spring Boot Test, Testcontainers, Cucumber |
+| **Stage 4** — Testing with Go | 32–36 | 50h | `go test`, table-driven tests, interfaces and mockgen, httptest, testcontainers-go, `-race`, fuzzing, benchmarks |
+| **Stage 5** — Testing with Rust | 37–41 | 50h | `cargo test`, doctests, mockall, rstest, Tokio/axum, `#[sqlx::test]`, proptest, cargo-llvm-cov |
+| **Stage 6** — Advanced Transversal Testing | 42–46 | 50h | Playwright E2E, k6/Locust performance, OWASP and dependency auditing, CI/CD with GitHub Actions |
 
-**Total: 36 weeks** | **~288 hours** of intensive training
+**Total: 46 weeks** | **~460 hours** of intensive training
 
 ---
 
@@ -84,60 +89,15 @@ bootcamp/week-XX/
 
 ## 🛠️ Tools by Language
 
-### JavaScript
-
-| Tool | Version | Purpose |
+| Language | Main framework | Package manager / build |
 | --- | --- | --- |
-| Node.js | 22 (`.nvmrc`) | Runtime |
-| pnpm | 12.6.0 (`packageManager`) | Package manager (only one) |
-| Jest | 30.5.2 | Unit and integration testing |
-| Supertest | 7.3.0 | Express API testing |
-| Express | 5.2.1 | API under test (S12, S15) |
-| fast-check | 4.10.2 | Property-based testing |
-| Playwright | 1.63.0 | E2E testing |
-| k6 | pinned in S33 | Performance testing |
+| JavaScript | Jest | `pnpm` (❌ do NOT use `npm` or `yarn`) |
+| Python | pytest | `uv` |
+| Java | JUnit 6 | Maven |
+| Go | `go test` (stdlib) | `go` |
+| Rust | `cargo test` | `cargo` (`rustup`) |
 
-**Package manager**: `pnpm` only (❌ NOT `npm` nor `yarn`)
-
-### Python
-
-| Tool | Version | Purpose |
-| --- | --- | --- |
-| Python | 3.14 (`.python-version`) | Runtime |
-| uv | latest stable | Environments and dependencies |
-| pytest | 9.1.1 | Main testing framework |
-| pytest-mock | 3.15.1 | unittest.mock wrapper |
-| pytest-cov | 7.1.0 | Code coverage |
-| mutmut | 3.8.0 | Mutation testing (on Windows, inside WSL) |
-| ruff | 0.16.7 | Complexity threshold (`C901`) |
-| httpx2 | 2.13.1 | HTTP client (`MockTransport` for tests) |
-| pydantic | 2.13.5 | Contract validation |
-| pytest-asyncio | 1.4.0 | Async testing |
-| hypothesis | 6.168.0 | Property-based testing |
-| mypy | 2.3.1 | Type checking (`strict = true`) |
-| Behave | 1.3.3 | BDD (Gherkin) |
-| pytest-bdd | 8.1.0 | BDD inside pytest (`PytestRemovedIn10Warning` on pytest 9) |
-| Factory Boy | pinned in S23 | Test data factories |
-| Locust | pinned in S33 | Performance testing |
-
-**Package manager**: `uv` (recommended) or `pip` + `venv`
-
-### Java
-
-| Tool | Version | Purpose |
-| --- | --- | --- |
-| JDK | 21 LTS | Runtime |
-| Maven | 3.9+ | Build tool |
-| JUnit (Jupiter) | 6.0.3 | Main testing framework |
-| AssertJ | 3.27.7 | Fluent assertions |
-| maven-surefire-plugin | 3.5.6 | Test execution |
-| Mockito | 5.23.0 | Mocking |
-| Spring Boot (Test) | 4.1.1 | Spring Boot testing |
-| Testcontainers | 2.0.5 | Real databases in tests |
-| JaCoCo | 0.8.15 | Code coverage |
-| Cucumber | pinned in S30 | BDD (Gherkin) |
-
-**Build tool**: Maven · **JDK**: 21 LTS
+Exact versions, where they are pinned and why: [`docs/stack-versions.md`](docs/stack-versions.md) (Spanish).
 
 ---
 
@@ -148,9 +108,11 @@ bootcamp/week-XX/
 - **Node.js** 22 LTS + `pnpm` (for JavaScript weeks)
 - **Python** 3.12+ + `uv` (for Python weeks)
 - **JDK 21 LTS** + **Maven** (for Java weeks)
+- **Go** (for Go weeks, version in the tools table)
+- **Rust** via `rustup`, stable toolchain (+ nightly only for `cargo-fuzz`)
 - **Git** 2.40+
 - **VS Code** with recommended extensions (suggested automatically when opening the repo)
-- **Docker** (for Testcontainers in weeks 20–31)
+- **Docker** (for Testcontainers from S23 and OWASP ZAP in S44)
 
 ### 1. Clone the Repository
 
@@ -192,11 +154,12 @@ Each week contains a `README.md` with detailed instructions and the 8-hour time 
 - 👥 **Peer Code Review** — Students review each other's test suites
 - 🎮 **Live Testing** — Live exploratory testing sessions
 
-### Time Distribution (8h/week)
+### Time Distribution (10h/week)
 
 - **Theory**: 2–2.5 hours
-- **Guided practices**: 3–3.5 hours
-- **Weekly project**: 2–2.5 hours
+- **Guided practices**: 4–4.5 hours
+- **Weekly project**: 3 hours
+- **Resources**: 0.5 hours
 
 ### Assessment
 
@@ -224,7 +187,7 @@ Contributions are welcome! This is an open-source educational project.
 
 ### 📋 Contribution Areas
 
-- ✨ Additional exercises (in any of the 3 languages)
+- ✨ Additional exercises (in any of the 5 languages)
 - 📚 Documentation improvements
 - 🐛 Bug fixes in practice code
 - 🎨 Visual resources (SVG diagrams)
@@ -268,6 +231,11 @@ See the [LICENSE](LICENSE) file for details.
 
 - [📋 Study Plan](docs/plan-estudios.md)
 - [📖 Content Development Guide](docs/guia-desarrollo-contenidos.md)
+- [🧱 Stack Versions](docs/stack-versions.md)
+- [📐 Duration and Overlap Decision](docs/decision-semanas.md)
+- [🧵 Common-Thread Project](docs/proyecto-hilo-conductor.md)
+- [✅ Autograding](docs/autograding.md)
+- [🗂️ Week Index](bootcamp/README.md)
 - [🤖 Copilot Instructions](.github/copilot-instructions.md)
 - [🐛 Report Issue](https://github.com/ergrato-dev/bc-testing/issues)
 

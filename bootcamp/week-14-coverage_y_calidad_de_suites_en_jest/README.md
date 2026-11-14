@@ -18,13 +18,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Coverage en Jest, lectura crítica de métricas y calidad de tests | 2.5 h |
-| Prácticas | Cobertura inteligente y detección de fragilidad | 3 h |
-| Proyecto | Mejora de suite existente con objetivos de calidad | 2 h |
+| Prácticas | Cobertura inteligente y detección de fragilidad | 4 h |
+| Proyecto | Mejora de suite existente con objetivos de calidad | 3 h |
 | Recursos y cierre | Refuerzo, checklist y autoevaluación | 0.5 h |
 
 ---

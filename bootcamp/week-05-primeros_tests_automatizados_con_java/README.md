@@ -22,13 +22,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## ⏱ Distribución del Tiempo (8 horas)
+## ⏱ Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | 📖 Teoría | Setup Java, estructura y ciclo de vida de JUnit 6, assertions, Surefire y AssertJ | 2 h |
-| 💻 Prácticas | 2 ejercicios guiados de tests unitarios básicos | 3.5 h |
-| 🏗 Proyecto | Suite inicial de tests Java del dominio asignado | 2 h |
+| 💻 Prácticas | 2 ejercicios guiados de tests unitarios básicos | 4.5 h |
+| 🏗 Proyecto | Suite inicial de tests Java del dominio asignado | 3 h |
 | 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
 
 ---

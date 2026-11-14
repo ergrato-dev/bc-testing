@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Supertest, contratos HTTP y estrategias de validación | 2.5 h |
-| Prácticas | Endpoints básicos, validación y manejo de errores | 3 h |
-| Proyecto | API del dominio con suite REST incremental | 2 h |
+| Prácticas | Endpoints básicos, validación y manejo de errores | 4 h |
+| Proyecto | API del dominio con suite REST incremental | 3 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
 ---

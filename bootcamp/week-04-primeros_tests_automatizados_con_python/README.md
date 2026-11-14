@@ -20,13 +20,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## ⏱ Distribución del Tiempo (8 horas)
+## ⏱ Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | 📖 Teoría | Setup de entorno Python + estructura y ejecución con pytest | 2 h |
-| 💻 Prácticas | 2 ejercicios guiados de tests básicos con pytest | 3.5 h |
-| 🏗 Proyecto | Suite inicial de tests en Python del dominio asignado | 2 h |
+| 💻 Prácticas | 2 ejercicios guiados de tests básicos con pytest | 4.5 h |
+| 🏗 Proyecto | Suite inicial de tests en Python del dominio asignado | 3 h |
 | 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
 
 ---

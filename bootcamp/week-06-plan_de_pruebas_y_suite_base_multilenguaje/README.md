@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Revisión de Semanas 1-5, plan de pruebas, trazabilidad y equivalencias multilenguaje | 1 h |
-| Prácticas | Diseño de casos + suite base en JS/Python/Java | 1.5 h |
-| Proyecto | `test-plan.md` + suite en JS, Python y Java del dominio asignado | 5 h |
+| Prácticas | Diseño de casos + suite base en JS/Python/Java | 2.5 h |
+| Proyecto | `test-plan.md` + suite en JS, Python y Java del dominio asignado | 6 h |
 | Recursos y cierre | Revisión de checklist y consolidación | 0.5 h |
 
 ---

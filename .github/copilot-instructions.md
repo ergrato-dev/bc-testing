@@ -2,16 +2,16 @@
 
 ## 📋 Contexto del Bootcamp
 
-Este es un **Bootcamp de Testing de Software Zero to Hero** que cubre testing automatizado en tres lenguajes: JavaScript, Python y Java. Está estructurado para llevar a estudiantes sin experiencia en testing hasta un nivel de QA Engineer / SDET Junior.
+Este es un **Bootcamp de Testing de Software Zero to Hero** que cubre testing automatizado en cinco lenguajes: JavaScript, Python, Java, Go y Rust. Está estructurado para llevar a estudiantes sin experiencia en testing hasta un nivel de QA Engineer / SDET Junior.
 
 ### 📊 Datos del Bootcamp
 
-- **Duración**: 36 semanas (~9 meses)
-- **Dedicación semanal**: 8 horas
-- **Total de horas**: ~288 horas
+- **Duración**: 46 semanas (~11,5 meses)
+- **Dedicación semanal**: 10 horas
+- **Total de horas**: ~460 horas
 - **Nivel de entrada**: Cero (sin experiencia previa en testing)
 - **Nivel de salida**: QA Engineer / SDET Junior
-- **Lenguajes**: JavaScript (Jest), Python (pytest), Java (JUnit 6)
+- **Lenguajes**: JavaScript (Jest), Python (pytest), Java (JUnit 6), Go (`go test`), Rust (`cargo test`)
 - **Enfoque**: Testing desde fundamentos hasta automatización avanzada, TDD, BDD y CI/CD
 
 ---
@@ -21,15 +21,16 @@ Este es un **Bootcamp de Testing de Software Zero to Hero** que cubre testing au
 Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 - ✅ Aplicar la mentalidad de calidad y diseñar casos de prueba profesionales
-- ✅ Escribir tests unitarios en JavaScript (Jest), Python (pytest) y Java (JUnit 6)
-- ✅ Usar mocks, stubs y spies para aislar dependencias en los tres lenguajes
+- ✅ Escribir tests unitarios en JavaScript (Jest), Python (pytest), Java (JUnit 6), Go (`go test`) y Rust (`cargo test`)
+- ✅ Usar mocks, stubs y spies para aislar dependencias en los cinco lenguajes
 - ✅ Aplicar TDD (Red-Green-Refactor) en JavaScript, Python y Java
 - ✅ Implementar BDD con Behave (Python) y Cucumber (Java)
-- ✅ Escribir tests de integración para APIs REST en los tres lenguajes
+- ✅ Escribir tests de integración para APIs REST en los cinco lenguajes
+- ✅ Aplicar fuzzing, property-based testing y benchmarks (Go y Rust)
 - ✅ Automatizar pruebas E2E con Playwright
 - ✅ Ejecutar tests de performance con k6 y Locust
 - ✅ Integrar testing en pipelines CI/CD con GitHub Actions
-- ✅ Medir y mantener coverage de código ≥85% en los tres lenguajes
+- ✅ Medir y mantener coverage de código ≥85% en los cinco lenguajes
 
 ---
 
@@ -37,14 +38,14 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 ### Distribución por Etapas
 
-#### 🟥 Etapa 0: Fundamentos de Testing (Semanas 1–6) — 48 horas
+#### 🟥 Etapa 0: Fundamentos de Testing (Semanas 1–6) — 60 horas
 
 - Mentalidad de calidad, terminología, tipos de testing
 - Pirámide de testing
 - Primeros tests automatizados en los tres lenguajes en paralelo
 - Plan de pruebas y casos de prueba
 
-#### 🟦 Etapa 1: Testing con JavaScript (Semanas 7–15) — 72 horas
+#### 🟦 Etapa 1: Testing con JavaScript (Semanas 7–15) — 90 horas
 
 - Jest avanzado: matchers, organización, ciclo de vida
 - Mocks, stubs y spies con `jest.fn()`, `jest.spyOn()`, `jest.mock()`
@@ -55,7 +56,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 - Snapshot testing, property-based testing con fast-check
 - `test.each()` para tests parametrizados
 
-#### 🟩 Etapa 2: Testing con Python (Semanas 16–24) — 72 horas
+#### 🟩 Etapa 2: Testing con Python (Semanas 16–24) — 90 horas
 
 - pytest avanzado: fixtures, `@pytest.mark.parametrize`, `conftest.py`
 - Mocking con `unittest.mock`, `MagicMock`, `@patch`, `pytest-mock`
@@ -66,22 +67,36 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 - BDD con Behave (Gherkin + step definitions)
 - Testing de BD con SQLAlchemy + Factory Boy + Testcontainers
 
-#### 🟧 Etapa 3: Testing con Java (Semanas 25–31) — 56 horas
+#### 🟧 Etapa 3: Testing con Java (Semanas 25–31) — 70 horas
 
 - JUnit 6 avanzado: `@ParameterizedTest`, `@Nested`, `@Tag`
 - AssertJ: aserciones fluentes y soft assertions
 - Mockito: `@Mock`, `@InjectMocks`, `@Spy`, `@Captor`, `ArgumentCaptor`
 - TDD con Java: diseño emergente OOP
-- Testing de Spring Boot: `@WebMvcTest`, `@DataJpaTest`, `MockMvc`, `@MockBean`
-- Testcontainers: PostgreSQL/MySQL reales en tests
+- Testing de Spring Boot: `@WebMvcTest`, `@DataJpaTest`, `MockMvc`/`MockMvcTester`, `@MockitoBean`
+- Testcontainers: PostgreSQL real en tests (`@ServiceConnection`)
 - BDD con Cucumber + Spring Boot
 - JaCoCo para coverage
 
-#### 🟪 Etapa 4: Testing Avanzado Transversal (Semanas 32–36) — 40 horas
+#### 🔷 Etapa 4: Testing con Go (Semanas 32–36) — 50 horas
+
+- `go test` y el paquete `testing`: table-driven tests, subtests, `t.Helper`, `t.Cleanup`
+- Dobles de prueba con interfaces: fakes a mano, `go.uber.org/mock`, testify, `go-cmp`
+- `httptest`, build tags de integración y testcontainers-go
+- Race detector, `testing/synctest`, fuzzing nativo, benchmarks con `b.Loop()`, coverage
+
+#### 🟫 Etapa 5: Testing con Rust (Semanas 37–41) — 50 horas
+
+- `cargo test`: unitarios en `mod tests`, integración en `tests/`, doctests
+- Traits como frontera de dobles: `mockall`, `rstest`, `insta`
+- Async con `#[tokio::test]`, axum con `oneshot`, `wiremock`, `#[sqlx::test]`, testcontainers-rs
+- `proptest`, `cargo-fuzz`, `criterion`, `cargo-llvm-cov`, `cargo-nextest`, `cargo-mutants`
+
+#### 🟪 Etapa 6: Testing Avanzado Transversal (Semanas 42–46) — 50 horas
 
 - E2E con Playwright: locators, POM, assertions visuales
 - Performance testing con k6 (JS) y Locust (Python)
-- Security testing básico OWASP
+- Security testing básico OWASP y auditoría de dependencias por lenguaje
 - CI/CD con GitHub Actions: workflows por lenguaje
 - Proyecto final integrador multilenguaje
 
@@ -144,7 +159,7 @@ Seguir **siempre** este orden:
 - Ejemplos de código con comentarios educativos en español
 - Español neutro con **tuteo** (tú: "ejecuta", "puedes", "fíjate"). ❌ NUNCA voseo ("ejecutá", "podés", "fijate", "vos")
 - Indicar claramente a qué lenguaje aplica cada sección (JS / Python / Java / Transversal)
-- Cuando un concepto aplica a los tres lenguajes, mostrar el equivalente en cada uno
+- Cuando un concepto aplica a varios lenguajes, mostrar el equivalente en los que el estudiante ya conoce
 - Diagramas SVG referenciados con `![Descripción](../0-assets/01-nombre.svg)`
 
 ### 2. Prácticas (2-practicas/)
@@ -344,6 +359,34 @@ class MethodName {
 }
 ```
 
+**Go (`go test`) — patrón recomendado**:
+
+```go
+func TestPriceWithDiscount(t *testing.T) {
+    tests := []struct {
+        name string
+        // entradas y salida esperada
+    }{
+        {name: "applies 10% when total is above threshold"},
+    }
+    for _, tt := range tests {
+        t.Run(tt.name, func(t *testing.T) { ... })
+    }
+}
+```
+
+**Rust (`cargo test`) — patrón recomendado**:
+
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn price_with_discount_applies_ten_percent_when_total_is_above_threshold() { ... }
+}
+```
+
 ### Convenciones por Lenguaje
 
 **JavaScript**:
@@ -384,58 +427,25 @@ class MethodName {
 - `@DisplayName` siempre en methods de test para legibilidad (el resumen de Surefire muestra el nombre del método, que también debe ser descriptivo)
 - Assertions con AssertJ (no solo JUnit assertions) a partir de su introducción en S05
 
+**Go**:
+
+- Un módulo por `starter/` y `solution/` (`go.mod` con la versión de `docs/stack-versions.md`), tests en `*_test.go` junto al código
+- Table-driven tests + `t.Run` como forma por defecto; `t.Fatalf` solo cuando seguir no tiene sentido
+- Stdlib primero: testify, mockgen o go-cmp solo cuando la semana los introduce
+- Comandos: `go test ./...`, `go vet ./...`; integración tras `//go:build integration`
+
+**Rust**:
+
+- Un crate por `starter/` y `solution/` con `rust-toolchain.toml` fijado (versión en `docs/stack-versions.md`); `Cargo.lock` sin versionar en librerías de ejercicio
+- Unitarios en `#[cfg(test)] mod tests`, integración en `tests/`, nombres `snake_case` descriptivos
+- `cargo clippy -- -D warnings` limpio en toda `solution/`
+- Tests pendientes en starters: `#[ignore = "TODO: ..."]`, nunca tests vacíos en verde
+
 ---
 
 ## 🧪 Herramientas por Lenguaje
 
-### JavaScript
-
-| Herramienta | Versión | Propósito |
-| --- | --- | --- |
-| Node.js | 22 (`.nvmrc`) | Runtime |
-| pnpm | 12.6.0 (`packageManager`) | Gestor de paquetes (único) |
-| Jest | 30.5.2 | Testing unitario e integración |
-| Supertest | 7.3.0 | Testing de APIs Express |
-| Express | 5.2.1 | API bajo prueba (S12, S15) |
-| fast-check | 4.10.2 | Property-based testing |
-| Playwright | 1.63.0 | E2E testing |
-| k6 | se fija en S33 | Performance testing |
-
-### Python
-
-| Herramienta | Versión | Propósito |
-| --- | --- | --- |
-| Python | 3.14 (`.python-version`) | Runtime |
-| uv | última estable | Entornos y dependencias |
-| pytest | 9.1.1 | Testing framework principal |
-| pytest-mock | 3.15.1 | Wrapper de unittest.mock |
-| pytest-cov | 7.1.0 | Code coverage |
-| mutmut | 3.8.0 | Mutation testing (`source_paths`; en Windows, dentro de WSL) |
-| ruff | 0.16.7 | Umbral de complejidad (`C901`, `max-complexity`) |
-| httpx2 | 2.13.1 | Cliente HTTP (`MockTransport` para tests; `respx` no intercepta `httpx2`) |
-| pydantic | 2.13.5 | Validación de contratos |
-| pytest-asyncio | 1.4.0 | Testing asíncrono (`asyncio_mode = "strict"`) |
-| hypothesis | 6.168.0 | Property-based testing |
-| mypy | 2.3.1 | Verificación de tipos (`[tool.mypy] strict = true`) |
-| Behave | 1.3.3 | BDD (Gherkin, `# language: es`) |
-| pytest-bdd | 8.1.0 | BDD dentro de pytest (filtrar `PytestRemovedIn10Warning`) |
-| Factory Boy | se fija en S23 | Factories de datos de prueba |
-| Locust | se fija en S33 | Performance testing |
-
-### Java
-
-| Herramienta | Versión | Propósito |
-| --- | --- | --- |
-| JDK | 21 LTS | Runtime |
-| Maven | 3.9+ | Build tool |
-| JUnit (Jupiter) | 6.0.3 | Testing framework principal |
-| AssertJ | 3.27.7 | Aserciones fluentes |
-| maven-surefire-plugin | 3.5.6 | Ejecución de tests |
-| Mockito | 5.23.0 | Mocking |
-| Spring Boot (Test) | 4.1.1 | Testing de Spring Boot |
-| Testcontainers | 2.0.5 | BD reales en tests |
-| JaCoCo | 0.8.15 | Code coverage |
-| Cucumber | se fija en S30 | BDD (Gherkin) |
+La fuente única de versiones exactas es [`docs/stack-versions.md`](../docs/stack-versions.md) (componente, versión, dónde se fija y por qué). Una versión nueva se cambia **ahí** y en los archivos que fija; no se copia la tabla en otros documentos.
 
 ---
 
@@ -456,6 +466,8 @@ class MethodName {
 | Python                | Azul Python      | `#3572A5` |
 | Python (acento)       | Amarillo Python  | `#FFD43B` |
 | Java                  | Naranja Java     | `#F89820` |
+| Go                    | Cian Go          | `#00ADD8` |
+| Rust                  | Cobre Rust       | `#DEA584` |
 | Testing / Transversal | Índigo           | `#6366f1` |
 | Test passing (green)  | Verde            | `#22c55e` |
 | Test failing (red)    | Rojo             | `#ef4444` |
@@ -546,13 +558,14 @@ Cada semana incluye tres tipos de evidencias:
 - **Code Review**: Revisión de suites entre estudiantes
 - **Live Testing**: Sesiones en vivo de testing exploratorio
 
-### Distribución del Tiempo (8h/semana)
+### Distribución del Tiempo (10h/semana)
 
 | Actividad         | Tiempo      |
 | ----------------- | ----------- |
 | Teoría            | 2–2.5 horas |
-| Prácticas guiadas | 3–3.5 horas |
-| Proyecto semanal  | 2–2.5 horas |
+| Prácticas guiadas | 4–4.5 horas |
+| Proyecto semanal  | 3 horas     |
+| Recursos          | 0.5 horas   |
 
 ---
 

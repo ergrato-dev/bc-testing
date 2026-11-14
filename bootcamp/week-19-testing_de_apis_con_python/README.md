@@ -26,13 +26,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Clientes HTTP con `httpx2`, errores y contratos, testing asíncrono | 2.5 h |
-| Prácticas | Cliente síncrono con `MockTransport` y cliente asíncrono con `pytest-asyncio` | 3 h |
-| Proyecto | Suite del cliente HTTP del dominio | 2 h |
+| Prácticas | Cliente síncrono con `MockTransport` y cliente asíncrono con `pytest-asyncio` | 4 h |
+| Proyecto | Suite del cliente HTTP del dominio | 3 h |
 | Recursos y cierre | Videos, lecturas y repaso | 0.5 h |
 
 ---

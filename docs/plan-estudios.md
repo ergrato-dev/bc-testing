@@ -1,11 +1,11 @@
 # 📅 Plan de Estudios — Bootcamp Testing Zero to Hero
 
-**Duración total**: 36 semanas (~9 meses)
-**Horas semanales**: 8 horas
-**Horas totales**: ~288 horas
+**Duración total**: 46 semanas (~11,5 meses)
+**Horas semanales**: 10 horas
+**Horas totales**: ~460 horas
 **Nivel de entrada**: Cero (sin experiencia previa en testing)
 **Nivel de salida**: QA Engineer / SDET Junior
-**Enfoque**: Testing de software con JavaScript, Python y Java — desde fundamentos absolutos hasta automatización avanzada, TDD, BDD y pruebas de performance
+**Enfoque**: Testing de software con JavaScript, Python, Java, Go y Rust — desde fundamentos absolutos hasta automatización avanzada, TDD, BDD y pruebas de performance
 
 ---
 
@@ -20,7 +20,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
    - Tema dark
    - Sin degradés (solo colores sólidos)
    - Fuentes sans-serif (Inter, Roboto, Open Sans o System UI)
-   - Paleta base: `#3572A5` (azul Python), `#F89820` (naranja Java), `#F7DF1E` (amarillo JS), fondos `#0f172a` / `#1e293b`
+   - Paleta base: `#3572A5` (azul Python), `#F89820` (naranja Java), `#F7DF1E` (amarillo JS), `#00ADD8` (cian Go), `#DEA584` (cobre Rust), fondos `#0f172a` / `#1e293b`
 5. `2-practicas/` — Ejercicios guiados (starter + solution por ejercicio)
 6. `3-proyecto/` — Proyecto integrador semanal (único entregable)
 7. `4-recursos/` — Ebooks, videografía, webgrafía
@@ -32,27 +32,37 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ### 🟥 Etapa 0: Fundamentos de Testing (Semanas 1–6)
 
-48 horas totales — Mentalidad tester, terminología, tipos de prueba, primeros tests manuales y automatizados en los tres lenguajes.
+60 horas totales — Mentalidad tester, terminología, tipos de prueba, primeros tests manuales y automatizados en JavaScript, Python y Java (Go y Rust arrancan desde cero en sus propias etapas).
 
 ### 🟦 Etapa 1: Testing con JavaScript (Semanas 7–15)
 
-72 horas totales — Jest, testing unitario, mocks/stubs/spies, testing asíncrono, coverage, TDD y testing de APIs REST con Supertest.
+90 horas totales — Jest, testing unitario, mocks/stubs/spies, testing asíncrono, coverage, TDD y testing de APIs REST con Supertest.
 
 ### 🟩 Etapa 2: Testing con Python (Semanas 16–24)
 
-72 horas totales — pytest, unittest, fixtures, parametrize, mocking con `unittest.mock`, testing de APIs con `httpx2` (y su equivalente en `requests`), BDD con Behave.
+90 horas totales — pytest, unittest, fixtures, parametrize, mocking con `unittest.mock`, testing de APIs con `httpx2` (y su equivalente en `requests`), BDD con Behave.
 
 ### 🟧 Etapa 3: Testing con Java (Semanas 25–31)
 
-56 horas totales — JUnit 6, Mockito, AssertJ, testing de Spring Boot con MockMvc, Testcontainers y BDD con Cucumber.
+70 horas totales — JUnit 6, Mockito, AssertJ, testing de Spring Boot con MockMvc, Testcontainers y BDD con Cucumber.
 
-### 🟪 Etapa 4: Testing Avanzado Transversal (Semanas 32–36)
+### 🔷 Etapa 4: Testing con Go (Semanas 32–36)
 
-40 horas totales — E2E con Playwright (JS), performance con k6/Locust, seguridad básica, estrategias CI/CD, Proyecto Final integrador multilenguaje.
+50 horas totales — `go test` y el paquete `testing`, table-driven tests, dobles de prueba con interfaces, `httptest`, testcontainers-go, race detector, fuzzing nativo y benchmarks.
+
+### 🟫 Etapa 5: Testing con Rust (Semanas 37–41)
+
+50 horas totales — `cargo test`, tests unitarios/integración/doctests, traits y `mockall`, `rstest`, testing async con Tokio y axum, `proptest`, `cargo-fuzz`, `criterion` y coverage con `cargo-llvm-cov`.
+
+### 🟪 Etapa 6: Testing Avanzado Transversal (Semanas 42–46)
+
+50 horas totales — E2E con Playwright (JS), performance con k6/Locust, seguridad básica y auditoría de dependencias, estrategias CI/CD, Proyecto Final integrador multilenguaje.
 
 ---
 
 ## 📚 Contenido Semanal Detallado
+
+> Desde S23 cada proyecto semanal es un incremento del [proyecto hilo conductor](proyecto-hilo-conductor.md) del aprendiz, con autograding por `checks.json` ([autograding.md](autograding.md)). Versiones en [stack-versions.md](stack-versions.md); justificación de duración y solapes en [decision-semanas.md](decision-semanas.md).
 
 ---
 
@@ -64,7 +74,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 01: ¿Qué es Testing? Calidad de Software
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -83,7 +93,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 02: Casos de Prueba y Técnicas de Diseño
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -102,7 +112,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 03: Primeros Tests Automatizados — JavaScript
 
-**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2h teoría + 4.5h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -121,7 +131,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 04: Primeros Tests Automatizados — Python
 
-**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2h teoría + 4.5h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -140,7 +150,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 05: Primeros Tests Automatizados — Java
 
-**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2h teoría + 4.5h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -159,7 +169,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 06: Proyecto Integrador — Etapa 0
 
-**Horas**: 8h (1h revisión + 1.5h planning + 5h desarrollo + 0.5h presentación)
+**Horas**: 10h (1h revisión + 2h planning + 6.5h desarrollo + 0.5h presentación)
 
 **Temas**:
 
@@ -179,11 +189,11 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-> ⚠️ **Nota de trazabilidad**: las Semanas 7-18 fueron desarrolladas reordenando algunos temas respecto al borrador original de este plan (p. ej. Mocks se movió de S08 a S10, Coverage de S10 a S14, y Python ganó una semana de fundamentos en S16 antes de Parametrización/Marks y Mocking). Los bloques de abajo reflejan el contenido **tal como fue publicado** — ver el `README.md` de cada semana como fuente definitiva. Las Semanas 19-36 siguen sin publicar; su numeración/orden puede ajustarse igual durante el desarrollo.
+> ⚠️ **Nota de trazabilidad**: las Semanas 7-18 fueron desarrolladas reordenando algunos temas respecto al borrador original de este plan (p. ej. Mocks se movió de S08 a S10, Coverage de S10 a S14, y Python ganó una semana de fundamentos en S16 antes de Parametrización/Marks y Mocking). Los bloques de abajo reflejan el contenido **tal como fue publicado** — ver el `README.md` de cada semana como fuente definitiva. Las semanas aún no publicadas (ver Estado de Avance) su numeración/orden puede ajustarse igual durante el desarrollo.
 
 #### Week 07: Jest Avanzado — Organización de Suites
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -200,7 +210,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 08: Matchers Avanzados y Parametrización con Jest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -217,7 +227,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 09: Testing Asíncrono en Jest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -234,7 +244,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 10: Mocks Avanzados en Jest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -251,7 +261,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 11: TDD con JavaScript — Red, Green, Refactor
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -268,7 +278,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 12: Testing de APIs REST con Supertest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -285,7 +295,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 13: Snapshot y Property-Based Testing
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -302,7 +312,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 14: Coverage y Calidad de Suites en Jest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -318,7 +328,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 15: Proyecto Integrador — Etapa 1 (JavaScript)
 
-**Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
+**Horas**: 10h (0.5h teoría + 2.5h planning + 6.5h desarrollo + 0.5h presentación)
 
 **Temas**:
 
@@ -339,7 +349,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 16: Fundamentos con pytest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -356,7 +366,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 17: Parametrización y Marks con pytest
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -372,7 +382,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 18: Mocking con unittest.mock y pytest-mock
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -388,7 +398,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 19: Testing de APIs con Python (httpx2)
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -409,7 +419,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 20: TDD con Python
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -428,7 +438,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 21: Coverage y Calidad en Python
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -449,7 +459,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 22: BDD con Python — Behave
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -469,26 +479,26 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 23: Testing de Bases de Datos en Python
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
 - Estrategias para testear con BD: in-memory, fixtures, transacciones
-- SQLite en tests: `pytest` + `sqlalchemy` con BD en memoria
-- Fixtures de BD: crear esquema, poblar datos, limpiar
-- Testing con SQLAlchemy: rollback por test
+- SQLite en tests: `pytest` + SQLAlchemy 2.0 (estilo `select()`) con BD en memoria, y sus límites frente a PostgreSQL
+- Fixtures de BD: crear esquema, poblar datos, limpiar (scope `session` vs `function`)
+- Rollback por test: conexión con transacción externa + `join_transaction_mode="create_savepoint"`
 - Faker para datos de prueba realistas
 - Factory Boy para objetos de prueba complejos
 - Testing de migraciones (Alembic)
-- Testcontainers en Python para BD reales (PostgreSQL, MySQL)
+- Testcontainers en Python con PostgreSQL real
 
-**Proyecto**: Suite de tests para la capa de acceso a datos del dominio asignado: CRUD completo con SQLAlchemy en SQLite, usando Factory Boy para datos de prueba.
+**Proyecto**: Suite de tests para la capa de acceso a datos del dominio asignado: CRUD completo con SQLAlchemy, rollback por test y Factory Boy para datos de prueba; la misma suite corre en SQLite y en PostgreSQL con Testcontainers.
 
 ---
 
 #### Week 24: Proyecto Integrador — Etapa 2 (Python)
 
-**Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
+**Horas**: 10h (0.5h teoría + 2.5h planning + 6.5h desarrollo + 0.5h presentación)
 
 **Temas**:
 
@@ -509,7 +519,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 25: JUnit 6 Avanzado y AssertJ
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -528,7 +538,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 26: Mockito — Mocking en Java
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -538,8 +548,9 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - `ArgumentCaptor`: capturar argumentos de llamadas
 - `@MockitoExtension` con JUnit 6
 - Mockito strict stubbing: detectar stubs no utilizados
-- Mockear métodos estáticos con `mockStatic()` (Mockito 3.4+)
+- Mockear métodos estáticos con `mockStatic()` dentro de try-with-resources (inline mock maker, por defecto en Mockito 5) y por qué suele indicar un problema de diseño
 - Diferencia entre `@Mock` y `@Spy`
+- BDDMockito: `given().willReturn()` y `then().should()`
 
 **Proyecto**: Suite con Mockito para aislar todas las dependencias del dominio asignado en Java: repositorios, servicios externos, envío de notificaciones.
 
@@ -547,7 +558,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 27: TDD con Java
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -566,17 +577,18 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 28: Testing de Spring Boot
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
 - Spring Boot Test: `@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`
-- MockMvc: testear controladores REST sin levantar servidor
-- `@MockBean` y `@SpyBean` (diferencia con `@Mock` de Mockito)
+- MockMvc y `MockMvcTester` (aserciones AssertJ): testear controladores REST sin levantar servidor
+- `@MockitoBean` y `@MockitoSpyBean` (reemplazan a `@MockBean`/`@SpyBean`, eliminados en Spring Boot 4) y su diferencia con `@Mock`
+- Starters de test modulares de Spring Boot 4 (un starter de test por tecnología)
 - Testing del contexto de Spring: `@ActiveProfiles("test")`
 - Test slices: `@JsonTest`, `@RestClientTest`
 - Configuración de BD en tests: H2 in-memory
-- `TestRestTemplate` para tests de integración completos
+- `RestTestClient` / `TestRestTemplate` para tests de integración completos
 - `@Transactional` en tests: rollback automático
 
 **Proyecto**: Suite de tests para la API Spring Boot del dominio asignado: `@WebMvcTest` para controladores, `@DataJpaTest` para repositorios, `@SpringBootTest` para integración.
@@ -585,36 +597,37 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 29: Testcontainers en Java
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
 - ¿Qué es Testcontainers? Contenedores Docker en tests
 - Testcontainers con JUnit 6: `@Testcontainers`, `@Container`
-- PostgreSQL container, MySQL container
+- PostgreSQL container: versión fijada igual que en producción
 - Inicialización de schemas: `init.sql`, Flyway, Liquibase
 - Kafka container para tests de mensajería
 - `GenericContainer` para servicios arbitrarios
-- Compartir containers entre tests: `reuse = true`
+- `@ServiceConnection` (Spring Boot): conectar el contenedor sin `@DynamicPropertySource`
+- Compartir containers entre clases: patrón singleton container; `withReuse(true)` solo en local
 - Optimización de tiempos: `@Container` static vs instance
 
-**Proyecto**: Migrar los tests de BD del dominio asignado de H2 a PostgreSQL real con Testcontainers. Demonstrar paridad entre entorno de test y producción.
+**Proyecto**: Migrar los tests de BD del dominio asignado de H2 a PostgreSQL real con Testcontainers. Demostrar paridad entre entorno de test y producción.
 
 ---
 
 #### Week 30: BDD con Java — Cucumber
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
 - Cucumber para Java: dependencias Maven/Gradle
 - Gherkin en Java: `@Given`, `@When`, `@Then` con expresiones
 - `DataTable` para datos tabulares en steps
-- `World` / State sharing entre steps
+- Estado compartido entre steps por inyección de dependencias (`cucumber-spring`, beans con scope de escenario)
 - Cucumber con Spring Boot: `@CucumberContextConfiguration`
-- Generar reportes HTML con `cucumber-reporting`
-- Integrar Cucumber en Maven Surefire/Failsafe
+- Reportes HTML con el plugin nativo `html:` (y `json:` para herramientas externas)
+- Ejecutar con JUnit Platform: `cucumber-junit-platform-engine` + `@Suite` + `@SelectClasspathResource`, en Surefire/Failsafe
 - Living documentation: features como documentación ejecutable
 
 **Proyecto**: Suite BDD con Cucumber para el flujo de negocio principal del dominio asignado en Java: al menos 3 features integradas con Spring Boot.
@@ -623,7 +636,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 #### Week 31: Proyecto Integrador — Etapa 3 (Java)
 
-**Horas**: 8h (0.5h teoría + 2h planning + 5h desarrollo + 0.5h presentación)
+**Horas**: 10h (0.5h teoría + 2.5h planning + 6.5h desarrollo + 0.5h presentación)
 
 **Temas**:
 
@@ -636,15 +649,201 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-### 🟪 ETAPA 4: TESTING AVANZADO TRANSVERSAL (Semanas 32–36)
+### 🔷 ETAPA 4: TESTING CON GO (Semanas 32–36)
 
-> El estudiante domina testing unitario e integración en los tres lenguajes. La etapa final cubre E2E, performance, seguridad, CI/CD y el proyecto final integrador multilenguaje.
+> El estudiante ya domina los conceptos de testing en tres lenguajes. Go no aparece en la Etapa 0, así que la S32 hace de "primeros tests" y compara cada idea con Jest, pytest y JUnit. Go trae el testing en la librería estándar: se prioriza `testing` + `go test` y solo se añaden librerías cuando aportan algo que la stdlib no da. BDD no se repite (ya visto con Behave y Cucumber); godog queda como lectura en recursos.
 
 ---
 
-#### Week 32: Testing End-to-End con Playwright
+#### Week 32: Fundamentos de Testing en Go
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Módulos Go y layout: `go.mod`, archivos `_test.go`, `go test ./...`
+- El paquete `testing`: `func TestXxx(t *testing.T)`, `t.Errorf` vs `t.Fatalf`
+- Table-driven tests: el patrón idiomático de parametrización en Go
+- Subtests con `t.Run` y filtrado con `go test -run 'TestX/caso'`
+- `t.Helper`, `t.Cleanup`, `t.TempDir`, `t.Context`
+- Tests en paralelo con `t.Parallel()` y la captura de variables de bucle (Go 1.22+)
+- Caja blanca (`package x`) vs caja negra (`package x_test`)
+- Example tests (`func ExampleXxx`) como documentación verificada
+- `go vet` y `go test -v`, `-count=1`, `-shuffle=on`
+
+**Proyecto**: Portar a Go las funciones del dominio asignado y cubrirlas con table-driven tests y subtests. Comparar en `comparativa.md` la misma suite con Jest, pytest y JUnit.
+
+---
+
+#### Week 33: Interfaces y Dobles de Prueba en Go
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Inyección de dependencias con interfaces pequeñas definidas del lado del consumidor
+- Fakes y stubs escritos a mano: por qué en Go suelen bastar
+- `go.uber.org/mock` (mockgen): mocks generados, `EXPECT()`, `gomock.Any()`, `Times()`
+- testify: `assert` vs `require`, y `testify/mock` como alternativa
+- Comparar estructuras con `github.com/google/go-cmp/cmp` (`cmp.Diff`)
+- Golden files en `testdata/` con flag `-update`
+- Inyección del reloj y de la aleatoriedad para tests deterministas
+
+**Proyecto**: Aislar con interfaces las dependencias del servicio principal del dominio asignado (repositorio, notificador, reloj). Al menos un fake manual y un mock generado con mockgen, justificando cuándo usar cada uno.
+
+---
+
+#### Week 34: HTTP, BD e Integración en Go
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- `net/http/httptest`: `NewRecorder` para handlers y `NewServer` para clientes HTTP
+- Testear handlers con el router estándar (`http.ServeMux` con patrones de método, Go 1.22+)
+- Validar JSON de respuesta: `encoding/json` + `cmp.Diff`
+- `TestMain` para preparar y liberar recursos compartidos
+- Separar integración: build tags `//go:build integration` y `testing.Short()`
+- testcontainers-go: módulo PostgreSQL, migraciones y limpieza con `t.Cleanup`
+- Transacción con rollback por test vs base de datos por paquete
+
+**Proyecto**: API REST del dominio asignado en Go: tests de handlers con `httptest` y tests de repositorio contra PostgreSQL real con testcontainers-go, ejecutables por separado con `-tags integration`.
+
+---
+
+#### Week 35: Concurrencia y Calidad en Go
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Race detector: `go test -race` y cómo leer su reporte
+- `testing/synctest`: tiempo virtual para tests de código concurrente
+- Fuzzing nativo: `func FuzzXxx(f *testing.F)`, corpus semilla y `testdata/fuzz/`
+- Benchmarks: `func BenchmarkXxx(b *testing.B)` con `b.Loop()`, `-benchmem`, `benchstat`
+- Coverage: `-coverprofile`, `-covermode=atomic`, `-coverpkg`, `go tool cover -html`
+- Coverage de binarios e integración con `go build -cover` (`GOCOVERDIR`)
+- Linters de calidad: `staticcheck` / `golangci-lint`
+
+**Proyecto**: Añadir a la suite Go del dominio asignado un fuzz test que encuentre al menos un caso límite, un benchmark comparado con `benchstat` antes/después de una optimización y un test concurrente limpio bajo `-race`.
+
+---
+
+#### Week 36: Proyecto Integrador — Etapa 4 (Go)
+
+**Horas**: 10h (0.5h teoría + 2.5h planning + 6.5h desarrollo + 0.5h presentación)
+
+**Temas**:
+
+- Integración de Semanas 32–35
+- Arquitectura de testing en Go: unitarios table-driven + dobles + `httptest` + testcontainers-go
+- Coverage ≥85% con `go test -coverprofile`
+- Reporte de testing con análisis de calidad
+
+**Proyecto**: Suite completa Go del dominio asignado: unitarios, mocks, HTTP, BD real, fuzz y benchmarks, limpia bajo `-race`. Coverage ≥85%, reporte `testing-report-go.md`.
+
+---
+
+### 🟫 ETAPA 5: TESTING CON RUST (Semanas 37–41)
+
+> Rust integra el testing en `cargo` y en el propio lenguaje. El compilador ya elimina clases enteras de errores, así que la etapa se centra en lo que el tipo no garantiza: lógica de negocio, async, I/O y propiedades. Como en Go, la S37 arranca desde cero y compara con los lenguajes anteriores. BDD no se repite; el crate `cucumber` queda como lectura en recursos.
+
+---
+
+#### Week 37: Fundamentos de Testing en Rust
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- `cargo new`, `cargo test` y los tres tipos de test: unitarios, integración (`tests/`) y doctests
+- `#[test]` y el módulo `#[cfg(test)] mod tests` junto al código
+- `assert!`, `assert_eq!`, `assert_ne!` con mensajes personalizados
+- `#[should_panic(expected = "...")]` y tests que devuelven `Result<(), E>`
+- `#[ignore]`, filtros por nombre, `cargo test -- --nocapture`, `--test-threads`
+- Testear funciones privadas: por qué es posible en Rust y cuándo evitarlo
+- `pretty_assertions` para diffs legibles
+
+**Proyecto**: Portar a Rust las funciones del dominio asignado con tests unitarios, al menos un test de integración en `tests/` y doctests en la API pública. Comparar con la suite Go de la Etapa 4.
+
+---
+
+#### Week 38: Traits, Dobles y Parametrización en Rust
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Inyección de dependencias con traits: genéricos (`impl Trait`) vs `dyn Trait`
+- Fakes manuales implementando el trait
+- `mockall`: `#[automock]`, `expect_*()`, `returning`, `times`, `with(predicate::eq(...))`
+- `rstest`: fixtures y parametrización con `#[case]` y `#[values]`
+- Snapshot testing con `insta` y revisión con `cargo insta review`
+- Organización: módulos de soporte compartidos en `tests/common/`
+
+**Proyecto**: Aislar con traits las dependencias del servicio principal del dominio asignado. Suite con fakes, al menos un mock con `mockall`, casos parametrizados con `rstest` y un snapshot con `insta`.
+
+---
+
+#### Week 39: Async, APIs y BD en Rust
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Tests async con `#[tokio::test]` (runtime y `flavor = "multi_thread"`)
+- APIs con axum: testear el `Router` sin abrir puerto con `tower::ServiceExt::oneshot`
+- Clientes HTTP (`reqwest`) contra un servidor simulado con `wiremock`
+- `#[sqlx::test]`: base de datos aislada y migraciones por test
+- testcontainers-rs con el módulo PostgreSQL
+- Tiempo controlado en async: `tokio::time::pause` y `advance`
+
+**Proyecto**: API REST del dominio asignado en Rust con axum: tests de rutas con `oneshot`, tests de repositorio con `#[sqlx::test]` sobre PostgreSQL y un cliente externo simulado con `wiremock`.
+
+---
+
+#### Week 40: Calidad Avanzada en Rust
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
+
+**Temas**:
+
+- Property-based testing con `proptest`: estrategias y shrinking
+- Fuzzing con `cargo-fuzz` (requiere nightly; Linux o WSL)
+- Benchmarks con `criterion`
+- Coverage con `cargo-llvm-cov` (líneas y ramas, reporte HTML)
+- `cargo-nextest`: runner más rápido y con mejor salida
+- Mutation testing con `cargo-mutants`
+- `cargo clippy` como red previa a los tests
+
+**Proyecto**: Añadir a la suite Rust del dominio asignado propiedades con `proptest`, un benchmark con `criterion` y un reporte de `cargo-mutants` con los mutantes supervivientes analizados.
+
+---
+
+#### Week 41: Proyecto Integrador — Etapa 5 (Rust)
+
+**Horas**: 10h (0.5h teoría + 2.5h planning + 6.5h desarrollo + 0.5h presentación)
+
+**Temas**:
+
+- Integración de Semanas 37–40
+- Arquitectura de testing en Rust: unitarios + integración + doctests + async + BD
+- Coverage ≥85% con `cargo-llvm-cov`
+- Reporte de testing con análisis de calidad
+
+**Proyecto**: Suite completa Rust del dominio asignado: unitarios, `mockall`, `rstest`, axum, `#[sqlx::test]`, `proptest` y benchmarks. Coverage ≥85%, reporte `testing-report-rust.md`.
+
+---
+
+### 🟪 ETAPA 6: TESTING AVANZADO TRANSVERSAL (Semanas 42–46)
+
+> El estudiante domina testing unitario e integración en los cinco lenguajes. La etapa final cubre E2E, performance, seguridad, CI/CD y el proyecto final integrador multilenguaje.
+
+---
+
+#### Week 42: Testing End-to-End con Playwright
+
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -661,9 +860,9 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-#### Week 33: Testing de Performance con k6 y Locust
+#### Week 43: Testing de Performance con k6 y Locust
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -671,7 +870,8 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Métricas clave: RPS, latencia (p50/p90/p99), error rate, throughput
 - k6 (JavaScript): scripts, thresholds, stages, `check()`
 - Interpretar resultados de k6: métricas y reporte
-- Locust (Python): `HttpUser`, `TaskSet`, `@task`, `wait_time`
+- Locust (Python): `HttpUser`, `@task`, `wait_time` (`TaskSet` solo como legado)
+- Microbenchmarks (Go `b.Loop()`, Rust `criterion`) vs pruebas de carga: qué responde cada uno
 - Comparativa k6 vs Locust vs JMeter
 - Baseline, targets y criterios de aceptación de performance
 - Identificar bottlenecks desde resultados de carga
@@ -680,9 +880,9 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 
 ---
 
-#### Week 34: Testing de Seguridad Básico (OWASP)
+#### Week 44: Testing de Seguridad Básico (OWASP)
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
@@ -692,42 +892,43 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Autenticación y autorización: tests para acceso no autorizado
 - IDOR (Insecure Direct Object Reference): tests de acceso entre usuarios
 - Cabeceras de seguridad HTTP: validarlas en tests de integración
-- OWASP ZAP básico: scan pasivo (conceptual)
+- OWASP ZAP baseline scan real contra la API, ejecutado con Docker
+- Auditoría de dependencias por lenguaje: `pnpm audit`, `pip-audit`, OWASP Dependency-Check, `govulncheck`, `cargo audit`
 - Security testing en CI: integrar checks automáticos
 
-**Proyecto**: Agregar security tests a la suite de integración del dominio asignado: al menos tests para IDOR, inyección de parámetros, acceso no autorizado y headers de seguridad.
+**Proyecto**: Agregar security tests a la suite de integración del dominio asignado: al menos tests para IDOR, inyección de parámetros, acceso no autorizado y headers de seguridad, más el reporte de ZAP baseline y la auditoría de dependencias de cada lenguaje usado.
 
 ---
 
-#### Week 35: CI/CD y Testing Automatizado
+#### Week 45: CI/CD y Testing Automatizado
 
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Horas**: 10h (2.5h teoría + 4h práctica + 3h proyecto + 0.5h recursos)
 
 **Temas**:
 
 - ¿Qué es CI/CD? Integración continua y entrega continua
 - GitHub Actions: anatomía de un workflow (`.github/workflows/`)
-- Job de tests: checkout, setup Node/Python/Java, ejecutar tests
+- Job de tests: checkout, setup Node/Python/Java/Go/Rust (`actions/setup-go`, toolchain de Rust), cachés, ejecutar tests
 - Matrix strategy: correr tests en múltiples versiones de lenguaje
 - Artifacts: guardar reportes de coverage y resultados
 - Test parallelism en CI
 - Fallar el pipeline si coverage < umbral
 - Quality Gates básicos con SonarQube (free tier para públicos / Community Edition para privados)
-- Pre-commit hooks con Husky (JS), pre-commit (Python)
+- Pre-commit hooks con Husky (JS) y pre-commit (Python, con hooks para `gofmt`/`go vet` y `cargo fmt`/`clippy`)
 
-**Proyecto**: Configurar 3 GitHub Actions workflows (uno por lenguaje) para el repositorio del dominio asignado. Cada workflow ejecuta la suite completa, genera reporte de coverage y falla si baja del umbral.
+**Proyecto**: Configurar un GitHub Actions workflow por lenguaje (cinco) para el repositorio del dominio asignado. Cada workflow ejecuta la suite completa, genera reporte de coverage y falla si baja del umbral.
 
 ---
 
-#### Week 36: Proyecto Final — Bootcamp Testing Zero to Hero
+#### Week 46: Proyecto Final — Bootcamp Testing Zero to Hero
 
-**Horas**: 8h (0h teoría + 2h planning + 5.5h desarrollo + 0.5h presentación)
+**Horas**: 10h (0h teoría + 2.5h planning + 7h desarrollo + 0.5h presentación)
 
 **Temas**:
 
-- Consolidación de todo lo aprendido (Etapas 0–4)
+- Consolidación de todo lo aprendido (Etapas 0–6)
 - Estrategia de testing completa para un sistema real
-- Integración de suites: JS + Python + Java + E2E + Performance
+- Integración de suites: JS + Python + Java + Go/Rust + E2E + Performance
 - CI/CD completo con GitHub Actions
 - Documentación de calidad: README profesional del proyecto
 
@@ -736,10 +937,11 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Suite JS (Jest): tests unitarios + integración (Supertest) + coverage ≥85%
 - Suite Python (pytest + Behave): unitarios + BD + BDD + coverage ≥85%
 - Suite Java (JUnit 6 + Mockito + Cucumber): unitarios + Spring + Testcontainers + coverage ≥85%
+- Suite Go o Rust (al menos una; las dos es opcional): unitarios + HTTP + BD + coverage ≥85%
 - E2E con Playwright (≥10 tests en POM)
 - Performance: k6 load test + criterios de aceptación
 - Security: tests básicos OWASP
-- CI/CD: 3 GitHub Actions configurados
+- CI/CD: un GitHub Actions por lenguaje incluido
 - `testing-strategy.md`: documento de estrategia y decisiones tomadas
 
 ---
@@ -783,12 +985,26 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 - Testcontainers: BD reales en tests (S29)
 - BDD con Cucumber + Spring Boot (S30)
 
-### Testing Avanzado Transversal (Etapa 4)
+### Testing con Go (Etapa 4)
 
-- E2E con Playwright y Page Object Model (S32)
-- Performance: k6 (JS) y Locust (Python) (S33)
-- Security testing básico OWASP (S34)
-- CI/CD con GitHub Actions (S35)
+- Fundamentos: `go test`, table-driven tests, subtests (S32)
+- Interfaces, fakes, mockgen y golden files (S33)
+- `httptest`, build tags y testcontainers-go (S34)
+- Race detector, `testing/synctest`, fuzzing y benchmarks (S35)
+
+### Testing con Rust (Etapa 5)
+
+- Fundamentos: unitarios, `tests/`, doctests (S37)
+- Traits, `mockall`, `rstest` e `insta` (S38)
+- Async con Tokio, axum, `#[sqlx::test]` y testcontainers (S39)
+- `proptest`, `cargo-fuzz`, `criterion`, `cargo-llvm-cov`, `cargo-mutants` (S40)
+
+### Testing Avanzado Transversal (Etapa 6)
+
+- E2E con Playwright y Page Object Model (S42)
+- Performance: k6 (JS) y Locust (Python) (S43)
+- Security testing básico OWASP y auditoría de dependencias (S44)
+- CI/CD con GitHub Actions para los cinco lenguajes (S45)
 
 ---
 
@@ -827,12 +1043,22 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S29    | Testcontainers en Java                         | ⏳ Pendiente |
 | S30    | BDD con Java — Cucumber                        | ⏳ Pendiente |
 | S31    | Proyecto Integrador — Etapa 3 (Java)           | ⏳ Pendiente |
-| S32    | Testing End-to-End con Playwright              | ⏳ Pendiente |
-| S33    | Testing de Performance con k6 y Locust         | ⏳ Pendiente |
-| S34    | Testing de Seguridad Básico (OWASP)            | ⏳ Pendiente |
-| S35    | CI/CD y Testing Automatizado                   | ⏳ Pendiente |
-| S36    | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
+| S32    | Fundamentos de Testing en Go                   | ⏳ Pendiente |
+| S33    | Interfaces y Dobles de Prueba en Go            | ⏳ Pendiente |
+| S34    | HTTP, BD e Integración en Go                   | ⏳ Pendiente |
+| S35    | Concurrencia y Calidad en Go                   | ⏳ Pendiente |
+| S36    | Proyecto Integrador — Etapa 4 (Go)             | ⏳ Pendiente |
+| S37    | Fundamentos de Testing en Rust                 | ⏳ Pendiente |
+| S38    | Traits, Dobles y Parametrización en Rust       | ⏳ Pendiente |
+| S39    | Async, APIs y BD en Rust                       | ⏳ Pendiente |
+| S40    | Calidad Avanzada en Rust                       | ⏳ Pendiente |
+| S41    | Proyecto Integrador — Etapa 5 (Rust)           | ⏳ Pendiente |
+| S42    | Testing End-to-End con Playwright              | ⏳ Pendiente |
+| S43    | Testing de Performance con k6 y Locust         | ⏳ Pendiente |
+| S44    | Testing de Seguridad Básico (OWASP)            | ⏳ Pendiente |
+| S45    | CI/CD y Testing Automatizado                   | ⏳ Pendiente |
+| S46    | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
 
 ---
 
-_Última actualización: Julio 2026 | Versión: 1.1 — Sincronizado con el contenido publicado de S01-S18 tras auditoría (ver AUDIT.md)_
+_Última actualización: Noviembre 2026 | Versión: 1.2 — Añadidas las etapas de Go (S32–S36) y Rust (S37–S41); la etapa transversal pasa a S42–S46; dedicación de 10 h por semana. Semanas pendientes actualizadas al stack fijado (Spring Boot 4, Mockito 5, Testcontainers 2)_

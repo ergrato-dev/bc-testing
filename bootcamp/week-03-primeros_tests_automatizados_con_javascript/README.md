@@ -20,13 +20,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## ⏱ Distribución del Tiempo (8 horas)
+## ⏱ Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | 📖 Teoría | Configuración de entorno, estructura de Jest, assertions y lectura de resultados | 2 h |
-| 💻 Prácticas | 2 ejercicios guiados con código comentado para descomentar | 3.5 h |
-| 🏗 Proyecto | Suite básica de tests unitarios del dominio asignado | 2 h |
+| 💻 Prácticas | 2 ejercicios guiados con código comentado para descomentar | 4.5 h |
+| 🏗 Proyecto | Suite básica de tests unitarios del dominio asignado | 3 h |
 | 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
 
 ---

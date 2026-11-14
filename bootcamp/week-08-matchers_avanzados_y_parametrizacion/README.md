@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Matchers avanzados, parametrización y lectura de errores | 2.5 h |
-| Prácticas | Ejercicios guiados con `test.each` y assertions complejas | 3 h |
-| Proyecto | Suite del dominio con casos parametrizados | 2 h |
+| Prácticas | Ejercicios guiados con `test.each` y assertions complejas | 4 h |
+| Proyecto | Suite del dominio con casos parametrizados | 3 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
 ---

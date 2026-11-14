@@ -2,7 +2,7 @@
 
 **Etapa**: 🟥 Etapa 0 — Fundamentos de Testing
 **Semanas de la etapa**: 1 de 6
-**Horas totales**: 8h
+**Horas totales**: 10h
 
 ---
 
@@ -20,13 +20,13 @@ Al finalizar esta semana, el estudiante será capaz de:
 
 ---
 
-## ⏱️ Distribución del Tiempo (8 horas)
+## ⏱️ Distribución del Tiempo (10 horas)
 
 | Actividad | Tiempo | Contenido |
 | --- | --- | --- |
 | 📖 Teoría | 2.5h | Calidad de software, tipos y niveles de testing, pirámide, ciclo de vida del bug |
-| 💻 Práctica | 3h | Ejercicios de análisis y documentación de bugs reales |
-| 📦 Proyecto | 2h | Escribir un reporte de bug profesional |
+| 💻 Práctica | 4h | Ejercicios de análisis y documentación de bugs reales |
+| 📦 Proyecto | 3h | Escribir un reporte de bug profesional |
 | 📚 Recursos | 0.5h | Lecturas y referencias complementarias |
 
 ---

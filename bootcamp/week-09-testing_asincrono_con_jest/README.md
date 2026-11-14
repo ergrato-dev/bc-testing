@@ -19,13 +19,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Promesas, async/await, rejects y timers | 2.5 h |
-| Prácticas | Ejercicios guiados de asincronía y control de tiempo | 3 h |
-| Proyecto | Suite asíncrona del dominio asignado | 2 h |
+| Prácticas | Ejercicios guiados de asincronía y control de tiempo | 4 h |
+| Proyecto | Suite asíncrona del dominio asignado | 3 h |
 | Recursos y cierre | Refuerzo y checklist final | 0.5 h |
 
 ---

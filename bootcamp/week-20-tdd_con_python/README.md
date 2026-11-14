@@ -27,13 +27,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Ciclo TDD en Python, diseño emergente y código legado, property-based testing | 2.5 h |
-| Prácticas | Kata de números romanos y propiedades con hypothesis y mypy | 3 h |
-| Proyecto | Servicio del dominio construido con TDD | 2 h |
+| Prácticas | Kata de números romanos y propiedades con hypothesis y mypy | 4 h |
+| Proyecto | Servicio del dominio construido con TDD | 3 h |
 | Recursos y cierre | Videos, lecturas y repaso | 0.5 h |
 
 ---

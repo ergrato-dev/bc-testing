@@ -25,13 +25,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | BDD y Gherkin, Behave (steps, context, hooks), pytest-bdd | 2.5 h |
-| Prácticas | Primer feature con Behave; hooks, tablas, tags y pytest-bdd | 3 h |
-| Proyecto | Suite BDD del flujo principal del dominio | 2 h |
+| Prácticas | Primer feature con Behave; hooks, tablas, tags y pytest-bdd | 4 h |
+| Proyecto | Suite BDD del flujo principal del dominio | 3 h |
 | Recursos y cierre | Videos, lecturas y repaso | 0.5 h |
 
 ---

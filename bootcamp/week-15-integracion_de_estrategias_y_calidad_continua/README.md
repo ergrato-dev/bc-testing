@@ -18,13 +18,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Integración de estrategias + CI quality gate con SonarQube | 0.5 h |
-| Prácticas | Suite integrada y pipeline mínimo Actions + Sonar | 2 h |
-| Proyecto integrador | API Express + Supertest, coverage con umbral y pipeline con quality gate | 5 h |
+| Prácticas | Suite integrada y pipeline mínimo Actions + Sonar | 3 h |
+| Proyecto integrador | API Express + Supertest, coverage con umbral y pipeline con quality gate | 6 h |
 | Recursos y cierre | Retro de etapa + plan de transición a Python | 0.5 h |
 
 ---

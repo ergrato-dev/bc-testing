@@ -2,7 +2,9 @@
 
 ## 🎯 Objetivo
 
-Este documento establece el orden y metodología para desarrollar los contenidos de cada semana del bootcamp de Testing, asegurando consistencia y calidad en todos los materiales educativos para los tres lenguajes (JavaScript, Python y Java).
+Este documento establece el orden y metodología para desarrollar los contenidos de cada semana del bootcamp de Testing, asegurando consistencia y calidad en todos los materiales educativos para los cinco lenguajes (JavaScript, Python, Java, Go y Rust).
+
+> Desde S23 las reglas de estructura, autograding, navegación y diagramas de [`CLAUDE.md`](../CLAUDE.md) prevalecen sobre este documento (decisión en [decision-semanas.md](decision-semanas.md)). Lo que sigue describe la estructura de S01–S22.
 
 ---
 
@@ -21,7 +23,7 @@ El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto
 - 📚 Requisitos previos
 - 🗂️ Estructura de la semana
 - 📝 Contenidos (con enlaces a teoría/prácticas)
-- ⏱️ Distribución del tiempo (8 horas)
+- ⏱️ Distribución del tiempo (10 horas)
 - 📌 Entregables
 - 🔗 Navegación (semana anterior / siguiente)
 - 🏷️ Etiqueta de lenguaje(s) cubiertos en la semana (JS / Python / Java / Transversal)
@@ -76,7 +78,7 @@ El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto
 - Ejemplos de código progresivos (simple → complejo)
 - Conceptos construidos sobre conocimientos previos
 - Indicar claramente a qué lenguaje aplica cada sección (JS, Python, Java o todos)
-- Cuando un tema aplica a los tres lenguajes (ej: TDD, BDD, cobertura), mostrar el equivalente en cada uno
+- Cuando un tema ya se vio en otro lenguaje (ej: TDD, BDD, cobertura), enlazar esa semana y mostrar solo la diferencia
 
 **Propósito**: Desarrollar el contenido conceptual antes de crear ejercicios prácticos.
 
@@ -105,6 +107,8 @@ El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto
 - JavaScript: `#F7DF1E` (amarillo JS)
 - Python: `#3572A5` (azul Python) + `#FFD43B` (amarillo Python)
 - Java: `#F89820` (naranja Java)
+- Go: `#00ADD8` (cian Go)
+- Rust: `#DEA584` (cobre Rust)
 - Conceptos transversales: `#6366f1` (índigo)
 - Fondos: `#0f172a` / `#1e293b`
 - Texto: `#f1f5f9`
@@ -149,7 +153,7 @@ ejercicio-XX-nombre/
     └── SolutionTest.java # Solución completa Java
 ```
 
-> ⚠️ **Nota**: No todos los ejercicios requieren los tres lenguajes. Las semanas 7–15 son solo JS, 16–24 solo Python, 25–31 solo Java. Las semanas 1–6 y 32–36 pueden ser multilenguaje o con el lenguaje indicado.
+> ⚠️ **Nota**: No todos los ejercicios requieren los tres lenguajes. Las semanas 7–15 son solo JS, 16–24 solo Python, 25–31 solo Java, 32–36 solo Go y 37–41 solo Rust. Las semanas 1–6 y 42–46 pueden ser multilenguaje o con el lenguaje indicado.
 
 **Formato de ejercicios — CORRECTO (Tutorial guiado)**:
 
@@ -455,8 +459,8 @@ assertEquals(42, result);
 ### Semanas de Referencia Clave
 
 - S01-S02: Estructura base para semanas conceptuales (sin código)
-- S03-S05: Estructura para semanas de inicio con un lenguaje
-- S06, S15, S24, S31, S36: Semanas integradoras (sin teoría nueva, todo práctica)
+- S03-S05, S32, S37: Estructura para semanas de inicio con un lenguaje
+- S06, S15, S24, S31, S36, S41, S46: Semanas integradoras (sin teoría nueva, todo práctica)
 - S11, S20, S27: Semanas de TDD (misma estructura pero en lenguajes distintos)
 - S22, S30: Semanas de BDD (Behave vs Cucumber)
 

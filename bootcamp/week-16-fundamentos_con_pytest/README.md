@@ -18,13 +18,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | Repaso de S04, entorno de pytest, fixtures a fondo, `conftest.py` y fixtures integradas | 2.5 h |
-| Prácticas | Fixtures con `yield` y scopes + `conftest.py`, `autouse`, `tmp_path` y `monkeypatch` | 3 h |
-| Proyecto | Suite del dominio organizada con fixtures | 2 h |
+| Prácticas | Fixtures con `yield` y scopes + `conftest.py`, `autouse`, `tmp_path` y `monkeypatch` | 4 h |
+| Proyecto | Suite del dominio organizada con fixtures | 3 h |
 | Recursos y cierre | Refuerzo con documentación oficial y checklist | 0.5 h |
 
 ---

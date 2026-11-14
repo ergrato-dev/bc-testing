@@ -26,13 +26,13 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
-## Distribución del Tiempo (8 horas)
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
 | Teoría | pytest-cov y branch coverage, mutation testing, umbrales y SonarQube | 2.5 h |
-| Prácticas | Branch coverage y umbral; mutation testing con mutmut | 3 h |
-| Proyecto | Calidad de la suite y `quality-report-python.md` | 2 h |
+| Prácticas | Branch coverage y umbral; mutation testing con mutmut | 4 h |
+| Proyecto | Calidad de la suite y `quality-report-python.md` | 3 h |
 | Recursos y cierre | Videos, lecturas y repaso | 0.5 h |
 
 ---
