@@ -1035,7 +1035,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S22    | BDD con Python — Behave                        | ✅ Completo |
 | S23    | Testing de Bases de Datos en Python            | ✅ Completo  |
 | S24    | Proyecto Integrador — Etapa 2 (Python)         | ✅ Completo  |
-| S25    | JUnit 6 Avanzado y AssertJ                     | ⏳ Pendiente |
+| S25    | JUnit 6 Avanzado y AssertJ                     | ✅ Completo  |
 | S26    | Mockito — Mocking en Java                      | ⏳ Pendiente |
 | S27    | TDD con Java                                   | ⏳ Pendiente |
 | S28    | Testing de Spring Boot                         | ⏳ Pendiente |

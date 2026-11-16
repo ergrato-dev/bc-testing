@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" width="860" height="420" font-family="sans-serif">
+  <title>Orden de ejecución de un test dentro de clases @Nested</title>
+  <rect width="860" height="420" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">Un test dentro de dos @Nested</text>
+  <text x="30" y="62" fill="#8b949e" font-size="14">LoanTest.WhenActive.AfterTwoRenewals.shouldRejectAThirdRenewal()</text>
+
+  <!-- clases anidadas -->
+  <rect x="30" y="85" width="370" height="305" rx="8" fill="#161b22" stroke="#F89820" stroke-width="2"/>
+  <text x="48" y="112" fill="#F89820" font-size="15" font-weight="bold">LoanTest</text>
+  <text x="48" y="134" fill="#c9d1d9" font-size="13" font-family="monospace">@BeforeEach createLoan()</text>
+
+  <rect x="55" y="150" width="325" height="220" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+  <text x="73" y="176" fill="#58a6ff" font-size="15" font-weight="bold">@Nested WhenActive</text>
+  <text x="73" y="198" fill="#8b949e" font-size="13">sin @BeforeEach propio</text>
+
+  <rect x="80" y="215" width="280" height="135" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="98" y="241" fill="#3fb950" font-size="15" font-weight="bold">@Nested AfterTwoRenewals</text>
+  <text x="98" y="265" fill="#c9d1d9" font-size="13" font-family="monospace">@BeforeEach renewTwice()</text>
+  <text x="98" y="300" fill="#c9d1d9" font-size="13" font-family="monospace">@Test</text>
+  <text x="98" y="320" fill="#c9d1d9" font-size="13" font-family="monospace">shouldRejectAThirdRenewal()</text>
+
+  <!-- orden -->
+  <text x="440" y="112" fill="#c9d1d9" font-size="15" font-weight="bold">Orden en que JUnit lo ejecuta</text>
+
+  <rect x="440" y="128" width="390" height="46" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="456" y="157" fill="#d29922" font-size="15" font-weight="bold">1</text>
+  <text x="480" y="157" fill="#c9d1d9" font-size="14">Instancia nueva de cada clase, de fuera a dentro</text>
+
+  <rect x="440" y="184" width="390" height="46" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="456" y="213" fill="#d29922" font-size="15" font-weight="bold">2</text>
+  <text x="480" y="213" fill="#c9d1d9" font-size="14" font-family="monospace">createLoan()</text>
+  <text x="600" y="213" fill="#8b949e" font-size="13">el @BeforeEach de fuera</text>
+
+  <rect x="440" y="240" width="390" height="46" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="456" y="269" fill="#d29922" font-size="15" font-weight="bold">3</text>
+  <text x="480" y="269" fill="#c9d1d9" font-size="14" font-family="monospace">renewTwice()</text>
+  <text x="600" y="269" fill="#8b949e" font-size="13">el @BeforeEach de dentro</text>
+
+  <rect x="440" y="296" width="390" height="46" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="456" y="325" fill="#d29922" font-size="15" font-weight="bold">4</text>
+  <text x="480" y="325" fill="#c9d1d9" font-size="14" font-family="monospace">shouldRejectAThirdRenewal()</text>
+
+  <text x="440" y="375" fill="#8b949e" font-size="13">Los @AfterEach corren al revés: de dentro a fuera.</text>
+  <text x="440" y="395" fill="#8b949e" font-size="13">Cada test repite los pasos 1 a 3 desde cero.</text>
+</svg>

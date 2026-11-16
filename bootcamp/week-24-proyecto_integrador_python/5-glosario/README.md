@@ -40,6 +40,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 25 - Java Testing I: JUnit 6 Avanzado y AssertJ](../../week-25-junit_6_avanzado_y_assertj/README.md) → |
 
 [↑ Semana 24](../README.md)

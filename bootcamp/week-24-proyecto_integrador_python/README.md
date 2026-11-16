@@ -121,4 +121,4 @@ La cifra de cobertura solo vale si mide tu código con todas las capas. Sin Beha
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 23 - Testing de Bases de Datos en Python](../week-23-testing_de_bases_de_datos_en_python/README.md) | Semana 25 - Próximamente |
+| [Semana 23 - Testing de Bases de Datos en Python](../week-23-testing_de_bases_de_datos_en_python/README.md) | [Semana 25 - JUnit 6 Avanzado y AssertJ](../week-25-junit_6_avanzado_y_assertj/README.md) |
