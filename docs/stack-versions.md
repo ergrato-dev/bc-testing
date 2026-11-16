@@ -57,6 +57,9 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | maven-dependency-plugin | 3.11.0 | `pom.xml` | Ruta del jar de Mockito para cargarlo como agente (S26) |
 | ArchUnit | 1.5.1 (`archunit-junit5`) | `pom.xml` | Fitness functions de arquitectura con JUnit 6 (S27) |
 | Spring Boot | 4.1.1 | `pom.xml` (parent) | Testing de Spring Boot (S28) |
+| Spring Framework | 7.0.9 (gestionada por Spring Boot) | parent | `MockMvcTester`, `RestTestClient`, `@MockitoBean` y `@TestBean` (S28) |
+| Jackson | 3.1.5 (gestionada por Spring Boot) | parent | `@JsonTest` y el JSON de la API (S28) |
+| Hibernate Validator | 9.1.3 (gestionada por Spring Boot) | parent | Bean Validation con `spring-boot-starter-validation` (S28) |
 | Testcontainers | 2.0.5 | `pom.xml` | PostgreSQL real en tests (S29) |
 | JaCoCo | 0.8.15 | `pom.xml` | Coverage |
 | Cucumber | se fija en S30 | `pom.xml` | BDD con JUnit Platform |

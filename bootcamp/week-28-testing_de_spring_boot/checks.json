@@ -1,0 +1,69 @@
+{
+  "semana": "28",
+  "titulo": "Testing de Spring Boot",
+  "checks": [
+    {
+      "id": "java-suite",
+      "descripcion": "La suite Java pasa con mvn test",
+      "cmd": "cd {proyecto}/java && mvn -q test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 1 a 7"
+    },
+    {
+      "id": "spring-boot",
+      "descripcion": "El pom.xml usa spring-boot-starter-parent como parent",
+      "cmd": "grep -q '<artifactId>spring-boot-starter-parent</artifactId>' {proyecto}/java/pom.xml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "problem-detail",
+      "descripcion": "Los errores de la API se responden con ProblemDetail",
+      "cmd": "grep -rq 'ProblemDetail' {proyecto}/java/src/main",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "webmvctest",
+      "descripcion": "Hay un test del controlador con @WebMvcTest y @MockitoBean",
+      "cmd": "grep -rlq '@WebMvcTest' {proyecto}/java/src/test && grep -rq '@MockitoBean' {proyecto}/java/src/test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "jsontest",
+      "descripcion": "Hay un test del contrato JSON con @JsonTest",
+      "cmd": "grep -rq '@JsonTest' {proyecto}/java/src/test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "springboottest",
+      "descripcion": "Hay un test de extremo a extremo con @SpringBootTest en un puerto aleatorio",
+      "cmd": "grep -rq 'WebEnvironment.RANDOM_PORT' {proyecto}/java/src/test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "arch-rules",
+      "descripcion": "La suite tiene al menos 4 reglas @ArchTest",
+      "cmd": "grep -rhow '@ArchTest' {proyecto}/java/src/test | wc -l",
+      "assert": "stdout~^([4-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "no-disabled",
+      "descripcion": "No queda ningún @Disabled en src/test",
+      "cmd": "test -d {proyecto}/java/src/test && ! grep -rq '@Disabled' {proyecto}/java/src/test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 4 a 6"
+    },
+    {
+      "id": "test-count",
+      "descripcion": "Al menos 70 ejecuciones de test, sin fallos ni saltados",
+      "cmd": "cd {proyecto}/java && mvn test | grep 'Tests run:' | tail -1",
+      "assert": "stdout~Tests run: ([7-9][0-9]|[1-9][0-9]{2,}), Failures: 0, Errors: 0, Skipped: 0$",
+      "pista": "3-proyecto/README.md, paso 6"
+    }
+  ]
+}

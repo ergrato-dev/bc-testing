@@ -55,6 +55,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 28 - Java Testing IV: Testing de Spring Boot](../../week-28-testing_de_spring_boot/README.md) → |
 
 [↑ Semana 27](../README.md)

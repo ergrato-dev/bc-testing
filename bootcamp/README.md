@@ -35,7 +35,7 @@ Estado de cada semana:
 | [25](week-25-junit_6_avanzado_y_assertj/README.md) | [JUnit 6 Avanzado y AssertJ](week-25-junit_6_avanzado_y_assertj/README.md) | Java | ✅ |
 | [26](week-26-mockito_mocking_en_java/README.md) | [Mockito — Mocking en Java](week-26-mockito_mocking_en_java/README.md) | Java | ✅ |
 | [27](week-27-tdd_con_java/README.md) | [TDD con Java](week-27-tdd_con_java/README.md) | Java | ✅ |
-| 28 | Testing de Spring Boot | Java | ⬜ |
+| [28](week-28-testing_de_spring_boot/README.md) | [Testing de Spring Boot](week-28-testing_de_spring_boot/README.md) | Java | ✅ |
 | 29 | Testcontainers en Java | Java | ⬜ |
 | 30 | BDD con Java — Cucumber | Java | ⬜ |
 | 31 | Proyecto Integrador — Etapa 3 (Java) | Java | ⬜ |

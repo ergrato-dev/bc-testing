@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" width="860" height="470" font-family="sans-serif">
+  <title>Qué carga cada anotación de test de Spring Boot: real, mock o nada</title>
+  <rect width="860" height="470" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">Qué arranca cada anotación de test</text>
+  <text x="30" y="62" fill="#c9d1d9" font-size="13">Cuanto menos carga un slice, antes arranca y más concreto es el fallo.</text>
+  <text x="305" y="92" fill="#F89820" font-size="13" font-family="monospace" font-weight="bold" text-anchor="middle">@WebMvcTest</text>
+  <text x="455" y="92" fill="#F89820" font-size="13" font-family="monospace" font-weight="bold" text-anchor="middle">@JsonTest</text>
+  <text x="605" y="92" fill="#F89820" font-size="13" font-family="monospace" font-weight="bold" text-anchor="middle">@SpringBootTest</text>
+  <text x="605" y="108" fill="#c9d1d9" font-size="11" font-family="monospace" text-anchor="middle">MOCK (por defecto)</text>
+  <text x="755" y="92" fill="#F89820" font-size="13" font-family="monospace" font-weight="bold" text-anchor="middle">@SpringBootTest</text>
+  <text x="755" y="108" fill="#c9d1d9" font-size="11" font-family="monospace" text-anchor="middle">RANDOM_PORT</text>
+  <text x="30" y="145" fill="#c9d1d9" font-size="13">Servidor HTTP (Tomcat)</text>
+  <rect x="238" y="125" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="305" y="145" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="388" y="125" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="145" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="125" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="605" y="145" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="688" y="125" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="145" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="185" fill="#c9d1d9" font-size="13">Controladores y advices</text>
+  <rect x="238" y="165" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="305" y="185" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="388" y="165" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="185" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="165" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="185" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="165" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="185" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="225" fill="#c9d1d9" font-size="13">Validación (@Valid)</text>
+  <rect x="238" y="205" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="305" y="225" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="388" y="205" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="225" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="205" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="225" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="205" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="225" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="265" fill="#c9d1d9" font-size="13">Jackson (JSON)</text>
+  <rect x="238" y="245" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="305" y="265" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="388" y="245" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="455" y="265" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="538" y="245" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="265" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="245" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="265" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="305" fill="#c9d1d9" font-size="13">Servicios</text>
+  <rect x="238" y="285" width="134" height="30" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="305" y="305" fill="#58a6ff" font-size="12" font-family="monospace" text-anchor="middle">@MockitoBean</text>
+  <rect x="388" y="285" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="305" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="285" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="305" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="285" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="305" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="345" fill="#c9d1d9" font-size="13">Repositorios</text>
+  <rect x="238" y="325" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="305" y="345" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="388" y="325" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="345" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="325" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="345" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="325" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="345" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="385" fill="#c9d1d9" font-size="13">Clock y otros @Bean</text>
+  <rect x="238" y="365" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="305" y="385" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="388" y="365" width="134" height="30" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="455" y="385" fill="#c9d1d9" font-size="12" font-family="sans-serif" text-anchor="middle">no se carga</text>
+  <rect x="538" y="365" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="605" y="385" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <rect x="688" y="365" width="134" height="30" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="755" y="385" fill="#3fb950" font-size="12" font-family="sans-serif" text-anchor="middle">real</text>
+  <text x="30" y="428" fill="#c9d1d9" font-size="12">En @WebMvcTest los servicios no existen: o los declaras con @MockitoBean o el contexto no arranca.</text>
+  <text x="30" y="448" fill="#c9d1d9" font-size="12">@SpringBootTest carga todo; con @TestBean o @MockitoBean sustituyes solo el bean que el test necesita controlar.</text>
+</svg>

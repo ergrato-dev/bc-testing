@@ -1,0 +1,9 @@
+{
+  "id": "L-2",
+  "isbn": "978-0307474728",
+  "member": "M-7",
+  "dueDate": "2026-03-20",
+  "returnedOn": "2026-03-23",
+  "lateFee": 1.50,
+  "status": "RETURNED"
+}

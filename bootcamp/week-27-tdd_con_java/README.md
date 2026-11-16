@@ -131,4 +131,4 @@ Ejecuta cada test **antes** de escribir su Green y lee por qué falla. Un Green 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 26 - Mockito — Mocking en Java](../week-26-mockito_mocking_en_java/README.md) | Semana 28 - Próximamente |
+| [Semana 26 - Mockito — Mocking en Java](../week-26-mockito_mocking_en_java/README.md) | [Semana 28 - Testing de Spring Boot](../week-28-testing_de_spring_boot/README.md) |
