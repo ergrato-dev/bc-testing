@@ -1037,7 +1037,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S24    | Proyecto Integrador — Etapa 2 (Python)         | ✅ Completo  |
 | S25    | JUnit 6 Avanzado y AssertJ                     | ✅ Completo  |
 | S26    | Mockito — Mocking en Java                      | ✅ Completo  |
-| S27    | TDD con Java                                   | ⏳ Pendiente |
+| S27    | TDD con Java                                   | ✅ Completo  |
 | S28    | Testing de Spring Boot                         | ⏳ Pendiente |
 | S29    | Testcontainers en Java                         | ⏳ Pendiente |
 | S30    | BDD con Java — Cucumber                        | ⏳ Pendiente |

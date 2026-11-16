@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" width="860" height="440" font-family="sans-serif">
+  <title>El ciclo TDD en Java: dos clases de Red, Green y Refactor</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="860" height="440" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">Un ciclo TDD en Java</text>
+  <text x="30" y="62" fill="#c9d1d9" font-size="13">El compilador participa en el Red: primero falta el código, luego falta el comportamiento</text>
+
+  <!-- Red de compilación -->
+  <rect x="30" y="100" width="180" height="110" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="120" y="128" fill="#d29922" font-size="15" font-weight="bold" text-anchor="middle">Red de compilación</text>
+  <text x="120" y="154" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">cannot find symbol</text>
+  <text x="120" y="180" fill="#c9d1d9" font-size="12" text-anchor="middle">Alt+Enter crea la clase</text>
+  <text x="120" y="198" fill="#c9d1d9" font-size="12" text-anchor="middle">o el método vacío</text>
+
+  <!-- Red de aserción -->
+  <rect x="250" y="100" width="180" height="110" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="340" y="128" fill="#f85149" font-size="15" font-weight="bold" text-anchor="middle">Red de aserción</text>
+  <text x="340" y="154" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">Expecting actual: []</text>
+  <text x="340" y="180" fill="#c9d1d9" font-size="12" text-anchor="middle">el test llegó al código</text>
+  <text x="340" y="198" fill="#c9d1d9" font-size="12" text-anchor="middle">y falla por lo esperado</text>
+
+  <!-- Green -->
+  <rect x="470" y="100" width="170" height="110" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="555" y="128" fill="#3fb950" font-size="15" font-weight="bold" text-anchor="middle">Green</text>
+  <text x="555" y="154" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">Failures: 0</text>
+  <text x="555" y="180" fill="#c9d1d9" font-size="12" text-anchor="middle">el código mínimo</text>
+  <text x="555" y="198" fill="#c9d1d9" font-size="12" text-anchor="middle">que lo hace pasar</text>
+
+  <!-- Refactor -->
+  <rect x="680" y="100" width="150" height="110" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="755" y="128" fill="#58a6ff" font-size="15" font-weight="bold" text-anchor="middle">Refactor</text>
+  <text x="755" y="154" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">Ctrl+Alt+M</text>
+  <text x="755" y="180" fill="#c9d1d9" font-size="12" text-anchor="middle">un cambio,</text>
+  <text x="755" y="198" fill="#c9d1d9" font-size="12" text-anchor="middle">una ejecución</text>
+
+  <line x1="210" y1="155" x2="246" y2="155" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="430" y1="155" x2="466" y2="155" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="155" x2="676" y2="155" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- commit y vuelta -->
+  <rect x="680" y="250" width="150" height="56" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="755" y="274" fill="#c9d1d9" font-size="13" font-weight="bold" text-anchor="middle">git commit</text>
+  <text x="755" y="294" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">feat: ...</text>
+  <line x1="755" y1="210" x2="755" y2="246" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M680,278 L120,278 L120,214" fill="none" stroke="#c9d1d9" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="400" y="270" fill="#c9d1d9" font-size="12" text-anchor="middle">siguiente test</text>
+
+  <!-- test de confirmación -->
+  <rect x="250" y="330" width="390" height="80" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="445" y="356" fill="#c9d1d9" font-size="14" font-weight="bold" text-anchor="middle">¿El test nuevo pasa a la primera?</text>
+  <text x="445" y="378" fill="#c9d1d9" font-size="12" text-anchor="middle">Test de confirmación: rompe el código a propósito.</text>
+  <text x="445" y="396" fill="#c9d1d9" font-size="12" text-anchor="middle">Si el test no falla, el test está mal.</text>
+  <line x1="340" y1="214" x2="340" y2="326" stroke="#c9d1d9" stroke-width="1.2" stroke-dasharray="3 3"/>
+</svg>

@@ -68,6 +68,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 27 - Java Testing III: TDD con Java](../../week-27-tdd_con_java/README.md) → |
 
 [↑ Semana 26](../README.md)

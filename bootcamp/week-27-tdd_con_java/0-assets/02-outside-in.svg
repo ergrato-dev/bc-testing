@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" width="860" height="420" font-family="sans-serif">
+  <title>Outside-in: el test del servicio inventa las interfaces; las piezas sin dependencias se hacen después</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="860" height="420" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">Outside-in: del servicio hacia dentro</text>
+
+  <!-- nivel 1 -->
+  <text x="30" y="80" fill="#F89820" font-size="14" font-weight="bold">1. Test del servicio, con mocks</text>
+  <rect x="30" y="95" width="210" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="135" y="124" fill="#c9d1d9" font-size="13" font-weight="bold" text-anchor="middle">ReminderServiceTest</text>
+  <text x="135" y="146" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">verify(mailer).send(...)</text>
+
+  <rect x="300" y="95" width="200" height="70" rx="8" fill="#161b22" stroke="#F89820" stroke-width="2"/>
+  <text x="400" y="124" fill="#F89820" font-size="14" font-weight="bold" text-anchor="middle">ReminderService</text>
+  <text x="400" y="146" fill="#c9d1d9" font-size="12" text-anchor="middle">recibe un Clock</text>
+  <line x1="240" y1="130" x2="296" y2="130" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="580" y="80" width="250" height="34" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="705" y="102" fill="#58a6ff" font-size="12" font-family="monospace" text-anchor="middle">@Mock LoanRepository</text>
+  <rect x="580" y="122" width="250" height="34" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="705" y="144" fill="#58a6ff" font-size="12" font-family="monospace" text-anchor="middle">@Mock MemberDirectory</text>
+  <rect x="580" y="164" width="250" height="34" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="705" y="186" fill="#58a6ff" font-size="12" font-family="monospace" text-anchor="middle">@Mock Mailer</text>
+  <line x1="500" y1="120" x2="576" y2="97" stroke="#c9d1d9" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="135" x2="576" y2="139" stroke="#c9d1d9" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="150" x2="576" y2="181" stroke="#c9d1d9" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="705" y="222" fill="#c9d1d9" font-size="12" text-anchor="middle">interfaces creadas desde el test</text>
+  <text x="705" y="240" fill="#c9d1d9" font-size="12" text-anchor="middle">con Alt+Enter: solo lo que se usa</text>
+
+  <!-- nivel 2 -->
+  <text x="30" y="290" fill="#3fb950" font-size="14" font-weight="bold">2. Bajar un nivel: TDD clásico, sin mocks</text>
+  <rect x="30" y="305" width="210" height="70" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="135" y="334" fill="#c9d1d9" font-size="13" font-weight="bold" text-anchor="middle">ReminderTextTest</text>
+  <text x="135" y="356" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">isEqualTo("El préstamo...")</text>
+  <rect x="300" y="305" width="200" height="70" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="400" y="334" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">ReminderText</text>
+  <text x="400" y="356" fill="#c9d1d9" font-size="12" text-anchor="middle">sin dependencias</text>
+  <line x1="240" y1="340" x2="296" y2="340" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="165" x2="400" y2="301" stroke="#c9d1d9" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="410" y="240" fill="#c9d1d9" font-size="12">el servicio usa la clase real</text>
+
+  <text x="580" y="320" fill="#c9d1d9" font-size="13" font-weight="bold">Mock: lo que sale del proceso</text>
+  <text x="580" y="342" fill="#c9d1d9" font-size="12">base de datos, red, correo</text>
+  <text x="580" y="370" fill="#c9d1d9" font-size="13" font-weight="bold">Real: valores y cálculos</text>
+  <text x="580" y="392" fill="#c9d1d9" font-size="12">records, ReminderText, Clock.fixed</text>
+</svg>

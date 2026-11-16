@@ -129,4 +129,4 @@ Un mock sin stub no falla: devuelve `0`, `false`, vacío o `null`. Si un test fa
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 25 - JUnit 6 Avanzado y AssertJ](../week-25-junit_6_avanzado_y_assertj/README.md) | Semana 27 - Próximamente |
+| [Semana 25 - JUnit 6 Avanzado y AssertJ](../week-25-junit_6_avanzado_y_assertj/README.md) | [Semana 27 - TDD con Java](../week-27-tdd_con_java/README.md) |
