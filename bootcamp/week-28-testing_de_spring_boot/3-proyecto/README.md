@@ -11,7 +11,7 @@ Tu carpeta `java/` pasa a ser una API REST con Spring Boot, sin tocar el dominio
 - tres capas de tests nuevas: `@WebMvcTest` para el controlador, `@JsonTest` para el contrato JSON y `@SpringBootTest` para el flujo completo;
 - una cuarta regla de ArchUnit que impide que Spring entre en el dominio.
 
-Los repositorios siguen en memoria. En la [semana 29](../../../docs/plan-estudios.md) se cambian por PostgreSQL con Testcontainers.
+Los repositorios siguen en memoria. En la [semana 29](../../week-29-testcontainers_en_java/3-proyecto/README.md) se cambian por PostgreSQL con Testcontainers.
 
 ## Dónde va
 

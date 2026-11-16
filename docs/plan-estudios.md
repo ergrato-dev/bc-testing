@@ -1039,7 +1039,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S26    | Mockito — Mocking en Java                      | ✅ Completo  |
 | S27    | TDD con Java                                   | ✅ Completo  |
 | S28    | Testing de Spring Boot                         | ✅ Completo  |
-| S29    | Testcontainers en Java                         | ⏳ Pendiente |
+| S29    | Testcontainers en Java                         | ✅ Completo  |
 | S30    | BDD con Java — Cucumber                        | ⏳ Pendiente |
 | S31    | Proyecto Integrador — Etapa 3 (Java)           | ⏳ Pendiente |
 | S32    | Fundamentos de Testing en Go                   | ⏳ Pendiente |

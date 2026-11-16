@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" width="880" height="470" font-family="sans-serif">
+  <title>Testcontainers pide a Docker un contenedor, publica su puerto en uno aleatorio del host y lo arranca una vez por clase (static) o una vez por test (sin static)</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="880" height="470" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">Un contenedor de PostgreSQL para los tests</text>
+
+  <!-- Parte 1: JVM, Docker y el contenedor -->
+  <rect x="30" y="60" width="250" height="130" rx="8" fill="#161b22" stroke="#F89820" stroke-width="2"/>
+  <text x="155" y="86" fill="#F89820" font-size="14" font-weight="bold" text-anchor="middle">JVM de los tests (mvn test)</text>
+  <text x="50" y="114" fill="#c9d1d9" font-size="12" font-family="monospace">@Testcontainers</text>
+  <text x="50" y="134" fill="#c9d1d9" font-size="12" font-family="monospace">@Container static</text>
+  <text x="50" y="154" fill="#c9d1d9" font-size="12" font-family="monospace">PostgreSQLContainer</text>
+  <text x="50" y="176" fill="#c9d1d9" font-size="12" font-family="monospace">getJdbcUrl() → localhost:32770</text>
+
+  <line x1="280" y1="100" x2="376" y2="100" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="328" y="90" fill="#58a6ff" font-size="12" text-anchor="middle">API de Docker</text>
+
+  <rect x="380" y="60" width="470" height="130" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="400" y="86" fill="#c9d1d9" font-size="14" font-weight="bold">Docker</text>
+  <rect x="400" y="100" width="200" height="74" rx="6" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
+  <text x="500" y="124" fill="#3fb950" font-size="12" font-family="monospace" text-anchor="middle">postgres:18.7-alpine</text>
+  <text x="500" y="146" fill="#c9d1d9" font-size="12" text-anchor="middle">escucha en 5432</text>
+  <text x="500" y="164" fill="#c9d1d9" font-size="11" text-anchor="middle">dentro del contenedor</text>
+  <rect x="630" y="100" width="200" height="74" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="730" y="124" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">testcontainers/ryuk</text>
+  <text x="730" y="146" fill="#c9d1d9" font-size="12" text-anchor="middle">borra los contenedores</text>
+  <text x="730" y="164" fill="#c9d1d9" font-size="11" text-anchor="middle">si la JVM muere</text>
+
+  <path d="M500,174 L500,210 L155,210 L155,192" fill="none" stroke="#d29922" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="330" y="228" fill="#d29922" font-size="12" text-anchor="middle">5432 → puerto aleatorio del host (32770): nunca choca con otro PostgreSQL</text>
+
+  <!-- Parte 2: static frente a instancia -->
+  <text x="30" y="275" fill="#c9d1d9" font-size="15" font-weight="bold">Cuándo arranca y cuándo para (lab 01, tiempos reales)</text>
+
+  <text x="30" y="308" fill="#3fb950" font-size="13" font-weight="bold">@Container static</text>
+  <text x="30" y="326" fill="#c9d1d9" font-size="12">uno por clase</text>
+  <rect x="170" y="296" width="90" height="34" rx="4" fill="#3fb950"/>
+  <text x="215" y="318" fill="#0d1117" font-size="12" font-weight="bold" text-anchor="middle">arranque</text>
+  <rect x="264" y="296" width="90" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="309" y="318" fill="#c9d1d9" font-size="12" text-anchor="middle">test 1</text>
+  <rect x="358" y="296" width="90" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="403" y="318" fill="#c9d1d9" font-size="12" text-anchor="middle">test 2</text>
+  <rect x="452" y="296" width="90" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="497" y="318" fill="#c9d1d9" font-size="12" text-anchor="middle">test 3</text>
+  <rect x="546" y="296" width="50" height="34" rx="4" fill="#f85149"/>
+  <text x="571" y="318" fill="#0d1117" font-size="12" font-weight="bold" text-anchor="middle">fin</text>
+  <text x="620" y="312" fill="#c9d1d9" font-size="12">1 arranque · datos compartidos</text>
+  <text x="620" y="328" fill="#c9d1d9" font-size="12">entre los tests de la clase</text>
+
+  <text x="30" y="378" fill="#d29922" font-size="13" font-weight="bold">@Container sin static</text>
+  <text x="30" y="396" fill="#c9d1d9" font-size="12">uno por test</text>
+  <rect x="170" y="366" width="60" height="34" rx="4" fill="#3fb950"/>
+  <rect x="232" y="366" width="60" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="262" y="388" fill="#c9d1d9" font-size="12" text-anchor="middle">test 1</text>
+  <rect x="294" y="366" width="24" height="34" rx="4" fill="#f85149"/>
+  <rect x="322" y="366" width="60" height="34" rx="4" fill="#3fb950"/>
+  <rect x="384" y="366" width="60" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="414" y="388" fill="#c9d1d9" font-size="12" text-anchor="middle">test 2</text>
+  <rect x="446" y="366" width="24" height="34" rx="4" fill="#f85149"/>
+  <rect x="474" y="366" width="60" height="34" rx="4" fill="#3fb950"/>
+  <rect x="536" y="366" width="60" height="34" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="566" y="388" fill="#c9d1d9" font-size="12" text-anchor="middle">test 3</text>
+  <rect x="598" y="366" width="24" height="34" rx="4" fill="#f85149"/>
+  <text x="640" y="382" fill="#c9d1d9" font-size="12">3 arranques de ~1.5 s</text>
+  <text x="640" y="398" fill="#c9d1d9" font-size="12">cada test empieza vacío</text>
+
+  <rect x="170" y="430" width="16" height="14" fill="#3fb950"/>
+  <text x="192" y="442" fill="#c9d1d9" font-size="12">arranque del contenedor</text>
+  <rect x="360" y="430" width="16" height="14" fill="#f85149"/>
+  <text x="382" y="442" fill="#c9d1d9" font-size="12">parada y borrado</text>
+</svg>

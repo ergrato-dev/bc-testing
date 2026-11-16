@@ -132,4 +132,4 @@ Antes de escribir un `@SpringBootTest`, pregúntate si un test unitario o un sli
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 27 - TDD con Java](../week-27-tdd_con_java/README.md) | Semana 29 - Próximamente |
+| [Semana 27 - TDD con Java](../week-27-tdd_con_java/README.md) | [Semana 29 - Testcontainers en Java](../week-29-testcontainers_en_java/README.md) |

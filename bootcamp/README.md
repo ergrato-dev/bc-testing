@@ -36,7 +36,7 @@ Estado de cada semana:
 | [26](week-26-mockito_mocking_en_java/README.md) | [Mockito — Mocking en Java](week-26-mockito_mocking_en_java/README.md) | Java | ✅ |
 | [27](week-27-tdd_con_java/README.md) | [TDD con Java](week-27-tdd_con_java/README.md) | Java | ✅ |
 | [28](week-28-testing_de_spring_boot/README.md) | [Testing de Spring Boot](week-28-testing_de_spring_boot/README.md) | Java | ✅ |
-| 29 | Testcontainers en Java | Java | ⬜ |
+| [29](week-29-testcontainers_en_java/README.md) | [Testcontainers en Java](week-29-testcontainers_en_java/README.md) | Java | ✅ |
 | 30 | BDD con Java — Cucumber | Java | ⬜ |
 | 31 | Proyecto Integrador — Etapa 3 (Java) | Java | ⬜ |
 | 32 | Fundamentos de Testing en Go | Go | ⬜ |

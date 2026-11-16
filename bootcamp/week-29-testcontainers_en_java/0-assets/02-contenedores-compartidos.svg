@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430" font-family="sans-serif">
+  <title>Cuántos contenedores arrancan: uno por contexto de Spring si el contenedor es un bean, uno para todas las clases si es un campo static que se arranca una sola vez</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="880" height="430" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">¿Cuántos contenedores arranca la suite?</text>
+
+  <!-- Izquierda: bean en TestcontainersConfiguration -->
+  <text x="30" y="74" fill="#58a6ff" font-size="14" font-weight="bold">Contenedor como @Bean (TestcontainersConfiguration)</text>
+  <text x="30" y="94" fill="#c9d1d9" font-size="12">Vive dentro del contexto de Spring: uno por contexto en caché</text>
+
+  <rect x="30" y="110" width="170" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="115" y="129" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">RestockTest</text>
+  <text x="115" y="146" fill="#c9d1d9" font-size="11" text-anchor="middle">@JdbcTest + @Import</text>
+  <rect x="30" y="164" width="170" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="115" y="183" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">ReservationTest</text>
+  <text x="115" y="200" fill="#c9d1d9" font-size="11" text-anchor="middle">@JdbcTest + @Import</text>
+  <rect x="30" y="236" width="170" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="115" y="255" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">ApiTest</text>
+  <text x="115" y="272" fill="#c9d1d9" font-size="11" text-anchor="middle">@SpringBootTest + @Import</text>
+
+  <line x1="200" y1="132" x2="246" y2="152" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="200" y1="186" x2="246" y2="166" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="200" y1="258" x2="246" y2="258" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="136" width="90" height="44" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="295" y="163" fill="#58a6ff" font-size="12" text-anchor="middle">contexto A</text>
+  <rect x="250" y="236" width="90" height="44" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="295" y="263" fill="#58a6ff" font-size="12" text-anchor="middle">contexto B</text>
+
+  <line x1="340" y1="158" x2="366" y2="158" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="258" x2="366" y2="258" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="370" y="136" width="60" height="44" rx="6" fill="#3fb950"/>
+  <text x="400" y="163" fill="#0d1117" font-size="11" font-weight="bold" text-anchor="middle">PG 1</text>
+  <rect x="370" y="236" width="60" height="44" rx="6" fill="#3fb950"/>
+  <text x="400" y="263" fill="#0d1117" font-size="11" font-weight="bold" text-anchor="middle">PG 2</text>
+  <text x="30" y="310" fill="#c9d1d9" font-size="12">Misma configuración, mismo contexto, mismo contenedor.</text>
+  <text x="30" y="328" fill="#c9d1d9" font-size="12">Otra configuración: otro contexto y otro arranque de PostgreSQL.</text>
+
+  <!-- Derecha: singleton -->
+  <line x1="460" y1="64" x2="460" y2="340" stroke="#30363d" stroke-width="1"/>
+  <text x="480" y="74" fill="#3fb950" font-size="14" font-weight="bold">Contenedor singleton (campo static)</text>
+  <text x="480" y="94" fill="#c9d1d9" font-size="12">Se arranca una vez por JVM en un bloque static</text>
+
+  <rect x="480" y="110" width="170" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="565" y="137" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">PaymentEventsTest</text>
+  <rect x="480" y="164" width="170" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="565" y="191" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">ShippingEventsTest</text>
+  <text x="565" y="232" fill="#c9d1d9" font-size="11" text-anchor="middle">extends KafkaTestBase</text>
+
+  <line x1="650" y1="132" x2="716" y2="152" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="650" y1="186" x2="716" y2="166" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="720" y="136" width="130" height="44" rx="6" fill="#3fb950"/>
+  <text x="785" y="163" fill="#0d1117" font-size="11" font-weight="bold" text-anchor="middle">un solo broker</text>
+  <text x="480" y="270" fill="#c9d1d9" font-size="12">Sin @Container: nadie lo para al acabar cada clase.</text>
+  <text x="480" y="288" fill="#c9d1d9" font-size="12">Ryuk lo borra cuando termina la JVM.</text>
+
+  <!-- Abajo: withReuse -->
+  <rect x="30" y="356" width="820" height="56" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="50" y="380" fill="#d29922" font-size="13" font-weight="bold">withReuse(true): sobrevive a la JVM</text>
+  <text x="50" y="400" fill="#c9d1d9" font-size="12">Solo en tu equipo y con testcontainers.reuse.enable=true. La segunda ejecución lo encuentra en 0.3 s; en CI, nunca.</text>
+</svg>

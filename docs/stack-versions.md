@@ -60,7 +60,10 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Spring Framework | 7.0.9 (gestionada por Spring Boot) | parent | `MockMvcTester`, `RestTestClient`, `@MockitoBean` y `@TestBean` (S28) |
 | Jackson | 3.1.5 (gestionada por Spring Boot) | parent | `@JsonTest` y el JSON de la API (S28) |
 | Hibernate Validator | 9.1.3 (gestionada por Spring Boot) | parent | Bean Validation con `spring-boot-starter-validation` (S28) |
-| Testcontainers | 2.0.5 | `pom.xml` | PostgreSQL real en tests (S29) |
+| Testcontainers | 2.0.5 (gestionada por Spring Boot; `testcontainers-junit-jupiter`, `-postgresql`, `-kafka`) | `pom.xml` | PostgreSQL y Kafka reales en tests; imagen auxiliar `testcontainers/ryuk:0.14.0` (S29) |
+| Flyway | 12.4.0 (gestionada por Spring Boot; con `flyway-database-postgresql`) | `pom.xml` | Migraciones del esquema en producción y en tests (S29) |
+| Driver PostgreSQL (JDBC) | 42.7.13 (gestionada por Spring Boot) | `pom.xml` | `org.postgresql:postgresql` (S29) |
+| kafka-clients | 4.2.1 (gestionada por Spring Boot) | `pom.xml` | Productor y consumidor de Kafka (S29) |
 | JaCoCo | 0.8.15 | `pom.xml` | Coverage |
 | Cucumber | se fija en S30 | `pom.xml` | BDD con JUnit Platform |
 
@@ -89,6 +92,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
 | PostgreSQL | 18.7 (`postgres:18.7-alpine`) | `compose.yaml` (puerto `127.0.0.1:55432`) y `POSTGRES_IMAGE` de los tests | Única base de datos del curso |
+| Apache Kafka | 4.2.1 (`apache/kafka-native:4.2.1`) | `KafkaContainer` de los tests | Broker real para los tests de mensajería (S29); misma versión que `kafka-clients` |
 | Docker + Compose | v2+ | equipo del estudiante | Testcontainers (desde S23) y OWASP ZAP (S44) |
 | jq | 1.7+ | equipo del estudiante | `scripts/verificar-semana.sh` lee `checks.json` |
 
