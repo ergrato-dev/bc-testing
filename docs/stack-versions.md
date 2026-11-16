@@ -54,6 +54,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | AssertJ | 3.27.7 | `pom.xml` | Aserciones fluentes |
 | maven-surefire-plugin | 3.5.6 | `pom.xml` | Ejecución de tests |
 | Mockito | 5.23.0 | `pom.xml` | Mocking (S26) |
+| maven-dependency-plugin | 3.11.0 | `pom.xml` | Ruta del jar de Mockito para cargarlo como agente (S26) |
 | Spring Boot | 4.1.1 | `pom.xml` (parent) | Testing de Spring Boot (S28) |
 | Testcontainers | 2.0.5 | `pom.xml` | PostgreSQL real en tests (S29) |
 | JaCoCo | 0.8.15 | `pom.xml` | Coverage |

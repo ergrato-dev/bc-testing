@@ -129,4 +129,4 @@ Un test parametrizado o una clase `@Nested` mal escritos no siempre dan error: a
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 24 - Proyecto Integrador: Etapa 2 (Python)](../week-24-proyecto_integrador_python/README.md) | Semana 26 - Próximamente |
+| [Semana 24 - Proyecto Integrador: Etapa 2 (Python)](../week-24-proyecto_integrador_python/README.md) | [Semana 26 - Mockito — Mocking en Java](../week-26-mockito_mocking_en_java/README.md) |

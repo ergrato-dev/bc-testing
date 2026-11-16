@@ -66,6 +66,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 26 - Java Testing II: Mockito — Mocking en Java](../../week-26-mockito_mocking_en_java/README.md) → |
 
 [↑ Semana 25](../README.md)

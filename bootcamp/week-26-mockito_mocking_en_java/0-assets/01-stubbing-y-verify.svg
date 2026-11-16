@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="860" height="400" font-family="sans-serif">
+  <title>Stubbing y verify: lo que entra y lo que sale del servicio</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <rect width="860" height="400" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">OverdueNotifier en un test: dos mocks, dos papeles</text>
+
+  <!-- servicio -->
+  <rect x="330" y="160" width="200" height="80" rx="8" fill="#161b22" stroke="#F89820" stroke-width="2"/>
+  <text x="430" y="195" fill="#F89820" font-size="16" font-weight="bold" text-anchor="middle">OverdueNotifier</text>
+  <text x="430" y="220" fill="#c9d1d9" font-size="13" font-family="monospace" text-anchor="middle">notifyOverdue()</text>
+
+  <!-- repo (stub) -->
+  <rect x="30" y="160" width="220" height="80" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="140" y="192" fill="#58a6ff" font-size="15" font-weight="bold" text-anchor="middle">@Mock LoanRepository</text>
+  <text x="140" y="218" fill="#c9d1d9" font-size="13" text-anchor="middle">responde lo que dice el test</text>
+  <line x1="250" y1="200" x2="326" y2="200" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="288" y="190" fill="#c9d1d9" font-size="12" text-anchor="middle">List&lt;Loan&gt;</text>
+
+  <!-- notifier (verify) -->
+  <rect x="610" y="160" width="220" height="80" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="720" y="192" fill="#3fb950" font-size="15" font-weight="bold" text-anchor="middle">@Mock Notifier</text>
+  <text x="720" y="218" fill="#c9d1d9" font-size="13" text-anchor="middle">anota cada llamada</text>
+  <line x1="530" y1="200" x2="606" y2="200" stroke="#c9d1d9" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="568" y="190" fill="#c9d1d9" font-size="12" text-anchor="middle">Notice</text>
+
+  <!-- antes -->
+  <rect x="30" y="70" width="380" height="64" rx="6" fill="#0d1117" stroke="#58a6ff" stroke-dasharray="5 4"/>
+  <text x="46" y="94" fill="#58a6ff" font-size="13" font-weight="bold">Antes de la acción: stubbing</text>
+  <text x="46" y="118" fill="#c9d1d9" font-size="12" font-family="monospace">when(loans.findOverdue(TODAY)).thenReturn(...)</text>
+
+  <!-- despues -->
+  <rect x="450" y="270" width="380" height="84" rx="6" fill="#0d1117" stroke="#3fb950" stroke-dasharray="5 4"/>
+  <text x="466" y="294" fill="#3fb950" font-size="13" font-weight="bold">Después de la acción: verificación</text>
+  <text x="466" y="318" fill="#c9d1d9" font-size="12" font-family="monospace">verify(notifier, times(2)).send(any())</text>
+  <text x="466" y="340" fill="#c9d1d9" font-size="12" font-family="monospace">verify(notifier).send(notice.capture())</text>
+
+  <text x="30" y="290" fill="#c9d1d9" font-size="14">Entrada indirecta: el servicio la lee de una dependencia.</text>
+  <text x="30" y="314" fill="#c9d1d9" font-size="14">Salida indirecta: el servicio la entrega a otra.</text>
+  <text x="30" y="350" fill="#8b949e" font-size="13">Ninguna de las dos aparece en los parámetros</text>
+  <text x="30" y="370" fill="#8b949e" font-size="13">ni en el valor devuelto de notifyOverdue().</text>
+</svg>

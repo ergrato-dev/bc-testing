@@ -33,7 +33,7 @@ Estado de cada semana:
 | [23](week-23-testing_de_bases_de_datos_en_python/README.md) | Testing de Bases de Datos en Python | Python | ✅ |
 | [24](week-24-proyecto_integrador_python/README.md) | Proyecto Integrador — Etapa 2 (Python) | Python | ✅ |
 | [25](week-25-junit_6_avanzado_y_assertj/README.md) | JUnit 6 Avanzado y AssertJ | Java | ✅ |
-| 26 | Mockito — Mocking en Java | Java | ⬜ |
+| [26](week-26-mockito_mocking_en_java/README.md) | Mockito — Mocking en Java | Java | ✅ |
 | 27 | TDD con Java | Java | ⬜ |
 | 28 | Testing de Spring Boot | Java | ⬜ |
 | 29 | Testcontainers en Java | Java | ⬜ |

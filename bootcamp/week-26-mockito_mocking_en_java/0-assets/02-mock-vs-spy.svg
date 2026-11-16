@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" width="860" height="340" font-family="sans-serif">
+  <title>Mock frente a spy</title>
+  <rect width="860" height="340" fill="#0d1117"/>
+  <text x="30" y="38" fill="#c9d1d9" font-size="20" font-weight="bold">fees.renewalFee(2): ¿quién responde?</text>
+
+  <rect x="30" y="60" width="385" height="255" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="50" y="90" fill="#58a6ff" font-size="16" font-weight="bold" font-family="monospace">@Mock FeeTable fees</text>
+  <rect x="50" y="108" width="345" height="56" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="66" y="132" fill="#c9d1d9" font-size="13">Sin stub</text>
+  <text x="66" y="152" fill="#c9d1d9" font-size="13">devuelve el valor por defecto: <tspan font-family="monospace">0</tspan></text>
+  <rect x="50" y="176" width="345" height="56" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="66" y="200" fill="#c9d1d9" font-size="13">Con <tspan font-family="monospace">when(...).thenReturn(150)</tspan></text>
+  <text x="66" y="220" fill="#c9d1d9" font-size="13">devuelve <tspan font-family="monospace">150</tspan></text>
+  <text x="50" y="270" fill="#8b949e" font-size="13">El código de FeeTable no se ejecuta nunca.</text>
+
+  <rect x="445" y="60" width="385" height="255" rx="8" fill="#161b22" stroke="#F89820"/>
+  <text x="465" y="90" fill="#F89820" font-size="16" font-weight="bold" font-family="monospace">@Spy FeeTable fees</text>
+  <rect x="465" y="108" width="345" height="56" rx="6" fill="#0d1117" stroke="#3fb950"/>
+  <text x="481" y="132" fill="#c9d1d9" font-size="13">Sin stub</text>
+  <text x="481" y="152" fill="#c9d1d9" font-size="13">ejecuta el método real: <tspan font-family="monospace">300</tspan></text>
+  <rect x="465" y="176" width="345" height="56" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="481" y="200" fill="#c9d1d9" font-size="13">Con <tspan font-family="monospace">doReturn(150).when(fees)...</tspan></text>
+  <text x="481" y="220" fill="#c9d1d9" font-size="13">devuelve <tspan font-family="monospace">150</tspan> solo en ese método</text>
+  <text x="465" y="270" fill="#8b949e" font-size="13">Los dos anotan las llamadas: <tspan font-family="monospace">verify</tspan> funciona</text>
+  <text x="465" y="290" fill="#8b949e" font-size="13">igual en un mock y en un spy.</text>
+</svg>
