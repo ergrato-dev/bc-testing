@@ -1045,7 +1045,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S32    | Fundamentos de Testing en Go                   | ✅ Completo  |
 | S33    | Interfaces y Dobles de Prueba en Go            | ✅ Completo  |
 | S34    | HTTP, BD e Integración en Go                   | ✅ Completo |
-| S35    | Concurrencia y Calidad en Go                   | ⏳ Pendiente |
+| S35    | Concurrencia y Calidad en Go                   | ✅ Completo |
 | S36    | Proyecto Integrador — Etapa 4 (Go)             | ⏳ Pendiente |
 | S37    | Fundamentos de Testing en Rust                 | ⏳ Pendiente |
 | S38    | Traits, Dobles y Parametrización en Rust       | ⏳ Pendiente |

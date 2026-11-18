@@ -136,4 +136,4 @@ Un test de integración no sustituye a los unitarios: los complementa. Los handl
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 33 - Interfaces y Dobles de Prueba en Go](../week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | Semana 35 - Próximamente |
+| [Semana 33 - Interfaces y Dobles de Prueba en Go](../week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | [Semana 35 - Concurrencia y Calidad en Go](../week-35-concurrencia_y_calidad_en_go/README.md) |

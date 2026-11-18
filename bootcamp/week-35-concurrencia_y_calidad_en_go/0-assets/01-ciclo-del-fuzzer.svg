@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="sans-serif">
+  <title>El ciclo del fuzzer de Go</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="bold">El ciclo del fuzzer: go test -fuzz</text>
+
+  <!-- Fuentes del corpus -->
+  <rect x="30" y="70" width="200" height="56" rx="8" fill="#161b22" stroke="#00ADD8"/>
+  <text x="130" y="94" text-anchor="middle" fill="#c9d1d9" font-size="14">Semillas</text>
+  <text x="130" y="113" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">f.Add(...)</text>
+
+  <rect x="30" y="140" width="200" height="56" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="130" y="164" text-anchor="middle" fill="#c9d1d9" font-size="14">Fallos anteriores</text>
+  <text x="130" y="183" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">testdata/fuzz/</text>
+
+  <rect x="30" y="210" width="200" height="56" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="130" y="234" text-anchor="middle" fill="#c9d1d9" font-size="14">Corpus generado</text>
+  <text x="130" y="253" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">GOCACHE/fuzz/</text>
+
+  <line x1="230" y1="98" x2="298" y2="160" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="230" y1="168" x2="298" y2="168" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="230" y1="238" x2="298" y2="176" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Corpus -->
+  <rect x="300" y="140" width="130" height="56" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="365" y="173" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Corpus</text>
+
+  <!-- Mutar -->
+  <line x1="430" y1="168" x2="488" y2="168" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="490" y="140" width="150" height="56" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="565" y="164" text-anchor="middle" fill="#c9d1d9" font-size="14">Mutar una entrada</text>
+  <text x="565" y="183" text-anchor="middle" fill="#8b949e" font-size="12">cortar, cambiar bytes</text>
+
+  <!-- Ejecutar -->
+  <line x1="640" y1="168" x2="688" y2="168" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="690" y="140" width="180" height="56" rx="8" fill="#161b22" stroke="#00ADD8"/>
+  <text x="780" y="164" text-anchor="middle" fill="#c9d1d9" font-size="14">Función objetivo</text>
+  <text x="780" y="183" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">f.Fuzz(func(t, ...))</text>
+
+  <!-- Decisión: falla -->
+  <line x1="780" y1="196" x2="780" y2="248" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="690" y="250" width="180" height="50" rx="8" fill="#161b22" stroke="#d29922"/>
+  <text x="780" y="280" text-anchor="middle" fill="#c9d1d9" font-size="14">¿panic o t.Error?</text>
+
+  <!-- Sí: minimizar y guardar -->
+  <line x1="780" y1="300" x2="780" y2="358" stroke="#f85149" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="792" y="334" fill="#f85149" font-size="13">sí</text>
+  <rect x="660" y="360" width="220" height="70" rx="8" fill="#161b22" stroke="#f85149"/>
+  <text x="770" y="385" text-anchor="middle" fill="#c9d1d9" font-size="14">Minimizar y parar</text>
+  <text x="770" y="404" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">testdata/fuzz/FuzzX/hash</text>
+  <text x="770" y="421" text-anchor="middle" fill="#8b949e" font-size="12">test de regresión</text>
+
+  <!-- No: cobertura nueva -->
+  <line x1="690" y1="275" x2="578" y2="275" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="634" y="266" text-anchor="middle" fill="#3fb950" font-size="13">no</text>
+  <rect x="400" y="250" width="176" height="50" rx="8" fill="#161b22" stroke="#d29922"/>
+  <text x="488" y="280" text-anchor="middle" fill="#c9d1d9" font-size="14">¿Camino nuevo?</text>
+
+  <line x1="488" y1="250" x2="380" y2="198" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="418" y="216" fill="#3fb950" font-size="13">sí: al corpus</text>
+
+  <line x1="488" y1="300" x2="488" y2="358" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="400" y="360" width="176" height="44" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="488" y="387" text-anchor="middle" fill="#8b949e" font-size="13">no: se descarta</text>
+
+  <text x="30" y="330" fill="#c9d1d9" font-size="13">Sin -fuzz, go test solo ejecuta</text>
+  <text x="30" y="350" fill="#c9d1d9" font-size="13">las semillas y testdata/fuzz/:</text>
+  <text x="30" y="370" fill="#c9d1d9" font-size="13">no muta ni genera nada.</text>
+</svg>

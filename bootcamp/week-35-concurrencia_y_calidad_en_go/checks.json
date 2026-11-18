@@ -1,0 +1,83 @@
+{
+  "semana": "35",
+  "titulo": "Concurrencia y Calidad en Go",
+  "checks": [
+    {
+      "id": "go-vet",
+      "descripcion": "go vet no encuentra problemas, con y sin la tag integration",
+      "cmd": "cd {proyecto}/go && go vet ./... && go vet -tags integration ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "staticcheck",
+      "descripcion": "staticcheck está en go.mod como herramienta y no da avisos, con y sin la tag integration",
+      "cmd": "cd {proyecto}/go && grep -q 'honnef.co/go/tools/cmd/staticcheck' go.mod && go tool staticcheck ./... && go tool staticcheck -tags integration ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "go-race",
+      "descripcion": "La suite unitaria pasa con -race, -short y en orden aleatorio",
+      "cmd": "cd {proyecto}/go && go test -count=1 -race -shuffle=on -short ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "go-integration",
+      "descripcion": "La suite de integración pasa con -race contra PostgreSQL (necesita Docker)",
+      "cmd": "cd {proyecto}/go && go test -count=1 -race -shuffle=on -tags integration ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "no-todo",
+      "descripcion": "No queda ningún TODO en el código Go",
+      "cmd": "test -d {proyecto}/go && ! grep -rq --include='*.go' 'TODO' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 3 a 5"
+    },
+    {
+      "id": "concurrencia",
+      "descripcion": "Hay un test que lanza goroutines",
+      "cmd": "grep -rqE --include='*_test.go' 'wg[.]Go[(]|go func[(]' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "fuzz",
+      "descripcion": "Hay un fuzz test con corpus semilla (f.Add)",
+      "cmd": "grep -rqE --include='*_test.go' 'func Fuzz[A-Za-z0-9_]*[(]f [*]testing[.]F[)]' {proyecto}/go && grep -rq --include='*_test.go' 'f[.]Add[(]' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "fuzz-hallazgo",
+      "descripcion": "El fallo que encontró el fuzzer está en testdata/fuzz/",
+      "cmd": "find {proyecto}/go -path '*/testdata/fuzz/Fuzz*' -type f | grep -q .",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "benchmark",
+      "descripcion": "Hay un benchmark con b.Loop() y los benchmarks se ejecutan",
+      "cmd": "grep -rq --include='*_test.go' 'b[.]Loop()' {proyecto}/go && cd {proyecto}/go && go test -run='^$' -bench=. -benchtime=10x ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "benchstat",
+      "descripcion": "benchstat está en go.mod y compara bench/old.txt con bench/new.txt, con al menos 6 medidas en cada uno",
+      "cmd": "cd {proyecto}/go && grep -q 'golang.org/x/perf/cmd/benchstat' go.mod && test \"$(grep -c '^Benchmark' bench/old.txt)\" -ge 6 && test \"$(grep -c '^Benchmark' bench/new.txt)\" -ge 6 && go tool benchstat bench/old.txt bench/new.txt",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "calidad",
+      "descripcion": "calidad.md documenta el race detector, el fallo del fuzzer, la salida de benchstat y la cobertura",
+      "cmd": "f={proyecto}/go/calidad.md && grep -q -- '-race' $f && grep -q 'testdata/fuzz' $f && grep -q 'vs base' $f && grep -q 'coverage:' $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 3 a 6"
+    }
+  ]
+}

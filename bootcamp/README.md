@@ -42,7 +42,7 @@ Estado de cada semana:
 | [32](week-32-fundamentos_de_testing_en_go/README.md) | [Fundamentos de Testing en Go](week-32-fundamentos_de_testing_en_go/README.md) | Go | ✅ |
 | [33](week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | [Interfaces y Dobles de Prueba en Go](week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | Go | ✅ |
 | [34](week-34-http_bd_e_integracion_en_go/README.md) | [HTTP, BD e Integración en Go](week-34-http_bd_e_integracion_en_go/README.md) | Go | ✅ |
-| 35 | Concurrencia y Calidad en Go | Go | ⬜ |
+| [35](week-35-concurrencia_y_calidad_en_go/README.md) | [Concurrencia y Calidad en Go](week-35-concurrencia_y_calidad_en_go/README.md) | Go | ✅ |
 | 36 | Proyecto Integrador — Etapa 4 (Go) | Go | ⬜ |
 | 37 | Fundamentos de Testing en Rust | Rust | ⬜ |
 | 38 | Traits, Dobles y Parametrización en Rust | Rust | ⬜ |

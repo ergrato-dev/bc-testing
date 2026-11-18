@@ -78,6 +78,10 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | testify | v1.12.1 (S33) | `go.mod` | `assert`/`require` y `testify/mock` (lab 03; el proyecto usa mockgen y go-cmp) |
 | testcontainers-go | v0.45.0 (S34; con el módulo `modules/postgres`) | `go.mod` | PostgreSQL real en tests; imagen auxiliar `testcontainers/ryuk:0.14.0` |
 | pgx | v5.13.0 (S34; `github.com/jackc/pgx/v5`) | `go.mod` | Driver de PostgreSQL, `pgxpool` y `pgx.Tx` |
+| staticcheck | v0.8.2 (S35; `honnef.co/go/tools`, publicada como 2026.2.2) | `go.mod`: `tool` | Linter: errores probables, estilo y código sin usar que `go vet` no ve |
+| benchstat | v0.0.0-20261117185222-4febdb082b2c (S35; `golang.org/x/perf`, sin versiones publicadas) | `go.mod`: `tool` | Comparación estadística de benchmarks antes y después |
+| golang.org/x/text | v0.44.0 (S35) | `go.mod` | `cases.Title` en lugar de `strings.Title` (lab 04) |
+| golangci-lint | v2.15.0 (S35) | binario aparte (`go install`), opcional | Varios linters en una pasada, normalmente en CI |
 
 ## Rust
 
