@@ -43,7 +43,7 @@ Estado de cada semana:
 | [33](week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | [Interfaces y Dobles de Prueba en Go](week-33-interfaces_y_dobles_de_prueba_en_go/README.md) | Go | ✅ |
 | [34](week-34-http_bd_e_integracion_en_go/README.md) | [HTTP, BD e Integración en Go](week-34-http_bd_e_integracion_en_go/README.md) | Go | ✅ |
 | [35](week-35-concurrencia_y_calidad_en_go/README.md) | [Concurrencia y Calidad en Go](week-35-concurrencia_y_calidad_en_go/README.md) | Go | ✅ |
-| 36 | Proyecto Integrador — Etapa 4 (Go) | Go | ⬜ |
+| [36](week-36-proyecto_integrador_go/README.md) | [Proyecto Integrador — Etapa 4 (Go)](week-36-proyecto_integrador_go/README.md) | Go | ✅ |
 | 37 | Fundamentos de Testing en Rust | Rust | ⬜ |
 | 38 | Traits, Dobles y Parametrización en Rust | Rust | ⬜ |
 | 39 | Async, APIs y BD en Rust | Rust | ⬜ |

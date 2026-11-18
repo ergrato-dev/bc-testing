@@ -137,4 +137,4 @@ Cada herramienta de esta semana encuentra algo que un test en verde deja pasar: 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 34 - HTTP, BD e Integración en Go](../week-34-http_bd_e_integracion_en_go/README.md) | Semana 36 - Próximamente |
+| [Semana 34 - HTTP, BD e Integración en Go](../week-34-http_bd_e_integracion_en_go/README.md) | [Semana 36 - Proyecto Integrador: Etapa 4 (Go)](../week-36-proyecto_integrador_go/README.md) |
