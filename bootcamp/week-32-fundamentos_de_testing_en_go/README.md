@@ -128,4 +128,4 @@ Go 1.26.5, en la directiva `go` de cada `go.mod`. Esta semana solo usa la librer
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 31 - Proyecto Integrador: Etapa 3 (Java)](../week-31-proyecto_integrador_java/README.md) | Semana 33 - Próximamente |
+| [Semana 31 - Proyecto Integrador: Etapa 3 (Java)](../week-31-proyecto_integrador_java/README.md) | [Semana 33 - Interfaces y Dobles de Prueba en Go](../week-33-interfaces_y_dobles_de_prueba_en_go/README.md) |

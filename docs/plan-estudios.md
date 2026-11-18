@@ -1043,7 +1043,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S30    | BDD con Java — Cucumber                        | ✅ Completo  |
 | S31    | Proyecto Integrador — Etapa 3 (Java)           | ✅ Completo  |
 | S32    | Fundamentos de Testing en Go                   | ✅ Completo  |
-| S33    | Interfaces y Dobles de Prueba en Go            | ⏳ Pendiente |
+| S33    | Interfaces y Dobles de Prueba en Go            | ✅ Completo  |
 | S34    | HTTP, BD e Integración en Go                   | ⏳ Pendiente |
 | S35    | Concurrencia y Calidad en Go                   | ⏳ Pendiente |
 | S36    | Proyecto Integrador — Etapa 4 (Go)             | ⏳ Pendiente |

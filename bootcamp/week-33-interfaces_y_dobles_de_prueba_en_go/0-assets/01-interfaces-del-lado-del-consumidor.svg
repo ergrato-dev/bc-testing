@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" font-family="sans-serif">
+  <rect width="880" height="470" fill="#0d1117"/>
+  <text x="440" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle">La interfaz vive en el paquete que la usa</text>
+
+  <!-- Paquete consumidor -->
+  <rect x="190" y="56" width="500" height="170" rx="8" fill="#161b22" stroke="#00ADD8" stroke-width="2"/>
+  <text x="210" y="82" fill="#00ADD8" font-size="15">package reminders</text>
+  <text x="210" y="112" fill="#c9d1d9" font-size="13" font-family="monospace">type LoanStore interface { Active() ([]Loan, error) }</text>
+  <text x="210" y="134" fill="#c9d1d9" font-size="13" font-family="monospace">type Notifier  interface { Notify(member, msg string) error }</text>
+  <line x1="210" y1="148" x2="670" y2="148" stroke="#30363d"/>
+  <text x="210" y="172" fill="#c9d1d9" font-size="13" font-family="monospace">type Service struct {</text>
+  <text x="230" y="190" fill="#c9d1d9" font-size="13" font-family="monospace">Loans LoanStore; Notifier Notifier</text>
+  <text x="230" y="208" fill="#c9d1d9" font-size="13" font-family="monospace">Now   func() time.Time }</text>
+
+  <!-- Producción -->
+  <rect x="30" y="290" width="380" height="150" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="50" y="316" fill="#3fb950" font-size="15">Producción (main)</text>
+  <text x="50" y="348" fill="#c9d1d9" font-size="13" font-family="monospace">*postgresStore</text>
+  <text x="230" y="348" fill="#8b949e" font-size="13">tiene Active</text>
+  <text x="50" y="378" fill="#c9d1d9" font-size="13" font-family="monospace">*smtpNotifier</text>
+  <text x="230" y="378" fill="#8b949e" font-size="13">tiene Notify</text>
+  <text x="50" y="408" fill="#c9d1d9" font-size="13" font-family="monospace">time.Now</text>
+  <text x="230" y="408" fill="#8b949e" font-size="13">la hora real</text>
+
+  <!-- Tests -->
+  <rect x="470" y="290" width="380" height="150" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="490" y="316" fill="#d29922" font-size="15">Tests (_test.go)</text>
+  <text x="490" y="348" fill="#c9d1d9" font-size="13" font-family="monospace">*memStore</text>
+  <text x="680" y="348" fill="#8b949e" font-size="13">fake</text>
+  <text x="490" y="378" fill="#c9d1d9" font-size="13" font-family="monospace">*MockNotifier</text>
+  <text x="680" y="378" fill="#8b949e" font-size="13">mock (mockgen)</text>
+  <text x="490" y="408" fill="#c9d1d9" font-size="13" font-family="monospace">fixedClock</text>
+  <text x="680" y="408" fill="#8b949e" font-size="13">stub del reloj</text>
+
+  <!-- Flechas -->
+  <line x1="130" y1="290" x2="250" y2="236" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="243,232 256,232 249,243" fill="#3fb950"/>
+  <line x1="750" y1="290" x2="630" y2="236" stroke="#d29922" stroke-width="2"/>
+  <polygon points="624,232 637,232 631,243" fill="#d29922"/>
+  <text x="440" y="268" fill="#8b949e" font-size="13" text-anchor="middle">cumplen la interfaz sin nombrarla: basta con tener los métodos</text>
+</svg>
