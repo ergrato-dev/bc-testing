@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="sans-serif">
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">De la línea del feature al método de Java</text>
+
+  <!-- Cadena de ejecución -->
+  <text x="30" y="72" fill="#8b949e" font-size="13">Quién ejecuta a quién</text>
+  <rect x="30" y="84" width="150" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="105" y="111" fill="#c9d1d9" font-size="14" text-anchor="middle">mvn test (Surefire)</text>
+  <rect x="210" y="84" width="150" height="44" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text x="285" y="111" fill="#c9d1d9" font-size="14" text-anchor="middle">JUnit Platform</text>
+  <rect x="390" y="84" width="150" height="44" rx="6" fill="#161b22" stroke="#F89820"/>
+  <text x="465" y="104" fill="#F89820" font-size="13" text-anchor="middle" font-family="monospace">@Suite</text>
+  <text x="465" y="121" fill="#c9d1d9" font-size="12" text-anchor="middle">RunCucumberTest</text>
+  <rect x="570" y="84" width="150" height="44" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="645" y="104" fill="#3fb950" font-size="13" text-anchor="middle">motor cucumber</text>
+  <text x="645" y="121" fill="#c9d1d9" font-size="12" text-anchor="middle">lee los .feature</text>
+  <rect x="750" y="84" width="120" height="44" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="810" y="104" fill="#58a6ff" font-size="13" text-anchor="middle">glue</text>
+  <text x="810" y="121" fill="#c9d1d9" font-size="12" text-anchor="middle">steps y hooks</text>
+  <g stroke="#8b949e" stroke-width="2" fill="#8b949e">
+    <line x1="180" y1="106" x2="204" y2="106"/><polygon points="204,101 210,106 204,111"/>
+    <line x1="360" y1="106" x2="384" y2="106"/><polygon points="384,101 390,106 384,111"/>
+    <line x1="540" y1="106" x2="564" y2="106"/><polygon points="564,101 570,106 564,111"/>
+    <line x1="720" y1="106" x2="744" y2="106"/><polygon points="744,101 750,106 744,111"/>
+  </g>
+
+  <!-- Feature -->
+  <text x="30" y="176" fill="#8b949e" font-size="13">src/test/resources/features/tarjeta_de_sellos.feature</text>
+  <rect x="30" y="186" width="840" height="44" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="50" y="214" fill="#3fb950" font-size="16" font-family="monospace">Dado</text>
+  <text x="100" y="214" fill="#c9d1d9" font-size="16" font-family="monospace">una tarjeta con</text>
+  <text x="262" y="214" fill="#d29922" font-size="16" font-family="monospace">9</text>
+  <text x="282" y="214" fill="#c9d1d9" font-size="16" font-family="monospace">sellos</text>
+  <text x="560" y="214" fill="#8b949e" font-size="13">la palabra clave no cuenta para buscar el step</text>
+
+  <!-- Expresión -->
+  <text x="30" y="276" fill="#8b949e" font-size="13">Cucumber Expression de la anotación</text>
+  <rect x="30" y="286" width="840" height="44" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="50" y="314" fill="#F89820" font-size="16" font-family="monospace">@Given(</text>
+  <text x="122" y="314" fill="#c9d1d9" font-size="16" font-family="monospace">"una tarjeta con</text>
+  <text x="290" y="314" fill="#d29922" font-size="16" font-family="monospace">{int}</text>
+  <text x="345" y="314" fill="#c9d1d9" font-size="16" font-family="monospace">sello</text>
+  <text x="400" y="314" fill="#58a6ff" font-size="16" font-family="monospace">(s)</text>
+  <text x="432" y="314" fill="#c9d1d9" font-size="16" font-family="monospace">")</text>
+  <text x="560" y="306" fill="#8b949e" font-size="13"><tspan fill="#d29922">{int}</tspan> captura un entero</text>
+  <text x="560" y="322" fill="#8b949e" font-size="13"><tspan fill="#58a6ff">(s)</tspan> texto opcional: sello o sellos</text>
+
+  <!-- Método -->
+  <text x="30" y="376" fill="#8b949e" font-size="13">Método de StampCardSteps</text>
+  <rect x="30" y="386" width="840" height="44" rx="6" fill="#161b22" stroke="#F89820"/>
+  <text x="50" y="414" fill="#c9d1d9" font-size="16" font-family="monospace">public void aCardWithStamps(<tspan fill="#d29922">int stamps</tspan>) { ... }</text>
+  <text x="560" y="414" fill="#8b949e" font-size="13">stamps = 9, ya convertido</text>
+
+  <g stroke="#8b949e" stroke-width="2" fill="#8b949e">
+    <line x1="266" y1="232" x2="300" y2="282"/><polygon points="296,280 302,286 302,278"/>
+    <line x1="312" y1="332" x2="340" y2="382"/><polygon points="335,380 342,386 342,378"/>
+  </g>
+  <text x="450" y="458" fill="#8b949e" font-size="12" text-anchor="middle">Si ninguna expresión casa: paso indefinido. Si casan dos: paso ambiguo. En los dos casos el escenario falla.</text>
+</svg>

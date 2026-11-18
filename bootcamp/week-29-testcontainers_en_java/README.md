@@ -131,4 +131,4 @@ Un fake en memoria es rápido y sirve para los tests del dominio, pero no ejecut
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 28 - Testing de Spring Boot](../week-28-testing_de_spring_boot/README.md) | Semana 30 - Próximamente |
+| [Semana 28 - Testing de Spring Boot](../week-28-testing_de_spring_boot/README.md) | [Semana 30 - BDD con Java (Cucumber)](../week-30-bdd_con_java_cucumber/README.md) |

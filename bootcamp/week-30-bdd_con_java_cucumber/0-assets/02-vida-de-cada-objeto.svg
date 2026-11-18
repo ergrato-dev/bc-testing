@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" font-family="sans-serif">
+  <rect width="900" height="430" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">Cuánto vive cada objeto con cucumber-spring</text>
+
+  <!-- Eje de escenarios -->
+  <rect x="250" y="56" width="190" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="345" y="76" fill="#c9d1d9" font-size="14" text-anchor="middle">Escenario 1</text>
+  <rect x="460" y="56" width="190" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="555" y="76" fill="#c9d1d9" font-size="14" text-anchor="middle">Escenario 2</text>
+  <rect x="670" y="56" width="190" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+  <text x="765" y="76" fill="#c9d1d9" font-size="14" text-anchor="middle">Escenario 3</text>
+
+  <!-- Contexto de Spring -->
+  <text x="30" y="128" fill="#c9d1d9" font-size="14">Contexto de Spring</text>
+  <text x="30" y="146" fill="#8b949e" font-size="12">@CucumberContextConfiguration</text>
+  <rect x="250" y="112" width="610" height="36" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="555" y="135" fill="#58a6ff" font-size="13" text-anchor="middle">uno para toda la ejecución: se crea con el primer escenario</text>
+
+  <!-- Singleton -->
+  <text x="30" y="194" fill="#c9d1d9" font-size="14">Beans singleton</text>
+  <text x="30" y="212" fill="#8b949e" font-size="12">servicios, repositorios, BD</text>
+  <rect x="250" y="178" width="610" height="36" rx="6" fill="#161b22" stroke="#f85149"/>
+  <text x="555" y="201" fill="#f85149" font-size="13" text-anchor="middle">los mismos en todos los escenarios: lo que guardan pasa al siguiente</text>
+
+  <!-- ScenarioScope -->
+  <text x="30" y="260" fill="#c9d1d9" font-size="14">Beans @ScenarioScope</text>
+  <text x="30" y="278" fill="#8b949e" font-size="12">ScenarioState</text>
+  <rect x="250" y="244" width="190" height="36" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <rect x="460" y="244" width="190" height="36" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <rect x="670" y="244" width="190" height="36" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="345" y="267" fill="#3fb950" font-size="13" text-anchor="middle">instancia nueva</text>
+  <text x="555" y="267" fill="#3fb950" font-size="13" text-anchor="middle">instancia nueva</text>
+  <text x="765" y="267" fill="#3fb950" font-size="13" text-anchor="middle">instancia nueva</text>
+
+  <!-- Clases de steps -->
+  <text x="30" y="326" fill="#c9d1d9" font-size="14">Clases de steps</text>
+  <text x="30" y="344" fill="#8b949e" font-size="12">OrderSteps, PaymentSteps</text>
+  <rect x="250" y="310" width="190" height="36" rx="6" fill="#161b22" stroke="#F89820"/>
+  <rect x="460" y="310" width="190" height="36" rx="6" fill="#161b22" stroke="#F89820"/>
+  <rect x="670" y="310" width="190" height="36" rx="6" fill="#161b22" stroke="#F89820"/>
+  <text x="345" y="333" fill="#F89820" font-size="13" text-anchor="middle">instancias nuevas</text>
+  <text x="555" y="333" fill="#F89820" font-size="13" text-anchor="middle">instancias nuevas</text>
+  <text x="765" y="333" fill="#F89820" font-size="13" text-anchor="middle">instancias nuevas</text>
+
+  <!-- Hooks -->
+  <text x="30" y="388" fill="#c9d1d9" font-size="14">Hooks</text>
+  <g font-size="12" font-family="monospace" fill="#d29922">
+    <text x="256" y="388">@Before</text><text x="378" y="388">@After</text>
+    <text x="466" y="388">@Before</text><text x="588" y="388">@After</text>
+    <text x="676" y="388">@Before</text><text x="798" y="388">@After</text>
+  </g>
+  <text x="450" y="418" fill="#8b949e" font-size="12" text-anchor="middle">Lo que un singleton guarda, lo limpia un @Before. Lo que comparten los steps de un escenario, va en un bean @ScenarioScope.</text>
+</svg>

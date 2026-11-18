@@ -53,6 +53,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | JUnit (Jupiter) | 6.0.3 | `pom.xml` | La versión que gestiona Spring Boot 4.1.1 |
 | AssertJ | 3.27.7 | `pom.xml` | Aserciones fluentes |
 | maven-surefire-plugin | 3.5.6 | `pom.xml` | Ejecución de tests |
+| maven-failsafe-plugin | 3.5.6 (gestionada por Spring Boot) | `pom.xml` | Tests de integración `*IT` en `mvn verify` (S30, teoría 04) |
 | Mockito | 5.23.0 | `pom.xml` | Mocking (S26) |
 | maven-dependency-plugin | 3.11.0 | `pom.xml` | Ruta del jar de Mockito para cargarlo como agente (S26) |
 | ArchUnit | 1.5.1 (`archunit-junit5`) | `pom.xml` | Fitness functions de arquitectura con JUnit 6 (S27) |
@@ -65,7 +66,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Driver PostgreSQL (JDBC) | 42.7.13 (gestionada por Spring Boot) | `pom.xml` | `org.postgresql:postgresql` (S29) |
 | kafka-clients | 4.2.1 (gestionada por Spring Boot) | `pom.xml` | Productor y consumidor de Kafka (S29) |
 | JaCoCo | 0.8.15 | `pom.xml` | Coverage |
-| Cucumber | se fija en S30 | `pom.xml` | BDD con JUnit Platform |
+| Cucumber | 8.1.0 (`cucumber-bom`: `cucumber-java`, `cucumber-spring`, `cucumber-junit-platform-engine`) | `pom.xml` | BDD con JUnit Platform; `junit-platform-suite` lo gestiona Spring Boot (S30) |
 
 ## Go
 
