@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="sans-serif">
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" font-weight="bold" text-anchor="middle">Las capas del proyecto y cómo se prueba cada una</text>
+
+  <!-- Encabezados -->
+  <text x="230" y="70" fill="#8b949e" font-size="14" font-weight="bold" text-anchor="middle">En producción</text>
+  <text x="670" y="70" fill="#8b949e" font-size="14" font-weight="bold" text-anchor="middle">En los tests</text>
+  <line x1="450" y1="56" x2="450" y2="450" stroke="#30363d" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Fila 1: Router -->
+  <rect x="80" y="86" width="300" height="56" rx="8" fill="#161b22" stroke="#DEA584" stroke-width="2"/>
+  <text x="230" y="110" fill="#DEA584" font-size="15" font-weight="bold" text-anchor="middle">Router de axum</text>
+  <text x="230" y="130" fill="#c9d1d9" font-size="12" text-anchor="middle">escucha en un puerto TCP</text>
+
+  <rect x="520" y="86" width="300" height="56" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="670" y="110" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">oneshot(request)</text>
+  <text x="670" y="130" fill="#c9d1d9" font-size="12" text-anchor="middle">sin puerto · tests/api.rs</text>
+
+  <line x1="230" y1="142" x2="230" y2="168" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Fila 2: servicio -->
+  <rect x="80" y="168" width="300" height="56" rx="8" fill="#161b22" stroke="#DEA584" stroke-width="2"/>
+  <text x="230" y="192" fill="#DEA584" font-size="15" font-weight="bold" text-anchor="middle">LendingService&lt;P, L, R, N&gt;</text>
+  <text x="230" y="212" fill="#c9d1d9" font-size="12" text-anchor="middle">genérico sobre cuatro traits</text>
+
+  <rect x="520" y="168" width="300" height="56" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="670" y="192" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">fakes, stub y mock</text>
+  <text x="670" y="212" fill="#c9d1d9" font-size="12" text-anchor="middle">#[tokio::test] · tests/lending.rs</text>
+
+  <line x1="230" y1="224" x2="230" y2="250" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Fila 3: almacenes -->
+  <rect x="80" y="250" width="300" height="56" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="230" y="274" fill="#58a6ff" font-size="15" font-weight="bold" text-anchor="middle">PgStore (sqlx)</text>
+  <text x="230" y="294" fill="#c9d1d9" font-size="12" text-anchor="middle">PieceStore y LoanStore en PostgreSQL</text>
+
+  <rect x="520" y="250" width="300" height="56" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="670" y="274" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">#[sqlx::test]</text>
+  <text x="670" y="294" fill="#c9d1d9" font-size="12" text-anchor="middle">una base nueva por test · tests/pg.rs</text>
+
+  <!-- Fila 4: registro -->
+  <rect x="80" y="322" width="300" height="56" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="230" y="346" fill="#58a6ff" font-size="15" font-weight="bold" text-anchor="middle">HttpRegistry (reqwest)</text>
+  <text x="230" y="366" fill="#c9d1d9" font-size="12" text-anchor="middle">Registry contra un servicio HTTP externo</text>
+
+  <rect x="520" y="322" width="300" height="56" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="670" y="346" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">MockServer de wiremock</text>
+  <text x="670" y="366" fill="#c9d1d9" font-size="12" text-anchor="middle">puerto local · tests/registry.rs</text>
+
+  <!-- Fila 5: notificador -->
+  <rect x="80" y="394" width="300" height="56" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="230" y="418" fill="#58a6ff" font-size="15" font-weight="bold" text-anchor="middle">Notifier</text>
+  <text x="230" y="438" fill="#c9d1d9" font-size="12" text-anchor="middle">síncrono: deja el aviso en una cola</text>
+
+  <rect x="520" y="394" width="300" height="56" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="670" y="418" fill="#3fb950" font-size="14" font-weight="bold" text-anchor="middle">MockNotifier (mockall)</text>
+  <text x="670" y="438" fill="#c9d1d9" font-size="12" text-anchor="middle">el de la semana 38, sin cambios</text>
+
+  <!-- Flechas entre columnas -->
+  <line x1="380" y1="114" x2="514" y2="114" stroke="#d29922" stroke-width="2"/>
+  <polygon points="514,109 522,114 514,119" fill="#d29922"/>
+  <line x1="380" y1="196" x2="514" y2="196" stroke="#d29922" stroke-width="2"/>
+  <polygon points="514,191 522,196 514,201" fill="#d29922"/>
+  <line x1="380" y1="278" x2="514" y2="278" stroke="#d29922" stroke-width="2"/>
+  <polygon points="514,273 522,278 514,283" fill="#d29922"/>
+  <line x1="380" y1="350" x2="514" y2="350" stroke="#d29922" stroke-width="2"/>
+  <polygon points="514,345 522,350 514,355" fill="#d29922"/>
+  <line x1="380" y1="422" x2="514" y2="422" stroke="#d29922" stroke-width="2"/>
+  <polygon points="514,417 522,422 514,427" fill="#d29922"/>
+</svg>

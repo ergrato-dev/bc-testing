@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:18.7-alpine
+    environment:
+      POSTGRES_USER: museum
+      POSTGRES_PASSWORD: museum
+      POSTGRES_DB: museum
+    ports:
+      - "127.0.0.1:55432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U museum -d museum"]
+      interval: 1s
+      timeout: 3s
+      retries: 30

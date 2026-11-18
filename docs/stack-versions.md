@@ -92,7 +92,13 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | mockall | 0.15.0 (S38) | `[dev-dependencies]`: `"=0.15.0"` | Mocks de traits con `#[automock]` y `mock!` |
 | rstest | 0.28.0 (S38) | `[dev-dependencies]`: `"=0.28.0"` | Fixtures y tests parametrizados con `#[case]` y `#[values]` |
 | insta / cargo-insta | 1.49.0 (S38) | `[dev-dependencies]`: `"=1.49.0"`; la herramienta con `cargo install --locked cargo-insta@1.49.0` | Snapshots y su revisión con `cargo insta review` |
-| tokio / axum / sqlx / wiremock / testcontainers | se fija en S39 | `Cargo.toml` | Async, APIs y PostgreSQL |
+| tokio | 1.54.1 (S39) | `[dev-dependencies]` (`macros`, `rt-multi-thread`; `time` y `test-util` para el reloj) y, si la librería usa su reloj, `[dependencies]` | Runtime async y `#[tokio::test]` con `start_paused` |
+| axum / tower | 0.8.9 / 0.5.3 (S39) | `[dependencies]` axum; `[dev-dependencies]` tower con `util` | API HTTP y `oneshot` en los tests |
+| serde / serde_json / http-body-util | 1.0.229 / 1.0.154 / 0.1.5 (S39) | serde con `derive` en `[dependencies]`; los otros dos en `[dev-dependencies]` | JSON de la API y lectura del cuerpo en los tests |
+| reqwest | 0.13.5 (S39; `default-features = false`, `json`) | `[dependencies]` | Cliente HTTP de servicios externos, sin TLS en los tests |
+| wiremock | 0.6.5 (S39) | `[dev-dependencies]` | Servidor HTTP simulado para probar clientes |
+| sqlx | 0.9.1 (S39; `default-features = false`, `runtime-tokio`, `postgres`, `migrate`, `macros`) | `[dependencies]`; `DATABASE_URL` en `.cargo/config.toml` | PostgreSQL y `#[sqlx::test]` con una base por test |
+| testcontainers-modules | 0.15.0 (S39; `postgres`; trae testcontainers 0.27.3) | `[dev-dependencies]` | PostgreSQL desde el test; `testcontainers` se importa desde `testcontainers_modules` |
 | proptest / criterion | se fija en S40 | `[dev-dependencies]` | Propiedades y benchmarks |
 | cargo-llvm-cov / cargo-nextest / cargo-mutants | se fija en S40 | `cargo install --locked` | Coverage, runner y mutation testing |
 

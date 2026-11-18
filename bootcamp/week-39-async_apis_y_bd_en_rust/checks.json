@@ -1,0 +1,83 @@
+{
+  "semana": "39",
+  "titulo": "Async, APIs y BD en Rust",
+  "checks": [
+    {
+      "id": "cargo-test",
+      "descripcion": "cargo test pasa con el PostgreSQL de compose.yaml arrancado (necesita Docker)",
+      "cmd": "cd {proyecto} && docker compose up -d --wait >/dev/null 2>&1 && cd rust && CI=true cargo test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "no-warnings",
+      "descripcion": "cargo test compila sin warnings, tampoco de dependencias sin usar",
+      "cmd": "cd {proyecto}/rust && cargo test --no-run 2>&1 | grep -c '^warning'",
+      "assert": "stdout~^0$",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "no-ignore",
+      "descripcion": "No queda ningún #[ignore] en los tests",
+      "cmd": "test -d {proyecto}/rust && ! grep -rqF --include='*.rs' '#[ignore' {proyecto}/rust/src {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 5, 6 y 8"
+    },
+    {
+      "id": "async-traits",
+      "descripcion": "Al menos 3 métodos de traits async declarados como impl Future + Send",
+      "cmd": "grep -rhE 'impl Future<Output = .*> [+] Send' {proyecto}/rust/src | wc -l",
+      "assert": "stdout~^ *([3-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "tokio-test",
+      "descripcion": "Al menos 10 tests con #[tokio::test]",
+      "cmd": "grep -rhF '#[tokio::test' {proyecto}/rust/tests | wc -l",
+      "assert": "stdout~^ *[1-9][0-9]+$",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "oneshot",
+      "descripcion": "Los tests de la API usan oneshot y el JSON se compara con json!",
+      "cmd": "grep -rqE '[.]oneshot[(]' {proyecto}/rust/tests && grep -rqF 'json!(' {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "internal-error",
+      "descripcion": "La API responde un 500 sin enseñar el error interno, y un test lo comprueba",
+      "cmd": "grep -rqF 'internal error' {proyecto}/rust/src && grep -rqF 'internal error' {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 4 y 5"
+    },
+    {
+      "id": "wiremock",
+      "descripcion": "El cliente externo se prueba con wiremock y al menos un expect",
+      "cmd": "grep -rqF 'MockServer::start' {proyecto}/rust/tests && grep -rqE '[.]expect[(][0-9]' {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "migrations",
+      "descripcion": "El esquema está en rust/migrations/ y DATABASE_URL en rust/.cargo/config.toml",
+      "cmd": "ls {proyecto}/rust/migrations/*.sql >/dev/null && grep -q '^DATABASE_URL' {proyecto}/rust/.cargo/config.toml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "sqlx-test",
+      "descripcion": "Al menos 5 tests con #[sqlx::test]",
+      "cmd": "grep -rhF '#[sqlx::test' {proyecto}/rust/tests | wc -l",
+      "assert": "stdout~^ *([5-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "dobles",
+      "descripcion": "dobles.md explica wiremock y #[sqlx::test], sin TODO",
+      "cmd": "f={proyecto}/rust/dobles.md; test -f $f && grep -qi wiremock $f && grep -qF 'sqlx::test' $f && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

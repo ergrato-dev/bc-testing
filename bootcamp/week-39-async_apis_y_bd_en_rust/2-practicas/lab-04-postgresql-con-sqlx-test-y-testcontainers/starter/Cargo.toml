@@ -1,0 +1,11 @@
+[package]
+name = "lab04"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+sqlx = { version = "=0.9.1", default-features = false, features = ["runtime-tokio", "postgres", "migrate", "macros"] }
+
+[dev-dependencies]
+testcontainers-modules = { version = "=0.15.0", features = ["postgres"] }
+tokio = { version = "=1.54.1", features = ["macros", "rt-multi-thread"] }

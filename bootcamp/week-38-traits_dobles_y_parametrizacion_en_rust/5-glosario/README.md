@@ -74,6 +74,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 39 - Async, APIs y BD en Rust](../../week-39-async_apis_y_bd_en_rust/README.md) → |
 
 [↑ Semana 38](../README.md)

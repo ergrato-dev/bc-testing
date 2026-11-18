@@ -127,4 +127,4 @@ Un mock comprueba cómo se llama a una dependencia, no qué queda al final. Si m
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 37 - Fundamentos de Testing en Rust](../week-37-fundamentos_de_testing_en_rust/README.md) | Semana 39 - Próximamente |
+| [Semana 37 - Fundamentos de Testing en Rust](../week-37-fundamentos_de_testing_en_rust/README.md) | [Semana 39 - Async, APIs y BD en Rust](../week-39-async_apis_y_bd_en_rust/README.md) |
