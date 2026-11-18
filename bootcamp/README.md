@@ -47,7 +47,7 @@ Estado de cada semana:
 | [37](week-37-fundamentos_de_testing_en_rust/README.md) | [Fundamentos de Testing en Rust](week-37-fundamentos_de_testing_en_rust/README.md) | Rust | ✅ |
 | [38](week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | [Traits, Dobles y Parametrización en Rust](week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | Rust | ✅ |
 | [39](week-39-async_apis_y_bd_en_rust/README.md) | [Async, APIs y BD en Rust](week-39-async_apis_y_bd_en_rust/README.md) | Rust | ✅ |
-| 40 | Calidad Avanzada en Rust | Rust | ⬜ |
+| [40](week-40-calidad_avanzada_en_rust/README.md) | [Calidad Avanzada en Rust](week-40-calidad_avanzada_en_rust/README.md) | Rust | ✅ |
 | 41 | Proyecto Integrador — Etapa 5 (Rust) | Rust | ⬜ |
 | 42 | Testing End-to-End con Playwright | Transversal | ⬜ |
 | 43 | Testing de Performance con k6 y Locust | Transversal | ⬜ |

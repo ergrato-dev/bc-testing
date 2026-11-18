@@ -128,4 +128,4 @@ Un test de `oneshot` con fakes y un test de `#[sqlx::test]` no se sustituyen: pr
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 38 - Traits, Dobles y Parametrización en Rust](../week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | Semana 40 - Próximamente |
+| [Semana 38 - Traits, Dobles y Parametrización en Rust](../week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | [Semana 40 - Calidad Avanzada en Rust](../week-40-calidad_avanzada_en_rust/README.md) |

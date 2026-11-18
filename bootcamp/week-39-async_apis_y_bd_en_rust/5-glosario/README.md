@@ -34,6 +34,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 40 - Calidad Avanzada en Rust](../../week-40-calidad_avanzada_en_rust/README.md) → |
 
 [↑ Semana 39](../README.md)

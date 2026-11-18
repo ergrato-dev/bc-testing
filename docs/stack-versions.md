@@ -87,7 +87,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
-| Rust | 1.100.0 (S37; edición 2024, mínimo 1.85) | `rust-toolchain.toml`: `channel` y `components = ["rustfmt", "clippy"]` | Toolchain stable; nightly solo para `cargo-fuzz` (S40) |
+| Rust | 1.100.0 (S37; edición 2024, mínimo 1.85) | `rust-toolchain.toml`: `channel` y `components = ["rustfmt", "clippy"]` | Toolchain stable; nightly solo para `cargo-fuzz` (S40: `rustup toolchain install nightly --profile minimal`) |
 | pretty_assertions | 1.4.1 (S37) | `[dev-dependencies]`: `"=1.4.1"` | `assert_eq!` con diff entre los dos valores |
 | mockall | 0.15.0 (S38) | `[dev-dependencies]`: `"=0.15.0"` | Mocks de traits con `#[automock]` y `mock!` |
 | rstest | 0.28.0 (S38) | `[dev-dependencies]`: `"=0.28.0"` | Fixtures y tests parametrizados con `#[case]` y `#[values]` |
@@ -99,8 +99,9 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | wiremock | 0.6.5 (S39) | `[dev-dependencies]` | Servidor HTTP simulado para probar clientes |
 | sqlx | 0.9.1 (S39; `default-features = false`, `runtime-tokio`, `postgres`, `migrate`, `macros`) | `[dependencies]`; `DATABASE_URL` en `.cargo/config.toml` | PostgreSQL y `#[sqlx::test]` con una base por test |
 | testcontainers-modules | 0.15.0 (S39; `postgres`; trae testcontainers 0.27.3) | `[dev-dependencies]` | PostgreSQL desde el test; `testcontainers` se importa desde `testcontainers_modules` |
-| proptest / criterion | se fija en S40 | `[dev-dependencies]` | Propiedades y benchmarks |
-| cargo-llvm-cov / cargo-nextest / cargo-mutants | se fija en S40 | `cargo install --locked` | Coverage, runner y mutation testing |
+| proptest / criterion | 1.12.0 / 0.8.2 (S40; criterion con `html_reports`) | `[dev-dependencies]`; cada benchmark con `[[bench]]` y `harness = false` | Propiedades y benchmarks |
+| cargo-llvm-cov / cargo-nextest / cargo-mutants | 0.9.1 / 0.9.152 / 27.1.0 (S40) | `cargo install --locked`; cargo-llvm-cov necesita `llvm-tools-preview` en `components` | Coverage, runner y mutation testing |
+| cargo-fuzz | 0.13.2 (S40; libfuzzer-sys 0.4.13; nightly 1.102.0 del 2026-11-17) | `cargo install --locked`; se ejecuta con `cargo +nightly fuzz` | Fuzzing con libFuzzer, solo en el lab 02 |
 
 ## Transversal
 

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="sans-serif">
+  <rect width="900" height="400" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" font-weight="bold" text-anchor="middle">Cobertura frente a mutantes, en el lab 04</text>
+  <text x="450" y="58" fill="#8b949e" font-size="13" text-anchor="middle">La cobertura dice qué se ejecutó; los mutantes, qué comprueba algún test</text>
+
+  <!-- Cabeceras -->
+  <text x="40" y="100" fill="#8b949e" font-size="13" font-weight="bold">Código</text>
+  <text x="420" y="100" fill="#8b949e" font-size="13" font-weight="bold">cargo llvm-cov</text>
+  <text x="640" y="100" fill="#8b949e" font-size="13" font-weight="bold">cargo mutants</text>
+
+  <!-- Fila 1 -->
+  <rect x="30" y="115" width="840" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="40" y="146" fill="#DEA584" font-size="13" font-family="monospace">if days &gt; GRACE { days - GRACE }</text>
+  <text x="40" y="168" fill="#8b949e" font-size="12">chargeable_days</text>
+  <text x="420" y="146" fill="#3fb950" font-size="13" font-weight="bold">Ejecutada</text>
+  <text x="640" y="146" fill="#d29922" font-size="13" font-weight="bold">&gt; por &gt;=: MISSED</text>
+  <text x="640" y="168" fill="#8b949e" font-size="12">equivalente: ningún test lo mata</text>
+
+  <!-- Fila 2 -->
+  <rect x="30" y="200" width="840" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="40" y="231" fill="#DEA584" font-size="13" font-family="monospace">return fee / 2;</text>
+  <text x="40" y="253" fill="#8b949e" font-size="12">late_fee, socios</text>
+  <text x="420" y="231" fill="#f85149" font-size="13" font-weight="bold">0 ejecuciones</text>
+  <text x="640" y="231" fill="#f85149" font-size="13" font-weight="bold">/ por % y / por *: MISSED</text>
+  <text x="640" y="253" fill="#8b949e" font-size="12">falta un test de socios</text>
+
+  <!-- Fila 3 -->
+  <rect x="30" y="285" width="840" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="40" y="316" fill="#DEA584" font-size="13" font-family="monospace">format!("{}: {} días, {}", ...)</text>
+  <text x="40" y="338" fill="#8b949e" font-size="12">receipt, probada solo por su doctest</text>
+  <text x="420" y="316" fill="#f85149" font-size="13" font-weight="bold">0 ejecuciones</text>
+  <text x="420" y="338" fill="#8b949e" font-size="12">no cuenta los doctests</text>
+  <text x="640" y="316" fill="#3fb950" font-size="13" font-weight="bold">caught</text>
+  <text x="640" y="338" fill="#8b949e" font-size="12">cargo test sí ejecuta el doctest</text>
+
+  <text x="450" y="385" fill="#8b949e" font-size="13" text-anchor="middle">Una línea ejecutada puede no estar comprobada, y una línea «sin ejecutar» puede estarlo</text>
+</svg>

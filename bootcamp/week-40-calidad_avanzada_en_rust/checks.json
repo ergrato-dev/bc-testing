@@ -1,0 +1,83 @@
+{
+  "semana": "40",
+  "titulo": "Calidad Avanzada en Rust",
+  "checks": [
+    {
+      "id": "cargo-test",
+      "descripcion": "cargo test pasa con el PostgreSQL de compose.yaml arrancado (necesita Docker)",
+      "cmd": "cd {proyecto} && docker compose up -d --wait >/dev/null 2>&1 && cd rust && CI=true cargo test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "no-warnings",
+      "descripcion": "cargo test compila sin warnings, tampoco de dependencias sin usar",
+      "cmd": "cd {proyecto}/rust && cargo test --no-run 2>&1 | grep -c '^warning'",
+      "assert": "stdout~^0$",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "clippy",
+      "descripcion": "cargo clippy --all-targets -- -D warnings no da ningún aviso",
+      "cmd": "cd {proyecto}/rust && cargo clippy --all-targets -- -D warnings",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "no-ignore",
+      "descripcion": "No queda ningún #[ignore] en los tests",
+      "cmd": "test -d {proyecto}/rust && ! grep -rqF --include='*.rs' '#[ignore' {proyecto}/rust/src {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 3 y 4"
+    },
+    {
+      "id": "proptest",
+      "descripcion": "Al menos 6 tests en archivos con proptest!",
+      "cmd": "cd {proyecto}/rust && grep -rlF 'proptest!' tests src | xargs -r grep -hF '#[test]' | wc -l",
+      "assert": "stdout~^ *([6-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, pasos 3 y 4"
+    },
+    {
+      "id": "pg-property",
+      "descripcion": "Una propiedad de proptest guarda y lee contra PostgreSQL",
+      "cmd": "cd {proyecto}/rust && grep -lF 'proptest!' tests/*.rs | xargs -r grep -lE 'PgPool|DATABASE_URL' | grep -q .",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "regresiones",
+      "descripcion": "La semilla del fallo que encontró proptest está guardada",
+      "cmd": "ls {proyecto}/rust/proptest-regressions/*.txt {proyecto}/rust/tests/*.proptest-regressions 2>/dev/null | grep -q .",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "criterion",
+      "descripcion": "Hay un benchmark de criterion con harness = false y se ejecuta en modo test",
+      "cmd": "cd {proyecto}/rust && grep -q 'harness = false' Cargo.toml && grep -rqF 'criterion_main!' benches && cargo test --benches",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "cobertura",
+      "descripcion": "llvm-tools-preview está en rust-toolchain.toml y la cobertura de líneas llega al 80 %",
+      "cmd": "cd {proyecto}/rust && grep -q llvm-tools-preview rust-toolchain.toml && cargo llvm-cov --fail-under-lines 80 >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "mutants-gitignore",
+      "descripcion": "mutants.out no se sube al repositorio",
+      "cmd": "cat {proyecto}/.gitignore {proyecto}/rust/.gitignore 2>/dev/null | grep -qF mutants.out",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "calidad",
+      "descripcion": "calidad.md documenta el fallo de proptest, la comparación de criterion, la cobertura y los mutantes, sin TODO",
+      "cmd": "f={proyecto}/rust/calidad.md; test -f $f && grep -qF 'minimal failing input' $f && grep -qF 'change:' $f && grep -qi 'llvm-cov' $f && grep -qF 'mutants tested' $f && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 3 a 8"
+    }
+  ]
+}
