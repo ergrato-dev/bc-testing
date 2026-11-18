@@ -1,0 +1,4 @@
+# Variables de entorno para cargo test: #[sqlx::test] lee DATABASE_URL para
+# conectarse al PostgreSQL de compose.yaml y crear en él una base por test.
+[env]
+DATABASE_URL = "postgres://library:library@127.0.0.1:55432/library"

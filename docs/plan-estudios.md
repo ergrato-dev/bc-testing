@@ -1051,7 +1051,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S38    | Traits, Dobles y Parametrización en Rust       | ✅ Completo |
 | S39    | Async, APIs y BD en Rust                       | ✅ Completo |
 | S40    | Calidad Avanzada en Rust                       | ✅ Completo |
-| S41    | Proyecto Integrador — Etapa 5 (Rust)           | ⏳ Pendiente |
+| S41    | Proyecto Integrador — Etapa 5 (Rust)           | ✅ Completo |
 | S42    | Testing End-to-End con Playwright              | ⏳ Pendiente |
 | S43    | Testing de Performance con k6 y Locust         | ⏳ Pendiente |
 | S44    | Testing de Seguridad Básico (OWASP)            | ⏳ Pendiente |

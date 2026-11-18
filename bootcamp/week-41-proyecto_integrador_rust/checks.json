@@ -1,0 +1,41 @@
+{
+  "semana": "41",
+  "titulo": "Proyecto Integrador — Etapa 5 (Rust)",
+  "checks": [
+    {
+      "id": "verify-script",
+      "descripcion": "verify.sh tiene set -euo pipefail, fmt y clippy, la fase sin base de datos con nextest, la cobertura limpia de todos los tests, los doctests, los benchmarks, el umbral del 85 % y ningún TODO",
+      "cmd": "f={proyecto}/rust/verify.sh; grep -q '^set -euo pipefail' $f && grep -q 'cargo fmt --check' $f && grep -q 'cargo clippy --all-targets -- -D warnings' $f && grep -q 'cargo nextest run -E' $f && grep -q 'cargo llvm-cov clean --workspace' $f && grep -q 'cargo llvm-cov nextest --no-report' $f && grep -q 'cargo test --doc' $f && grep -q 'cargo test --benches' $f && grep -q -- '--fail-under-lines 85' $f && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 y 3"
+    },
+    {
+      "id": "verify",
+      "descripcion": "verify.sh pasa: análisis, tests sin base de datos, PostgreSQL, cobertura, doctests, benchmarks y umbral (necesita Docker, cargo-nextest y cargo-llvm-cov)",
+      "cmd": "bash {proyecto}/rust/verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 4"
+    },
+    {
+      "id": "coverage",
+      "descripcion": "La cobertura de líneas que deja verify.sh, con los tests de PostgreSQL, llega al 85 %",
+      "cmd": "cd {proyecto}/rust && cargo llvm-cov report --fail-under-lines 85 >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "piezas",
+      "descripcion": "La suite tiene todas las piezas de la etapa: tests en src, doctests, mockall, rstest, #[tokio::test], oneshot de axum, #[sqlx::test], proptest y criterion",
+      "cmd": "d={proyecto}/rust; grep -rqF '#[cfg(test)]' $d/src && grep -rqE '^ *///  *```' $d/src && grep -rqE 'automock|mock!' $d/src $d/tests && grep -rqF '#[rstest' $d/src $d/tests && grep -rqF '#[tokio::test' $d/tests && grep -rqF '.oneshot(' $d/tests && grep -rqF '#[sqlx::test' $d/tests && grep -rqF 'proptest!' $d/src $d/tests && grep -rqF 'criterion_main!' $d/benches",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1 (inventario)"
+    },
+    {
+      "id": "report",
+      "descripcion": "testing-report-rust.md tiene sus cinco secciones y ningún TODO",
+      "cmd": "f={proyecto}/rust/testing-report-rust.md; [ $(grep -cE '^## (Suite por capas|Cobertura|Tests más lentos|Riesgos y huecos|Próximos pasos)$' $f) -eq 5 ] && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    }
+  ]
+}

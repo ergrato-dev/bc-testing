@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450" font-family="sans-serif">
+  <title>verify.sh: la suite Rust por fases</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="900" height="450" fill="#0d1117"/>
+  <text x="450" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="bold">verify.sh: cuatro fases, se para en la primera que falla</text>
+
+  <!-- Fase 1 -->
+  <rect x="20" y="70" width="190" height="120" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="115" y="96" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">1. Análisis</text>
+  <text x="115" y="122" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">cargo fmt --check</text>
+  <text x="115" y="142" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">cargo clippy</text>
+  <text x="115" y="162" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">--all-targets</text>
+
+  <!-- Fase 2 -->
+  <rect x="240" y="70" width="190" height="120" rx="8" fill="#161b22" stroke="#DEA584"/>
+  <text x="335" y="96" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">2. Sin base de datos</text>
+  <text x="335" y="122" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">cargo nextest run</text>
+  <text x="335" y="142" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">-E 'not binary(...)'</text>
+  <text x="335" y="166" text-anchor="middle" fill="#3fb950" font-size="12">sin Docker, &lt; 1 s</text>
+
+  <!-- Fase 3 -->
+  <rect x="460" y="70" width="190" height="120" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="555" y="96" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">3. Todo + cobertura</text>
+  <text x="555" y="118" text-anchor="middle" fill="#d29922" font-size="12">docker compose up</text>
+  <text x="555" y="138" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">llvm-cov clean</text>
+  <text x="555" y="156" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">llvm-cov nextest</text>
+  <text x="555" y="176" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">test --doc, --benches</text>
+
+  <!-- Fase 4 -->
+  <rect x="680" y="70" width="200" height="120" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="780" y="96" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">4. Umbral</text>
+  <text x="780" y="122" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">llvm-cov report</text>
+  <text x="780" y="142" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">--fail-under-lines 85</text>
+  <text x="780" y="166" text-anchor="middle" fill="#8b949e" font-size="12">exit 1 y mensaje</text>
+
+  <line x1="210" y1="130" x2="238" y2="130" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="430" y1="130" x2="458" y2="130" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="650" y1="130" x2="678" y2="130" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- profraw -->
+  <rect x="455" y="235" width="200" height="56" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="555" y="259" text-anchor="middle" fill="#c9d1d9" font-size="13" font-family="monospace">target/llvm-cov-target</text>
+  <text x="555" y="279" text-anchor="middle" fill="#8b949e" font-size="12">datos de cobertura</text>
+  <line x1="555" y1="190" x2="555" y2="233" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M655,263 L780,263 L780,192" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="720" y="256" text-anchor="middle" fill="#8b949e" font-size="12">lo lee</text>
+  <text x="555" y="312" text-anchor="middle" fill="#f85149" font-size="12">sin clean, se suman los de ejecuciones anteriores</text>
+
+  <!-- set -euo pipefail -->
+  <rect x="20" y="340" width="860" height="84" rx="8" fill="#161b22" stroke="#f85149"/>
+  <text x="40" y="368" fill="#c9d1d9" font-size="14" font-family="monospace">set -euo pipefail</text>
+  <text x="40" y="392" fill="#8b949e" font-size="13">Como en Go: cualquier comando que falla, también delante de un | tee, para el script con error.</text>
+  <text x="40" y="410" fill="#8b949e" font-size="13">Si falla un test sin base de datos, el script se para en un segundo, antes de arrancar PostgreSQL.</text>
+</svg>

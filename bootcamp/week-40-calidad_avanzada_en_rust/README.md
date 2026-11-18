@@ -129,4 +129,4 @@ Ninguna de estas herramientas sustituye a las otras. La cobertura dice qué se e
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 39 - Async, APIs y BD en Rust](../week-39-async_apis_y_bd_en_rust/README.md) | Semana 41 - Próximamente |
+| [Semana 39 - Async, APIs y BD en Rust](../week-39-async_apis_y_bd_en_rust/README.md) | [Semana 41 - Proyecto Integrador: Etapa 5 (Rust)](../week-41-proyecto_integrador_rust/README.md) |
