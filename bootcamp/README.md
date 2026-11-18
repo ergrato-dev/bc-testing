@@ -45,7 +45,7 @@ Estado de cada semana:
 | [35](week-35-concurrencia_y_calidad_en_go/README.md) | [Concurrencia y Calidad en Go](week-35-concurrencia_y_calidad_en_go/README.md) | Go | ✅ |
 | [36](week-36-proyecto_integrador_go/README.md) | [Proyecto Integrador — Etapa 4 (Go)](week-36-proyecto_integrador_go/README.md) | Go | ✅ |
 | [37](week-37-fundamentos_de_testing_en_rust/README.md) | [Fundamentos de Testing en Rust](week-37-fundamentos_de_testing_en_rust/README.md) | Rust | ✅ |
-| 38 | Traits, Dobles y Parametrización en Rust | Rust | ⬜ |
+| [38](week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | [Traits, Dobles y Parametrización en Rust](week-38-traits_dobles_y_parametrizacion_en_rust/README.md) | Rust | ✅ |
 | 39 | Async, APIs y BD en Rust | Rust | ⬜ |
 | 40 | Calidad Avanzada en Rust | Rust | ⬜ |
 | 41 | Proyecto Integrador — Etapa 5 (Rust) | Rust | ⬜ |

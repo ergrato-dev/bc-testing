@@ -127,4 +127,4 @@ El tipo elimina casos de test, pero no todos. Con `u32`, un valor negativo no co
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 36 - Proyecto Integrador: Etapa 4 (Go)](../week-36-proyecto_integrador_go/README.md) | Semana 38 - Próximamente |
+| [Semana 36 - Proyecto Integrador: Etapa 4 (Go)](../week-36-proyecto_integrador_go/README.md) | [Semana 38 - Traits, Dobles y Parametrización en Rust](../week-38-traits_dobles_y_parametrizacion_en_rust/README.md) |

@@ -68,6 +68,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 38 - Traits, Dobles y Parametrización en Rust](../../week-38-traits_dobles_y_parametrizacion_en_rust/README.md) → |
 
 [↑ Semana 37](../README.md)

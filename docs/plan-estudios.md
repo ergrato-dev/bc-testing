@@ -1048,7 +1048,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S35    | Concurrencia y Calidad en Go                   | ✅ Completo |
 | S36    | Proyecto Integrador — Etapa 4 (Go)             | ✅ Completo |
 | S37    | Fundamentos de Testing en Rust                 | ✅ Completo |
-| S38    | Traits, Dobles y Parametrización en Rust       | ⏳ Pendiente |
+| S38    | Traits, Dobles y Parametrización en Rust       | ✅ Completo |
 | S39    | Async, APIs y BD en Rust                       | ⏳ Pendiente |
 | S40    | Calidad Avanzada en Rust                       | ⏳ Pendiente |
 | S41    | Proyecto Integrador — Etapa 5 (Rust)           | ⏳ Pendiente |

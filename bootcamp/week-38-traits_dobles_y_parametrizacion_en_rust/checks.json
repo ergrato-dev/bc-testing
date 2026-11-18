@@ -1,0 +1,83 @@
+{
+  "semana": "38",
+  "titulo": "Traits, Dobles y Parametrización en Rust",
+  "checks": [
+    {
+      "id": "cargo-test",
+      "descripcion": "cargo test pasa: unitarios, integración, snapshots y doctests",
+      "cmd": "cd {proyecto}/rust && CI=true cargo test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "no-warnings",
+      "descripcion": "cargo test compila sin warnings",
+      "cmd": "cd {proyecto}/rust && cargo test --no-run 2>&1 | grep -c '^warning'",
+      "assert": "stdout~^0$",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "no-ignore",
+      "descripcion": "No queda ningún #[ignore] en los tests",
+      "cmd": "test -d {proyecto}/rust && ! grep -rqF --include='*.rs' '#[ignore' {proyecto}/rust/src {proyecto}/rust/tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 5 a 7"
+    },
+    {
+      "id": "traits",
+      "descripcion": "Al menos 3 traits públicos en src/ para las dependencias del servicio",
+      "cmd": "grep -rhE '^ *pub trait [A-Z]' {proyecto}/rust/src | wc -l",
+      "assert": "stdout~^ *([3-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "generic-service",
+      "descripcion": "El servicio es genérico sobre sus dependencias",
+      "cmd": "grep -rqE '^ *pub struct [A-Z][A-Za-z]*<[A-Z]' {proyecto}/rust/src",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "fake",
+      "descripcion": "Hay al menos un fake escrito a mano (impl Trait for FakeXxx)",
+      "cmd": "grep -rqE 'impl [A-Z][A-Za-z]* for Fake[A-Z]' {proyecto}/rust/tests {proyecto}/rust/src",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mockall",
+      "descripcion": "Hay un mock de mockall y los tests lo programan con expect_",
+      "cmd": "grep -rqE --include='*.rs' 'mock!|automock' {proyecto}/rust && grep -rqE --include='*.rs' '[.]expect_[a-z_]+[(]' {proyecto}/rust",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "rstest-cases",
+      "descripcion": "Al menos 4 casos de rstest (#[case]) que pasan",
+      "cmd": "cd {proyecto}/rust && cargo test 2>&1 | grep -cE '::case_[0-9]+.* [.]{3} ok$'",
+      "assert": "stdout~^([4-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "insta",
+      "descripcion": "Hay al menos un snapshot aprobado (.snap) y ninguno pendiente",
+      "cmd": "cd {proyecto}/rust && test -n \"$(find . -path ./target -prune -o -name '*.snap' -print)\" && test -z \"$(find . -path ./target -prune -o -name '*.snap.new' -print -o -name '*.pending-snap' -print)\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "tests-common",
+      "descripcion": "tests/common/mod.rs existe y lo usan al menos 2 archivos de tests/",
+      "cmd": "test -f {proyecto}/rust/tests/common/mod.rs && ! test -f {proyecto}/rust/tests/common.rs && grep -lx 'mod common;' {proyecto}/rust/tests/*.rs | wc -l",
+      "assert": "stdout~^ *([2-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "dobles",
+      "descripcion": "dobles.md justifica cada doble (fake y mock), sin TODO",
+      "cmd": "f={proyecto}/rust/dobles.md; test -f $f && grep -qi fake $f && grep -qi mock $f && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    }
+  ]
+}

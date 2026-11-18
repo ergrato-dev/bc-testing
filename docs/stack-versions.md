@@ -89,7 +89,9 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 |---|---|---|---|
 | Rust | 1.100.0 (S37; edición 2024, mínimo 1.85) | `rust-toolchain.toml`: `channel` y `components = ["rustfmt", "clippy"]` | Toolchain stable; nightly solo para `cargo-fuzz` (S40) |
 | pretty_assertions | 1.4.1 (S37) | `[dev-dependencies]`: `"=1.4.1"` | `assert_eq!` con diff entre los dos valores |
-| mockall / rstest / insta | se fija en S38 | `[dev-dependencies]` | Mocks de traits, fixtures y snapshots |
+| mockall | 0.15.0 (S38) | `[dev-dependencies]`: `"=0.15.0"` | Mocks de traits con `#[automock]` y `mock!` |
+| rstest | 0.28.0 (S38) | `[dev-dependencies]`: `"=0.28.0"` | Fixtures y tests parametrizados con `#[case]` y `#[values]` |
+| insta / cargo-insta | 1.49.0 (S38) | `[dev-dependencies]`: `"=1.49.0"`; la herramienta con `cargo install --locked cargo-insta@1.49.0` | Snapshots y su revisión con `cargo insta review` |
 | tokio / axum / sqlx / wiremock / testcontainers | se fija en S39 | `Cargo.toml` | Async, APIs y PostgreSQL |
 | proptest / criterion | se fija en S40 | `[dev-dependencies]` | Propiedades y benchmarks |
 | cargo-llvm-cov / cargo-nextest / cargo-mutants | se fija en S40 | `cargo install --locked` | Coverage, runner y mutation testing |
