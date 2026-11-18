@@ -51,7 +51,7 @@ Estado de cada semana:
 | [41](week-41-proyecto_integrador_rust/README.md) | [Proyecto Integrador — Etapa 5 (Rust)](week-41-proyecto_integrador_rust/README.md) | Rust | ✅ |
 | [42](week-42-testing_end_to_end_con_playwright/README.md) | [Testing End-to-End con Playwright](week-42-testing_end_to_end_con_playwright/README.md) | Transversal | ✅ |
 | [43](week-43-testing_de_performance_con_k6_y_locust/README.md) | [Testing de Performance con k6 y Locust](week-43-testing_de_performance_con_k6_y_locust/README.md) | Transversal | ✅ |
-| 44 | Testing de Seguridad Básico (OWASP) | Transversal | ⬜ |
+| [44](week-44-testing_de_seguridad_basico_owasp/README.md) | [Testing de Seguridad Básico (OWASP)](week-44-testing_de_seguridad_basico_owasp/README.md) | Transversal | ✅ |
 | 45 | CI/CD y Testing Automatizado | Transversal | ⬜ |
 | 46 | Proyecto Final — Bootcamp Testing Zero to Hero | Transversal | ⬜ |
 

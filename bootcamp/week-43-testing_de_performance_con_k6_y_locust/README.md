@@ -133,4 +133,4 @@ Una prueba de carga mide todo lo que hay entre el generador y la base de datos, 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 42 - Testing End-to-End con Playwright](../week-42-testing_end_to_end_con_playwright/README.md) | Semana 44 - Próximamente |
+| [Semana 42 - Testing End-to-End con Playwright](../week-42-testing_end_to_end_con_playwright/README.md) | [Semana 44 - Testing de Seguridad Básico (OWASP)](../week-44-testing_de_seguridad_basico_owasp/README.md) |

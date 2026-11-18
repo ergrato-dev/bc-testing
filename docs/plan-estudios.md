@@ -1054,7 +1054,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S41    | Proyecto Integrador — Etapa 5 (Rust)           | ✅ Completo |
 | S42    | Testing End-to-End con Playwright              | ✅ Completo |
 | S43    | Testing de Performance con k6 y Locust         | ✅ Completo |
-| S44    | Testing de Seguridad Básico (OWASP)            | ⏳ Pendiente |
+| S44    | Testing de Seguridad Básico (OWASP)            | ✅ Completo |
 | S45    | CI/CD y Testing Automatizado                   | ⏳ Pendiente |
 | S46    | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
 

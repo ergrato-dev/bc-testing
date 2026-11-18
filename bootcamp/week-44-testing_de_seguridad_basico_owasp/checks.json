@@ -1,0 +1,55 @@
+{
+  "semana": "44",
+  "titulo": "Testing de Seguridad Básico (OWASP)",
+  "checks": [
+    {
+      "id": "tests-seguridad",
+      "descripcion": "Los tests TestSecurity... pasan, con los de integración contra PostgreSQL, y son al menos 5",
+      "cmd": "cd {proyecto}/go && out=$(go test -count=1 -tags integration -run '^TestSecurity' -v ./...) && [ \"$(grep -c '^--- PASS: TestSecurity' <<<\"$out\")\" -ge 5 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 5"
+    },
+    {
+      "id": "riesgos-cubiertos",
+      "descripcion": "Los tests de seguridad cubren 401, 403, cabeceras e inyección SQL",
+      "cmd": "cd {proyecto}/go && f=$(grep -rl --include='*_test.go' 'func TestSecurity' .) && for p in 'StatusUnauthorized|401' 'StatusForbidden|403' 'X-Content-Type-Options' 'UNION SELECT|OR .1.=.1'; do grep -qE \"$p\" $f || { echo \"falta: $p\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 5"
+    },
+    {
+      "id": "verify",
+      "descripcion": "go/verify.sh pasa: vet, staticcheck, tests y cobertura mínima con la autenticación nueva",
+      "cmd": "cd {proyecto}/go && bash verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "zap",
+      "descripcion": "El informe de ZAP baseline está en security/results/ y no tiene avisos de riesgo bajo o mayor",
+      "cmd": "cd {proyecto}/security/results && test -s zap-baseline.html && jq -e '(.site | length) > 0 and ([.site[].alerts[] | select(.riskcode != \"0\")] | length == 0)' zap-baseline.json",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "auditorias",
+      "descripcion": "Hay una auditoría de dependencias por lenguaje en security/results/ (go, python, java, rust, e2e)",
+      "cmd": "cd {proyecto}/security/results && for l in go python java rust e2e; do test -s audit-$l.txt || { echo \"falta audit-$l.txt\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "informe",
+      "descripcion": "El informe de seguridad tiene sus seis secciones",
+      "cmd": "cd {proyecto}/security && for s in '1. Alcance y entorno' '2. Tests de seguridad' '3. Hallazgos y correcciones' '4. ZAP baseline' '5. Auditoría de dependencias' '6. Riesgos'; do grep -q \"^## $s\" security-report.md || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en security/ ni en los tests de seguridad",
+      "cmd": "cd {proyecto} && ! grep -rq TODO security --exclude-dir=results --exclude-dir=.bin && ! grep -rq TODO --include='*_test.go' go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 9"
+    }
+  ]
+}

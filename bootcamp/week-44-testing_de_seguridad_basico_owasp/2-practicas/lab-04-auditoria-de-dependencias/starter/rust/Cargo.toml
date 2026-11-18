@@ -1,0 +1,8 @@
+[package]
+name = "audit-rust"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+# Versión antigua a propósito: tiene un aviso de seguridad publicado (RUSTSEC).
+smallvec = "=1.6.0"

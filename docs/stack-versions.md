@@ -22,7 +22,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
 | Python | 3.14 | `.python-version`, `requires-python` | Versión estable actual |
-| uv | última estable | equipo del estudiante | Único gestor de Python del curso |
+| uv | última estable | equipo del estudiante | Único gestor de Python del curso; `uv audit` (S44) necesita 0.13 o posterior |
 | pytest | 9.1.1 | `[dependency-groups] dev` | Framework de la Etapa 2 |
 | pytest-mock | 3.15.1 | `[dependency-groups] dev` | Wrapper de `unittest.mock` (S18) |
 | pytest-cov | 7.1.0 | `[dependency-groups] dev` | Coverage (S21) |
@@ -82,6 +82,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | benchstat | v0.0.0-20261117185222-4febdb082b2c (S35; `golang.org/x/perf`, sin versiones publicadas) | `go.mod`: `tool` | Comparación estadística de benchmarks antes y después |
 | golang.org/x/text | v0.44.0 (S35) | `go.mod` | `cases.Title` en lugar de `strings.Title` (lab 04) |
 | golangci-lint | v2.15.0 (S35) | binario aparte (`go install`), opcional | Varios linters en una pasada, normalmente en CI |
+| govulncheck | v1.10.0 (`golang.org/x/vuln`, S44) | `go get -tool` en el proyecto; `go install` en el lab 04 | Auditoría de dependencias y de la biblioteca estándar, con alcanzabilidad. Go 1.26.5 tiene vulnerabilidades corregidas en 1.26.11: el proyecto lo resuelve con `toolchain go1.26.11` |
 
 ## Rust
 
@@ -101,6 +102,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | testcontainers-modules | 0.15.0 (S39; `postgres`; trae testcontainers 0.27.3) | `[dev-dependencies]` | PostgreSQL desde el test; `testcontainers` se importa desde `testcontainers_modules` |
 | proptest / criterion | 1.12.0 / 0.8.2 (S40; criterion con `html_reports`) | `[dev-dependencies]`; cada benchmark con `[[bench]]` y `harness = false` | Propiedades y benchmarks |
 | cargo-llvm-cov / cargo-nextest / cargo-mutants | 0.9.1 / 0.9.152 / 27.1.0 (S40) | `cargo install --locked`; cargo-llvm-cov necesita `llvm-tools-preview` en `components` | Coverage, runner y mutation testing |
+| cargo-audit | 0.23.0 (S44) | `cargo install --locked` | Auditoría de `Cargo.lock` contra RustSec |
 | cargo-fuzz | 0.13.2 (S40; libfuzzer-sys 0.4.13; nightly 1.102.0 del 2026-11-17) | `cargo install --locked`; se ejecuta con `cargo +nightly fuzz` | Fuzzing con libFuzzer, solo en el lab 02 |
 
 ## Transversal
@@ -111,6 +113,8 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Apache Kafka | 4.2.1 (`apache/kafka-native:4.2.1`) | `KafkaContainer` de los tests | Broker real para los tests de mensajería (S29); misma versión que `kafka-clients` |
 | Imagen de Playwright | `mcr.microsoft.com/playwright:v1.63.0-noble` (Ubuntu 24.04, Node 24 y los tres navegadores) | `docker run` del lab 04 de S42 | WebKit en Linux sin sus bibliotecas del sistema; la versión es siempre la de `@playwright/test` |
 | Docker + Compose | v2+ | equipo del estudiante | Testcontainers (desde S23) y OWASP ZAP (S44) |
+| OWASP ZAP | 2.17.0 (`zaproxy/zap-stable:2.17.0`) | `docker run` de S44 | Escaneo baseline (pasivo) y completo (activo) de la API |
+| OSV-Scanner | 2.7.1 (`ghcr.io/google/osv-scanner:v2.7.1`) | `docker run` de S44 | Auditoría del `pom.xml` sin clave del NVD (OWASP Dependency-Check 13 la exige) |
 | jq | 1.7+ | equipo del estudiante | `scripts/verificar-semana.sh` lee `checks.json` |
 
 ---

@@ -1,0 +1,5 @@
+# Lo que genera security/zap.sh y no se sube. Los informes de security/results/ sí se suben:
+# son la evidencia del informe.
+.bin/
+results/server.log
+results/zap.yaml
