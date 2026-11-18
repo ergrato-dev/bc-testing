@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" font-family="sans-serif">
+  <rect width="900" height="460" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" font-weight="bold" text-anchor="middle">Los tres tipos de test de cargo test</text>
+
+  <!-- El crate -->
+  <rect x="40" y="60" width="430" height="250" rx="8" fill="#161b22" stroke="#DEA584" stroke-width="2"/>
+  <text x="60" y="88" fill="#DEA584" font-size="16" font-weight="bold">crate lab04</text>
+  <text x="200" y="88" fill="#8b949e" font-size="13" font-family="monospace">src/lib.rs</text>
+
+  <rect x="60" y="104" width="390" height="70" rx="6" fill="#0d1117" stroke="#3fb950"/>
+  <text x="76" y="128" fill="#3fb950" font-size="14" font-weight="bold">API pública (pub)</text>
+  <text x="76" y="152" fill="#c9d1d9" font-size="13" font-family="monospace">normalize_code · parse_entry · InvalidCode</text>
+
+  <rect x="60" y="186" width="390" height="50" rx="6" fill="#0d1117" stroke="#f85149"/>
+  <text x="76" y="216" fill="#f85149" font-size="14" font-weight="bold">Privado</text>
+  <text x="160" y="216" fill="#c9d1d9" font-size="13" font-family="monospace">has_code_shape</text>
+
+  <rect x="60" y="248" width="390" height="48" rx="6" fill="#0d1117" stroke="#58a6ff" stroke-dasharray="5 4"/>
+  <text x="76" y="270" fill="#58a6ff" font-size="14" font-weight="bold">1. Unitarios</text>
+  <text x="76" y="288" fill="#c9d1d9" font-size="12" font-family="monospace">#[cfg(test)] mod tests { use super::*; }</text>
+
+  <!-- Integración -->
+  <rect x="560" y="70" width="300" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="580" y="98" fill="#d29922" font-size="14" font-weight="bold">2. Integración</text>
+  <text x="580" y="122" fill="#c9d1d9" font-size="13" font-family="monospace">tests/catalog.rs</text>
+  <text x="580" y="146" fill="#8b949e" font-size="12">un crate aparte por archivo</text>
+
+  <!-- Doctests -->
+  <rect x="560" y="200" width="300" height="100" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="580" y="228" fill="#d29922" font-size="14" font-weight="bold">3. Doctests</text>
+  <text x="580" y="252" fill="#c9d1d9" font-size="13" font-family="monospace">/// ``` ... ```</text>
+  <text x="580" y="276" fill="#8b949e" font-size="12">un programa aparte por ejemplo</text>
+
+  <!-- Flechas: desde fuera solo a lo pub -->
+  <line x1="560" y1="120" x2="458" y2="132" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="452,133 462,126 463,138" fill="#3fb950"/>
+  <line x1="560" y1="250" x2="458" y2="150" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="453,145 465,148 457,157" fill="#3fb950"/>
+  <text x="478" y="112" fill="#3fb950" font-size="12" font-family="monospace">use lab04::</text>
+
+  <!-- Unitarios ven lo privado -->
+  <line x1="440" y1="258" x2="440" y2="240" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="440,236 435,245 445,245" fill="#58a6ff"/>
+
+  <!-- Leyenda de visibilidad -->
+  <rect x="40" y="335" width="820" height="100" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="60" y="362" fill="#58a6ff" font-size="13" font-weight="bold">Unitarios</text>
+  <text x="170" y="362" fill="#c9d1d9" font-size="13">ven todo, también lo privado</text>
+  <text x="560" y="362" fill="#c9d1d9" font-size="13" font-family="monospace">cargo test --lib</text>
+  <text x="60" y="390" fill="#d29922" font-size="13" font-weight="bold">Integración</text>
+  <text x="170" y="390" fill="#c9d1d9" font-size="13">solo lo pub, como otro programa</text>
+  <text x="560" y="390" fill="#c9d1d9" font-size="13" font-family="monospace">cargo test --test catalog</text>
+  <text x="60" y="418" fill="#d29922" font-size="13" font-weight="bold">Doctests</text>
+  <text x="170" y="418" fill="#c9d1d9" font-size="13">solo lo pub; además son la documentación</text>
+  <text x="560" y="418" fill="#c9d1d9" font-size="13" font-family="monospace">cargo test --doc</text>
+</svg>

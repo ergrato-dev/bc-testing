@@ -87,7 +87,8 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
-| Rust | se fija en S37 | `rust-toolchain.toml` | Toolchain stable; nightly solo para `cargo-fuzz` (S40) |
+| Rust | 1.100.0 (S37; edición 2024, mínimo 1.85) | `rust-toolchain.toml`: `channel` y `components = ["rustfmt", "clippy"]` | Toolchain stable; nightly solo para `cargo-fuzz` (S40) |
+| pretty_assertions | 1.4.1 (S37) | `[dev-dependencies]`: `"=1.4.1"` | `assert_eq!` con diff entre los dos valores |
 | mockall / rstest / insta | se fija en S38 | `[dev-dependencies]` | Mocks de traits, fixtures y snapshots |
 | tokio / axum / sqlx / wiremock / testcontainers | se fija en S39 | `Cargo.toml` | Async, APIs y PostgreSQL |
 | proptest / criterion | se fija en S40 | `[dev-dependencies]` | Propiedades y benchmarks |

@@ -123,4 +123,4 @@ El reporte del museo encontró que, si falla el aviso a la institución, la API 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 35 - Concurrencia y Calidad en Go](../week-35-concurrencia_y_calidad_en_go/README.md) | Semana 37 - Próximamente |
+| [Semana 35 - Concurrencia y Calidad en Go](../week-35-concurrencia_y_calidad_en_go/README.md) | [Semana 37 - Fundamentos de Testing en Rust](../week-37-fundamentos_de_testing_en_rust/README.md) |
