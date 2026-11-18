@@ -1,0 +1,62 @@
+{
+  "semana": "43",
+  "titulo": "Testing de Performance con k6 y Locust",
+  "checks": [
+    {
+      "id": "smoke",
+      "descripcion": "perf/run.sh smoke arranca la API con sus datos y pasa k6 y Locust",
+      "cmd": "cd {proyecto} && bash perf/run.sh smoke",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 y 3"
+    },
+    {
+      "id": "k6-escenarios",
+      "descripcion": "La prueba de carga tiene al menos dos escenarios, uno de ellos de ritmo fijo (constant-arrival-rate)",
+      "cmd": "cd {proyecto}/perf/k6 && k6 inspect load.js | jq -e '(.scenarios | length) >= 2 and ([.scenarios[].executor] | index(\"constant-arrival-rate\") != null)'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "k6-umbrales",
+      "descripcion": "La prueba de carga tiene umbrales de errores y de latencia por petición (al menos dos http_req_duration{name:...})",
+      "cmd": "cd {proyecto}/perf/k6 && k6 inspect load.js | jq -e '.thresholds.http_req_failed and ([.thresholds | keys[] | select(startswith(\"http_req_duration{name:\"))] | length >= 2)'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "locust-stress",
+      "descripcion": "El stress test tiene un usuario con catch_response y una forma de carga (LoadTestShape)",
+      "cmd": "cd {proyecto}/perf/locust && grep -q 'catch_response=True' locustfile.py && grep -qE 'class [A-Za-z]+[(]LoadTestShape[)]' locustfile.py && uv run locust -f locustfile.py --list",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "resultados-carga",
+      "descripcion": "Los resultados de la prueba de carga están en perf/results/: el resumen JSON y el informe HTML",
+      "cmd": "cd {proyecto}/perf/results && jq -e '.metrics.http_reqs.count > 1000 and .metrics.http_req_failed != null' load-summary.json && test -s load-report.html",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "resultados-stress",
+      "descripcion": "Los resultados del stress test están en perf/results/: el informe HTML y al menos 60 s de historia",
+      "cmd": "cd {proyecto}/perf/results && test -s stress.html && grep -c ',Aggregated,' stress_stats_history.csv",
+      "assert": "stdout~^([6-9][0-9]|[1-9][0-9]{2,})$",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "informe",
+      "descripcion": "El informe tiene sus seis secciones",
+      "cmd": "cd {proyecto}/perf && for s in '1. Sistema y entorno' '2. Criterios de aceptación' '3. Prueba de carga' '4. Stress test' '5. Cuello de botella' '6. Riesgos'; do grep -q \"^## $s\" performance-report.md || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 4 y 7"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en perf/ ni en go/cmd/server/",
+      "cmd": "cd {proyecto} && ! grep -rq TODO perf go/cmd/server --exclude-dir=.venv --exclude-dir=results --exclude-dir=.bin",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 7"
+    }
+  ]
+}

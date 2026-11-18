@@ -130,4 +130,4 @@ Un test E2E es el único que ve lo que ve el usuario, y también el más caro y 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 41 - Proyecto Integrador: Etapa 5 (Rust)](../week-41-proyecto_integrador_rust/README.md) | Semana 43 - Próximamente |
+| [Semana 41 - Proyecto Integrador: Etapa 5 (Rust)](../week-41-proyecto_integrador_rust/README.md) | [Semana 43 - Testing de Performance con k6 y Locust](../week-43-testing_de_performance_con_k6_y_locust/README.md) |

@@ -1,0 +1,6 @@
+# Lo que genera perf/run.sh y no se sube. Los resultados de perf/results/ sí se suben:
+# son la evidencia del informe.
+.bin/
+results/server.log
+locust/.venv/
+__pycache__/

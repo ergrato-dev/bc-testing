@@ -15,7 +15,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Express | 5.2.1 | `dependencies` | API bajo prueba (S12, S15) |
 | fast-check | 4.10.2 | `devDependencies` | Property-based testing (S13) |
 | Playwright | 1.63.0 (`@playwright/test`; navegadores con `pnpm exec playwright install`) | `devDependencies` | E2E (S42). Sin build scripts: no necesita `pnpm-workspace.yaml` |
-| k6 | se fija en S43 | binario / imagen Docker | Pruebas de carga |
+| k6 | 2.3.0 (binario de la release de GitHub, o imagen `grafana/k6:2.3.0`) | equipo del estudiante | Pruebas de carga (S43). No es un paquete de Node: sin `package.json` |
 
 ## Python
 
@@ -42,7 +42,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Faker | 40.54.0 | `[dependency-groups] dev` | Datos realistas con semilla (S23) |
 | Factory Boy | 3.3.3 | `[dependency-groups] dev` | `SQLAlchemyModelFactory` (S23) |
 | testcontainers | 4.15.0 (`[postgres]`) | `[dependency-groups] dev` | PostgreSQL desechable; importar de `testcontainers.community.postgres` (S23) |
-| Locust | se fija en S43 | `[dependency-groups] dev` | Pruebas de carga |
+| Locust | 2.47.0 | `[dependency-groups] dev` | Pruebas de carga (S43): `HttpUser`, `LoadTestShape`, `--headless --csv --html` |
 
 ## Java
 

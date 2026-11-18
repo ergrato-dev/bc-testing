@@ -68,6 +68,7 @@ doctor() {
   opcional go     "go version"               "Etapa 4"
   opcional cargo  "cargo --version"          "Etapa 5"
   opcional docker "docker compose version"   "Testcontainers desde S23 y ZAP en S44"
+  opcional k6     "k6 version"               "S43"
 
   echo
   if (( fallos == 0 )); then

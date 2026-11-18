@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450" font-family="sans-serif">
+<rect width="900" height="450" fill="#0d1117"/>
+<text x="450.0" y="30" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">La rodilla: stress test de la biblioteca (lab 04), escalones de 50 usuarios</text>
+<rect x="25" y="48" width="415" height="350" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="41" y="74" fill="#c9d1d9" font-size="15" font-weight="bold">Peticiones por segundo</text>
+<line x1="85" y1="335.0" x2="415" y2="335.0" stroke="#30363d" stroke-width="1"/>
+<text x="79" y="339.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">0</text>
+<line x1="85" y1="260.0" x2="415" y2="260.0" stroke="#30363d" stroke-width="1"/>
+<text x="79" y="264.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">100</text>
+<line x1="85" y1="185.0" x2="415" y2="185.0" stroke="#30363d" stroke-width="1"/>
+<text x="79" y="189.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">200</text>
+<line x1="85" y1="110.0" x2="415" y2="110.0" stroke="#30363d" stroke-width="1"/>
+<text x="79" y="114.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">300</text>
+<text x="85.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">0</text>
+<text x="140.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">50</text>
+<text x="195.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">100</text>
+<text x="250.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">150</text>
+<text x="305.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">200</text>
+<text x="360.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">250</text>
+<text x="415.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">300</text>
+<text x="250.0" y="367" fill="#c9d1d9" fill-opacity="0.75" font-size="11" text-anchor="middle">usuarios (espera media de 1 s)</text>
+<rect x="195.0" y="95" width="55.0" height="240" fill="#d29922" fill-opacity="0.12"/>
+<text x="222.5" y="109" fill="#d29922" font-size="11" text-anchor="middle">rodilla</text>
+<polyline points="140.0,297.5 195.0,260.0 250.0,222.5 305.0,185.0 360.0,147.5 415.0,110.0" fill="none" stroke="#c9d1d9" stroke-width="2.5" stroke-dasharray="5 5" stroke-opacity="0.5"/>
+<polyline points="140.0,300.6 195.0,266.9 250.0,259.3 305.0,273.8 360.0,263.6 415.0,258.6" fill="none" stroke="#f85149" stroke-width="2.5"/>
+<circle cx="140.0" cy="300.6" r="3.5" fill="#f85149"/>
+<circle cx="195.0" cy="266.9" r="3.5" fill="#f85149"/>
+<circle cx="250.0" cy="259.3" r="3.5" fill="#f85149"/>
+<circle cx="305.0" cy="273.8" r="3.5" fill="#f85149"/>
+<circle cx="360.0" cy="263.6" r="3.5" fill="#f85149"/>
+<circle cx="415.0" cy="258.6" r="3.5" fill="#f85149"/>
+<polyline points="140.0,306.4 195.0,278.5 250.0,237.1 305.0,223.6 360.0,154.0 415.0,109.6" fill="none" stroke="#3fb950" stroke-width="2.5"/>
+<circle cx="140.0" cy="306.4" r="3.5" fill="#3fb950"/>
+<circle cx="195.0" cy="278.5" r="3.5" fill="#3fb950"/>
+<circle cx="250.0" cy="237.1" r="3.5" fill="#3fb950"/>
+<circle cx="305.0" cy="223.6" r="3.5" fill="#3fb950"/>
+<circle cx="360.0" cy="154.0" r="3.5" fill="#3fb950"/>
+<circle cx="415.0" cy="109.6" r="3.5" fill="#3fb950"/>
+<rect x="460" y="48" width="415" height="350" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="476" y="74" fill="#c9d1d9" font-size="15" font-weight="bold">Latencia p95</text>
+<line x1="520" y1="335.0" x2="850" y2="335.0" stroke="#30363d" stroke-width="1"/>
+<text x="514" y="339.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">0 ms</text>
+<line x1="520" y1="275.0" x2="850" y2="275.0" stroke="#30363d" stroke-width="1"/>
+<text x="514" y="279.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">500 ms</text>
+<line x1="520" y1="215.0" x2="850" y2="215.0" stroke="#30363d" stroke-width="1"/>
+<text x="514" y="219.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">1000 ms</text>
+<line x1="520" y1="155.0" x2="850" y2="155.0" stroke="#30363d" stroke-width="1"/>
+<text x="514" y="159.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">1500 ms</text>
+<line x1="520" y1="95.0" x2="850" y2="95.0" stroke="#30363d" stroke-width="1"/>
+<text x="514" y="99.0" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="end">2000 ms</text>
+<text x="520.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">0</text>
+<text x="575.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">50</text>
+<text x="630.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">100</text>
+<text x="685.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">150</text>
+<text x="740.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">200</text>
+<text x="795.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">250</text>
+<text x="850.0" y="350" fill="#c9d1d9" fill-opacity="0.75" font-size="10" text-anchor="middle">300</text>
+<text x="685.0" y="367" fill="#c9d1d9" fill-opacity="0.75" font-size="11" text-anchor="middle">usuarios (espera media de 1 s)</text>
+<rect x="630.0" y="95" width="55.0" height="240" fill="#d29922" fill-opacity="0.12"/>
+<text x="657.5" y="109" fill="#d29922" font-size="11" text-anchor="middle">rodilla</text>
+<polyline points="575.0,320.6 630.0,313.4 685.0,264.2 740.0,191.0 795.0,131.0 850.0,107.0" fill="none" stroke="#f85149" stroke-width="2.5"/>
+<circle cx="575.0" cy="320.6" r="3.5" fill="#f85149"/>
+<circle cx="630.0" cy="313.4" r="3.5" fill="#f85149"/>
+<circle cx="685.0" cy="264.2" r="3.5" fill="#f85149"/>
+<circle cx="740.0" cy="191.0" r="3.5" fill="#f85149"/>
+<circle cx="795.0" cy="131.0" r="3.5" fill="#f85149"/>
+<circle cx="850.0" cy="107.0" r="3.5" fill="#f85149"/>
+<polyline points="575.0,333.4 630.0,334.2 685.0,325.6 740.0,330.6 795.0,333.8 850.0,334.0" fill="none" stroke="#3fb950" stroke-width="2.5"/>
+<circle cx="575.0" cy="333.4" r="3.5" fill="#3fb950"/>
+<circle cx="630.0" cy="334.2" r="3.5" fill="#3fb950"/>
+<circle cx="685.0" cy="325.6" r="3.5" fill="#3fb950"/>
+<circle cx="740.0" cy="330.6" r="3.5" fill="#3fb950"/>
+<circle cx="795.0" cy="333.8" r="3.5" fill="#3fb950"/>
+<circle cx="850.0" cy="334.0" r="3.5" fill="#3fb950"/>
+
+<line x1="110" y1="418" x2="140" y2="418" stroke="#f85149" stroke-width="3"/><text x="146" y="422" fill="#c9d1d9" font-size="12">Sin índice: errores 503 a 300 usuarios</text>
+<line x1="450" y1="418" x2="480" y2="418" stroke="#3fb950" stroke-width="3"/><text x="486" y="422" fill="#c9d1d9" font-size="12">Con índice trigram</text>
+<line x1="640" y1="418" x2="670" y2="418" stroke="#c9d1d9" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="5 5"/><text x="676" y="422" fill="#c9d1d9" font-size="12">Carga ofrecida</text>
+</svg>
