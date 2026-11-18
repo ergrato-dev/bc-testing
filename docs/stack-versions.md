@@ -14,7 +14,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Supertest | 7.3.0 | `devDependencies` | Testing de APIs Express (S12, S15) |
 | Express | 5.2.1 | `dependencies` | API bajo prueba (S12, S15) |
 | fast-check | 4.10.2 | `devDependencies` | Property-based testing (S13) |
-| Playwright | 1.63.0 | `devDependencies` | E2E (S42) |
+| Playwright | 1.63.0 (`@playwright/test`; navegadores con `pnpm exec playwright install`) | `devDependencies` | E2E (S42). Sin build scripts: no necesita `pnpm-workspace.yaml` |
 | k6 | se fija en S43 | binario / imagen Docker | Pruebas de carga |
 
 ## Python
@@ -109,6 +109,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 |---|---|---|---|
 | PostgreSQL | 18.7 (`postgres:18.7-alpine`) | `compose.yaml` (puerto `127.0.0.1:55432`) y `POSTGRES_IMAGE` de los tests | Única base de datos del curso |
 | Apache Kafka | 4.2.1 (`apache/kafka-native:4.2.1`) | `KafkaContainer` de los tests | Broker real para los tests de mensajería (S29); misma versión que `kafka-clients` |
+| Imagen de Playwright | `mcr.microsoft.com/playwright:v1.63.0-noble` (Ubuntu 24.04, Node 24 y los tres navegadores) | `docker run` del lab 04 de S42 | WebKit en Linux sin sus bibliotecas del sistema; la versión es siempre la de `@playwright/test` |
 | Docker + Compose | v2+ | equipo del estudiante | Testcontainers (desde S23) y OWASP ZAP (S44) |
 | jq | 1.7+ | equipo del estudiante | `scripts/verificar-semana.sh` lee `checks.json` |
 

@@ -49,7 +49,7 @@ Estado de cada semana:
 | [39](week-39-async_apis_y_bd_en_rust/README.md) | [Async, APIs y BD en Rust](week-39-async_apis_y_bd_en_rust/README.md) | Rust | ✅ |
 | [40](week-40-calidad_avanzada_en_rust/README.md) | [Calidad Avanzada en Rust](week-40-calidad_avanzada_en_rust/README.md) | Rust | ✅ |
 | [41](week-41-proyecto_integrador_rust/README.md) | [Proyecto Integrador — Etapa 5 (Rust)](week-41-proyecto_integrador_rust/README.md) | Rust | ✅ |
-| 42 | Testing End-to-End con Playwright | Transversal | ⬜ |
+| [42](week-42-testing_end_to_end_con_playwright/README.md) | [Testing End-to-End con Playwright](week-42-testing_end_to_end_con_playwright/README.md) | Transversal | ✅ |
 | 43 | Testing de Performance con k6 y Locust | Transversal | ⬜ |
 | 44 | Testing de Seguridad Básico (OWASP) | Transversal | ⬜ |
 | 45 | CI/CD y Testing Automatizado | Transversal | ⬜ |

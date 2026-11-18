@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="sans-serif">
+  <title>Auto-wait: acciones y aserciones que reintentan</title>
+  <rect width="900" height="420" fill="#0d1117"/>
+  <text x="450" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="bold">Playwright espera por ti: acciones y aserciones</text>
+
+  <!-- Acción -->
+  <rect x="20" y="60" width="420" height="300" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="230" y="88" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold">Acción</text>
+  <text x="230" y="110" text-anchor="middle" fill="#8b949e" font-size="13" font-family="monospace">await boton.click()</text>
+  <text x="40" y="146" fill="#c9d1d9" font-size="13">Antes de hacer clic comprueba que el elemento:</text>
+  <text x="56" y="172" fill="#3fb950" font-size="13">✓ existe y es único (modo estricto)</text>
+  <text x="56" y="196" fill="#3fb950" font-size="13">✓ es visible</text>
+  <text x="56" y="220" fill="#3fb950" font-size="13">✓ está quieto (no se anima)</text>
+  <text x="56" y="244" fill="#3fb950" font-size="13">✓ está habilitado</text>
+  <text x="56" y="268" fill="#3fb950" font-size="13">✓ recibe el clic (nada lo tapa)</text>
+  <text x="40" y="304" fill="#d29922" font-size="13">Si falla alguna, reintenta hasta el timeout</text>
+  <text x="40" y="324" fill="#d29922" font-size="13">del test (30 s por defecto)</text>
+
+  <!-- Aserción -->
+  <rect x="460" y="60" width="420" height="300" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="670" y="88" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold">Aserción web-first</text>
+  <text x="670" y="110" text-anchor="middle" fill="#8b949e" font-size="13" font-family="monospace">await expect(estado).toHaveText('Prestado')</text>
+  <text x="480" y="146" fill="#c9d1d9" font-size="13">Lee el texto, compara y, si no coincide,</text>
+  <text x="480" y="166" fill="#c9d1d9" font-size="13">vuelve a leer hasta 5 s:</text>
+  <rect x="480" y="184" width="70" height="28" rx="4" fill="#0d1117" stroke="#f85149"/>
+  <text x="515" y="203" text-anchor="middle" fill="#f85149" font-size="11">Disponible</text>
+  <rect x="560" y="184" width="70" height="28" rx="4" fill="#0d1117" stroke="#f85149"/>
+  <text x="595" y="203" text-anchor="middle" fill="#f85149" font-size="11">Disponible</text>
+  <rect x="640" y="184" width="70" height="28" rx="4" fill="#0d1117" stroke="#3fb950"/>
+  <text x="675" y="203" text-anchor="middle" fill="#3fb950" font-size="11">Prestado</text>
+  <text x="730" y="203" fill="#3fb950" font-size="13">pasa</text>
+  <text x="480" y="246" fill="#c9d1d9" font-size="13">En cambio, esto lee una sola vez:</text>
+  <text x="480" y="270" fill="#f85149" font-size="12" font-family="monospace">expect(await estado.textContent())</text>
+  <text x="480" y="288" fill="#f85149" font-size="12" font-family="monospace">  .toBe('Prestado')</text>
+  <text x="480" y="324" fill="#d29922" font-size="13">Falla si la página aún no se ha actualizado</text>
+
+  <text x="20" y="396" fill="#8b949e" font-size="13">Por eso un test de Playwright no necesita esperas fijas: waitForTimeout(1000) solo lo hace más lento.</text>
+</svg>

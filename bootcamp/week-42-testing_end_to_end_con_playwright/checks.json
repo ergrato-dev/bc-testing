@@ -1,0 +1,62 @@
+{
+  "semana": "42",
+  "titulo": "Testing End-to-End con Playwright",
+  "checks": [
+    {
+      "id": "e2e-pasa",
+      "descripcion": "La suite E2E pasa en Chromium y en Firefox, con la aplicación arrancada por Playwright",
+      "cmd": "cd {proyecto}/e2e && pnpm install >/dev/null 2>&1 && CI=1 pnpm exec playwright test --project=chromium --project=firefox",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 1, 5 y 6"
+    },
+    {
+      "id": "diez-tests",
+      "descripcion": "Al menos 10 tests E2E",
+      "cmd": "cd {proyecto}/e2e && pnpm exec playwright test --list --project=chromium | tail -1",
+      "assert": "stdout~Total: [1-9][0-9]+ tests",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "page-objects",
+      "descripcion": "Al menos dos page objects en pages/",
+      "cmd": "cd {proyecto}/e2e && grep -l 'export class' pages/*.ts 2>/dev/null | wc -l",
+      "assert": "stdout~^ *([2-9]|[1-9][0-9]+)$",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "tests-sin-locators",
+      "descripcion": "Los tests no buscan elementos: usan los page objects",
+      "cmd": "cd {proyecto}/e2e && test -d tests && ! grep -rnE 'page[.](getBy|locator)' tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "fixtures-api",
+      "descripcion": "fixtures.ts entrega los page objects y crea por la API los datos que cambia cada test",
+      "cmd": "cd {proyecto}/e2e && grep -qE '[.]extend[<(]' fixtures.ts && grep -qE 'new [A-Z][A-Za-z]*Page[(]' fixtures.ts && grep -qF 'request.post' fixtures.ts",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "evidencias",
+      "descripcion": "Informe HTML, captura y traza de cada fallo, y capturas de evidencia adjuntas al informe",
+      "cmd": "cd {proyecto}/e2e && grep -qF \"'html'\" playwright.config.ts && grep -qE \"screenshot: '(on|only-on-failure)'\" playwright.config.ts && grep -qE \"trace: '(on|retain-on-failure|on-first-retry)'\" playwright.config.ts && grep -rqF 'attach(' tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "sin-esperas",
+      "descripcion": "Ninguna espera fija: ni waitForTimeout ni setTimeout",
+      "cmd": "cd {proyecto}/e2e && ! grep -rqE 'waitForTimeout|setTimeout' tests pages fixtures.ts",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en e2e/: dominio, configuración y fixtures adaptados",
+      "cmd": "cd {proyecto}/e2e && ! grep -rq TODO --exclude-dir=node_modules --exclude-dir=test-results --exclude-dir=playwright-report .",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 6"
+    }
+  ]
+}

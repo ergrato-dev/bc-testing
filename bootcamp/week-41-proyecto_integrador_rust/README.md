@@ -123,4 +123,4 @@ Sin los tests de PostgreSQL, la suite del museo se queda en el 84.55 % de línea
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 40 - Calidad Avanzada en Rust](../week-40-calidad_avanzada_en_rust/README.md) | Semana 42 - Próximamente |
+| [Semana 40 - Calidad Avanzada en Rust](../week-40-calidad_avanzada_en_rust/README.md) | [Semana 42 - Testing End-to-End con Playwright](../week-42-testing_end_to_end_con_playwright/README.md) |

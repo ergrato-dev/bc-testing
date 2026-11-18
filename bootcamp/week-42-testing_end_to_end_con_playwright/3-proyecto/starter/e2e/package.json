@@ -1,0 +1,14 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "engines": { "node": ">=22.0.0" },
+  "scripts": {
+    "start": "node app/server.mjs",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" font-family="sans-serif">
+  <title>Lo que recorre un test E2E frente a un test de API</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="900" height="430" fill="#0d1117"/>
+  <text x="450" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="bold">Lo que recorre cada test</text>
+
+  <!-- Capas del sistema -->
+  <rect x="20" y="80" width="150" height="90" rx="8" fill="#161b22" stroke="#F7DF1E"/>
+  <text x="95" y="112" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Test</text>
+  <text x="95" y="134" text-anchor="middle" fill="#8b949e" font-size="12" font-family="monospace">*.spec.ts</text>
+  <text x="95" y="154" text-anchor="middle" fill="#8b949e" font-size="12">Playwright Test</text>
+
+  <rect x="200" y="80" width="150" height="90" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="275" y="112" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Navegador</text>
+  <text x="275" y="134" text-anchor="middle" fill="#8b949e" font-size="12">Chromium, Firefox</text>
+  <text x="275" y="154" text-anchor="middle" fill="#8b949e" font-size="12">o WebKit</text>
+
+  <rect x="380" y="80" width="150" height="90" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="455" y="112" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Interfaz</text>
+  <text x="455" y="134" text-anchor="middle" fill="#8b949e" font-size="12">HTML, formularios,</text>
+  <text x="455" y="154" text-anchor="middle" fill="#8b949e" font-size="12">JavaScript</text>
+
+  <rect x="560" y="80" width="150" height="90" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="635" y="112" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Servidor</text>
+  <text x="635" y="134" text-anchor="middle" fill="#8b949e" font-size="12">rutas, validación,</text>
+  <text x="635" y="154" text-anchor="middle" fill="#8b949e" font-size="12">reglas del dominio</text>
+
+  <rect x="740" y="80" width="140" height="90" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="810" y="112" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Datos</text>
+  <text x="810" y="134" text-anchor="middle" fill="#8b949e" font-size="12">memoria o</text>
+  <text x="810" y="154" text-anchor="middle" fill="#8b949e" font-size="12">PostgreSQL</text>
+
+  <line x1="170" y1="125" x2="198" y2="125" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="350" y1="125" x2="378" y2="125" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="530" y1="125" x2="558" y2="125" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="710" y1="125" x2="738" y2="125" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- E2E -->
+  <rect x="20" y="200" width="860" height="44" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="40" y="228" fill="#3fb950" font-size="14" font-weight="bold">E2E (S42)</text>
+  <text x="160" y="228" fill="#c9d1d9" font-size="13">clic en «Prestar» y comprobar lo que ve el usuario: pasa por todas las capas</text>
+
+  <!-- API -->
+  <rect x="560" y="260" width="320" height="44" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="580" y="288" fill="#58a6ff" font-size="14" font-weight="bold">API (S12, S34, S39)</text>
+  <text x="730" y="288" fill="#c9d1d9" font-size="13">HTTP sin navegador</text>
+
+  <!-- Unitario -->
+  <rect x="560" y="320" width="150" height="44" rx="6" fill="#161b22" stroke="#d29922"/>
+  <text x="635" y="348" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">Unitario</text>
+
+  <text x="20" y="400" fill="#8b949e" font-size="13">Cuantas más capas recorre un test, más fallos reales encuentra, más tarda y más motivos tiene para fallar.</text>
+</svg>

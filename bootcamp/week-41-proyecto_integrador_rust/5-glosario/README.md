@@ -27,6 +27,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 42 - Testing End-to-End con Playwright](../../week-42-testing_end_to_end_con_playwright/README.md) → |
 
 [↑ Semana 41](../README.md)
