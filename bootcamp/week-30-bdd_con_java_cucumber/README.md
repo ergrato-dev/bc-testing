@@ -131,4 +131,4 @@ Cucumber no sustituye a los tests de las semanas anteriores: los usa de base. La
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 29 - Testcontainers en Java](../week-29-testcontainers_en_java/README.md) | Semana 31 - Próximamente |
+| [Semana 29 - Testcontainers en Java](../week-29-testcontainers_en_java/README.md) | [Semana 31 - Proyecto Integrador: Etapa 3 (Java)](../week-31-proyecto_integrador_java/README.md) |

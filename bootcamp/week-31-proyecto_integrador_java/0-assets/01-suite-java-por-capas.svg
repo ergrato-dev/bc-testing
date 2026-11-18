@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" font-family="sans-serif">
+  <rect width="900" height="440" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">mvn verify: dos fases, un archivo de cobertura</text>
+
+  <!-- prepare-agent -->
+  <rect x="30" y="60" width="840" height="44" rx="6" fill="#161b22" stroke="#d29922"/>
+  <text x="450" y="80" fill="#d29922" font-size="14" text-anchor="middle">jacoco:prepare-agent</text>
+  <text x="450" y="97" fill="#8b949e" font-size="12" text-anchor="middle" font-family="monospace">argLine = -javaagent:jacoco...=destfile=target/jacoco.exec</text>
+
+  <!-- Surefire -->
+  <rect x="30" y="130" width="400" height="150" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="230" y="156" fill="#3fb950" font-size="16" text-anchor="middle" font-weight="bold">Surefire · fase test</text>
+  <text x="230" y="178" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">*Test.java</text>
+  <text x="230" y="204" fill="#c9d1d9" font-size="13" text-anchor="middle">JUnit + AssertJ, Mockito, ArchUnit</text>
+  <text x="230" y="224" fill="#c9d1d9" font-size="13" text-anchor="middle">Cucumber sin Spring</text>
+  <text x="230" y="254" fill="#8b949e" font-size="12" text-anchor="middle">segundos · sin Docker · mvn test</text>
+
+  <!-- Failsafe -->
+  <rect x="470" y="130" width="400" height="150" rx="6" fill="#161b22" stroke="#F89820"/>
+  <text x="670" y="156" fill="#F89820" font-size="16" text-anchor="middle" font-weight="bold">Failsafe · fase integration-test</text>
+  <text x="670" y="178" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">*IT.java</text>
+  <text x="670" y="204" fill="#c9d1d9" font-size="13" text-anchor="middle">@WebMvcTest, @JsonTest, @SpringBootTest</text>
+  <text x="670" y="224" fill="#c9d1d9" font-size="13" text-anchor="middle">@JdbcTest + Testcontainers, Cucumber + Spring</text>
+  <text x="670" y="254" fill="#8b949e" font-size="12" text-anchor="middle">contexto de Spring o contenedor · mvn verify</text>
+
+  <!-- Flechas a jacoco.exec -->
+  <line x1="230" y1="280" x2="400" y2="318" stroke="#30363d" stroke-width="2"/>
+  <line x1="670" y1="280" x2="500" y2="318" stroke="#30363d" stroke-width="2"/>
+  <text x="250" y="312" fill="#8b949e" font-size="12">@{argLine}</text>
+  <text x="590" y="312" fill="#8b949e" font-size="12">@{argLine}</text>
+
+  <!-- jacoco.exec -->
+  <rect x="330" y="318" width="240" height="40" rx="6" fill="#161b22" stroke="#d29922"/>
+  <text x="450" y="343" fill="#c9d1d9" font-size="14" text-anchor="middle" font-family="monospace">target/jacoco.exec</text>
+  <text x="600" y="343" fill="#8b949e" font-size="12">append: mvn clean antes de medir</text>
+
+  <!-- report y check -->
+  <line x1="450" y1="358" x2="450" y2="378" stroke="#30363d" stroke-width="2"/>
+  <rect x="130" y="378" width="300" height="44" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="280" y="398" fill="#58a6ff" font-size="14" text-anchor="middle">jacoco:report · fase verify</text>
+  <text x="280" y="414" fill="#8b949e" font-size="12" text-anchor="middle" font-family="monospace">target/site/jacoco/</text>
+  <rect x="470" y="378" width="300" height="44" rx="6" fill="#161b22" stroke="#f85149"/>
+  <text x="620" y="398" fill="#f85149" font-size="14" text-anchor="middle">jacoco:check · fase verify</text>
+  <text x="620" y="414" fill="#8b949e" font-size="12" text-anchor="middle">LINE COVEREDRATIO ≥ 0.85 o BUILD FAILURE</text>
+</svg>

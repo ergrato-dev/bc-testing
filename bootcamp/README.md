@@ -38,7 +38,7 @@ Estado de cada semana:
 | [28](week-28-testing_de_spring_boot/README.md) | [Testing de Spring Boot](week-28-testing_de_spring_boot/README.md) | Java | ✅ |
 | [29](week-29-testcontainers_en_java/README.md) | [Testcontainers en Java](week-29-testcontainers_en_java/README.md) | Java | ✅ |
 | [30](week-30-bdd_con_java_cucumber/README.md) | [BDD con Java — Cucumber](week-30-bdd_con_java_cucumber/README.md) | Java | ✅ |
-| 31 | Proyecto Integrador — Etapa 3 (Java) | Java | ⬜ |
+| [31](week-31-proyecto_integrador_java/README.md) | [Proyecto Integrador — Etapa 3 (Java)](week-31-proyecto_integrador_java/README.md) | Java | ✅ |
 | 32 | Fundamentos de Testing en Go | Go | ⬜ |
 | 33 | Interfaces y Dobles de Prueba en Go | Go | ⬜ |
 | 34 | HTTP, BD e Integración en Go | Go | ⬜ |

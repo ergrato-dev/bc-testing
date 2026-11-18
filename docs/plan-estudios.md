@@ -1041,7 +1041,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S28    | Testing de Spring Boot                         | ✅ Completo  |
 | S29    | Testcontainers en Java                         | ✅ Completo  |
 | S30    | BDD con Java — Cucumber                        | ✅ Completo  |
-| S31    | Proyecto Integrador — Etapa 3 (Java)           | ⏳ Pendiente |
+| S31    | Proyecto Integrador — Etapa 3 (Java)           | ✅ Completo  |
 | S32    | Fundamentos de Testing en Go                   | ⏳ Pendiente |
 | S33    | Interfaces y Dobles de Prueba en Go            | ⏳ Pendiente |
 | S34    | HTTP, BD e Integración en Go                   | ⏳ Pendiente |

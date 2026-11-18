@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS books (
+    isbn  VARCHAR(20) PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    stock INTEGER NOT NULL CHECK (stock >= 0)
+);

@@ -1,0 +1,62 @@
+{
+  "semana": "31",
+  "titulo": "Proyecto Integrador — Etapa 3 (Java)",
+  "checks": [
+    {
+      "id": "full-suite",
+      "descripcion": "La suite completa pasa: Surefire, Failsafe y el umbral de JaCoCo",
+      "cmd": "cd {proyecto}/java && mvn -B -q clean verify",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3 (Docker debe estar en marcha)"
+    },
+    {
+      "id": "unit-phase",
+      "descripcion": "Surefire ejecuta tests unitarios",
+      "cmd": "ls {proyecto}/java/target/surefire-reports/TEST-*.xml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "it-phase",
+      "descripcion": "Failsafe ejecuta tests de integración",
+      "cmd": "ls {proyecto}/java/target/failsafe-reports/TEST-*.xml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "no-spring-in-unit",
+      "descripcion": "Ningún *Test arranca Spring",
+      "cmd": "! grep -rlE '@(SpringBootTest|WebMvcTest|JsonTest|JdbcTest)' --include='*Test.java' {proyecto}/java/src/test/java",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1 (inventario) y paso 2"
+    },
+    {
+      "id": "bdd-in-failsafe",
+      "descripcion": "Cucumber va en la fase de integración",
+      "cmd": "ls {proyecto}/java/target/failsafe-reports/TEST-*Cucumber*IT.xml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "jacoco-gate",
+      "descripcion": "El umbral de JaCoCo está en el pom.xml",
+      "cmd": "f={proyecto}/java/pom.xml; grep -q 'jacoco-maven-plugin' $f && grep -q '<goal>check</goal>' $f && grep -q '<minimum>0.85</minimum>' $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "coverage",
+      "descripcion": "La cobertura de líneas de las dos fases llega al 85 %",
+      "cmd": "awk -F, 'NR>1 {m+=$8; c+=$9} END {exit !(c+m > 0 && c/(c+m) >= 0.85)}' {proyecto}/java/target/site/jacoco/jacoco.csv",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "report",
+      "descripcion": "testing-report-java.md tiene sus cinco secciones y ningún TODO",
+      "cmd": "f={proyecto}/java/testing-report-java.md; [ $(grep -cE '^## (Suite por capas|Cobertura|Tests más lentos|Riesgos y huecos|Próximos pasos)$' $f) -eq 5 ] && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    }
+  ]
+}
