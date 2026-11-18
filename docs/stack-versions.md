@@ -72,7 +72,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
-| Go | se fija en S32 | directiva `go` de `go.mod` | Stdlib `testing` con `t.Context`, `b.Loop()` y `testing/synctest` |
+| Go | 1.26.5 (S32) | directiva `go` de `go.mod` | Stdlib `testing` con `t.Context`, `b.Loop()` y `testing/synctest` |
 | go-cmp | se fija en S33 | `go.mod` | Comparación de estructuras con diff |
 | go.uber.org/mock | se fija en S33 | `go.mod` + `go tool` | Mocks generados con mockgen |
 | testify | se fija en S33 | `go.mod` | `assert`/`require` |

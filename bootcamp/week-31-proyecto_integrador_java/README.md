@@ -123,4 +123,4 @@ Una cobertura alta dice qué líneas ejecutan los tests, no qué comprueban. En 
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 30 - Java Testing VI: BDD con Java (Cucumber)](../week-30-bdd_con_java_cucumber/README.md) | Semana 32 - Próximamente |
+| [Semana 30 - Java Testing VI: BDD con Java (Cucumber)](../week-30-bdd_con_java_cucumber/README.md) | [Semana 32 - Fundamentos de Testing en Go](../week-32-fundamentos_de_testing_en_go/README.md) |
