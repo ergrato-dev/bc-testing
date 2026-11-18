@@ -76,7 +76,8 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | go-cmp | v0.7.0 (S33) | `go.mod` | `cmp.Diff` y `cmpopts` para comparar estructuras y golden files |
 | go.uber.org/mock | v0.6.0 (S33) | `go.mod`: `tool` (mockgen) + `require` (gomock) | Mocks generados con `go tool mockgen` desde `//go:generate` |
 | testify | v1.12.1 (S33) | `go.mod` | `assert`/`require` y `testify/mock` (lab 03; el proyecto usa mockgen y go-cmp) |
-| testcontainers-go | se fija en S34 | `go.mod` | PostgreSQL real en tests |
+| testcontainers-go | v0.45.0 (S34; con el módulo `modules/postgres`) | `go.mod` | PostgreSQL real en tests; imagen auxiliar `testcontainers/ryuk:0.14.0` |
+| pgx | v5.13.0 (S34; `github.com/jackc/pgx/v5`) | `go.mod` | Driver de PostgreSQL, `pgxpool` y `pgx.Tx` |
 
 ## Rust
 

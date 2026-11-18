@@ -135,4 +135,4 @@ Un mock comprueba que el código hace unas llamadas concretas, así que un cambi
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 32 - Fundamentos de Testing en Go](../week-32-fundamentos_de_testing_en_go/README.md) | Semana 34 - Próximamente |
+| [Semana 32 - Fundamentos de Testing en Go](../week-32-fundamentos_de_testing_en_go/README.md) | [Semana 34 - HTTP, BD e Integración en Go](../week-34-http_bd_e_integracion_en_go/README.md) |

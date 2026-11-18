@@ -1,0 +1,83 @@
+{
+  "semana": "34",
+  "titulo": "HTTP, BD e Integración en Go",
+  "checks": [
+    {
+      "id": "go-vet",
+      "descripcion": "go vet no encuentra problemas, con y sin la tag integration",
+      "cmd": "cd {proyecto}/go && go vet ./... && go vet -tags integration ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "go-unit",
+      "descripcion": "La suite unitaria pasa con -short y en orden aleatorio, sin Docker",
+      "cmd": "cd {proyecto}/go && go test -count=1 -shuffle=on -short ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "go-integration",
+      "descripcion": "La suite de integración pasa contra PostgreSQL (necesita Docker)",
+      "cmd": "cd {proyecto}/go && go test -count=1 -shuffle=on -tags integration ./...",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 6 y 7"
+    },
+    {
+      "id": "no-todo",
+      "descripcion": "No queda ningún TODO en el código Go",
+      "cmd": "test -d {proyecto}/go && ! grep -rq --include='*.go' 'TODO' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 3 a 7"
+    },
+    {
+      "id": "context",
+      "descripcion": "Las interfaces de almacenamiento reciben context.Context",
+      "cmd": "grep -rqE --include='*.go' --exclude='*_test.go' '^[[:space:]]+[A-Z][A-Za-z]*[(]ctx context[.]Context' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "mux-patterns",
+      "descripcion": "Las rutas usan patrones con método del http.ServeMux",
+      "cmd": "grep -rqE --include='*.go' --exclude='*_test.go' 'HandleFunc[(]\"(GET|POST|PUT|PATCH|DELETE) /' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "httptest",
+      "descripcion": "Los handlers se prueban con httptest.NewRecorder",
+      "cmd": "grep -rq --include='*_test.go' 'httptest[.]NewRecorder[(]' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "build-tag",
+      "descripcion": "Los tests de integración llevan //go:build integration",
+      "cmd": "grep -rq --include='*_test.go' '^//go:build integration' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "testcontainers",
+      "descripcion": "PostgreSQL arranca con el módulo postgres de testcontainers-go y la imagen del curso",
+      "cmd": "grep -q 'github.com/testcontainers/testcontainers-go/modules/postgres' {proyecto}/go/go.mod && grep -rq --include='*_test.go' 'postgres[.]Run[(]' {proyecto}/go && grep -rq --include='*_test.go' 'postgres:18[.]7-alpine' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "aislamiento",
+      "descripcion": "Un contenedor por paquete (TestMain) y una transacción por test (Rollback)",
+      "cmd": "grep -rq --include='*_test.go' 'func TestMain[(]' {proyecto}/go && grep -rq --include='*_test.go' 'Rollback[(]' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "migraciones",
+      "descripcion": "El esquema está en migrations/*.sql, incrustado con //go:embed",
+      "cmd": "find {proyecto}/go -path '*/migrations/*.sql' | grep -q . && grep -rq --include='*.go' '^//go:embed migrations' {proyecto}/go",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    }
+  ]
+}
