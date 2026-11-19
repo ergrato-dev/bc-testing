@@ -1,221 +1,199 @@
-# Técnicas de Diseño — Partición, BVA y Tablas de Decisión
+# 02 - Técnicas de diseño: partición, valores límite y tablas de decisión
 
-> **Semana 02 — Teoría 02** | Etapa 0: Fundamentos de Testing | Transversal (JS / Python / Java)
+> Transversal: sin código.
 
----
-
-## El Problema de la Exhaustividad
-
-Probar **todos los valores posibles** de un campo es imposible en la práctica. Un campo de texto con 255 caracteres tiene millones de combinaciones. Un sistema con 10 campos tiene billones.
-
-Las **técnicas de diseño de pruebas** resuelven este problema: permiten seleccionar el **mínimo número de casos** que maximizan la probabilidad de encontrar defectos.
-
-> "El testing exhaustivo es imposible. La selección inteligente de casos es la habilidad clave del tester." — Myers, The Art of Software Testing
+Un campo «edad» que acepta enteros de 18 a 65 admite miles de millones de entradas distintas si cuentas negativos, decimales y texto. No puedes probarlas todas. Las **técnicas de diseño** eligen pocas entradas que, si el sistema tiene un error, tienen muchas probabilidades de mostrarlo.
 
 ---
 
-## Técnica 1: Partición de Equivalencia
+## 🎯 Objetivos
 
-### Concepto
+- Dividir las entradas de un campo en clases de equivalencia válidas e inválidas.
+- Elegir los valores límite de un rango, con la variante de 2 y de 3 valores.
+- Construir una tabla de decisión para reglas con varias condiciones y simplificarla.
+- Combinar las tres técnicas en una suite sin casos repetidos.
 
-La **partición de equivalencia** divide el dominio de entrada de un campo en **clases** donde se asume que todos los valores de una clase se comportan igual. Basta testear **un valor representativo** de cada clase.
+---
 
-Si un test con el valor 5 cubre la misma lógica que con el valor 7, solo necesitamos uno de los dos.
+## 1. Partición de equivalencia
 
-### Cómo aplicarla
+### La idea
 
-1. Identificar todos los campos de entrada de la funcionalidad
-2. Para cada campo, definir las **clases válidas** (la aplicación debe aceptarlas) e **inválidas** (la aplicación debe rechazarlas)
-3. Seleccionar un valor representativo de cada clase
-4. Crear un caso de prueba por clase
+Una **clase de equivalencia** es un grupo de entradas que el sistema debería tratar igual. Si `35` se acepta, `36` también debería aceptarse: los dos pasan por la misma rama del código. Basta probar **un valor por clase**.
 
-### Ejemplo: Campo "Edad" (acepta 18–65)
+Las clases son **válidas** (el sistema debe aceptarlas) o **inválidas** (debe rechazarlas).
 
-![Partición de Equivalencia](../0-assets/01-particion-equivalencia.svg)
+![Partición de equivalencia del campo Edad](../0-assets/01-particion-equivalencia.svg)
 
-| Clase | Rango | Valor representativo | Tipo |
+| Clase | Condición | Valor | Tipo |
 |---|---|---|---|
 | CE1 | edad < 18 | 10 | Inválida |
 | CE2 | 18 ≤ edad ≤ 65 | 35 | Válida |
 | CE3 | edad > 65 | 80 | Inválida |
 
-**Resultado**: 3 casos en lugar de infinitos. Un test con edad=35 representa todos los valores entre 18 y 65.
+### No solo rangos
 
-### Ejemplo aplicado a un login
+Las clases salen de **cada regla** del campo, no solo del rango. Una contraseña «de 8 a 50 caracteres, solo letras y números» tiene más clases que las tres de longitud:
 
-**Campo "Contraseña"** (mínimo 8 caracteres, máximo 50, solo alfanumérica):
-
-| Clase | Condición | Valor rep. | Tipo |
+| Clase | Condición | Valor | Tipo |
 |---|---|---|---|
-| CE1 | longitud < 8 | `"abc12"` | Inválida |
-| CE2 | 8 ≤ longitud ≤ 50, alfanumérica | `"Pass1234"` | Válida |
-| CE3 | longitud > 50 | 51 caracteres | Inválida |
-| CE4 | contiene caracteres especiales | `"Pass@123"` | Inválida |
-| CE5 | campo vacío | `""` | Inválida |
+| CE1 | 8 a 50 caracteres, letras y números | `Pass1234` | Válida |
+| CE2 | menos de 8 caracteres | `abc12` | Inválida |
+| CE3 | más de 50 caracteres | 60 veces `a` | Inválida |
+| CE4 | contiene un símbolo | `Pass@123` | Inválida |
+| CE5 | vacía | `""` | Inválida |
+
+La vacía parece un caso de «menos de 8», pero muchos sistemas la tratan aparte (campo obligatorio) y con otro mensaje. Cuando el sistema puede tratar una entrada de otra forma, es otra clase.
+
+### Una clase inválida por caso
+
+Si un caso mete a la vez una edad inválida y un nombre inválido y el sistema rechaza el formulario, no sabes cuál de las dos reglas funcionó. Puede que la del nombre esté rota y la otra la tape.
+
+- **Clases válidas:** se pueden combinar varias en un mismo caso.
+- **Clases inválidas:** una por caso, con el resto de campos válidos.
 
 ---
 
-## Técnica 2: Análisis de Valores Límite (BVA)
+## 2. Análisis de valores límite
 
-### Concepto
+### Por qué los límites
 
-El **Boundary Value Analysis** (BVA) complementa la partición de equivalencia. Los errores tienden a concentrarse en los **límites** entre clases (off-by-one errors). Por eso, además del valor representativo del interior de cada clase, se testean los valores en la frontera.
+Los errores se concentran en los bordes. Quien programa «edad de 18 a 65» puede escribir `edad > 18` en lugar de `edad >= 18`, y el 18 queda rechazado. El 35 de la partición no detecta ese error; el 18 sí. Es el error **off-by-one** (por uno).
 
-### Regla de los 3 valores por límite
+El **análisis de valores límite** (BVA, *Boundary Value Analysis*) prueba los valores en el borde de cada clase. Solo se aplica a datos **ordenados**: números, longitudes, fechas.
 
-Para cada límite, probar:
-- El valor **justo en el límite** (on point)
-- El valor **justo por debajo** del límite (off point inferior)
-- El valor **justo por encima** del límite (off point superior)
+### Dos variantes
 
-![Valores Límite](../0-assets/02-valores-limite.svg)
+El temario ISTQB (CTFL 4.0) describe dos:
 
-### Ejemplo: Campo "Edad" (acepta 18–65)
+- **BVA de 2 valores:** el límite y su vecino del otro lado. Para el 18: el 17 y el 18.
+- **BVA de 3 valores:** el límite y sus dos vecinos. Para el 18: el 17, el 18 y el 19.
 
-| Posición | Valor | Resultado esperado |
-|---|---|---|
-| Justo por debajo del mínimo | 17 | Rechazado |
-| **En el límite mínimo** | **18** | **Aceptado** |
-| Justo por encima del mínimo | 19 | Aceptado |
-| Justo por debajo del máximo | 64 | Aceptado |
-| **En el límite máximo** | **65** | **Aceptado** |
-| Justo por encima del máximo | 66 | Rechazado |
+![Valores límite del campo Edad con las variantes de 2 y 3 valores](../0-assets/02-valores-limite.svg)
 
-**Total de casos BVA**: 6 valores en los límites + 1 valor interior = **7 casos** que cubren todos los escenarios críticos.
+| Valor | Posición | Esperado | Variante |
+|---|---|---|---|
+| 17 | vecino de fuera del mínimo | Rechazado | 2 y 3 valores |
+| 18 | límite mínimo | Aceptado | 2 y 3 valores |
+| 19 | vecino de dentro del mínimo | Aceptado | solo 3 valores |
+| 64 | vecino de dentro del máximo | Aceptado | solo 3 valores |
+| 65 | límite máximo | Aceptado | 2 y 3 valores |
+| 66 | vecino de fuera del máximo | Rechazado | 2 y 3 valores |
 
-### BVA en campos de texto (longitud)
+La de 3 valores detecta más errores. Si el código dice `edad == 18 || (edad > 19 && edad <= 65)` por una errata, el 17 y el 18 se comportan bien y solo el 19 lo muestra. En este bootcamp se usa la de **3 valores** salvo que se diga otra cosa.
 
-**Contraseña** (mínimo 8, máximo 50 caracteres):
+### Límites de longitud
 
+En un texto, el valor ordenado es la longitud. Para la contraseña de 8 a 50 caracteres:
+
+```text
+7 caracteres   Rechazado
+8 caracteres   Aceptado
+9 caracteres   Aceptado
+49 caracteres  Aceptado
+50 caracteres  Aceptado
+51 caracteres  Rechazado
 ```
-Límite inferior (8):
-  7 caracteres  → Rechazado  (off point inferior)
-  8 caracteres  → Aceptado   (on point)
-  9 caracteres  → Aceptado   (off point superior)
 
-Límite superior (50):
-  49 caracteres → Aceptado   (off point inferior)
-  50 caracteres → Aceptado   (on point)
-  51 caracteres → Rechazado  (off point superior)
-```
+Escribe el dato concreto en el caso, no solo la longitud: `Abcd123` (7) o `Abcd1234` (8). Para longitudes grandes, di cómo se construye: «`a` repetida 51 veces».
 
 ---
 
-## Combinando Partición de Equivalencia + BVA
+## 3. Partición y límites juntos
 
-El flujo de trabajo recomendado:
+Las dos técnicas se aplican en este orden:
 
-```
-1. Aplicar partición de equivalencia
-   → Identificar clases válidas e inválidas
-   → Un caso por clase (valor representativo del interior)
+1. **Partición:** las clases de cada campo, un valor del interior de cada una.
+2. **Límites:** en cada clase ordenada, los valores del borde.
+3. **Quitar repetidos:** si un valor límite ya cubre una clase, no hace falta otro valor de esa clase.
 
-2. Aplicar BVA en los límites
-   → Para cada frontera entre clases: probar on/off points
+Con la edad de 18 a 65:
 
-3. Resultado: cobertura máxima con mínimo de casos
-```
+| Técnica | Valores |
+|---|---|
+| Partición | 10, 35, 80 |
+| Límites (3 valores) | 17, 18, 19, 64, 65, 66 |
 
-Usando el ejemplo de la contraseña, combinando ambas técnicas obtenemos **8 casos** que cubren todos los escenarios relevantes, sin redundancias.
+El 17 está en la clase CE1 igual que el 10, y el 66 en CE3 igual que el 80. Si el tiempo aprieta, el 17 y el 66 cubren esas clases y el 10 y el 80 sobran. El 35 se queda: es el único valor del interior de la clase válida, lejos de los bordes.
+
+Resultado: **7 casos** (17, 18, 19, 35, 64, 65, 66) para un campo que admite miles de millones de entradas.
 
 ---
 
-## Técnica 3: Tablas de Decisión
+## 4. Tablas de decisión
 
-### Concepto
+### Cuándo
 
-Cuando una funcionalidad tiene **múltiples condiciones booleanas** que se combinan para generar distintos resultados, las tablas de decisión evitan el olvido de combinaciones.
+La partición y los límites miran un campo cada vez. Cuando el resultado depende de **varias condiciones combinadas** (descuentos, tarifas, permisos), lo fácil es olvidar alguna combinación. La **tabla de decisión** las escribe todas.
 
-### Cuándo usarlas
+### Ejemplo: descuento de una librería online
 
-- Más de 2 condiciones que interactúan entre sí
-- Reglas de negocio complejas (descuentos, tarifas, permisos)
-- Cada combinación de condiciones produce un resultado diferente
+Las reglas, tal como llegan del negocio:
 
-### Estructura
+- Los clientes premium con compras de más de 50 € tienen un 30 %. El cupón no se suma.
+- Los clientes premium con compras de 50 € o menos tienen un 20 % con cupón y un 10 % sin él.
+- Los demás clientes tienen un 10 % con cupón y nada sin él, sea cual sea el importe.
 
-```
-Condiciones  | R1 | R2 | R3 | R4
--------------|----|----|----|----|
-¿Usuario VIP?|  S |  S |  N |  N |
-¿Cupón válido|  S |  N |  S |  N |
--------------|----|----|----|----|
-Acciones
-Descuento 30%|  X |    |    |    |
-Descuento 20%|    |  X |    |    |
-Descuento 10%|    |    |  X |    |
-Sin descuento|    |    |    |  X |
-```
-
-Cada columna (R1, R2…) representa una **regla** que genera un caso de prueba.
-
-### Ejemplo: Sistema de descuentos de una librería
-
-**Condiciones**:
-- ¿Es cliente premium? (S/N)
-- ¿Compra supera $50? (S/N)
-- ¿Tiene cupón activo? (S/N)
-
-**Reglas** (2³ = 8 combinaciones posibles):
+Tres condiciones de sí o no dan 2 × 2 × 2 = **8 reglas**. Cada columna es una regla y un caso de prueba:
 
 | Condición | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 |
 |---|---|---|---|---|---|---|---|---|
-| Cliente premium | S | S | S | S | N | N | N | N |
-| Compra > $50 | S | S | N | N | S | S | N | N |
+| Premium | S | S | S | S | N | N | N | N |
+| Compra > 50 € | S | S | N | N | S | S | N | N |
 | Cupón activo | S | N | S | N | S | N | S | N |
-| **Descuento** | **40%** | **30%** | **25%** | **20%** | **20%** | **10%** | **10%** | **0%** |
+| **Descuento** | **30 %** | **30 %** | **20 %** | **10 %** | **10 %** | **0 %** | **10 %** | **0 %** |
 
-Cada columna = un caso de prueba distinto. La tabla garantiza que ninguna combinación fue omitida.
+Para rellenarla, empieza por la fila de premium (cuatro S y cuatro N), sigue con la de compra (dos S, dos N, repetido) y termina con el cupón (alternando). Así no repites ni te dejas ninguna combinación.
 
-### Simplificación de tablas
+### Simplificar
 
-Cuando dos reglas producen el mismo resultado sin importar el valor de una condición, se pueden colapsar:
+Cuando dos reglas dan el mismo resultado y solo difieren en una condición, esa condición no importa para ellas. Se juntan en una y la condición se marca con `-`:
 
-```
-R1: premium=S, compra>50=S, cupón=S → 40%
-R2: premium=S, compra>50=S, cupón=N → 40%
+- R1 y R2: premium y más de 50 €, 30 % con cupón o sin él.
+- R5 y R7: no premium con cupón, 10 % con cualquier importe.
+- R6 y R8: no premium sin cupón, 0 % con cualquier importe.
 
-Simplificado:
-R1': premium=S, compra>50=S, cupón=cualquiera → 40%
-```
+| Condición | R1+R2 | R3 | R4 | R5+R7 | R6+R8 |
+|---|---|---|---|---|---|
+| Premium | S | S | S | N | N |
+| Compra > 50 € | S | N | N | - | - |
+| Cupón activo | - | S | N | S | N |
+| **Descuento** | **30 %** | **20 %** | **10 %** | **10 %** | **0 %** |
+
+De 8 casos a 5, sin dejar ninguna regla del negocio sin probar.
+
+### Lo que la tabla encuentra
+
+Al escribir la tabla, a veces una columna no tiene respuesta en el texto del negocio: «¿y un premium con cupón y más de 50 €, suma los dos descuentos?». Esa pregunta, hecha antes de programar, es un bug que no llega a existir. En el ejemplo la respuesta ya estaba («el cupón no se suma»); en el [lab 03](../2-practicas/lab-03-tabla-de-decision/README.md) no.
+
+La «compra > 50 €» también es un rango: el 50,00 € y el 50,01 € son valores límite. Las técnicas se combinan.
 
 ---
 
-## Comparativa de Técnicas
+## 5. Cuál usar
 
-| Técnica | Cuándo usar | Ventaja | Limitación |
+| Técnica | Cuándo | Qué encuentra | Qué no |
 |---|---|---|---|
-| Partición de equivalencia | Siempre como base | Reduce drásticamente los casos | No detecta errores en los bordes |
-| BVA | Campos con rangos o longitudes | Detecta off-by-one errors | Solo aplica donde hay límites numéricos o de longitud |
-| Tablas de decisión | Múltiples condiciones booleanas | Garantiza cobertura de combinaciones | Escala exponencialmente con más condiciones |
+| Partición | Siempre, como base | Reglas que no se aplican a una clase entera | Errores en el borde |
+| Valores límite | Campos ordenados: números, longitudes, fechas | Comparaciones mal escritas (`>` por `>=`) | Nada en campos sin orden, como un color |
+| Tabla de decisión | Resultado que depende de varias condiciones | Combinaciones olvidadas y reglas que faltan | Crece al doble con cada condición: con 6 son 64 reglas |
 
 ---
 
-## Resumen del Proceso de Diseño
+## ✅ Resumen
 
-```
-Funcionalidad a testear
-        │
-        ▼
-1. Identificar entradas y salidas
-        │
-        ▼
-2. Aplicar Partición de Equivalencia
-   → Clases válidas e inválidas por campo
-        │
-        ▼
-3. Aplicar BVA en campos con rangos
-   → On points y off points por límite
-        │
-        ▼
-4. Aplicar Tabla de Decisión si hay múltiples condiciones
-        │
-        ▼
-5. Resultado: suite mínima y completa
-```
+- Partición: las entradas que el sistema trata igual forman una clase; se prueba un valor de cada una. Una clase inválida por caso.
+- Valores límite: en los datos ordenados, se prueba el borde. La variante de 3 valores prueba el límite y sus dos vecinos.
+- Tabla de decisión: cada combinación de condiciones es una regla y un caso; las reglas con el mismo resultado se juntan.
+- Juntas, dan una suite pequeña que encuentra los errores más comunes.
 
+<!-- nav -->
 ---
 
-## Próximo tema
+## 🔗 Navegación
 
-→ [Cobertura, Tipos de Test y Herramientas de Gestión](./03-cobertura-y-tipos.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 01 - El caso de prueba](01-casos-de-prueba.md) | [Teoría — 03 - Cobertura, suites y testing exploratorio](03-cobertura-y-tipos.md) → |
+
+[↑ Semana 02](../README.md)

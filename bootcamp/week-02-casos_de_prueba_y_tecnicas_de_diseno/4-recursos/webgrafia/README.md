@@ -1,44 +1,24 @@
-# Webgrafía — Semana 02
+# Webgrafía - Semana 02
 
-> Casos de Prueba y Técnicas de Diseño
-
----
-
-## 🌐 Referencias primarias
-
-| Recurso | URL | Para qué |
+| Recurso | Qué encuentras | Para qué |
 |---|---|---|
-| ISTQB Glossary | [glossary.istqb.org](https://glossary.istqb.org) | Definiciones oficiales de la industria |
-| ISTQB Foundation Syllabus (PDF) | [istqb.org/certifications](https://www.istqb.org/certifications/certified-tester-foundation-level) | Estándar completo — técnicas en cap. 4 |
-| Ministry of Testing | [ministryoftesting.com](https://www.ministryoftesting.com) | Comunidad activa — artículos, webinars |
-| Software Testing Help | [softwaretestinghelp.com](https://www.softwaretestinghelp.com) | Guías prácticas de técnicas de diseño |
+| [Equivalence partitioning](https://en.wikipedia.org/wiki/Equivalence_partitioning) (Wikipedia) | Definición y ejemplos de clases válidas e inválidas | Teoría 02, sección 1 |
+| [Boundary-value analysis](https://en.wikipedia.org/wiki/Boundary-value_analysis) (Wikipedia) | Los valores límite y su relación con la partición | Teoría 02, sección 2 |
+| [Decision table](https://en.wikipedia.org/wiki/Decision_table) (Wikipedia) | Estructura de las tablas y cómo se simplifican | Teoría 02, sección 4 y lab 03 |
+| [TestCoverage](https://martinfowler.com/bliki/TestCoverage.html) (Martin Fowler) | Por qué la cobertura sirve para encontrar código sin probar y no como objetivo | Teoría 03, sección 1 |
+| [Code Coverage Best Practices](https://testing.googleblog.com/2020/08/code-coverage-best-practices.html) (Google Testing Blog) | Cómo usa Google la cobertura y qué porcentajes considera razonables | Teoría 03, sección 1 |
+| [Smoke testing](https://en.wikipedia.org/wiki/Smoke_testing_(software)) (Wikipedia) | Origen del nombre y diferencia con sanity | Teoría 03, sección 2 |
+| [Exploratory testing](https://en.wikipedia.org/wiki/Exploratory_testing) (Wikipedia) | Historia del término y comparación con el guionizado | Teoría 03, sección 3 |
+| [Relative items in date strings](https://www.gnu.org/software/coreutils/manual/html_node/Relative-items-in-date-strings.html) (GNU coreutils) | Cómo suma y resta meses `date` y por qué el 31 de enero más un mes no da febrero | Lab 04 |
+| [Glosario ISTQB](https://glossary.istqb.org/) | Definiciones oficiales de los términos de la semana | Glosario |
 
+<!-- nav -->
 ---
 
-## 📖 Artículos de referencia
+## 🔗 Navegación
 
-| Artículo | Por qué leerlo |
+| Anterior | Siguiente |
 |---|---|
-| [Equivalence class testing — Wikipedia](https://en.wikipedia.org/wiki/Equivalence_partitioning) | Formalización matemática de la partición |
-| [Martin Fowler — Testing Strategies in a Microservice Architecture](https://martinfowler.com/articles/microservice-testing/) | Contexto de dónde encajan las técnicas en sistemas reales |
-| [Google Testing Blog](https://testing.googleblog.com) | Práctica real de testing en escala |
-| [IEEE 829 — Standard for Test Documentation](https://standards.ieee.org/ieee/829/3787/) | Estándar de documentación de pruebas (referencia para el proyecto) |
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
 
----
-
-## 🛠 Herramientas de gestión (para explorar)
-
-| Herramienta | URL | Tier gratuito |
-|---|---|---|
-| TestRail | [testrail.com](https://www.testrail.com) | Trial 30 días |
-| Zephyr Scale (Jira) | [zephyrscale.smartbear.com](https://smartbear.com/test-management/zephyr-scale/) | Con Jira Cloud free |
-| Notion (templates testing) | [notion.so](https://www.notion.so) | Gratuito — buscar "test case template" |
-| GitHub Issues + Markdown | Repositorio del bootcamp | ✅ Gratuito siempre |
-
----
-
-## 📌 Comunidades
-
-- [Software Testing Stack Exchange](https://sqa.stackexchange.com) — Preguntas y respuestas técnicas
-- [r/QualityAssurance](https://www.reddit.com/r/QualityAssurance/) — Comunidad Reddit de QA
-- [Ministry of Testing Slack](https://www.ministryoftesting.com/slack) — Canal activo de profesionales
+[↑ Semana 02](../../README.md)

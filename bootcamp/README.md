@@ -9,7 +9,7 @@ Estado de cada semana:
 | Semana | Tema | Etapa | Estado |
 |---|---|---|---|
 | [01](week-01-que_es_testing_calidad_de_software/README.md) | [¿Qué es Testing? Calidad de Software](week-01-que_es_testing_calidad_de_software/README.md) | Fundamentos | ✅ |
-| [02](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | [Casos de Prueba y Técnicas de Diseño](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | Fundamentos | 🟡 |
+| [02](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | [Casos de Prueba y Técnicas de Diseño](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | Fundamentos | ✅ |
 | [03](week-03-primeros_tests_automatizados_con_javascript/README.md) | [Primeros Tests Automatizados — JavaScript](week-03-primeros_tests_automatizados_con_javascript/README.md) | Fundamentos | 🟡 |
 | [04](week-04-primeros_tests_automatizados_con_python/README.md) | [Primeros Tests Automatizados — Python](week-04-primeros_tests_automatizados_con_python/README.md) | Fundamentos | 🟡 |
 | [05](week-05-primeros_tests_automatizados_con_java/README.md) | [Primeros Tests Automatizados — Java](week-05-primeros_tests_automatizados_con_java/README.md) | Fundamentos | 🟡 |

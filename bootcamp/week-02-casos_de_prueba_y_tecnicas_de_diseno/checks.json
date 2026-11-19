@@ -1,0 +1,55 @@
+{
+  "semana": "02",
+  "titulo": "Casos de Prueba y Técnicas de Diseño",
+  "checks": [
+    {
+      "id": "completo",
+      "descripcion": "casos-de-prueba.md existe y no le queda ningún TODO",
+      "cmd": "cd {proyecto} && test -s casos-de-prueba.md && ! grep -n TODO casos-de-prueba.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "reglas",
+      "descripcion": "Dominio, funcionalidad y al menos tres reglas con sus números",
+      "cmd": "cd {proyecto} && grep -qE '^[*][*]Dominio[*][*]: .{3,}' casos-de-prueba.md && grep -qE '^[*][*]Funcionalidad[*][*]: .{15,}' casos-de-prueba.md && test \"$(grep -E '^[|] R[0-9]+ [|] .{20,}' casos-de-prueba.md | grep -vcE '[|] TC-')\" -ge 3",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "particion",
+      "descripcion": "Al menos 2 clases válidas y 3 inválidas en la partición",
+      "cmd": "cd {proyecto} && test \"$(grep -cE '^[|] CE[0-9]+ [|].*[|] Válida [|]$' casos-de-prueba.md)\" -ge 2 && test \"$(grep -cE '^[|] CE[0-9]+ [|].*[|] Inválida [|]$' casos-de-prueba.md)\" -ge 3",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "limites",
+      "descripcion": "Al menos 6 valores límite, con los vecinos de fuera del mínimo y del máximo",
+      "cmd": "cd {proyecto} && test \"$(grep -E '[|] (Vecino de fuera del|Límite|Vecino de dentro del) (mínimo|máximo) [|]' casos-de-prueba.md | grep -vc TODO)\" -ge 6 && grep -E '[|] Vecino de fuera del mínimo [|]' casos-de-prueba.md | grep -vq TODO && grep -E '[|] Vecino de fuera del máximo [|]' casos-de-prueba.md | grep -vq TODO",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "casos",
+      "descripcion": "De 10 a 20 casos con IDs TC-<DOMINIO>-<MÓDULO>-<NNN> sin repetir",
+      "cmd": "cd {proyecto} && n=$(grep -cE '^ID: +TC-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$' casos-de-prueba.md) && test \"$n\" -ge 10 && test \"$n\" -le 20 && test \"$n\" -eq \"$(grep -c '^ID:' casos-de-prueba.md)\" && test -z \"$(grep '^ID:' casos-de-prueba.md | tr -s ' ' | sort | uniq -d)\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "campos",
+      "descripcion": "Cada caso tiene título, técnica, regla, precondiciones, pasos, esperado y prioridad; al menos 4 casos de valores límite; ningún esperado dice «funciona bien»",
+      "cmd": "cd {proyecto} && n=$(grep -c '^ID:' casos-de-prueba.md) && for c in 'Título: +.{15,}' 'Técnica: +(Partición|Valores límite|Tabla de decisión)' 'Regla: +R[0-9]' 'Precondiciones:' 'Pasos:' 'Resultado esperado:' 'Prioridad: +(Alta|Media|Baja)$'; do test \"$(grep -cE \"^$c\" casos-de-prueba.md)\" -eq \"$n\" || exit 1; done && test \"$(grep -cE '^Técnica: +Valores límite' casos-de-prueba.md)\" -ge 4 && ! grep -qiE 'funciona (bien|correctamente)' casos-de-prueba.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "trazabilidad",
+      "descripcion": "Cada regla de la sección 1 tiene al menos un caso en la matriz de trazabilidad",
+      "cmd": "cd {proyecto} && r=$(grep -E '^[|] R[0-9]+ [|]' casos-de-prueba.md | grep -vE '[|] TC-' | cut -d'|' -f2 | tr -d ' ' | sort -u) && test -n \"$r\" && for i in $r; do grep -qE \"^[|] $i [|] TC-\" casos-de-prueba.md || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    }
+  ]
+}

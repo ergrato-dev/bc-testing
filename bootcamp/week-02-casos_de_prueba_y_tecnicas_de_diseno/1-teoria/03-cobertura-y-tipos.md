@@ -1,219 +1,194 @@
-# Cobertura, Tipos de Test y Herramientas de Gestión
+# 03 - Cobertura, suites y testing exploratorio
 
-> **Semana 02 — Teoría 03** | Etapa 0: Fundamentos de Testing | Transversal (JS / Python / Java)
+> Transversal: sin código.
+
+Ya sabes escribir un caso y elegir sus datos. Esta teoría responde a tres preguntas que salen en cuanto tienes cien casos: ¿cuánto del sistema cubren?, ¿cuáles ejecuto hoy? y ¿qué pasa con lo que no está en ningún caso?
 
 ---
 
-## Cobertura de Pruebas: Qué es y qué NO es
+## 🎯 Objetivos
 
-### Definición
+- Distinguir cobertura de requisitos y cobertura de código, y explicar lo que ninguna garantiza.
+- Distinguir smoke, sanity y regresión por cuándo se ejecutan y qué incluyen.
+- Comparar testing guionizado y exploratorio, y escribir el charter de una sesión exploratoria.
+- Conocer las herramientas de gestión de casos y las secciones de un plan de pruebas.
 
-La **cobertura de pruebas** (test coverage) mide qué porcentaje del sistema ha sido ejercitado por los tests. Existen distintos tipos de cobertura según qué se mide.
+---
 
-### Tipos de cobertura (de menor a mayor rigor)
+## 1. Cobertura
 
-| Tipo | Qué mide | Nivel |
+La **cobertura** mide qué parte de algo ejercitan los tests. Hay dos familias, según qué sea ese «algo».
+
+### Cobertura de requisitos
+
+Qué porcentaje de los requisitos tiene al menos un caso de prueba. Se lleva con una **matriz de trazabilidad**: una tabla requisito por caso.
+
+| Requisito | Casos | Cubierto |
 |---|---|---|
-| **Cobertura de requisitos** | % de requisitos con al menos un caso de prueba | Conceptual |
-| **Cobertura de código (statement)** | % de líneas de código ejecutadas | Técnico |
-| **Cobertura de ramas (branch)** | % de ramas if/else tomadas | Técnico |
-| **Cobertura de condiciones** | % de condiciones booleanas evaluadas como T y F | Técnico |
-| **Cobertura de rutas** | % de caminos completos del flujo de control | Técnico |
+| R1 La edad va de 18 a 65 | TC-REG-001 a TC-REG-007 | Sí |
+| R2 El nombre tiene de 2 a 50 letras | TC-REG-008 a TC-REG-013 | Sí |
+| R3 El email no se puede repetir | (ninguno) | No |
 
-### Lo que la cobertura NO garantiza
+Cobertura de requisitos: 2 de 3, un 67 %. La fila vacía dice qué caso escribir a continuación. Es la cobertura de esta semana: no hace falta código.
 
-> **100% de cobertura de código ≠ ausencia de bugs**
+### Cobertura de código
+
+Qué porcentaje del código ejecutan los tests automatizados. Las dos medidas más usadas:
+
+| Medida | Qué cuenta |
+|---|---|
+| **Sentencias** (statements) | Las líneas de código que se ejecutaron al menos una vez |
+| **Ramas** (branches) | Los caminos de cada `if`: cuántos se tomaron, del total |
 
 ```javascript
-// Esta función tiene 100% de cobertura de sentencias
-// con solo UN test... pero ese test no verifica
-// que el resultado sea correcto
-
-function multiply(a, b) {
-  return a + b; // BUG: debería ser a * b
+function precio(base, esPremium) {
+  let total = base;
+  if (esPremium) {
+    total = base * 0.9;
+  }
+  return total;
 }
-
-// Test con 100% de cobertura de sentencias:
-// multiply(2, 3) → ejecuta la función
-// ...pero si solo verificamos que "retorna un número",
-// el bug nunca se detecta
 ```
 
-La cobertura mide **cuánto código se ejecuta**, no **si el comportamiento es correcto**. Un test vacío da 100% de cobertura de sentencias.
+Un test con `precio(100, true)` ejecuta todas las líneas: 100 % de sentencias. Pero el `if` tiene dos caminos, entrar y no entrar, y solo se tomó uno: 50 % de ramas. Hace falta otro test con `esPremium` falso. Por eso la cobertura de ramas es más exigente.
 
-### Cobertura como señal, no como objetivo
+La medirás con herramientas en la [semana 14](../../week-14-coverage_y_calidad_de_suites_en_jest/README.md) (Jest) y la [21](../../week-21-coverage_y_calidad_en_python/README.md) (Python).
 
-- **Cobertura baja** (< 60%) → hay funcionalidades sin ningún test → riesgo alto
-- **Cobertura alta** (> 85%) → la mayoría del código se ejecuta → riesgo controlado
-- **100% de cobertura** → puede ser una señal de tests débiles (sin assertions reales)
+### Lo que la cobertura no dice
 
-**Objetivo realista**: ≥ 85% de cobertura de ramas como umbral mínimo de calidad.
+La cobertura cuenta **qué se ejecutó**, no **qué se comprobó**.
 
-> El objetivo es **bugs encontrados**, no el porcentaje de cobertura.
+```javascript
+function multiplicar(a, b) {
+  return a + b; // bug: debería ser a * b
+}
+```
+
+Un test que comprueba que `multiplicar(2, 2)` devuelve `4` pasa: 2 + 2 y 2 × 2 dan lo mismo. La función tiene el 100 % de sentencias y de ramas, y el bug sigue ahí. Con `multiplicar(2, 3)` el test esperaría `6`, recibiría `5` y fallaría. El dato elegido importa más que el porcentaje: es lo que hacen las técnicas de la [teoría 02](02-tecnicas-de-diseno.md).
+
+Lo mismo con los requisitos: R1 tiene casos, pero si son solo el 35 y el 80, el error del 18 pasa.
+
+Cómo leer la cobertura:
+
+- **Baja:** hay partes que ningún test toca. Es un dato útil: ahí seguro que no se encontrará nada.
+- **Alta:** todo se ejecuta, pero no dice si las comprobaciones son buenas.
+- **Como objetivo:** si el equipo persigue un número, aparecen tests que ejecutan sin comprobar. En el bootcamp las suites piden un mínimo del 85 % como red, no como meta.
 
 ---
 
-## Tipos de Tests por Propósito
+## 2. Smoke, sanity y regresión
 
-### Smoke Test (prueba de humo)
+Tres maneras de elegir qué casos ejecutar, según el momento.
 
-Un conjunto **mínimo** de tests que verifican que las funcionalidades críticas del sistema **no están completamente rotas** antes de invertir tiempo en testing detallado.
+| Tipo | Pregunta | Cuándo | Qué incluye | Duración |
+|---|---|---|---|---|
+| **Smoke** | ¿Arranca y se puede usar? | Tras cada despliegue o build nueva | Las funciones críticas, solo el happy path | Minutos |
+| **Sanity** | ¿El cambio hace lo que debía? | Tras un arreglo o cambio pequeño | Los casos de la zona cambiada | Minutos |
+| **Regresión** | ¿Se ha roto algo que funcionaba? | Antes de cada release o merge importante | Todo, o casi todo | De minutos a horas |
 
-**Analogía**: Encender la TV antes de pagar la factura de luz — si no enciende, hay un problema mayor antes de preocuparse por el brillo.
+### Smoke
 
-**Cuándo se ejecuta**: Después de cada despliegue o compilación nueva.
+El nombre viene de la electrónica: enciendes la placa y miras si sale humo. Si falla, no se sigue probando: la build no sirve y vuelve a desarrollo.
 
-**Características**:
-- Rápido (minutos)
-- Superficial (no profundiza en edge cases)
-- Cubre las rutas más críticas: login, home, checkout, API principal
-- Si falla → se detiene el proceso, no se continúa con más tests
-
+```text
+Smoke de una tienda online:
+- La portada responde
+- El login con un usuario válido funciona
+- Se puede añadir un producto al carrito
+- El checkout llega a la pantalla de pago
 ```
-Ejemplo de smoke test suite:
-  ✓ La aplicación levanta sin errores
-  ✓ La página principal responde HTTP 200
-  ✓ El login con credenciales válidas funciona
-  ✓ La API responde en /health
-```
+
+### Sanity
+
+Tras arreglar el cálculo de descuentos, se ejecutan los casos de descuentos y poco más. Es estrecha y rápida: comprueba que el arreglo es razonable antes de gastar horas en la regresión.
+
+### Regresión
+
+Una **regresión** es algo que funcionaba y deja de funcionar por un cambio en otra parte. La suite de regresión existe para pillarlas, y crece con el tiempo: cada bug corregido añade un caso que lo habría detectado, para que no vuelva.
+
+Es la suite que más compensa automatizar: se ejecuta muchas veces con los mismos pasos (lo viste en la [teoría 01 de la semana 1](../../week-01-que_es_testing_calidad_de_software/1-teoria/01-calidad-y-tipos-de-testing.md#3-testing-manual-y-testing-automatizado)).
+
+Las tres no son suites separadas. Son selecciones de la misma colección de casos: la smoke son los happy paths de prioridad alta; la sanity, los del módulo tocado.
 
 ---
 
-### Sanity Test (prueba de cordura)
+## 3. Testing guionizado y testing exploratorio
 
-Verifica que **un cambio específico** no haya introducido un error obvio en la funcionalidad modificada. Es más enfocado que el smoke test.
-
-**Cuándo se ejecuta**: Luego de un fix o cambio pequeño, para validar rápidamente sin ejecutar toda la suite.
-
-**Diferencia con smoke test**:
-- Smoke: ¿el sistema vive? (general)
-- Sanity: ¿este fix no rompió esto? (específico)
-
-```
-Escenario: Se corrigió el cálculo de descuentos.
-Sanity test: ejecutar SOLO los tests del módulo
-             de descuentos para verificar el fix.
-```
-
----
-
-### Regression Test (prueba de regresión)
-
-Verifica que **funcionalidades que ya funcionaban** no se hayan roto por nuevos cambios. Es la suite completa que se ejecuta ante cualquier modificación.
-
-**Por qué es crítica**: Los cambios de código en el área A pueden romper silenciosamente el área B. Sin regression testing, los bugs se descubren en producción.
-
-**Características**:
-- Más lenta que smoke y sanity (puede durar horas)
-- Cubre la mayor parte de la funcionalidad del sistema
-- Se ejecuta en CI/CD antes de merges o deploys importantes
-- Crece con el tiempo: cada bug corregido → nuevo test de regresión
-
-```
-Regla: cada vez que corriges un bug, escribe un test
-que lo hubiera detectado. Así nunca vuelve.
-```
-
----
-
-### Testing Exploratorio vs Testing Scripted
-
-| Dimensión | Scripted | Exploratorio |
+| | Guionizado (scripted) | Exploratorio |
 |---|---|---|
-| **Definición** | Tests documentados con pasos fijos | Exploración libre guiada por intuición y experiencia |
-| **Documentación** | Casos de prueba formales (semana 2) | Session notes, charters de sesión |
-| **Cuándo usar** | Regresión, compliance, auditorías | Nuevas funcionalidades, explorar bordes desconocidos |
-| **Ventaja** | Reproducible, colaborativo, trazable | Descubre bugs que los scripts no anticiparon |
-| **Limitación** | No descubre lo desconocido | Difícil de reproducir y reportar |
+| **Qué es** | Ejecutar casos escritos antes, paso a paso | Diseñar y ejecutar a la vez, decidiendo el siguiente paso por lo que ves |
+| **Documento** | Casos de prueba | Un charter antes y notas durante la sesión |
+| **Sirve para** | Regresión, auditorías, lo que se repite | Funciones nuevas, zonas sin casos, buscar lo que nadie pensó |
+| **Fuerte en** | Repetible y medible | Encuentra bugs que ningún caso había previsto |
+| **Débil en** | Solo encuentra lo que alguien previó | Depende de quien prueba; sin notas, no se puede repetir |
 
-**El tester moderno usa ambos**. Los scripted tests son la base automatizable. El testing exploratorio es el complemento humano que los scripts no pueden reemplazar.
+Exploratorio no es «probar a lo loco». Se hace en **sesiones** de tiempo fijo, con un objetivo escrito antes: el **charter**.
 
-#### Charter de sesión exploratoria (estructura básica)
+```text
+Charter:   Explorar el importe del checkout
+Con:       importes con céntimos, cero, negativos y muy grandes
+Para:      descubrir importes que el sistema acepte o redondee mal
+Duración:  45 minutos
 
+Notas (durante la sesión):
+- 10:05  0,01 € se acepta y el resumen muestra 0,01 €. Ok.
+- 10:12  0,015 € se redondea a 0,02 € en el resumen y a 0,01 € en el pago. Bug.
+- 10:20  -5 € deja pulsar "Pagar"; el error sale después. Pregunta para producto.
 ```
-CHARTER: Explorar el módulo de pagos
-ÁREA: Flujo de checkout con tarjeta de crédito
-DURACIÓN: 45 minutos
-OBJETIVO: Encontrar comportamientos inesperados en los límites del monto
-NOTAS:
-  - ¿Qué pasa con montos de $0.01?
-  - ¿Qué pasa con montos que tienen más de 2 decimales?
-  - ¿Qué pasa si se cancela a mitad del flujo de 3D Secure?
-```
+
+Las notas convierten la sesión en algo útil: el redondeo es un reporte de bug, la pregunta va a quien define el producto y los importes probados se pueden volver casos guionizados para la regresión.
+
+Las dos formas se complementan. Los casos protegen lo que ya sabes que importa; la exploración encuentra lo que todavía no sabías.
 
 ---
 
-## Herramientas de Gestión de Casos de Prueba
+## 4. Herramientas de gestión de casos
 
-En el bootcamp no se requiere ninguna herramienta de gestión paga. Se trabaja con archivos Markdown. Sin embargo, es importante conocer el ecosistema profesional.
+En un equipo, los casos viven en una herramienta que guarda su historia de ejecuciones y los enlaza con requisitos y bugs:
 
-### Opciones en el mercado
+| Herramienta | Tipo |
+|---|---|
+| TestRail | Aplicación web de pago, independiente |
+| Zephyr y Xray | Extensiones de pago para Jira |
+| Azure Test Plans | Parte de Azure DevOps |
+| Una hoja de cálculo o Notion | Lo que usan muchos equipos pequeños |
 
-| Herramienta | Tipo | Descripción |
-|---|---|---|
-| **TestRail** | SaaS (pago) | La más usada en empresas. Gestión completa de casos, runs y reportes |
-| **Zephyr Scale** | Plugin de Jira | Integra casos de prueba directamente en el flujo de Jira |
-| **Xray** | Plugin de Jira | Similar a Zephyr, con trazabilidad de requisitos |
-| **qTest** | SaaS (pago) | Orientado a flujos ágiles y CI/CD |
-| **Notion** | Gratuito | Flexible, útil para equipos pequeños sin herramienta dedicada |
-| **Azure Test Plans** | SaaS (en Azure DevOps) | Integrado con el ecosistema Microsoft |
-| **Archivo Markdown** | Gratuito | Lo que usamos en este bootcamp — portable y en control de versiones |
-
-### Por qué usamos Markdown en el bootcamp
-
-```
-✓ Cero costo
-✓ En el repositorio de código → versionado con Git
-✓ Legible en GitHub sin herramienta adicional
-✓ Portable a cualquier herramienta después
-✓ Las convenciones son iguales en cualquier sistema
-```
-
-### Campos en herramientas reales vs Markdown
-
-Las herramientas profesionales como TestRail tienen los mismos campos que aprendemos en este bootcamp: ID, título, precondiciones, pasos, resultado esperado, estado, severidad, prioridad. La diferencia es que ofrecen dashboards, trazabilidad y reportes automáticos.
-
-> El conocimiento de diseño de casos es transferible. Las herramientas cambian; los principios no.
+En el bootcamp los casos se escriben en **Markdown**: no cuesta nada, va en el repositorio junto al código, Git guarda su historia y GitHub lo muestra sin instalar nada. Los campos son los mismos que en cualquier herramienta: quien sabe escribir un buen caso en Markdown lo sabe escribir en TestRail.
 
 ---
 
-## Plan de Pruebas (Test Plan) — Introducción
+## 5. El plan de pruebas
 
-Un **plan de pruebas** define el **alcance, enfoque y estrategia** de testing para un proyecto o release. Es el documento que responde:
+Cuando hay que probar una release entera, los casos se organizan en un **plan de pruebas**: qué se prueba, qué no, cómo, y cuándo se da por terminado.
 
-- ¿Qué se va a probar?
-- ¿Qué NO se va a probar (y por qué)?
-- ¿Qué técnicas se van a usar?
-- ¿Cuáles son los criterios de entrada y salida?
-- ¿Cuántos recursos (tiempo, personas) se necesitan?
-
-Este documento se profundizará en la **Semana 06** (Proyecto Integrador de Etapa 0). Por ahora, es suficiente saber que existe y que sus secciones principales son:
-
+```text
+Plan de pruebas
+|-- Alcance: qué funciones se prueban
+|-- Fuera de alcance: qué no, y por qué
+|-- Enfoque: técnicas y tipos de prueba
+|-- Criterios de entrada: cuándo se puede empezar
+|-- Criterios de salida: cuándo se da por terminado
+`-- Riesgos: qué puede salir mal y qué se hará
 ```
-Test Plan
-├── Alcance (scope): qué funcionalidades se prueban
-├── Fuera de alcance: qué se excluye explícitamente
-├── Enfoque: técnicas y tipos de tests a usar
-├── Criterios de entrada: cuándo empezar a testear
-├── Criterios de salida: cuándo el testing está "completo"
-├── Riesgos y mitigaciones
-└── Cronograma estimado
-```
+
+Lo escribirás completo en la [semana 6](../../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md).
 
 ---
 
-## Recapitulación de la Semana
+## ✅ Resumen
 
-Con las tres teorías de esta semana tienes el toolkit conceptual completo para diseñar pruebas manuales profesionales:
+- La cobertura de requisitos se lleva con una matriz de trazabilidad; la de código, con herramientas (sentencias y ramas). Ninguna dice si las comprobaciones son buenas.
+- Smoke: ¿arranca? Sanity: ¿el cambio funciona? Regresión: ¿se ha roto algo? Son selecciones de la misma colección de casos.
+- El exploratorio se hace en sesiones con charter y notas; encuentra lo que los casos no previeron.
+- Los campos de un caso son los mismos en Markdown y en TestRail. El plan de pruebas los organiza para una release.
 
-```
-01 — Casos de prueba → estructura, campos, precondiciones, resultados esperados
-02 — Técnicas de diseño → partición, BVA, tablas de decisión
-03 — Cobertura y tipos → qué medir, smoke/sanity/regression, exploratorio
-```
-
-En las semanas 3–5 automatizarás estos mismos casos usando Jest, pytest y JUnit 6.
-
+<!-- nav -->
 ---
 
-← [Técnicas de Diseño](./02-tecnicas-de-diseno.md) | [Volver al README de la semana](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 02 - Técnicas de diseño: partición, valores límite y tablas de decisión](02-tecnicas-de-diseno.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 02](../README.md)

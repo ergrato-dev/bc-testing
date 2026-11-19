@@ -1,188 +1,187 @@
-# Casos de Prueba — Estructura y Campos
+# 01 - El caso de prueba
 
-> **Semana 02 — Teoría 01** | Etapa 0: Fundamentos de Testing | Transversal (JS / Python / Java)
+> Transversal: sin código.
 
----
+Un **caso de prueba** (test case) describe cómo comprobar una sola cosa de un sistema: en qué estado tiene que estar antes, qué haces y qué tiene que pasar. Si otra persona lo sigue sin preguntarte y llega al mismo resultado, está bien escrito.
 
-## ¿Qué es un caso de prueba?
-
-Un **caso de prueba** (test case) es un documento que especifica **de forma precisa y reproducible** cómo verificar que una funcionalidad de software se comporta como se espera.
-
-Un test sin estructura es un test difícil de reproducir, mantener y comunicar. Un caso de prueba bien escrito puede ser ejecutado por cualquier persona del equipo y produce siempre el mismo resultado.
-
-> **Regla de oro**: Si otra persona no puede reproducir el test exactamente con los mismos pasos, el caso de prueba está mal diseñado.
+En la [semana 1](../../week-01-que_es_testing_calidad_de_software/1-teoria/03-ciclo-de-vida-del-bug.md) escribiste reportes de bug: pasos y resultado esperado de algo que **ya falló**. Un caso de prueba tiene las mismas piezas, pero se escribe **antes** de ejecutar, para algo que todavía no sabes si funciona.
 
 ---
 
-## Estructura de un Caso de Prueba
+## 🎯 Objetivos
 
-Un caso de prueba profesional contiene los siguientes campos:
+- Nombrar los campos de un caso de prueba y para qué sirve cada uno.
+- Escribir precondiciones, pasos y resultados esperados que otra persona pueda seguir sin preguntar.
+- Distinguir happy path, sad path y caso límite.
+- Relacionar un caso que falla con el reporte de bug que genera.
 
-| Campo | Descripción | Ejemplo |
+---
+
+## 1. Los campos
+
+| Campo | Qué contiene | Ejemplo |
 |---|---|---|
-| **ID** | Identificador único del caso | `TC-LOGIN-001` |
-| **Título** | Descripción breve de qué se verifica | "Login exitoso con credenciales válidas" |
-| **Funcionalidad** | Módulo o feature que se testea | Módulo de autenticación |
-| **Precondiciones** | Estado del sistema antes de ejecutar | Usuario registrado con email y contraseña activos |
-| **Datos de prueba** | Valores específicos a usar | email: `tester@example.com`, pass: `Test1234!` |
-| **Pasos** | Acciones ordenadas y atómicas | 1. Navegar a `/login` 2. Ingresar email 3. ... |
-| **Resultado esperado** | Qué debe ocurrir exactamente | El sistema redirige a `/dashboard` y muestra "Bienvenido, Tester" |
-| **Resultado obtenido** | Qué ocurrió realmente (se completa al ejecutar) | *(vacío al escribir — se llena al ejecutar)* |
-| **Estado** | Pass / Fail / Blocked / Skipped | — |
-| **Severidad** | Impacto si falla | High |
-| **Prioridad** | Urgencia de ejecutarlo | P1 |
-| **Autor** | Quién escribió el caso | Nombre del tester |
-| **Fecha** | Cuándo fue creado/revisado | 2026-03-19 |
+| **ID** | Identificador único, que no cambia aunque cambie el título | `TC-LOGIN-001` |
+| **Título** | Qué se comprueba y en qué condición | Login con credenciales válidas redirige al panel |
+| **Precondiciones** | El estado del sistema antes del paso 1 | Existe el usuario `tester@example.com` con contraseña `Test1234!`, activo |
+| **Datos de prueba** | Los valores exactos que se usan | email `tester@example.com`, contraseña `Test1234!` |
+| **Pasos** | Acciones numeradas, una por paso | 1. Abre `http://localhost:3000/login` ... |
+| **Resultado esperado** | Lo que tiene que verse o recibirse al terminar | Redirige a `/dashboard` y la cabecera muestra «Hola, Tester» |
+| **Prioridad** | Cuánto importa ejecutarlo pronto si hay poco tiempo | Alta |
 
----
+Al **ejecutar** el caso se añaden dos campos más:
 
-## El Campo más Ignorado: Precondiciones
-
-Las **precondiciones** son el estado que **debe existir** antes de ejecutar el test. Sin ellas, el test puede fallar por razones completamente ajenas al comportamiento que se prueba.
-
-### Precondiciones incorrectas vs correctas
-
-| ❌ Vaga | ✅ Precisa |
+| Campo | Qué contiene |
 |---|---|
-| "El usuario debe estar registrado" | "Existe un usuario con email `tester@example.com` y contraseña `Test1234!`, con estado `activo`" |
-| "La base de datos debe tener datos" | "La tabla `products` contiene al menos 5 registros con `stock > 0`" |
-| "El sistema debe estar funcionando" | "La aplicación está desplegada en `http://localhost:3000` y responde HTTP 200 en `/health`" |
+| **Resultado obtenido** | Lo que pasó de verdad. Se escribe solo si difiere del esperado |
+| **Estado** | `Pass` (coincide), `Fail` (no coincide), `Blocked` (no se pudo ejecutar porque algo previo falla) o `Not Run` (no se ejecutó) |
+
+`Blocked` no es `Fail`: si el login está caído, los 40 casos del carrito quedan bloqueados, no fallidos. Contarlos como fallos dice que el carrito tiene 40 bugs que no tiene.
+
+La severidad, en cambio, no es un campo del caso: es del **bug** que aparece si el caso falla (la viste en la [semana 1](../../week-01-que_es_testing_calidad_de_software/1-teoria/03-ciclo-de-vida-del-bug.md#3-severidad-y-prioridad)). Lo que tiene el caso es la prioridad: qué ejecutar primero.
 
 ---
 
-## El Campo más Mal Escrito: Resultado Esperado
+## 2. Precondiciones
 
-El **resultado esperado** debe ser **observable**, **concreto** y **verificable**. Debe describir exactamente qué ve, escucha o recibe el tester al final de la acción.
+Las precondiciones dicen qué tiene que ser cierto **antes** del paso 1. Si faltan, el caso puede fallar por algo que no tiene que ver con lo que pruebas, y alguien perderá tiempo buscando un bug que no existe.
 
-### Resultados esperados incorrectos vs correctos
-
-| ❌ Vago | ✅ Concreto |
+| Vaga | Precisa |
 |---|---|
-| "El sistema funciona correctamente" | "El sistema redirige al usuario a `/dashboard` con código HTTP 302" |
-| "Muestra un error" | "Muestra el mensaje `Credenciales incorrectas. Intenta de nuevo.` en color rojo bajo el campo de contraseña" |
-| "La orden se crea" | "La respuesta HTTP es 201, el cuerpo incluye `orderId` de tipo UUID y el campo `status` es `pending`" |
-| "No pasa nada" | "El campo permanece vacío, no se ejecuta ninguna acción y no aparece ningún mensaje" |
+| El usuario está registrado | Existe el usuario `tester@example.com` con contraseña `Test1234!` y estado `activo` |
+| Hay productos | El catálogo tiene el producto `prod-442` «Auriculares Pro X», precio 89,99 €, stock 5 |
+| El sistema funciona | La aplicación responde en `http://localhost:3000` |
+
+Una regla práctica: si una precondición no se puede comprobar mirando algo (una pantalla, una tabla, una respuesta), es vaga.
 
 ---
 
-## Pasos: Atómicos y Ordenados
+## 3. Pasos
 
-Cada paso debe describir **una única acción**. El orden debe ser lógico y sin saltos implícitos.
+Cada paso es **una acción** con su objeto. Empieza con un verbo y dice dónde: qué campo, qué botón, qué URL.
 
-### Pasos incorrectos vs correctos
+```text
+Vago:
+1. Hacer login
+2. Añadir un producto al carrito
 
+Preciso:
+1. Abre http://localhost:3000/login
+2. Escribe tester@example.com en el campo "Email"
+3. Escribe Test1234! en el campo "Contraseña"
+4. Pulsa "Iniciar sesión"
+5. Abre http://localhost:3000/products/prod-442
+6. Pulsa "Añadir al carrito"
 ```
-❌ Incorrecto:
-1. Hacer login con el usuario de prueba
-2. Ir al carrito y agregar el producto
 
-✅ Correcto:
-1. Navegar a http://localhost:3000/login
-2. Ingresar "tester@example.com" en el campo "Email"
-3. Ingresar "Test1234!" en el campo "Contraseña"
-4. Hacer clic en el botón "Iniciar sesión"
-5. Navegar a http://localhost:3000/products
-6. Hacer clic en "Agregar al carrito" del primer producto visible
-```
+«Hacer login» parece suficiente hasta que la página tiene login con Google, con email y con enlace mágico. Quien ejecuta el caso no tiene que elegir.
+
+Un caso que necesita 25 pasos suele probar varias cosas. Pártelo: el login va en su caso, y el carrito parte de la precondición «sesión iniciada como `tester@example.com`».
 
 ---
 
-## Identificadores y Convención de Nombres
+## 4. Resultado esperado
 
-Usar una convención consistente de IDs facilita la trazabilidad entre casos, bugs y funcionalidades.
+El resultado esperado tiene que ser **observable**: algo que se ve en pantalla, se recibe en una respuesta o se encuentra en un dato guardado. Con él, cualquiera decide `Pass` o `Fail` sin opinar.
 
-**Patrón recomendado**: `TC-[MÓDULO]-[NÚMERO]`
+| Vago | Observable |
+|---|---|
+| Funciona correctamente | Redirige a `/dashboard` y la cabecera muestra «Hola, Tester» |
+| Muestra un error | Bajo «Contraseña» aparece «Credenciales incorrectas» y la URL sigue siendo `/login` |
+| El pedido se crea | La respuesta es `201`, el cuerpo tiene `orderId` y `status` vale `pending` |
+| No pasa nada | El formulario no se envía, el campo queda vacío y no aparece ningún mensaje |
 
-```
-TC-LOGIN-001   → Caso 1 del módulo Login
-TC-LOGIN-002   → Caso 2 del módulo Login
-TC-CART-001    → Caso 1 del módulo Carrito
-TC-PAYMENT-003 → Caso 3 del módulo Pagos
-```
+«Muestra un error» pasa aunque el error sea «500 Internal Server Error». Por eso el texto del mensaje va en el esperado.
 
-**Patrón para suites de dominio en el bootcamp**: `TC-[DOMINIO]-[MÓDULO]-[NÚMERO]`
-
-```
-TC-LIBRARY-LOAN-001   → Biblioteca, módulo de préstamos, caso 1
-TC-GYM-MEMBER-002     → Gimnasio, módulo de miembros, caso 2
-```
+Un caso puede tener varias comprobaciones en el esperado, siempre que todas sean de la misma acción: el redirect y el saludo son dos caras del mismo login.
 
 ---
 
-## Ejemplo Completo
+## 5. IDs y títulos
 
+El ID identifica el caso para siempre: aparece en reportes de bug, en informes de ejecución y en la conversación («el TC-CART-011 falla otra vez»). Un patrón habitual es `TC-<MÓDULO>-<NNN>`:
+
+```text
+TC-LOGIN-001   caso 1 del módulo de login
+TC-CART-011    caso 11 del carrito
 ```
-ID:              TC-AUTH-001
-Título:          Login exitoso con credenciales válidas
-Funcionalidad:   Autenticación de usuarios
+
+En el proyecto añadirás delante la abreviatura de tu dominio: `TC-<DOMINIO>-<MÓDULO>-<NNN>`.
+
+El título resume **qué** se comprueba y **en qué condición**, como el título de un reporte de bug: «Añadir dos veces el mismo producto suma la cantidad», no «Carrito» ni «Prueba 3».
+
+---
+
+## 6. Happy path, sad path y casos límite
+
+Un módulo necesita casos de tres tipos:
+
+| Tipo | Qué prueba | Ejemplo en el login |
+|---|---|---|
+| **Happy path** | El uso normal, con datos válidos | Credenciales correctas |
+| **Sad path** | Entradas inválidas o caminos alternativos | Contraseña incorrecta, usuario bloqueado |
+| **Caso límite** | Valores en el borde de lo permitido | Contraseña de exactamente 8 caracteres, el mínimo |
+
+Una suite solo con happy paths dice que el sistema funciona cuando todo va bien, que es justo cuando menos falla. Los sad paths y los límites son donde salen los bugs. Las técnicas de la [teoría 02](02-tecnicas-de-diseno.md) sirven para elegirlos sin olvidar ninguno.
+
+---
+
+## 7. Del caso que falla al reporte de bug
+
+Cuando un caso termina en `Fail`, el reporte de bug sale casi hecho: los pasos y el esperado son los del caso, y el obtenido es lo que viste.
+
+```text
+TC-AUTH-003  "Login con contraseña vacía muestra error"  ->  Fail
+   |
+   `-- BUG-047  [Login] Se inicia sesión con la contraseña vacía
+         Pasos y esperado: los de TC-AUTH-003
+         Obtenido: redirige a /dashboard
+         Referencia: TC-AUTH-003
+```
+
+El reporte cita el ID del caso. Así, cuando el bug se corrija, se sabe qué caso volver a ejecutar para cerrarlo.
+
+---
+
+## Ejemplo completo
+
+```text
+ID:                 TC-AUTH-001
+Título:             Login con credenciales válidas redirige al panel
 Precondiciones:
-  - Existe un usuario registrado con email "tester@example.com"
-    y contraseña "Test1234!" en estado "activo"
-  - La aplicación está disponible en http://localhost:3000
-
+  - Existe el usuario tester@example.com con contraseña Test1234!, estado activo
+  - No hay ninguna sesión iniciada en el navegador
 Datos de prueba:
-  - email: "tester@example.com"
-  - password: "Test1234!"
-
+  - email: tester@example.com
+  - contraseña: Test1234!
 Pasos:
-  1. Navegar a http://localhost:3000/login
-  2. Ingresar "tester@example.com" en el campo "Email"
-  3. Ingresar "Test1234!" en el campo "Contraseña"
-  4. Hacer clic en el botón "Iniciar sesión"
-
+  1. Abre http://localhost:3000/login
+  2. Escribe tester@example.com en el campo "Email"
+  3. Escribe Test1234! en el campo "Contraseña"
+  4. Pulsa "Iniciar sesión"
 Resultado esperado:
-  - El sistema redirige al usuario a http://localhost:3000/dashboard
-  - La barra superior muestra el nombre del usuario: "Tester"
-  - El campo de contraseña no es visible en la URL ni en los logs
-
-Severidad: High
-Prioridad:  P1
-Autor:      QA Team
+  - La URL pasa a ser http://localhost:3000/dashboard
+  - La cabecera muestra "Hola, Tester"
+Prioridad:          Alta
 ```
 
 ---
 
-## Happy Path, Sad Path y Edge Cases
+## ✅ Resumen
 
-Todo módulo debe tener al menos tres tipos de casos:
+- Un caso de prueba dice el estado de partida, las acciones y lo que tiene que pasar; otra persona lo ejecuta sin preguntar.
+- Las precondiciones se pueden comprobar; los pasos son una acción cada uno; el esperado es observable.
+- `Blocked` no es `Fail`. La severidad es del bug, la prioridad es del caso.
+- Una suite útil tiene happy paths, sad paths y casos límite.
+- Un caso que falla da el reporte de bug casi escrito, con su ID como referencia.
 
-| Tipo | Descripción | Ejemplo (Login) |
-|---|---|---|
-| **Happy path** | El flujo normal y correcto | Login con credenciales válidas |
-| **Sad path** | Entradas incorrectas o flujos alternativos | Login con contraseña incorrecta |
-| **Edge case** | Casos extremos o poco comunes | Login con contraseña de 1 carácter, con espacios al inicio |
-
+<!-- nav -->
 ---
 
-## Relación entre Caso de Prueba y Bug Report
+## 🔗 Navegación
 
-Cuando un caso de prueba **falla**, genera un **bug report** (semana 01). La relación es directa:
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 02 - Casos de Prueba y Técnicas de Diseño](../README.md) | [Teoría — 02 - Técnicas de diseño: partición, valores límite y tablas de decisión](02-tecnicas-de-diseno.md) → |
 
-```
-Caso de prueba TC-AUTH-003 → FALLA
-  └── Se crea Bug Report BUG-2026-047
-        Título: "Login acepta contraseña vacía"
-        Referencia: TC-AUTH-003
-        Pasos del caso de prueba + resultado obtenido
-```
-
-Siempre referenciar el ID del caso de prueba en el bug report correspondiente.
-
----
-
-## Resumen Visual
-
-```
-CASO DE PRUEBA
-├── Identificación: ID, Título, Funcionalidad
-├── Contexto:       Precondiciones, Datos de prueba
-├── Ejecución:      Pasos (atómicos, ordenados)
-├── Verificación:   Resultado esperado (observable y concreto)
-└── Metadatos:      Severidad, Prioridad, Autor, Estado
-```
-
----
-
-## Próximo tema
-
-→ [Técnicas de Diseño — Partición, BVA y Tablas de Decisión](./02-tecnicas-de-diseno.md)
+[↑ Semana 02](../README.md)

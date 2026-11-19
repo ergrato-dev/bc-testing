@@ -1,113 +1,78 @@
-# Rúbrica de Evaluación — Semana 02
+# Rúbrica de Evaluación - Semana 02
 
-> Casos de Prueba y Técnicas de Diseño
+## Evidencias y ponderación
 
----
-
-## 📊 Distribución de Puntos
-
-| Tipo de Evidencia | Peso | Puntos |
-|---|---|---|
-| 🧠 Conocimiento | 30% | 30 pts |
-| 💪 Desempeño | 40% | 40 pts |
-| 📦 Producto | 30% | 30 pts |
-| **Total** | **100%** | **100 pts** |
-
-**Nota mínima por componente**: 70% (21/30 — 28/40 — 21/30)
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Campos de un caso, partición, valores límite, tablas de decisión, cobertura, smoke/sanity/regresión, exploratorio |
+| Desempeño | 40% | Labs 01 a 04: análisis de casos, partición y límites, tabla de decisión, sesión exploratoria |
+| Producto | 30% | `casos-de-prueba.md` de una funcionalidad del dominio asignado |
 
 ---
 
-## 🧠 Conocimiento (30 puntos)
+## Criterios por evidencia
 
-Cuestionario teórico de 10 preguntas — 3 puntos cada una.
+## 1) Conocimiento (30%)
 
-### Preguntas
+### Criterios
 
-1. ¿Qué campos son obligatorios en un caso de prueba profesional? (menciona al menos 5)
-2. ¿Cuál es la diferencia entre "resultado esperado" y "resultado obtenido" en un caso de prueba?
-3. ¿Qué es la partición de equivalencia y qué problema resuelve?
-4. ¿Cuántas clases de equivalencia genera un campo que acepta edades entre 18 y 65?
-5. ¿Qué es el análisis de valores límite (BVA) y por qué complementa a la partición de equivalencia?
-6. ¿Cuándo conviene usar una tabla de decisión en lugar de casos individuales?
-7. ¿Cuál es la diferencia entre testing exploratorio y testing scripted?
-8. ¿Qué es un smoke test y cuándo se ejecuta?
-9. ¿Cuál es la diferencia entre regression testing y sanity testing?
-10. ¿Por qué "100% de cobertura de casos de prueba" no garantiza ausencia de bugs?
+- Nombra los campos de un caso y distingue `Blocked` de `Fail`.
+- Distingue una precondición comprobable de una vaga y un esperado observable de uno vago.
+- Saca las clases de equivalencia de cada regla de un campo y explica por qué va una clase inválida por caso.
+- Elige los valores límite de un rango con las variantes de 2 y 3 valores, y da un error que solo detecta la de 3.
+- Construye y simplifica una tabla de decisión, y explica qué hace cuando una columna no tiene respuesta.
+- Explica la diferencia entre cobertura de sentencias y de ramas, y por qué el 100 % no garantiza que no haya bugs.
+- Distingue smoke, sanity y regresión por el momento en que se ejecutan.
+- Describe una sesión exploratoria con charter y notas.
 
-### Criterios de Calificación por Pregunta
+### Niveles
 
-- **3 pts** — Respuesta completa, precisa y con ejemplo o justificación
-- **2 pts** — Respuesta correcta pero incompleta o sin ejemplo
-- **1 pt** — Respuesta parcialmente correcta con imprecisiones notables
-- **0 pts** — Respuesta incorrecta o en blanco
+- **Alto (27-30):** cada respuesta va con un ejemplo propio, no el de la teoría.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre smoke y sanity).
+- **Bajo (<21):** confunde partición con valores límite, o cree que la cobertura alta asegura que no hay bugs.
 
 ---
 
-## 💪 Desempeño (40 puntos)
+## 2) Desempeño (40%)
 
-### Ejercicio 01 — Analizar y Completar Casos de Prueba (20 pts)
+### Criterios
 
-El estudiante recibe 4 casos de prueba con defectos y los corrige.
+- Lab 01: `casos.md` sin `(completar`; el caso D con la precondición del carrito, el E partido en dos y ningún dato inventado.
+- Lab 02: `analisis.md` sin `TODO`; entre 15 y 25 casos, una clase inválida por caso, los límites del grupo escolar y el nombre de 50 caracteres con tildes.
+- Lab 03: `tabla.md` sin `TODO`; las 8 columnas con sus reglas, las dos contradicciones como preguntas, la tabla simplificada y los casos con 29,99 € y 30,00 €.
+- Lab 04: `sesion.md` sin `TODO`; al menos 12 notas con salidas reales, tres hallazgos clasificados con el manual, dos casos guionizados y las tres suites justificadas.
 
-| Criterio | Pts |
+### Niveles
+
+- **Alto (36-40):** los cuatro labs completos y cada decisión justificada con la teoría o una regla.
+- **Medio (28-35):** los cuatro labs completos, con algún caso repetido o alguna justificación genérica.
+- **Bajo (<28):** labs incompletos.
+
+---
+
+## 3) Producto (30%)
+
+### Criterios
+
+- `PROYECTO=... ./scripts/verificar-semana.sh 02` pasa las 7 comprobaciones.
+- Las reglas tienen números y mensajes; las clases salen de cada regla.
+- Los valores límite son los de verdad (el vecino de fuera es el primer valor rechazado) y cada caso tiene una sola clase inválida.
+- Otra persona ejecuta cualquier caso sin preguntar: precondiciones comprobables (con la fecha fija si hay reglas de fechas), pasos de una acción y esperado observable.
+- La matriz de trazabilidad no deja reglas sin casos.
+
+### Niveles
+
+- **Alto (27-30):** todo lo anterior, con tabla de decisión y una justificación escrita de la variante de valores límite elegida en cada campo.
+- **Medio (21-26):** pasan las comprobaciones, pero algún caso mezcla dos clases inválidas o algún límite está desplazado.
+- **Bajo (<21):** no pasan las comprobaciones.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
 |---|---|
-| Identificó correctamente los campos faltantes o incorrectos (≥3 de 4 casos) | 6 |
-| Redactó precondiciones claras y verificables | 4 |
-| Redactó pasos reproducibles en orden lógico (sin ambigüedades) | 4 |
-| Redactó resultados esperados en términos concretos y observables | 4 |
-| Asignó severidad y prioridad coherentes con el contexto | 2 |
-| **Total** | **20** |
+| ← [Proyecto — Proyecto - Suite de casos de prueba](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Ejercicio 02 — Aplicar BVA y Partición de Equivalencia (20 pts)
-
-El estudiante diseña casos de prueba para una función de validación usando técnicas formales.
-
-| Criterio | Pts |
-|---|---|
-| Identificó correctamente todas las clases de equivalencia válidas e inválidas | 6 |
-| Aplicó BVA correctamente: probó valores en el límite, justo dentro y justo fuera | 6 |
-| No generó casos redundantes (aplica el principio de reducción) | 4 |
-| Nombró los casos con claridad (qué se testea y por qué) | 4 |
-| **Total** | **20** |
-
----
-
-## 📦 Producto (30 puntos)
-
-### Suite de Casos de Prueba del Dominio Asignado (`casos-de-prueba.md`)
-
-El estudiante entrega una suite manual completa para una funcionalidad de su dominio asignado.
-
-| Criterio | Pts |
-|---|---|
-| La suite cubre el happy path con al menos 3 casos de prueba | 4 |
-| Aplica partición de equivalencia: al menos 2 clases inválidas identificadas y testeadas | 5 |
-| Aplica BVA en campos con rangos numéricos o de longitud | 5 |
-| Los precondiciones son claras y reproducibles | 4 |
-| Los pasos están numerados, son atómicos y no ambiguos | 4 |
-| Los resultados esperados son observables y concretos (no "funciona correctamente") | 4 |
-| La severidad y prioridad son coherentes entre sí y con el contexto del dominio | 2 |
-| La funcionalidad testeada está claramente identificada (nombre, descripción, scope) | 2 |
-| **Total** | **30** |
-
----
-
-## 📝 Penalizaciones
-
-| Situación | Penalización |
-|---|---|
-| Casos de prueba con pasos ambiguos o no reproducibles | −2 pts c/u (máx −6) |
-| Resultados esperados vagos ("debería funcionar", "responde bien") | −1 pt c/u (máx −4) |
-| Suite entregada sin identificar la funcionalidad testeada | −5 pts |
-| Evidencia de copia de la suite de otro aprendiz | −30 pts (nota mínima) |
-
----
-
-## 🏆 Escala de Calificación Final
-
-| Rango | Calificación |
-|---|---|
-| 90–100 pts | Excelente — Dominio sólido de técnicas de diseño |
-| 80–89 pts | Muy bien — Maneja las técnicas con pequeños errores |
-| 70–79 pts | Aprobado — Comprende los conceptos pero necesita práctica |
-| < 70 pts | No aprobado — Requiere refuerzo antes de continuar |
+[↑ Semana 02](README.md)

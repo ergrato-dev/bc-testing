@@ -1,110 +1,132 @@
-# Proyecto Semana 02 — Suite de Casos de Prueba
+# Proyecto - Suite de casos de prueba
 
-> **Entregable obligatorio** | Etapa 0 · Semana 02
+## Objetivo
 
----
+Diseñar la suite de casos de prueba manuales de una funcionalidad de tu dominio con partición de equivalencia, valores límite y, si la funcionalidad lo pide, una tabla de decisión. La suite tiene que poder ejecutarla otra persona sin preguntarte.
 
-## 🎯 Objetivo
+## Tiempo estimado
 
-Diseñar una suite completa de **casos de prueba manuales** para una funcionalidad del dominio asignado, aplicando las técnicas de diseño aprendidas esta semana: partición de equivalencia, análisis de valores límite (BVA) y —si aplica— tablas de decisión.
+3 horas.
 
----
+## Dominio
 
-## 🏛️ Dominio Asignado
+Trabajas con el dominio que te asignó el instructor. Elige tú la funcionalidad: una con campos que tengan rangos (números, longitudes o fechas) y, mejor aún, una regla que combine dos campos. Un formulario de alta, de reserva o de pedido suele servir.
 
-Cada aprendiz trabaja sobre el dominio de negocio único que le asignó el instructor al inicio del trimestre (política anticopia — ver `docs/guia-desarrollo-contenidos.md`). Elige tú mismo una funcionalidad de ese dominio que tenga reglas de negocio con rangos y condiciones — no hay una lista de funcionalidades sugeridas aquí para no condicionar tu suite.
+Los ejemplos de este README usan un **acuario virtual** como dominio de ejemplo.
 
-> ⚠️ Adapta el entregable a tu dominio. Los ejemplos de este README usan un **Acuario Virtual** para no revelar soluciones.
+## Punto de partida
 
----
-
-## 📋 Instrucciones
-
-### Paso 1 — Elegir la funcionalidad (15 min)
-
-Selecciona UNA funcionalidad de tu dominio que tenga:
-- Al menos un campo con rango numérico o de longitud (para BVA)
-- Al menos 2 clases de equivalencia inválidas (para partición)
-- Opcional: múltiples condiciones (para tabla de decisión)
-
-Documenta la funcionalidad y sus reglas de negocio en el starter.
-
-### Paso 2 — Partición de equivalencia (30 min)
-
-Identifica todas las clases de equivalencia para cada campo de entrada.
-- Mínimo: 2 clases válidas y 3 inválidas en total
-- Un valor representativo por clase
-
-### Paso 3 — Análisis de valores límite (30 min)
-
-Para cada campo con rango numérico o de longitud, aplica BVA:
-- Valor justo por debajo del mínimo
-- Valor en el mínimo exacto (on point)
-- Valor justo por encima del mínimo
-- Valor justo por debajo del máximo
-- Valor en el máximo exacto (on point)
-- Valor justo por encima del máximo
-
-### Paso 4 — Escribir la suite completa (45 min)
-
-Completa el archivo `starter/casos-de-prueba.md` con todos los casos de prueba resultantes. Mínimo 10 casos, máximo 20 (sin redundancias).
-
-### Paso 5 — Revisión final (15 min)
-
-Verifica contra el checklist:
-- [ ] Cada caso tiene ID único en formato `TC-[DOMINIO]-[MÓDULO]-[NNN]`
-- [ ] Todas las precondiciones son específicas y verificables
-- [ ] Los pasos son atómicos y ordenados
-- [ ] Los resultados esperados son concretos y observables (sin "funciona bien")
-- [ ] Se aplicó partición de equivalencia
-- [ ] Se aplicó BVA en al menos un campo
-- [ ] No hay casos duplicados
-
----
-
-## 📐 Ejemplo de referencia — Acuario Virtual
-
-**Funcionalidad**: Registro de visitante para tour guiado
-
-**Reglas**:
-- Nombre: 2–50 caracteres, solo letras y espacios
-- Edad: 4–80 años
-- Tipo de tour: "individual" o "familiar"
-  - "familiar" requiere que al menos un acompañante sea mayor de 18
-
-**Ejemplo de caso BVA:**
-
+```bash
+mkdir -p ~/proyecto-semana-02
+cd ~/proyecto-semana-02
+cp <ruta-del-bootcamp>/bootcamp/week-02-casos_de_prueba_y_tecnicas_de_diseno/3-proyecto/starter/casos-de-prueba.md .
 ```
-ID:              TC-AQUARIUM-TOUR-015
-Título:          Visitante con edad 3 (justo debajo del mínimo) debe ser rechazado
-Técnica:         BVA — off point inferior del límite mínimo (4)
+
+[`casos-de-prueba.md`](starter/casos-de-prueba.md) tiene seis secciones con `TODO`. Respeta el formato de las tablas y de las líneas `ID:`, `Técnica:` y demás: las comprobaciones automáticas las buscan tal cual.
+
+---
+
+## Paso 1: la funcionalidad y sus reglas (30 min)
+
+Rellena **Dominio**, **Funcionalidad** y la tabla de reglas. Cada regla con sus números y el mensaje que da el sistema cuando no se cumple. Como tu sistema todavía no existe, las reglas las decides tú; escríbelas como si fueran el requisito que te ha dado negocio.
+
+```text
+| R2 | El número de personas es un entero de 1 a 8. Mensaje: «Entre 1 y 8 personas» |
+```
+
+Al menos tres reglas. Si añades filas, añade también su fila en la matriz de la sección 6.
+
+## Paso 2: partición (25 min)
+
+Una fila por clase, con el campo, la condición, un valor concreto y `Válida` o `Inválida`. Al menos 2 válidas y 3 inválidas. Saca las clases de cada regla, como en el [lab 02](../2-practicas/lab-02-particion-y-valores-limite/README.md): por los dos lados del rango, vacío, tipo incorrecto.
+
+## Paso 3: valores límite (25 min)
+
+Al menos 6 filas, con los vecinos de fuera del mínimo y del máximo. Aplica la variante de 3 valores al campo más importante. En el resto puedes usar la de 2 valores si la suite pasa de 20 casos; si lo haces, di por qué en una línea encima de la tabla.
+
+La columna **Posición** usa exactamente las seis expresiones que lista la plantilla.
+
+## Paso 4: tabla de decisión y casos (75 min)
+
+Si una regla combina condiciones, escribe su tabla en la sección 4 como en el [lab 03](../2-practicas/lab-03-tabla-de-decision/README.md). Si no, sustituye la tabla por una línea que explique por qué no hace falta.
+
+Después escribe de 10 a 20 casos en la sección 5:
+
+- ID con el formato `TC-<DOMINIO>-<MÓDULO>-<NNN>`, en mayúsculas y sin tildes: `TC-ACUA-TOUR-006`.
+- **Técnica:** `Partición`, `Valores límite` o `Tabla de decisión`. Al menos 4 casos de valores límite.
+- **Regla:** los IDs de las reglas que prueba.
+- Precondiciones comprobables, pasos de una acción, esperado observable y prioridad `Alta`, `Media` o `Baja`. Repasa la [teoría 01](../1-teoria/01-casos-de-prueba.md).
+- Una clase inválida por caso.
+
+```text
+ID:                 TC-ACUA-TOUR-006
+Título:             Reserva para 9 personas se rechaza
+Técnica:            Valores límite
+Regla:              R2
 Precondiciones:
-  - El sistema de reservas está disponible en /reservas
-  - No existen restricciones de aforo para la fecha seleccionada
+  - La fecha del entorno de pruebas es 2026-11-18
+  - El tour de la fecha elegida tiene 20 plazas libres
 Datos de prueba:
-  - nombre: "María Ruiz"
-  - edad: 3
-  - tipo_tour: "individual"
+  - nombre: Ana Ruiz
+  - personas: 9
+  - tipo: Individual
+  - fecha: 2026-11-28
 Pasos:
-  1. Navegar a /reservas/nuevo
-  2. Ingresar "María Ruiz" en el campo "Nombre"
-  3. Ingresar 3 en el campo "Edad"
-  4. Seleccionar "Individual" en el campo "Tipo de tour"
-  5. Hacer clic en "Confirmar reserva"
+  1. Abre http://localhost:3000/tours/nueva
+  2. Escribe el nombre en "Nombre del titular"
+  3. Escribe el número en "Personas"
+  4. Elige el tipo en "Tipo de tour"
+  5. Elige la fecha en "Fecha"
+  6. Pulsa "Reservar"
 Resultado esperado:
-  - El sistema no crea la reserva
-  - Muestra el mensaje "La edad mínima para visitar el acuario es 4 años"
-    debajo del campo "Edad" en color rojo
-Severidad: Medium
-Prioridad:  P2
+  - No se crea la reserva; bajo "Personas" aparece «Entre 1 y 8 personas»
+Prioridad:          Alta
 ```
+
+Fíjate en la primera precondición: con reglas de fechas, el día de hoy tiene que ser fijo, o el caso da un resultado distinto cada día.
+
+## Paso 5: trazabilidad y revisión (25 min)
+
+En la sección 6, cada regla con los casos que la prueban. Una regla sin casos es lo primero que hay que arreglar.
+
+Después, pasa las comprobaciones:
+
+```bash
+cd <ruta-del-bootcamp>
+PROYECTO=~/proyecto-semana-02 ./scripts/verificar-semana.sh 02
+```
+
+Cada comprobación que falla dice el paso de este README donde se arregla.
 
 ---
 
-## 📦 Entregable
+## ✅ Requisitos verificables
 
-Archivo `starter/casos-de-prueba.md` completado con:
-1. Descripción de la funcionalidad y reglas de negocio
-2. Tabla de clases de equivalencia
-3. Tabla de valores límite (BVA)
-4. Suite completa de casos de prueba (10–20 casos)
+Los comprueba `scripts/verificar-semana.sh` con [checks.json](../checks.json):
+
+| Comprobación | Qué exige |
+|---|---|
+| `completo` | `casos-de-prueba.md` existe y no le queda ningún `TODO` |
+| `reglas` | Dominio, funcionalidad y al menos tres reglas con sus números |
+| `particion` | Al menos 2 clases válidas y 3 inválidas en la partición |
+| `limites` | Al menos 6 valores límite, con los vecinos de fuera del mínimo y del máximo |
+| `casos` | De 10 a 20 casos con IDs `TC-<DOMINIO>-<MÓDULO>-<NNN>` sin repetir |
+| `campos` | Cada caso tiene título, técnica, regla, precondiciones, pasos, esperado y prioridad; al menos 4 casos de valores límite; ningún esperado dice «funciona bien» |
+| `trazabilidad` | Cada regla de la sección 1 tiene al menos un caso en la matriz de trazabilidad |
+
+Las comprobaciones miran la forma. Lo que no pueden mirar (que los valores sean los límites de verdad, que cada caso tenga una sola clase inválida, que otra persona pueda ejecutarlo) lo evalúa la [rúbrica](../rubrica-evaluacion.md).
+
+## Entrega
+
+`casos-de-prueba.md`, por el canal que indique el instructor.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 04 - Exploratorio y regresión](../2-practicas/lab-04-exploratorio-y-regresion/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
+
+[↑ Semana 02](../README.md)

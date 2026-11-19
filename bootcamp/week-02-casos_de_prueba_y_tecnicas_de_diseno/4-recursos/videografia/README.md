@@ -1,34 +1,23 @@
-# Videografía — Semana 02
+# Videografía - Semana 02
 
-> Casos de Prueba y Técnicas de Diseño
-
----
-
-## 🎥 Videos obligatorios (~1 h total)
-
-| Video | Canal | Duración | Qué cubre |
+| Vídeo | Canal | Idioma | Para qué |
 |---|---|---|---|
-| [Equivalence Partitioning and Boundary Value Analysis](https://www.youtube.com/watch?v=bsBiLY6U9Ps) | ISTQB Exam Prep | 12 min | Partición y BVA con ejemplos visuales |
-| [How to Write Test Cases](https://www.youtube.com/watch?v=aVp5Z2-CzAY) | Automation Step by Step | 15 min | Estructura completa de un caso de prueba |
-| [Decision Table Testing](https://www.youtube.com/watch?v=kMhChJQ3HMU) | Software Testing Mentor | 10 min | Tablas de decisión con ejemplos de negocio |
-| [What is Exploratory Testing?](https://www.youtube.com/watch?v=bOhqwdJJKP8) | Dave Farley (Continuous Delivery) | 14 min | Testing exploratorio vs scripted |
+| [Particiones equivalentes y valores límites](https://www.youtube.com/watch?v=9WV6KqPqFEU) | Saitest | Español | Las dos técnicas explicadas, teoría 02 |
+| [Diseño de casos de prueba paso a paso con partición equivalente y valores límites](https://www.youtube.com/watch?v=pO-Ayc8OlP0) | Saitest | Español | De las clases a los casos, lab 02 |
+| [Análisis de clases de equivalencia y valores límite](https://www.youtube.com/watch?v=glHX4Ba32qk) | Lisardo Prieto González (UC3M) | Español | La misma técnica en una clase universitaria |
+| [Boundary Value Analysis, Equivalence class Partitioning and Decision Table](https://www.youtube.com/watch?v=b2EZifZtFi8) | Test-o-blog | Inglés | Las tres técnicas en un vídeo, con tabla de decisión, lab 03 |
+| [Exploratory Testing - Charters](https://www.youtube.com/watch?v=i_dFLjal41w) | TestinGil (Gil Zilberfeld) | Inglés | Qué es un charter y para qué sirve, teoría 03 |
+| [Exploratory Testing Session - How to Explore Google Search](https://www.youtube.com/watch?v=b3izXqERlqo) | EvilTester (Alan Richardson) | Inglés | Una sesión exploratoria real, sin editar, con notas, lab 04 |
 
-**Total obligatorio**: ~51 min
+En los vídeos en inglés, YouTube permite activar subtítulos traducidos al español (⚙ > Subtítulos > Traducir automáticamente).
 
+<!-- nav -->
 ---
 
-## 🎥 Videos opcionales (profundización)
+## 🔗 Navegación
 
-| Video | Canal | Duración | Qué cubre |
-|---|---|---|---|
-| [ISTQB Foundation — Test Design Techniques](https://www.youtube.com/watch?v=RQj5LJXKDNU) | Guru99 | 20 min | Repaso completo técnicas ISTQB |
-| [How to do Exploratory Testing (session-based)](https://www.youtube.com/watch?v=2rDHJ7TrCzY) | Ministry of Testing | 22 min | Charters de exploración con ejemplos |
-| [Test Case Template — Professional Format](https://www.youtube.com/watch?v=o9bUW32IKPU) | SDET QA | 18 min | Plantilla profesional usada en empresas |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
-**Total opcional**: ~60 min
-
----
-
-## 📌 Nota sobre los videos
-
-Los links apuntan a búsquedas/canales reconocidos. Si algún enlace ha cambiado, busca el título en YouTube — este tipo de contenido del ISTQB es abundante y de calidad en múltiples canales.
+[↑ Semana 02](../../README.md)
