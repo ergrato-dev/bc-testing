@@ -132,4 +132,4 @@ Los labs crean un repositorio público en tu cuenta de GitHub: no subas nada pri
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 44 - Testing de Seguridad Básico (OWASP)](../week-44-testing_de_seguridad_basico_owasp/README.md) | Semana 46 - Próximamente |
+| [Semana 44 - Testing de Seguridad Básico (OWASP)](../week-44-testing_de_seguridad_basico_owasp/README.md) | [Semana 46 - Proyecto Final: Bootcamp Testing Zero to Hero](../week-46-proyecto_final_bootcamp_testing_zero_to_hero/README.md) |

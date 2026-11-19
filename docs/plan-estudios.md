@@ -1056,7 +1056,7 @@ El instructor debe seguir este orden al desarrollar el contenido de cada semana:
 | S43    | Testing de Performance con k6 y Locust         | ✅ Completo |
 | S44    | Testing de Seguridad Básico (OWASP)            | ✅ Completo |
 | S45    | CI/CD y Testing Automatizado                   | ✅ Completo |
-| S46    | Proyecto Final — Bootcamp Testing Zero to Hero | ⏳ Pendiente |
+| S46    | Proyecto Final — Bootcamp Testing Zero to Hero | ✅ Completo |
 
 ---
 

@@ -1,0 +1,62 @@
+{
+  "semana": "46",
+  "titulo": "Proyecto Final — Bootcamp Testing Zero to Hero",
+  "checks": [
+    {
+      "id": "suites",
+      "descripcion": "El repositorio tiene las suites de todas las etapas: python, java, go, rust, e2e, perf y security, y los workflows de la semana 45",
+      "cmd": "cd {proyecto} && for d in python java go rust e2e perf security .github/workflows; do test -d $d || { echo \"falta $d/\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "umbrales",
+      "descripcion": "Cada suite con cobertura tiene su umbral de al menos el 85 % en el proyecto: pyproject.toml, pom.xml, go/verify.sh, rust/verify.sh y, si existe js/, package.json",
+      "cmd": "cd {proyecto} && grep -qE '^fail_under = (8[5-9]|9[0-9]|100)' python/pyproject.toml && grep -qE '<minimum>0[.](8[5-9]|9[0-9])' java/pom.xml && grep -qE 'total < (8[5-9]|9[0-9])' go/verify.sh && grep -qE -- '--fail-under-lines (8[5-9]|9[0-9])' rust/verify.sh && { test ! -d js || grep -q coverageThreshold js/package.json; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "e2e",
+      "descripcion": "La suite E2E tiene al menos 10 tests y page objects en e2e/pages/",
+      "cmd": "cd {proyecto}/e2e && test \"$(cat tests/*.ts | grep -cE '^[[:space:]]*test[(]')\" -ge 10 && test \"$(ls pages | wc -l)\" -ge 1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "perf-security",
+      "descripcion": "perf/ tiene una prueba de k6 con thresholds y su reporte; security/ tiene la auditoría de dependencias y su reporte",
+      "cmd": "cd {proyecto} && grep -q 'thresholds' perf/k6/*.js && test -s perf/performance-report.md && test -x security/audit.sh && test -s security/security-report.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "workflows",
+      "descripcion": "Hay un workflow por suite (y js.yml si existe js/) y actionlint no encuentra errores (necesita Docker)",
+      "cmd": "cd {proyecto} && for w in go python java rust e2e; do test -s .github/workflows/$w.yml || { echo \"falta $w.yml\"; exit 1; }; done && { test ! -d js || test -s .github/workflows/js.yml; } && docker run --rm -v \"$PWD:/repo\" -w /repo rhysd/actionlint:1.7.12",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "estrategia",
+      "descripcion": "testing-strategy.md tiene sus siete secciones, al menos tres decisiones con contexto, alternativas y consecuencias, y ningún TODO",
+      "cmd": "f={proyecto}/testing-strategy.md; test \"$(grep -cE '^## [1-7][.] (Sistema y alcance|Inventario de suites|Riesgos|Dónde se ejecuta cada prueba|Criterios de salida|Decisiones|Riesgos abiertos y próximos pasos)$' $f)\" -eq 7 && n=$(grep -cE '^### D[0-9]+ - ' $f) && test $n -ge 3 && test \"$(grep -cF '**Contexto:**' $f)\" -ge $n && test \"$(grep -cF '**Alternativas:**' $f)\" -ge $n && test \"$(grep -cF '**Consecuencias:**' $f)\" -ge $n && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "readme",
+      "descripcion": "README.md tiene sus cinco secciones, un badge por cada workflow, el enlace a testing-strategy.md y ningún TODO",
+      "cmd": "cd {proyecto} && f=README.md && test \"$(grep -cE '^## (Estado|Estructura|Requisitos|Cómo ejecutar las suites|Documentación)$' $f)\" -eq 5 && for w in .github/workflows/*.yml; do grep -qF \"actions/workflows/$(basename $w)/badge.svg\" $f || { echo \"sin badge: $(basename $w)\"; exit 1; }; done && grep -qF '(testing-strategy.md' $f && ! grep -q TODO $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "enlaces",
+      "descripcion": "Los enlaces relativos de README.md y testing-strategy.md llevan a archivos que existen",
+      "cmd": "cd {proyecto} && for l in $(cat README.md testing-strategy.md | grep -oE '[]][(][^)]+[)]' | sed -E 's/^..//; s/.$//; s/#.*//' | grep -v '^http' | sort -u); do test -e \"$l\" || { echo \"no existe: $l\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    }
+  ]
+}
