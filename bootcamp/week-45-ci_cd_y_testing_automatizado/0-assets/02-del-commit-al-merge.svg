@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="sans-serif">
+  <rect width="900" height="330" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">Del commit al merge: dónde se para un fallo</text>
+
+  <rect x="20" y="70" width="190" height="150" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="115" y="98" fill="#d29922" font-size="15" text-anchor="middle" font-weight="bold">1. Hook pre-commit</text>
+  <text x="115" y="124" fill="#c9d1d9" font-size="13" text-anchor="middle">Husky / pre-commit</text>
+  <text x="115" y="146" fill="#c9d1d9" font-size="13" text-anchor="middle">formato, lint, tests</text>
+  <text x="115" y="168" fill="#c9d1d9" font-size="13" text-anchor="middle">rápidos</text>
+  <text x="115" y="198" fill="#8b949e" font-size="12" text-anchor="middle">segundos · se salta</text>
+  <text x="115" y="214" fill="#8b949e" font-size="12" text-anchor="middle" font-family="monospace">--no-verify</text>
+
+  <rect x="240" y="70" width="190" height="150" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="335" y="98" fill="#58a6ff" font-size="15" text-anchor="middle" font-weight="bold">2. Workflows</text>
+  <text x="335" y="124" fill="#c9d1d9" font-size="13" text-anchor="middle">suite completa por</text>
+  <text x="335" y="146" fill="#c9d1d9" font-size="13" text-anchor="middle">lenguaje, con BD</text>
+  <text x="335" y="168" fill="#c9d1d9" font-size="13" text-anchor="middle">y umbral de cobertura</text>
+  <text x="335" y="198" fill="#8b949e" font-size="12" text-anchor="middle">minutos · en una máquina</text>
+  <text x="335" y="214" fill="#8b949e" font-size="12" text-anchor="middle">limpia, no se salta</text>
+
+  <rect x="460" y="70" width="190" height="150" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="555" y="98" fill="#3fb950" font-size="15" text-anchor="middle" font-weight="bold">3. Quality gate</text>
+  <text x="555" y="124" fill="#c9d1d9" font-size="13" text-anchor="middle">SonarQube: condiciones</text>
+  <text x="555" y="146" fill="#c9d1d9" font-size="13" text-anchor="middle">sobre cobertura, bugs</text>
+  <text x="555" y="168" fill="#c9d1d9" font-size="13" text-anchor="middle">y duplicación</text>
+  <text x="555" y="198" fill="#8b949e" font-size="12" text-anchor="middle">sobre el código nuevo</text>
+  <text x="555" y="214" fill="#8b949e" font-size="12" text-anchor="middle">o sobre todo el código</text>
+
+  <rect x="680" y="70" width="200" height="150" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="780" y="98" fill="#f85149" font-size="15" text-anchor="middle" font-weight="bold">4. Regla de la rama</text>
+  <text x="780" y="124" fill="#c9d1d9" font-size="13" text-anchor="middle">main exige que los</text>
+  <text x="780" y="146" fill="#c9d1d9" font-size="13" text-anchor="middle">checks pasen antes</text>
+  <text x="780" y="168" fill="#c9d1d9" font-size="13" text-anchor="middle">del merge</text>
+  <text x="780" y="198" fill="#8b949e" font-size="12" text-anchor="middle">sin ella, un check rojo</text>
+  <text x="780" y="214" fill="#8b949e" font-size="12" text-anchor="middle">solo es un aviso</text>
+
+  <line x1="210" y1="145" x2="232" y2="145" stroke="#8b949e" stroke-width="2"/><polygon points="232,139 240,145 232,151" fill="#8b949e"/>
+  <line x1="430" y1="145" x2="452" y2="145" stroke="#8b949e" stroke-width="2"/><polygon points="452,139 460,145 452,151" fill="#8b949e"/>
+  <line x1="650" y1="145" x2="672" y2="145" stroke="#8b949e" stroke-width="2"/><polygon points="672,139 680,145 672,151" fill="#8b949e"/>
+
+  <text x="450" y="268" fill="#c9d1d9" font-size="14" text-anchor="middle">Cuanto antes se para un fallo, más barato es. Cada etapa repite lo de la anterior</text>
+  <text x="450" y="290" fill="#c9d1d9" font-size="14" text-anchor="middle">porque la anterior se puede saltar o puede no estar instalada.</text>
+</svg>

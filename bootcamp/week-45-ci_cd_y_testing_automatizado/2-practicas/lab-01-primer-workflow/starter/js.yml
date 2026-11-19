@@ -1,0 +1,35 @@
+# Workflow de la suite de JavaScript. Va en .github/workflows/js.yml de la raíz del repositorio.
+# Descomenta cada PASO cuando el README te lo pida (quita el "# " del principio de cada línea).
+
+# PASO 2: nombre, evento y permisos
+# name: js
+#
+# on:
+#   push:
+#     branches: [main]
+# PASO 5: también en cada pull request y con un botón
+#   pull_request:
+#   workflow_dispatch:
+# PASO 2: (sigue)
+#
+# permissions:
+#   contents: read
+#
+# jobs:
+#   test:
+#     runs-on: ubuntu-24.04
+#     defaults:
+#       run:
+#         working-directory: js
+#     steps:
+#       - uses: actions/checkout@v7
+#       - uses: pnpm/action-setup@v6
+#         with:
+#           package_json_file: js/package.json
+#       - uses: actions/setup-node@v7
+#         with:
+#           node-version: 22
+#           cache: pnpm
+#           cache-dependency-path: js/pnpm-lock.yaml
+#       - run: pnpm install --frozen-lockfile
+#       - run: pnpm test

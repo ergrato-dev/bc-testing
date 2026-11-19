@@ -1,0 +1,37 @@
+# Configuración de pre-commit. Va en .pre-commit-config.yaml de la raíz del repositorio.
+# Descomenta cada PASO cuando el README te lo pida (quita el "# " del principio de cada línea).
+
+# PASO 2: hooks publicados
+# # Hooks que se ejecutan antes de cada commit (pre-commit install) y en CI (pre-commit run --all-files).
+# repos:
+#   - repo: https://github.com/pre-commit/pre-commit-hooks
+#     rev: v6.0.0
+#     hooks:
+#       - id: trailing-whitespace
+#       - id: end-of-file-fixer
+#       - id: check-yaml
+# PASO 3: el lockfile de pnpm 12 tiene dos documentos YAML
+#         args: [--allow-multiple-documents]
+# PASO 2: (sigue)
+#       - id: check-added-large-files
+#
+#   - repo: https://github.com/astral-sh/ruff-pre-commit
+#     rev: v0.16.7
+#     hooks:
+#       - id: ruff-check
+#       - id: ruff-format
+#
+# PASO 4: hooks locales con las herramientas de Go que ya tienes
+#   - repo: local
+#     hooks:
+#       - id: gofmt
+#         name: gofmt
+#         entry: gofmt -l -w
+#         language: system
+#         files: \.go$
+#       - id: go-vet
+#         name: go vet
+#         entry: bash -c 'cd go && go vet ./...'
+#         language: system
+#         files: ^go/
+#         pass_filenames: false

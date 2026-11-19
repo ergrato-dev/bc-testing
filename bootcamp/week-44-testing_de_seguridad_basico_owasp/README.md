@@ -131,4 +131,4 @@ Todo lo de esta semana se ejecuta contra APIs que arrancas en tu equipo. Escanea
 
 | ← Semana anterior | Siguiente semana → |
 |---|---|
-| [Semana 43 - Testing de Performance con k6 y Locust](../week-43-testing_de_performance_con_k6_y_locust/README.md) | Semana 45 - Próximamente |
+| [Semana 43 - Testing de Performance con k6 y Locust](../week-43-testing_de_performance_con_k6_y_locust/README.md) | [Semana 45 - CI/CD y Testing Automatizado](../week-45-ci_cd_y_testing_automatizado/README.md) |

@@ -52,7 +52,7 @@ Estado de cada semana:
 | [42](week-42-testing_end_to_end_con_playwright/README.md) | [Testing End-to-End con Playwright](week-42-testing_end_to_end_con_playwright/README.md) | Transversal | ✅ |
 | [43](week-43-testing_de_performance_con_k6_y_locust/README.md) | [Testing de Performance con k6 y Locust](week-43-testing_de_performance_con_k6_y_locust/README.md) | Transversal | ✅ |
 | [44](week-44-testing_de_seguridad_basico_owasp/README.md) | [Testing de Seguridad Básico (OWASP)](week-44-testing_de_seguridad_basico_owasp/README.md) | Transversal | ✅ |
-| 45 | CI/CD y Testing Automatizado | Transversal | ⬜ |
+| [45](week-45-ci_cd_y_testing_automatizado/README.md) | [CI/CD y Testing Automatizado](week-45-ci_cd_y_testing_automatizado/README.md) | Transversal | ✅ |
 | 46 | Proyecto Final — Bootcamp Testing Zero to Hero | Transversal | ⬜ |
 
 **Total: 46 semanas × 10 h = 460 horas.**

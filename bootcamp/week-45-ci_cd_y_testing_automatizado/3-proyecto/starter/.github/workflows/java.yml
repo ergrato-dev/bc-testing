@@ -1,0 +1,34 @@
+# Suite de Java: mvn verify con Surefire, Failsafe y la regla check de JaCoCo.
+name: java
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "java/**"
+      - ".github/workflows/java.yml"
+  pull_request:
+    paths:
+      - "java/**"
+      - ".github/workflows/java.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: java
+    steps:
+      - uses: actions/checkout@v7
+      # TODO: actions/setup-java@v6 con temurin 21 y cache: maven (cache-dependency-path: java/pom.xml)
+      # TODO: mvn -B -ntp verify
+      # TODO: con if: always(), upload-artifact de target/site/jacoco/ y de los informes de Surefire y Failsafe

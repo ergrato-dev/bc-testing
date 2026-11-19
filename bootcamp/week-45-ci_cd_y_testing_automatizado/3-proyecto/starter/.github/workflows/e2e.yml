@@ -1,0 +1,37 @@
+# Suite E2E: Playwright, un job por navegador.
+name: e2e
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "e2e/**"
+      - ".github/workflows/e2e.yml"
+  pull_request:
+    paths:
+      - "e2e/**"
+      - ".github/workflows/e2e.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    # TODO: strategy con fail-fast: false y una matriz con los proyectos de playwright.config.ts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: e2e
+    steps:
+      - uses: actions/checkout@v7
+      # TODO: pnpm/action-setup@v6 (package_json_file: e2e/package.json) y actions/setup-node@v7 con node 22 y cache: pnpm
+      # TODO: pnpm install --frozen-lockfile
+      # TODO: pnpm exec playwright install --with-deps <navegador de la matriz>
+      # TODO: pnpm exec playwright test --project=<navegador de la matriz>
+      # TODO: con if: always(), upload-artifact de playwright-report/ y test-results/, con el navegador en el nombre

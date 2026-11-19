@@ -1,0 +1,62 @@
+# Workflow de la suite de Python. Va en .github/workflows/python.yml de la raíz del repositorio.
+# Descomenta cada PASO cuando el README te lo pida (quita el "# " del principio de cada línea).
+
+# PASO 1: el workflow con la matriz de versiones
+# name: python
+#
+# on:
+#   push:
+#     branches: [main]
+# PASO 5: solo cuando cambia python/ o este workflow
+#     paths:
+#       - "python/**"
+#       - ".github/workflows/python.yml"
+# PASO 1: (sigue)
+#   pull_request:
+# PASO 5: (sigue)
+#     paths:
+#       - "python/**"
+#       - ".github/workflows/python.yml"
+# PASO 1: (sigue)
+#   workflow_dispatch:
+#
+# permissions:
+#   contents: read
+#
+# PASO 5: (sigue) un run por workflow y rama; el nuevo cancela al viejo
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
+#
+# PASO 1: (sigue)
+# jobs:
+#   test:
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         python-version: ["3.13", "3.14"]
+#     runs-on: ubuntu-24.04
+#     defaults:
+#       run:
+#         working-directory: python
+#     steps:
+#       - uses: actions/checkout@v7
+#       - uses: astral-sh/setup-uv@v10.3.3
+#         with:
+#           python-version: ${{ matrix.python-version }}
+#           enable-cache: true
+#           cache-dependency-glob: python/uv.lock
+#       - run: uv sync --locked
+#       - run: uv run pytest --cov --cov-report=term --cov-report=xml --cov-report=html
+# PASO 3: el resumen del job y los informes como artifacts
+#       - name: Coverage summary
+#         if: always()
+#         run: uv run coverage report --format=markdown --fail-under=0 >> "$GITHUB_STEP_SUMMARY"
+#       - uses: actions/upload-artifact@v7
+#         if: always()
+#         with:
+#           name: coverage-python-${{ matrix.python-version }}
+#           path: |
+#             python/coverage.xml
+#             python/htmlcov/
+#           retention-days: 7

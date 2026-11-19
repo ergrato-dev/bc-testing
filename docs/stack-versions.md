@@ -114,6 +114,11 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Imagen de Playwright | `mcr.microsoft.com/playwright:v1.63.0-noble` (Ubuntu 24.04, Node 24 y los tres navegadores) | `docker run` del lab 04 de S42 | WebKit en Linux sin sus bibliotecas del sistema; la versión es siempre la de `@playwright/test` |
 | Docker + Compose | v2+ | equipo del estudiante | Testcontainers (desde S23) y OWASP ZAP (S44) |
 | OWASP ZAP | 2.17.0 (`zaproxy/zap-stable:2.17.0`) | `docker run` de S44 | Escaneo baseline (pasivo) y completo (activo) de la API |
+| GitHub Actions | runner `ubuntu-24.04`; `actions/checkout@v7`, `actions/setup-node@v7`, `pnpm/action-setup@v6`, `astral-sh/setup-uv@v10.3.3` (no publica etiqueta mayor), `actions/setup-java@v6`, `actions/setup-go@v7`, `Swatinem/rust-cache@v2`, `taiki-e/install-action@v2`, `actions/upload-artifact@v7` | `.github/workflows/` (S45) | Un workflow por suite. `setup-go` instala la versión de la línea `toolchain` de `go.mod` |
+| actionlint | 1.7.12 (imagen `rhysd/actionlint:1.7.12`) | `docker run` de S45 | Análisis de los workflows antes de subirlos |
+| pre-commit | 4.7.0 (`uv tool install`); `pre-commit-hooks` v6.0.0, `ruff-pre-commit` v0.16.7 | `.pre-commit-config.yaml` (S45) | Hooks de todos los lenguajes. `check-yaml` necesita `--allow-multiple-documents` por el lockfile de pnpm 12 |
+| Husky | 9.1.7 | `devDependencies` (S45, solo en un proyecto JS aparte) | Hooks de JS. No convive con pre-commit: fija `core.hooksPath` |
+| SonarQube Community Build | 26.11 (imagen `sonarqube:26.11.0.134175-community`); escáner `sonarsource/sonar-scanner-cli:12.4.0.4321_8.4.0` (CLI 8.4) | `docker run` del lab 04 de S45, con `SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true` | Quality gate local; `-Dsonar.qualitygate.wait=true` sale con 3 si falla |
 | OSV-Scanner | 2.7.1 (`ghcr.io/google/osv-scanner:v2.7.1`) | `docker run` de S44 | Auditoría del `pom.xml` sin clave del NVD (OWASP Dependency-Check 13 la exige) |
 | jq | 1.7+ | equipo del estudiante | `scripts/verificar-semana.sh` lee `checks.json` |
 

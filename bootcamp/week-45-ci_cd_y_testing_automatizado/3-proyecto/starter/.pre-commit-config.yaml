@@ -1,0 +1,33 @@
+# Hooks locales del repositorio: se instalan con `pre-commit install` y se ejecutan antes de cada
+# commit sobre los archivos que cambian. Los workflows repiten la suite completa, porque un hook
+# se puede saltar con --no-verify.
+exclude: ^(perf|security)/results/
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.7
+    hooks:
+      - id: ruff-check
+        files: ^python/
+      - id: ruff-format
+        files: ^python/
+
+  - repo: local
+    hooks:
+      - id: gofmt
+        name: gofmt
+        entry: gofmt -l -w
+        language: system
+        files: ^go/.*\.go$
+      # TODO: go vet de go/, también con la etiqueta integration (pass_filenames: false)
+      # TODO: cargo fmt --check de rust/, solo si cambian archivos .rs
+      # TODO: cargo clippy --all-targets -- -D warnings de rust/

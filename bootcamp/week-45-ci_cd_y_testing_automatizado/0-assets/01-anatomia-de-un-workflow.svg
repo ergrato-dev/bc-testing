@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="sans-serif">
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" text-anchor="middle" font-weight="bold">Anatomía de un workflow de GitHub Actions</text>
+
+  <!-- evento -->
+  <rect x="30" y="80" width="170" height="110" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="115" y="108" fill="#d29922" font-size="15" text-anchor="middle" font-weight="bold">Evento (on:)</text>
+  <text x="115" y="134" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">push a main</text>
+  <text x="115" y="156" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">pull_request</text>
+  <text x="115" y="178" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">workflow_dispatch</text>
+  <line x1="200" y1="135" x2="240" y2="135" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="240,129 252,135 240,141" fill="#8b949e"/>
+
+  <!-- workflow -->
+  <rect x="255" y="60" width="615" height="380" rx="10" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="270" y="84" fill="#c9d1d9" font-size="14" font-family="monospace">.github/workflows/go.yml  (un run por evento)</text>
+
+  <!-- job lint -->
+  <rect x="275" y="100" width="280" height="320" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="415" y="126" fill="#58a6ff" font-size="15" text-anchor="middle" font-weight="bold">job: lint</text>
+  <text x="415" y="146" fill="#8b949e" font-size="12" text-anchor="middle">máquina nueva: runs-on: ubuntu-24.04</text>
+  <rect x="295" y="162" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="415" y="186" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">uses: actions/checkout</text>
+  <rect x="295" y="210" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="415" y="234" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">uses: actions/setup-go</text>
+  <rect x="295" y="258" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="415" y="282" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">run: gofmt -l .</text>
+  <rect x="295" y="306" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="415" y="330" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">run: go vet ./...</text>
+  <text x="415" y="372" fill="#8b949e" font-size="12" text-anchor="middle">los steps van en orden;</text>
+  <text x="415" y="390" fill="#8b949e" font-size="12" text-anchor="middle">el primero que falla para el job</text>
+
+  <!-- job test -->
+  <rect x="575" y="100" width="280" height="320" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="715" y="126" fill="#3fb950" font-size="15" text-anchor="middle" font-weight="bold">job: test</text>
+  <text x="715" y="146" fill="#8b949e" font-size="12" text-anchor="middle">otra máquina, en paralelo con lint</text>
+  <rect x="595" y="162" width="240" height="38" rx="5" fill="#0d1117" stroke="#00ADD8"/>
+  <text x="715" y="186" fill="#00ADD8" font-size="13" text-anchor="middle" font-family="monospace">services: postgres</text>
+  <rect x="595" y="210" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="715" y="234" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">uses: actions/checkout</text>
+  <rect x="595" y="258" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="715" y="282" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">uses: actions/setup-go</text>
+  <rect x="595" y="306" width="240" height="38" rx="5" fill="#0d1117" stroke="#30363d"/>
+  <text x="715" y="330" fill="#c9d1d9" font-size="13" text-anchor="middle" font-family="monospace">run: go test -cover...</text>
+  <rect x="595" y="354" width="240" height="38" rx="5" fill="#0d1117" stroke="#f85149"/>
+  <text x="715" y="378" fill="#f85149" font-size="13" text-anchor="middle" font-family="monospace">run: umbral del 85 %</text>
+  <text x="715" y="410" fill="#8b949e" font-size="12" text-anchor="middle">exit ≠ 0 = run en rojo</text>
+
+  <text x="115" y="250" fill="#8b949e" font-size="12" text-anchor="middle">uses: una action</text>
+  <text x="115" y="268" fill="#8b949e" font-size="12" text-anchor="middle">(código de otro repo)</text>
+  <text x="115" y="300" fill="#8b949e" font-size="12" text-anchor="middle">run: un comando</text>
+  <text x="115" y="318" fill="#8b949e" font-size="12" text-anchor="middle">de bash</text>
+</svg>

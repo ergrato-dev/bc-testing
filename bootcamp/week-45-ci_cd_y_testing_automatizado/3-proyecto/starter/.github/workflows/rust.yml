@@ -1,0 +1,38 @@
+# Suite de Rust: rust/verify.sh con el umbral de cobertura de líneas.
+name: rust
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "rust/**"
+      - "compose.yaml"
+      - ".github/workflows/rust.yml"
+  pull_request:
+    paths:
+      - "rust/**"
+      - "compose.yaml"
+      - ".github/workflows/rust.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@v7
+      # TODO: rustup toolchain install (lee rust-toolchain.toml)
+      # TODO: Swatinem/rust-cache@v2 con workspaces: rust
+      # TODO: taiki-e/install-action@v2 con las versiones de cargo-nextest y cargo-llvm-cov de tu verify.sh
+      # TODO: bash verify.sh
+      # TODO: con if: always(), cargo llvm-cov report --lcov y --html, y upload-artifact de los dos

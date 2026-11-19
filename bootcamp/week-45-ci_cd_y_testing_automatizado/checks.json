@@ -1,0 +1,62 @@
+{
+  "semana": "45",
+  "titulo": "CI/CD y Testing Automatizado",
+  "checks": [
+    {
+      "id": "workflows",
+      "descripcion": "Hay un workflow por suite en .github/workflows/: go, python, java, rust y e2e",
+      "cmd": "cd {proyecto}/.github/workflows && for w in go python java rust e2e; do test -s $w.yml || { echo \"falta $w.yml\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 6"
+    },
+    {
+      "id": "actionlint",
+      "descripcion": "actionlint no encuentra errores en los workflows",
+      "cmd": "cd {proyecto} && docker run --rm -v \"$PWD:/repo\" -w /repo rhysd/actionlint:1.7.12",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "eventos",
+      "descripcion": "Cada workflow se ejecuta en los pull requests, filtra por paths, solo lee el repositorio y tiene timeout-minutes",
+      "cmd": "cd {proyecto}/.github/workflows && for w in go python java rust e2e; do for p in 'pull_request:' 'paths:' 'contents: read' 'timeout-minutes:'; do grep -q \"$p\" $w.yml || { echo \"$w.yml: falta $p\"; exit 1; }; done; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "artifacts",
+      "descripcion": "Cada workflow sube sus informes como artifact también cuando falla (if: always())",
+      "cmd": "cd {proyecto}/.github/workflows && for w in go python java rust e2e; do grep -A1 'actions/upload-artifact@' $w.yml | grep -q 'if: always()' || { echo \"$w.yml: falta upload-artifact con if: always()\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 6"
+    },
+    {
+      "id": "umbrales",
+      "descripcion": "La cobertura mínima del 85 % está en el proyecto de cada lenguaje y su workflow ejecuta ese comando",
+      "cmd": "cd {proyecto} && nc() { grep -v '^[[:space:]]*#' \"$1\"; } && grep -qE 'fail_under = (8[5-9]|9[0-9]|100)' python/pyproject.toml && grep -qE '<minimum>0[.](8[5-9]|9[0-9])' java/pom.xml && grep -qE 'total < (8[5-9]|9[0-9])' go/verify.sh && grep -qE 'fail-under-lines (8[5-9]|9[0-9])' rust/verify.sh && nc .github/workflows/go.yml | grep -q 'verify.sh' && nc .github/workflows/rust.yml | grep -q 'verify.sh' && nc .github/workflows/java.yml | grep -q 'mvn .*verify' && nc .github/workflows/python.yml | grep -q 'coverage report'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 5"
+    },
+    {
+      "id": "pre-commit",
+      "descripcion": "pre-commit pasa sobre todo el repositorio, con hooks de gofmt, go vet, cargo fmt y clippy",
+      "cmd": "cd {proyecto} && nc() { grep -v '^[[:space:]]*#' \"$1\"; } && for h in gofmt 'go vet' 'cargo fmt' clippy; do nc .pre-commit-config.yaml | grep -q \"$h\" || { echo \"falta el hook $h\"; exit 1; }; done && uvx -q pre-commit@4.7.0 run --all-files",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "informe",
+      "descripcion": "ci.md tiene sus seis secciones, cinco runs en verde y el del PR en rojo",
+      "cmd": "cd {proyecto} && test \"$(grep -c '^## ' ci.md)\" -ge 6 && test \"$(grep -oE 'github.com/[^/ ]+/[^/ ]+/actions/runs/[0-9]+' ci.md | sort -u | wc -l)\" -ge 6",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en los workflows, en .pre-commit-config.yaml ni en ci.md",
+      "cmd": "cd {proyecto} && ! grep -rn 'TODO' .github/workflows .pre-commit-config.yaml ci.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, pasos 2 a 9"
+    }
+  ]
+}

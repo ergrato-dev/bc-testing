@@ -1,0 +1,76 @@
+# Workflow de la suite de Go. Va en .github/workflows/go.yml de la raíz del repositorio.
+# Descomenta cada PASO cuando el README te lo pida (quita el "# " del principio de cada línea).
+
+# PASO 2: dos jobs en paralelo, lint y test
+# name: go
+#
+# on:
+#   push:
+#     branches: [main]
+#     paths:
+#       - "go/**"
+#       - ".github/workflows/go.yml"
+#   pull_request:
+#     paths:
+#       - "go/**"
+#       - ".github/workflows/go.yml"
+#   workflow_dispatch:
+#
+# permissions:
+#   contents: read
+#
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
+#
+# jobs:
+#   lint:
+#     runs-on: ubuntu-24.04
+#     defaults:
+#       run:
+#         working-directory: go
+#     steps:
+#       - uses: actions/checkout@v7
+#       - uses: actions/setup-go@v7
+#         with:
+#           go-version-file: go/go.mod
+#           cache-dependency-path: go/go.sum
+#       - name: gofmt
+#         run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+#       - run: go vet ./...
+#
+#   test:
+#     runs-on: ubuntu-24.04
+# PASO 4: PostgreSQL como contenedor de servicio
+#     services:
+#       postgres:
+#         image: postgres:18.7-alpine
+#         env:
+#           POSTGRES_USER: library
+#           POSTGRES_PASSWORD: library
+#           POSTGRES_DB: library
+#         ports:
+#           - 5432:5432
+#         options: >-
+#           --health-cmd "pg_isready -U library -d library"
+#           --health-interval 1s
+#           --health-timeout 3s
+#           --health-retries 30
+# PASO 2: (sigue)
+#     env:
+#       DATABASE_URL: postgres://library:library@localhost:5432/library
+#     defaults:
+#       run:
+#         working-directory: go
+#     steps:
+#       - uses: actions/checkout@v7
+#       - uses: actions/setup-go@v7
+#         with:
+#           go-version-file: go/go.mod
+#           cache-dependency-path: go/go.sum
+#       - run: go test -count=1 -race -coverprofile=cover.out ./...
+#       - name: Coverage threshold (85 %)
+#         run: |
+#           total=$(go tool cover -func=cover.out | awk '/^total:/ {print $3+0}')
+#           echo "total: $total %"
+#           awk -v total="$total" 'BEGIN { if (total < 85) { print "la cobertura no llega al 85 %"; exit 1 } }'
