@@ -1,0 +1,48 @@
+{
+  "semana": "01",
+  "titulo": "¿Qué es Testing? Calidad de Software",
+  "checks": [
+    {
+      "id": "completo",
+      "descripcion": "reporte-bug.md existe y no le queda ningún TODO",
+      "cmd": "cd {proyecto} && test -s reporte-bug.md && ! grep -n TODO reporte-bug.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "titulo",
+      "descripcion": "El título sigue el formato [Componente] Qué está mal",
+      "cmd": "cd {proyecto} && grep -qE '^[*][*]Título[*][*]: `?[[][^]]+[]] .{15,}' reporte-bug.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "clasificacion",
+      "descripcion": "Severidad (Critical, High, Medium o Low) y prioridad (P1 a P4), cada una con su justificación",
+      "cmd": "cd {proyecto} && grep -qE '^[|] [*][*]Severidad[*][*] [|] (Critical|High|Medium|Low) ' reporte-bug.md && grep -qE '^[|] [*][*]Prioridad[*][*] [|] P[1-4] ' reporte-bug.md && grep -qE '^[*][*]Justificación de la severidad[*][*]: .{30,}' reporte-bug.md && grep -qE '^[*][*]Justificación de la prioridad[*][*]: .{30,}' reporte-bug.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "pasos",
+      "descripcion": "Al menos tres pasos numerados, con punto de partida y cuántas veces se reprodujo",
+      "cmd": "cd {proyecto} && test \"$(grep -cE '^[0-9]+[.] .{10,}' reporte-bug.md)\" -ge 3 && grep -qE '^Punto de partida: .{10,}' reporte-bug.md && grep -qE '^[*][*]Reproducible[*][*]: .*[0-9]+ de [0-9]+' reporte-bug.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "resultados",
+      "descripcion": "Resultado obtenido y esperado escritos y distintos",
+      "cmd": "cd {proyecto} && o=$(grep -E '^[|] [*][*]Resultado obtenido[*][*] [|]' reporte-bug.md | cut -d'|' -f3) && e=$(grep -E '^[|] [*][*]Resultado esperado[*][*] [|]' reporte-bug.md | cut -d'|' -f3) && test ${#o} -ge 20 && test ${#e} -ge 20 && test \"$o\" != \"$e\" && ! echo \"$o$e\" | grep -q TODO",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "entorno",
+      "descripcion": "El entorno dice sistema operativo y navegador o app con un número de versión",
+      "cmd": "cd {proyecto} && grep -qE '^[|] [*][*]Sistema operativo[*][*] [|] .*[0-9]' reporte-bug.md && grep -qE '^[|] [*][*]Navegador o app, con versión[*][*] [|] .*[0-9]' reporte-bug.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    }
+  ]
+}

@@ -1,149 +1,123 @@
-# 01 — Calidad de Software y Tipos de Testing
+# 01 - Calidad de software y tipos de testing
 
-> **Semana 01 · Etapa 0: Fundamentos** | Transversal (sin código)
+> Transversal: sin código. Los lenguajes llegan a partir de la [semana 3](../../week-03-primeros_tests_automatizados_con_javascript/README.md).
 
----
-
-## ¿Qué es la calidad del software?
-
-La **calidad del software** es el grado en que un sistema satisface los requisitos establecidos **y** las necesidades implícitas del usuario.
-
-No basta con que el software "funcione". Un sistema de calidad es:
-
-| Dimensión | Pregunta clave | Ejemplo |
-| --- | --- | --- |
-| **Funcionalidad** | ¿Hace lo que debe hacer? | El carrito de compras calcula el total correctamente |
-| **Fiabilidad** | ¿Funciona sin fallos? | La app no se cae durante el pago |
-| **Usabilidad** | ¿Es fácil de usar? | Un formulario indica claramente qué campos son obligatorios |
-| **Rendimiento** | ¿Responde en tiempo razonable? | La página carga en menos de 2 segundos |
-| **Seguridad** | ¿Protege los datos? | Las contraseñas están hasheadas, no en texto plano |
-| **Mantenibilidad** | ¿Es fácil de modificar? | Cambiar el método de pago no rompe el módulo de envíos |
-
-### Las consecuencias de los bugs
-
-Los errores de software tienen consecuencias reales:
-
-- **2003 — Blackout del noreste de EE.UU.**: un bug en el software de monitoreo eléctrico provocó un apagón que afectó a 55 millones de personas.
-- **2012 — Knight Capital Group**: un error de despliegue generó pérdidas de 440 millones de dólares en 45 minutos.
-- **2020 — NHS Test and Trace (UK)**: un error de Excel (límite de filas) perdió casi 16.000 registros de infectados de COVID-19.
-
-> **Conclusión**: el testing no es un lujo ni un paso final — es una inversión en confianza y en usuarios.
+Antes de escribir un test hace falta saber qué protege. Este archivo responde tres preguntas: qué es la calidad de un software, quién se ocupa de ella en un equipo y de qué formas se prueba.
 
 ---
 
-## Los roles en calidad del software
+## 🎯 Objetivos
 
-Comprender quién hace qué es fundamental para trabajar en equipos de desarrollo.
-
-### Tester (QA Engineer)
-
-- **Responsabilidad**: verificar que el software cumple los requisitos
-- **Enfoque**: encontrar defectos antes de que lleguen al usuario
-- **Herramientas**: planes de prueba, casos de prueba, reportes de bugs
-- **Perfil**: pensamiento crítico, ojo para el detalle, conocimiento del negocio
-
-### Desarrollador (Developer)
-
-- **Responsabilidad**: construir el software
-- **Rol en calidad**: escribir tests unitarios de su propio código
-- **Enfoque**: que el código funcione según la lógica implementada
-- **Herramienta**: frameworks de testing del lenguaje (Jest, pytest, JUnit)
-
-### SDET (Software Development Engineer in Test)
-
-- **Responsabilidad**: construir la _infraestructura_ de testing
-- **Enfoque**: automatización, frameworks de prueba, pipelines de CI
-- **Combina**: habilidades de desarrollo + mentalidad de QA
-- **Herramientas**: Playwright, k6, Locust, GitHub Actions, Testcontainers
-
-> Este bootcamp te llevará de cero hasta el nivel de **SDET Junior** capaz de automatizar los tres tipos de prueba: unitarias, integración y E2E.
+- Definir la calidad del software con sus dimensiones.
+- Distinguir los roles de tester, desarrollador y SDET.
+- Comparar el testing manual con el automatizado y saber cuándo conviene cada uno.
+- Distinguir el testing preventivo del correctivo.
 
 ---
 
-## Tipos de testing: manual vs automatizado
+## 1. Qué es la calidad del software
 
-### Testing Manual
+La **calidad del software** es el grado en que un sistema cumple sus requisitos escritos **y** lo que el usuario espera aunque nadie lo haya escrito.
 
-Un tester ejecuta los casos de prueba **interactuando directamente** con el sistema.
+Que el software «funcione» no basta. La calidad tiene varias dimensiones:
 
-**Ventajas:**
-- Detecta problemas de usabilidad y experiencia de usuario
-- Flexible para escenarios no previstos
-- No requiere conocimiento de programación
+| Dimensión | Pregunta | Ejemplo |
+|---|---|---|
+| Funcionalidad | ¿Hace lo que debe? | El carrito calcula bien el total |
+| Fiabilidad | ¿Funciona sin fallos? | La app no se cierra durante el pago |
+| Usabilidad | ¿Es fácil de usar? | El formulario dice qué campos son obligatorios |
+| Rendimiento | ¿Responde a tiempo? | La página carga en menos de 2 segundos |
+| Seguridad | ¿Protege los datos? | Las contraseñas se guardan con hash, no en texto plano |
+| Mantenibilidad | ¿Es fácil de cambiar? | Cambiar el método de pago no rompe el módulo de envíos |
 
-**Desventajas:**
-- Lento y costoso de escalar
-- Propenso a errores humanos por fatiga
-- No repetible de forma exacta
+Este bootcamp las recorre casi todas: funcionalidad desde la semana 3, rendimiento en la [semana 43](../../week-43-testing_de_performance_con_k6_y_locust/README.md) y seguridad en la [semana 44](../../week-44-testing_de_seguridad_basico_owasp/README.md).
 
-**Cuándo usarlo:** exploración inicial, pruebas de usabilidad, escenarios difíciles de automatizar.
+### Lo que cuesta un bug
 
----
+Tres casos documentados:
 
-### Testing Automatizado
+- **2003, apagón del noreste de Estados Unidos y Canadá.** Un fallo de concurrencia en el software de alarmas de una eléctrica dejó a los operadores sin avisos mientras la red se degradaba. El apagón afectó a unos 50 millones de personas.
+- **2012, Knight Capital.** Un despliegue dejó código antiguo activo en uno de sus servidores. En 45 minutos de operaciones automáticas, la empresa perdió unos 440 millones de dólares.
+- **2020, registro de casos de COVID-19 en Inglaterra.** Los resultados de laboratorio pasaban por un archivo de Excel en formato antiguo (`.xls`), limitado a 65 536 filas. Se perdieron 15 841 casos positivos de los informes diarios, y sus contactos no se avisaron a tiempo.
 
-Scripts de código ejecutan los casos de prueba **sin intervención humana**.
-
-**Ventajas:**
-- Rápido y repetible (mismos pasos, mismo resultado)
-- Ejecutable en cada cambio de código (CI/CD)
-- Escala sin costo proporcional
-
-**Desventajas:**
-- Requiere tiempo inicial de implementación
-- El mantenimiento tiene costo cuando el código cambia
-- No detecta problemas subjetivos de experiencia de usuario
-
-**Cuándo usarlo:** tests de regresión, suites grandes, cualquier test que se ejecute más de dos veces.
+En los tres, el problema no era difícil de detectar: nadie lo había probado en las condiciones en que falló.
 
 ---
 
-### Comparativa rápida
+## 2. Los roles en la calidad
+
+| Rol | Qué hace | Con qué |
+|---|---|---|
+| **Tester (QA Engineer)** | Comprueba que el software cumple los requisitos y encuentra defectos antes que el usuario | Planes y casos de prueba, reportes de bug, exploración |
+| **Desarrollador** | Construye el software y escribe los tests unitarios de su código | El framework de su lenguaje: Jest, pytest, JUnit |
+| **SDET** (*Software Development Engineer in Test*) | Construye la infraestructura de pruebas: suites automatizadas, frameworks, pipelines | Playwright, k6, Testcontainers, GitHub Actions |
+
+El SDET programa como un desarrollador y piensa como un tester. Es el perfil al que apunta este bootcamp: al terminar, tu repositorio `qa-<nombre>-<apellido>` tendrá suites en cinco lenguajes, E2E, rendimiento, seguridad y CI.
+
+---
+
+## 3. Testing manual y testing automatizado
+
+**Manual:** una persona ejecuta los casos de prueba usando el sistema. **Automatizado:** un programa ejecuta los casos de prueba y compara el resultado con el esperado, sin intervención.
 
 | Criterio | Manual | Automatizado |
-| --- | :---: | :---: |
-| Velocidad de ejecución | Lenta | Rápida |
-| Reproducibilidad | Baja | Alta |
-| Costo inicial | Bajo | Medio-alto |
-| Costo a largo plazo | Alto | Bajo |
-| Detección de UX | Alta | Baja |
-| Apto para CI/CD | No | Sí |
+|---|---|---|
+| Velocidad | Lenta | Rápida |
+| Repetición exacta | Difícil: la persona se cansa o se salta pasos | Siempre los mismos pasos |
+| Coste inicial | Bajo | Medio o alto: hay que escribir el código |
+| Coste de repetirlo | Igual cada vez | Casi cero |
+| Detecta problemas de usabilidad | Sí | No |
+| Corre en cada cambio (CI) | No | Sí |
+
+Cuándo usar cada uno:
+
+- **Manual:** la primera exploración de una funcionalidad, la usabilidad, los escenarios que todavía no sabes describir.
+- **Automatizado:** todo lo que vas a ejecutar más de dos veces, en especial la **regresión**: comprobar que lo que funcionaba sigue funcionando después de un cambio.
+
+No compiten: la exploración manual encuentra el bug, y un test automatizado impide que vuelva.
 
 ---
 
-## Testing preventivo vs correctivo
+## 4. Testing preventivo y correctivo
 
-| Tipo | Definición | Ejemplo |
-| --- | --- | --- |
-| **Preventivo** | Probar antes o durante el desarrollo para evitar defectos | Escribir el test antes del código (TDD) |
-| **Correctivo** | Probar después del desarrollo para encontrar defectos existentes | Suite de regresión al terminar un sprint |
+| Enfoque | Qué es | Ejemplo |
+|---|---|---|
+| Preventivo | Probar antes o mientras se escribe el código | Escribir el test antes que el código (TDD, [semana 11](../../week-11-tdd_con_jest/README.md)) |
+| Correctivo | Probar el software ya terminado para encontrar defectos | Una ronda de regresión al final de un sprint |
 
-El enfoque moderno es **mayormente preventivo**: escribir tests mientras se construye, no al final.
-
----
-
-## Introducción a los tres entornos del bootcamp
-
-En las semanas siguientes configuraremos y usaremos tres entornos de testing:
-
-| Entorno | Lenguaje | Framework principal | Gestor |
-| --- | --- | --- | --- |
-| Node.js 22 LTS | JavaScript | Jest 30.5.2 | pnpm 12.6.0 |
-| Python 3.14 | Python | pytest 9.1.1 | uv |
-| JDK 21 LTS | Java | JUnit 6.0.3 | Maven |
-
-> No es necesario instalar nada esta semana. La semana 03 cubre la configuración de entornos.
+Cuanto antes se encuentra un defecto, menos cuesta arreglarlo: en el editor es un cambio de una línea; en producción es un incidente, un parche y, a veces, un titular. Por eso los equipos actuales prueban sobre todo mientras construyen.
 
 ---
 
-## Resumen
+## 5. Los entornos de la Etapa 0
 
-- La **calidad del software** tiene múltiples dimensiones: funcional, fiable, usable, segura.
-- Los **bugs tienen consecuencias reales** — el testing protege usuarios y negocios.
-- Los roles principales son **Tester**, **Desarrollador** y **SDET** — este bootcamp apunta al perfil SDET.
-- **Testing manual** vs **automatizado**: complementarios, con casos de uso distintos.
-- **Preventivo** > **Correctivo** en la práctica profesional moderna.
+De la semana 3 a la 5 escribirás tus primeros tests automatizados en tres lenguajes:
+
+| Semana | Lenguaje | Framework | Gestor |
+|---|---|---|---|
+| 3 | JavaScript (Node.js 22) | Jest 30.5.2 | pnpm 12.6.0 |
+| 4 | Python 3.14 | pytest 9.1.1 | uv |
+| 5 | Java (JDK 21) | JUnit 6.0.3 | Maven |
+
+Go y Rust llegan en las etapas 4 y 5. Esta semana no instalas nada: cada semana explica la instalación de lo que usa.
 
 ---
 
-**Siguiente**: [02 — Pirámide de Testing y Niveles](./02-piramide-y-niveles.md)
+## ✅ Resumen
+
+- La calidad tiene varias dimensiones: funcionalidad, fiabilidad, usabilidad, rendimiento, seguridad y mantenibilidad.
+- Los bugs tienen coste real, y casi siempre fallan en condiciones que nadie probó.
+- Tester, desarrollador y SDET comparten la calidad; el SDET construye la automatización.
+- Manual y automatizado se complementan: el manual explora, el automatizado repite.
+- Probar mientras se construye (preventivo) cuesta menos que probar al final (correctivo).
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 01 - ¿Qué es Testing? Calidad de Software](../README.md) | [Teoría — 02 - La pirámide de testing y los niveles de prueba](02-piramide-y-niveles.md) → |
+
+[↑ Semana 01](../README.md)

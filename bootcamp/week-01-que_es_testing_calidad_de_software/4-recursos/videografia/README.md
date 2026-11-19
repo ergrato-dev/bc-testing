@@ -1,40 +1,22 @@
-# Videografía — Semana 01
+# Videografía - Semana 01
 
-Videos recomendados para reforzar los conceptos de calidad de software, pirámide de testing y ciclo de vida del bug.
+| Vídeo | Canal | Idioma | Para qué |
+|---|---|---|---|
+| [Software Testing Explained in 100 Seconds](https://www.youtube.com/watch?v=u6QfIXgjwGQ) | Fireship | Inglés | Resumen rápido de tipos y niveles de test |
+| [Fundamentos de Pruebas - Ciclo de Vida de los Defectos de Software](https://www.youtube.com/watch?v=J68dbanz4cI) | A Tester Mate | Español | El ciclo de vida del bug, teoría 03 |
+| [Qué es el root cause, bug triage y bug tracking en el ciclo de vida del bug](https://www.youtube.com/watch?v=Pedjj31omHw) | UPEX Academy | Español | Triage en equipos ágiles, lab 04 |
+| ["Better Bug Reports" by Paul Holland](https://www.youtube.com/watch?v=zOEKkY4m_Ec) | The Test Tribe | Inglés | Cómo escribir reportes que no vuelvan con preguntas |
+| [Don't Do E2E Testing](https://www.youtube.com/watch?v=P_570bqxDYo) | GOTO Conferences (Dave Farley) | Inglés | Una opinión fuerte sobre la punta de la pirámide; para discutir después de la teoría 02 |
 
-**Tiempo total estimado**: ~1.5 horas (selecciona los que más te aporten)
+En los vídeos en inglés, YouTube permite activar subtítulos traducidos al español (⚙ > Subtítulos > Traducir automáticamente).
 
+<!-- nav -->
 ---
 
-## 🎯 Esenciales (ver antes de las prácticas)
+## 🔗 Navegación
 
-| Título | Canal | Duración | Enlace | Tema |
-| --- | --- | :---: | --- | --- |
-| *What is Software Testing?* | Fireship | 5 min | https://www.youtube.com/watch?v=u6QfIXgjwGQ | Introducción rápida al testing |
-| *The Testing Pyramid Explained* | Dave Farley (Continuous Delivery) | 18 min | https://www.youtube.com/watch?v=sXoMgCzIIxc | Pirámide en detalle |
-| *Why Software Has Bugs* | Tom Scott | 9 min | https://www.youtube.com/watch?v=cPhPhsehYdk | Consecuencias reales de los bugs |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
----
-
-## 📺 Para profundizar (opcionales)
-
-| Título | Canal | Duración | Enlace | Tema |
-| --- | --- | :---: | --- | --- |
-| *What is a QA Engineer?* | TechWorld with Nana | 12 min | https://www.youtube.com/watch?v=tsSCgNw8FYg | El rol QA / SDET |
-| *Manual vs Automated Testing* | SDET- QA Automation Techie | 15 min | https://www.youtube.com/watch?v=0GypdsJiXbU | Cuándo automatizar y cuándo no |
-| *Software Testing Life Cycle (STLC)* | Software Testing Mentor | 20 min | https://www.youtube.com/watch?v=OcJiSIEhbmk | Ciclo completo incluyendo ciclo de vida del bug |
-
----
-
-## 🔎 Charlas técnicas (nivel intermedio)
-
-| Título | Evento | Duración | Enlace | Tema |
-| --- | --- | :---: | --- | --- |
-| *Testing in Production — The Hard Parts* | NDC Conference | 52 min | https://www.youtube.com/watch?v=9C0efJkT0Hg | Perspectiva de testing en sistemas reales |
-| *Does TDD Really Work?* | Dave Farley | 25 min | https://www.youtube.com/watch?v=yfP_v6qCgets | Introducción a TDD (relevante desde semana 4) |
-
----
-
-## 💡 Nota de uso
-
-Los videos de **Dave Farley** (Continuous Delivery) son especialmente recomendados a lo largo del bootcamp — su canal cubre testing, CI/CD y TDD con profundidad profesional.
+[↑ Semana 01](../../README.md)

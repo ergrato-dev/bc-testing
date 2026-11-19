@@ -1,96 +1,109 @@
-# Proyecto Semana 01 — Reporte de Bug Profesional
-
-**Tiempo estimado**: 2 horas (trabajo autónomo)
-**Entregable**: `starter/reporte-bug.md` completado
-**Tipo de evaluación**: Producto 📦 (30% de la nota)
-
----
+# Proyecto - Reporte de bug profesional
 
 ## Descripción
 
-En equipos de desarrollo reales, un buen reporte de bug es la diferencia entre una corrección rápida y semanas de tiempo perdido investigando un problema mal descrito. Esta semana pondrás en práctica los conceptos del ciclo de vida del bug y los campos de un reporte profesional.
+Encuentra un bug real en un software que exista y documéntalo con un reporte que otra persona pueda reproducir sin preguntarte nada. Es lo mismo que has hecho en los labs, con una diferencia: aquí nadie te da el fallo. Lo buscas, lo reproduces y decides cómo clasificarlo.
 
-**Tu tarea**: Encontrar un bug real en cualquier software que uses habitualmente y documentarlo con el nivel de calidad que se espera en un equipo profesional.
+## Tiempo estimado
 
----
+3 horas.
 
-## Dominio asignado
+## Punto de partida
 
-Cada aprendiz trabaja sobre el dominio de negocio único que le asignó el instructor al inicio del trimestre (política anticopia — ver `docs/guia-desarrollo-contenidos.md`). Tu dominio no se lista aquí: consulta al instructor si no lo recuerdas.
+```bash
+mkdir -p ~/proyecto-semana-01
+cd ~/proyecto-semana-01
+cp <ruta-del-bootcamp>/bootcamp/week-01-que_es_testing_calidad_de_software/3-proyecto/starter/reporte-bug.md .
+```
 
-Elige el bug de esta semana en un software real relacionado con tu dominio (o cualquier software si no encuentras uno relevante) — lo importante es la calidad del reporte, no el dominio del software elegido.
-
----
-
-## Instrucciones
-
-### Paso 1 — Elige el software (15 min)
-
-Usa cualquier aplicación web, móvil o de escritorio que conozcas y que sea relevante para tu dominio. Puede ser:
-
-- Una app real relacionada con tu dominio asignado
-- Un software de gestión open source relacionado
-- La interfaz web de un servicio conocido
-
-> No inventes el bug. Encuentra uno real. Si no encuentras uno en el software de tu dominio, usa cualquier software que uses frecuentemente — lo importante es aprender a documentar.
-
-### Paso 2 — Reproduce el bug (30 min)
-
-Antes de escribir el reporte:
-- [ ] Reproduce el bug al menos **3 veces** para confirmar que es consistente
-- [ ] Toma nota de los pasos exactos que lo causan
-- [ ] Anota el entorno: sistema operativo, navegador/app, versión
-- [ ] Captura evidencia: screenshot, video, o texto de error
-
-### Paso 3 — Escribe el reporte (45 min)
-
-Abre `starter/reporte-bug.md` y completa todos los campos.
-
-Aplica lo aprendido esta semana:
-- Título con formato `[Componente] Descripción del comportamiento`
-- Pasos numerados y reproducibles
-- Resultado obtenido vs esperado claramente diferenciados
-- Severidad y prioridad con justificación explícita
-
-### Paso 4 — Revisa antes de entregar (15 min)
-
-Usa el checklist de la sección siguiente.
+[`starter/reporte-bug.md`](starter/reporte-bug.md) es la plantilla: cada campo tiene un `TODO` con lo que va en él.
 
 ---
 
-## Checklist de calidad
+## Paso 1: elegir el software (30 min)
 
-Antes de entregar, verifica:
+Si puedes, usa un software relacionado con el dominio que te asignó el instructor. Si no encuentras ninguno, sirve cualquiera que uses: una web, una app del móvil, un programa de escritorio, una herramienta de terminal.
 
-- [ ] **Título** — sigue el formato `[Componente] Descripción` y describe el problema sin ambigüedad
-- [ ] **Pasos** — una persona que no vio el bug puede reproducirlo siguiendo tus pasos
-- [ ] **Resultado obtenido** — describe exactamente lo que ocurre, no lo que crees que causa el problema
-- [ ] **Resultado esperado** — describe el comportamiento correcto, no solo "que funcione"
-- [ ] **Severidad** — está justificada con impacto concreto
-- [ ] **Prioridad** — está justificada con el impacto en los usuarios o el negocio
-- [ ] **Entorno** — incluye SO, versión de la app/navegador y dispositivo
-- [ ] **Originalidad** — el bug y el reporte son tuyos, no de un compañero
+Dónde suele haber bugs fáciles de reproducir:
+
+- **Formularios:** campos que aceptan lo que no deberían (letras en un teléfono, fechas imposibles como el 31 de febrero), mensajes de error que no dicen qué está mal.
+- **Límites:** un texto muy largo, un archivo grande, una lista vacía, el valor 0.
+- **Idioma y formato:** textos sin traducir, fechas o números con el formato de otro país, acentos que salen mal.
+- **Tamaños de pantalla:** la misma página en el móvil y en el ordenador.
+
+Dos reglas:
+
+- **No inventes el bug.** Tiene que ser algo que has visto tú.
+- **No pruebes en sistemas que no son tuyos de formas que puedan hacer daño:** nada de intentar entrar en cuentas ajenas ni de enviar cientos de peticiones. Usa el software como lo usaría cualquier usuario.
+
+## Paso 2: reproducirlo (45 min)
+
+Antes de escribir:
+
+1. Reprodúcelo al menos **3 veces** desde el mismo punto de partida. Apunta cuántas veces sale de cuántos intentos: un fallo que sale 2 de 5 veces también se reporta, y ese dato ayuda.
+2. Apunta los pasos exactos mientras lo reproduces, no después.
+3. Apunta el entorno con versiones. Dónde encontrarlas:
+   - **Navegador:** en Chrome y Edge, menú ⋮ > Ayuda > Información; en Firefox, menú ☰ > Ayuda > Acerca de Firefox.
+   - **App del móvil:** Ajustes > Aplicaciones > la app.
+   - **Sistema operativo:** en Windows, `winver` (pulsa Windows+R y escríbelo); en macOS, menú Apple > Acerca de este Mac; en Linux, `lsb_release -d` en la terminal.
+4. Guarda la evidencia: una captura, un vídeo corto o el mensaje de error copiado tal cual.
+
+Si no consigues reproducirlo de nuevo, vuelve al paso 1. Un reporte que no se puede reproducir acaba en `Cannot Reproduce`.
+
+## Paso 3: escribir el reporte (60 min)
+
+Rellena `reporte-bug.md`, en este orden:
+
+1. **Pasos y punto de partida.** Que alguien que nunca ha usado el software llegue al fallo.
+2. **Resultado obtenido.** Lo que pasa, sin diagnosticar.
+3. **Resultado esperado.** Concreto, y dónde lo dice: la documentación, un requisito, o lo que hace el mismo software en un caso parecido.
+4. **Título.** Al final, cuando ya sabes qué está mal y dónde: `[Componente] Qué está mal`.
+5. **Entorno, evidencia y notas.**
+
+## Paso 4: clasificar (20 min)
+
+Asigna severidad y prioridad con las tablas de la [teoría 03](../1-teoria/03-ciclo-de-vida-del-bug.md#3-severidad-y-prioridad). Cada una lleva su justificación en una o dos frases: qué daño hace y a quién (severidad), qué urgencia tiene (prioridad). Si hay un camino alternativo para evitar el fallo, la severidad baja: dilo.
+
+## Paso 5: comprobar y revisar (25 min)
+
+```bash
+PROYECTO=~/proyecto-semana-01 ./scripts/verificar-semana.sh 01
+```
+
+Ejecútalo desde la carpeta del bootcamp. El script lee las comprobaciones de [`checks.json`](../checks.json) y te dice cuáles no se cumplen y en qué paso se arreglan ([cómo funciona](../../../docs/autograding.md)).
+
+Después, la prueba de verdad: pásale el reporte a otra persona (un compañero, alguien de tu casa) y pídele que reproduzca el fallo solo con lo que has escrito. Cada pregunta que te haga es un dato que le falta al reporte.
+
+Por último, busca si el fallo ya está reportado (en el GitHub del proyecto, en su foro o en su página de soporte) y apúntalo en **Notas**. Si es de código abierto y no lo está, puedes reportarlo de verdad.
 
 ---
 
-## Ejemplo de referencia (dominio: Planetario Virtual)
+## ✅ Requisitos verificables
 
-Para que entiendas el nivel esperado, aquí hay un ejemplo del **estilo** del reporte — NO del contenido que debes entregar (tu reporte debe ser de tu dominio asignado):
+Las comprobaciones de [`checks.json`](../checks.json):
 
-> **Título**: `[Búsqueda de exhibiciones] Los filtros de fecha no aplican al catálogo al hacer clic en "Buscar"`
->
-> **Resultado obtenido**: Al seleccionar un rango de fechas en el filtro y hacer clic en "Buscar", el catálogo muestra todas las exhibiciones sin filtrar por fecha.
->
-> **Resultado esperado**: El catálogo debe mostrar solo las exhibiciones cuyas fechas de función caen dentro del rango seleccionado.
->
-> **Severidad**: Medium — la búsqueda principal funciona, pero el filtrado por fecha está roto.
->
-> **Prioridad**: P2 — afecta la experiencia del usuario pero no bloquea el acceso al catálogo.
+| Comprobación | Qué pide |
+|---|---|
+| `completo` | `reporte-bug.md` existe y no le queda ningún `TODO` |
+| `titulo` | El título sigue el formato `[Componente] Qué está mal` |
+| `clasificacion` | Severidad (Critical, High, Medium o Low) y prioridad (P1 a P4), cada una con su justificación |
+| `pasos` | Al menos tres pasos numerados, con punto de partida y cuántas veces se reprodujo |
+| `resultados` | Resultado obtenido y esperado escritos y distintos |
+| `entorno` | El entorno dice sistema operativo y navegador o app con un número de versión |
 
----
+El script comprueba la forma del reporte. Que sea reproducible lo comprueba la persona del paso 5, y la [rúbrica](../rubrica-evaluacion.md).
 
 ## Entrega
 
-Sube tu archivo `starter/reporte-bug.md` completado al repositorio de tu dominio asignado (o el canal indicado por el instructor).
+`reporte-bug.md` con la evidencia que cites, por el canal que indique el instructor. De la semana 1 a la 22 cada proyecto es independiente; el repositorio `qa-<nombre>-<apellido>` empieza en la semana 23.
 
-> La carpeta `solution/` contiene un reporte de referencia del instructor. Solo está disponible después de la fecha de entrega.
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 04 - Triage y ciclo de vida](../2-practicas/lab-04-triage-y-ciclo-de-vida/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
+
+[↑ Semana 01](../README.md)

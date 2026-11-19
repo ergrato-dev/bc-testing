@@ -1,131 +1,78 @@
-# Rúbrica de Evaluación — Semana 01
-## ¿Qué es Testing? Calidad de Software
+# Rúbrica de Evaluación - Semana 01
 
-**Puntaje total**: 100 puntos
-**Criterio de aprobación**: Mínimo 70 puntos (≥70% en cada tipo de evidencia)
+## Evidencias y ponderación
 
----
-
-## 📊 Distribución por Tipo de Evidencia
-
-| Tipo | Peso | Puntos |
-| --- | :---: | :---: |
-| 🧠 Conocimiento — Cuestionario teórico | 30% | 30 pts |
-| 💪 Desempeño — Ejercicios prácticos | 40% | 40 pts |
-| 📦 Producto — Reporte de bug profesional | 30% | 30 pts |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Calidad y sus dimensiones, roles, manual y automatizado, niveles y pirámide, error/defecto/fallo, severidad y prioridad, ciclo de vida |
+| Desempeño | 40% | Labs 01 a 04: clasificación, análisis de reportes, del mensaje al reporte y triage |
+| Producto | 30% | `reporte-bug.md` de un bug real, reproducible por otra persona |
 
 ---
 
-## 🧠 Conocimiento (30 puntos)
+## Criterios por evidencia
 
-Cuestionario de 10 preguntas de selección múltiple y respuesta corta sobre los conceptos de la semana.
+## 1) Conocimiento (30%)
 
-| # | Pregunta / Criterio | Puntos |
-| --- | --- | :---: |
-| 1 | Define con tus palabras qué es la calidad del software | 3 |
-| 2 | Diferencia entre testing manual y testing automatizado | 3 |
-| 3 | Nombra y describe los 4 niveles de testing (unitario, integración, sistema, aceptación) | 4 |
-| 4 | Explica la forma de la pirámide de testing y qué representa cada nivel | 4 |
-| 5 | ¿Cuál es la diferencia entre el rol de tester y el de SDET? | 3 |
-| 6 | ¿Qué es un bug? ¿En qué se diferencia de un error y de un failure? | 4 |
-| 7 | Describe las etapas del ciclo de vida de un bug | 4 |
-| 8 | ¿Qué es testing preventivo vs correctivo? Da un ejemplo de cada uno | 3 |
-| 9 | ¿Por qué los tests unitarios son la base de la pirámide? | 2 |
-| 10 | ¿Qué ventaja tiene automatizar un test de regresión? | 2 |
+### Criterios
 
-### Escala de calificación
+- Define la calidad del software con al menos cuatro de sus dimensiones y da un ejemplo de fallo en cada una.
+- Distingue tester, desarrollador y SDET por lo que hace cada uno.
+- Explica cuándo conviene el testing manual y cuándo el automatizado, con la regresión como ejemplo.
+- Describe los cuatro niveles de prueba y decide el nivel de un test por lo que usa.
+- Explica la forma de la pirámide y los síntomas del cono de helado.
+- Distingue error, defecto y fallo en un ejemplo.
+- Distingue severidad de prioridad y da un caso en que no coinciden.
+- Recorre el ciclo de vida de un bug, con Reopened y los caminos alternativos desde New.
 
-| Rango | Nivel |
-| --- | --- |
-| 27–30 pts | Excelente — dominio sólido de los conceptos |
-| 21–26 pts | Aprobado — comprensión básica con algunas brechas |
-| < 21 pts | No aprobado — requiere revisión del material |
+### Niveles
+
+- **Alto (27-30):** cada respuesta va con un ejemplo propio, no el de la teoría.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre E2E y aceptación).
+- **Bajo (<21):** confunde severidad con prioridad, o error con fallo.
 
 ---
 
-## 💪 Desempeño (40 puntos)
+## 2) Desempeño (40%)
 
-Evaluación de los dos ejercicios prácticos de la semana.
+### Criterios
 
-### Ejercicio 01 — Análisis de Bugs (20 puntos)
+- Lab 01: `clasificacion.md` sin `TODO`; cada nivel de la parte B se deduce de su columna «Qué usa»; la parte C con porcentajes.
+- Lab 02: los cinco reportes analizados, sin datos de entorno inventados, con el reporte correcto reconocido y la conclusión escrita.
+- Lab 03: el reporte sin `(completar`, con los huecos como `[Preguntar: ...]` concretos, el paso supuesto marcado y la respuesta al usuario.
+- Lab 04: los siete reportes con su estado y justificación (duplicado con su original, `Not a Bug` con su requisito), el orden de los abiertos y la historia de BUG-207 con `Reopened`.
 
-El estudiante recibe 5 reportes de bugs incompletos o mal escritos y debe:
-- Identificar qué información falta
-- Clasificar la severidad y prioridad correctamente
-- Corregir el título del bug siguiendo el formato `[Componente] Descripción del comportamiento incorrecto`
+### Niveles
 
-| Criterio | Puntos |
-| --- | :---: |
-| Identifica correctamente la información faltante en ≥4 de 5 reportes | 6 |
-| Clasifica severidad y prioridad correctamente en ≥4 de 5 casos | 7 |
-| Reformula los títulos con el formato correcto en ≥4 de 5 casos | 7 |
-
-### Ejercicio 02 — Completar Reporte de Bug (20 puntos)
-
-El estudiante recibe un reporte a medio completar y debe llenarlo con todos los campos requeridos de forma coherente.
-
-| Criterio | Puntos |
-| --- | :---: |
-| Todos los campos obligatorios están presentes (título, pasos, resultado esperado, resultado obtenido, severidad, prioridad, entorno) | 8 |
-| Los pasos para reproducir son claros, numerados y reproducibles | 6 |
-| El resultado esperado y obtenido son distintos y bien descritos | 6 |
-
-### Escala de calificación — Desempeño
-
-| Rango | Nivel |
-| --- | --- |
-| 36–40 pts | Excelente |
-| 28–35 pts | Aprobado |
-| < 28 pts | No aprobado |
+- **Alto (36-40):** los cuatro labs completos y cada decisión justificada con la teoría o un requisito.
+- **Medio (28-35):** los cuatro labs completos, con justificaciones genéricas («es importante») en algunos casos.
+- **Bajo (<28):** labs incompletos.
 
 ---
 
-## 📦 Producto (30 puntos)
+## 3) Producto (30%)
 
-### Entregable: `reporte-bug.md`
+### Criterios
 
-El estudiante escribe un reporte de bug profesional sobre un software real de su elección, adaptado a su dominio asignado.
+- `PROYECTO=... ./scripts/verificar-semana.sh 01` pasa las 6 comprobaciones.
+- El bug es real y otra persona lo reproduce solo con los pasos y el punto de partida.
+- El resultado obtenido describe sin diagnosticar; el esperado es concreto y dice dónde lo dice.
+- La severidad y la prioridad están justificadas con el impacto concreto.
+- El entorno tiene versiones y la evidencia está adjunta o copiada tal cual.
 
-**Ejemplo de referencia (dominio genérico — Planetario):**
-> _Al buscar una exhibición por nombre en el buscador del Planetario Virtual, el sistema devuelve resultados vacíos incluso cuando la exhibición existe en el catálogo._
+### Niveles
 
-| Criterio | Descripción | Puntos |
-| --- | --- | :---: |
-| **Título** | Claro, descriptivo, sigue el formato `[Componente] Descripción` | 4 |
-| **Pasos para reproducir** | Numerados, específicos, reproducibles por cualquier persona | 5 |
-| **Resultado obtenido** | Describe exactamente qué ocurre (comportamiento actual) | 4 |
-| **Resultado esperado** | Describe qué debería ocurrir (comportamiento correcto) | 4 |
-| **Severidad** | Valor correcto (Critical/High/Medium/Low) con justificación | 4 |
-| **Prioridad** | Valor correcto (P1/P2/P3/P4) con justificación | 4 |
-| **Entorno** | SO, versión de la app/navegador, dispositivo | 3 |
-| **Originalidad** | El reporte es propio, no copiado de otro aprendiz | 2 |
+- **Alto (27-30):** todo lo anterior, con la búsqueda de reportes previos en **Notas** y un camino alternativo si existe.
+- **Medio (21-26):** pasan las comprobaciones, pero la persona que intenta reproducirlo tiene que preguntar algo.
+- **Bajo (<21):** no pasan las comprobaciones, o el bug no se puede reproducir.
 
-### Escala de calificación — Producto
-
-| Rango | Nivel |
-| --- | --- |
-| 27–30 pts | Excelente — reporte listo para usar en un equipo real |
-| 21–26 pts | Aprobado — reporte funcional con detalles mejorables |
-| < 21 pts | No aprobado — faltan campos esenciales o información no reproducible |
-
+<!-- nav -->
 ---
 
-## ✅ Checklist de Entrega
+## 🔗 Navegación
 
-Antes de enviar, el estudiante debe verificar:
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Proyecto - Reporte de bug profesional](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-- [ ] El cuestionario de conocimiento está respondido completamente
-- [ ] Los dos ejercicios prácticos están completados
-- [ ] El archivo `reporte-bug.md` está en la carpeta `3-proyecto/starter/`
-- [ ] El reporte tiene **todos** los campos (ninguno en blanco)
-- [ ] Los pasos para reproducir son numerados y claros
-- [ ] La severidad y prioridad están justificadas
-
----
-
-## 📝 Notas para el Instructor
-
-- La semana 01 no tiene código — evaluar la calidad del pensamiento crítico y la comunicación escrita.
-- Priorizar el razonamiento sobre la respuesta "correcta" en preguntas conceptuales.
-- Un reporte de bug bien escrito en esta semana predice la calidad de las suites de tests en semanas posteriores.
-- Severidades sugeridas para el cuestionario: **Critical** (sistema caído), **High** (funcionalidad principal rota), **Medium** (funcionalidad secundaria afectada), **Low** (cosmético o mínimo impacto).
+[↑ Semana 01](README.md)

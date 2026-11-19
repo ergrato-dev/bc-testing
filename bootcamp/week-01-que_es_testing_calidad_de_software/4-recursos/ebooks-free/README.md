@@ -1,38 +1,20 @@
-# Ebooks y Libros Gratuitos — Semana 01
+# Ebooks gratuitos - Semana 01
 
-Recursos de lectura de acceso libre relacionados con calidad de software, ciclo de vida del bug y fundamentos de testing.
+| Recurso | Qué leer | Para qué |
+|---|---|---|
+| [Software Engineering at Google, cap. 11: Testing Overview](https://abseil.io/resources/swe-book/html/ch11.html) | Entero (inglés) | Por qué un equipo grande automatiza, tamaños de test y la pirámide en la práctica |
+| [Software Engineering at Google, cap. 12: Unit Testing](https://abseil.io/resources/swe-book/html/ch12.html) | Las primeras secciones | Qué hace que un test unitario sea útil; base de la semana 3 |
+| [ISTQB Certified Tester Foundation Level (CTFL) 4.0](https://www.istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/) | El *syllabus* en PDF, capítulos 1 y 5.5 | Vocabulario estándar: error, defecto, fallo, niveles de prueba y gestión de defectos |
 
+El libro de Google está publicado gratis por sus autores en abseil.io. El *syllabus* del ISTQB se descarga gratis desde su página, en varios idiomas.
+
+<!-- nav -->
 ---
 
-## 📖 Lectura obligatoria esta semana
+## 🔗 Navegación
 
-| Título | Autor | Formato | Enlace |
-| --- | --- | :---: | --- |
-| *Software Testing Foundations* (cap. 1–2) | ISTQB Foundation Level Sample Exams | PDF | https://www.istqb.org/certifications/certified-tester-foundation-level |
-| *The Art of Software Testing* (cap. 1) | Glenford J. Myers | PDF | Disponible en bibliotecas digitales universitarias |
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
 
----
-
-## 📚 Libros de referencia gratuitos
-
-| Título | Enlace | Relevancia para esta semana |
-| --- | --- | --- |
-| *Google Testing Blog — Test Sizes* | https://testing.googleblog.com/2010/12/test-sizes.html | Pirámide de testing en la práctica |
-| *OWASP Testing Guide v4.2* | https://owasp.org/www-project-web-security-testing-guide/ | Base para testing de seguridad (semanas avanzadas) |
-| *Agile Testing* — Lisa Crispin & Janet Gregory (extractos) | Disponible en O'Reilly Free Trial | Mentalidad de calidad en equipos ágiles |
-
----
-
-## 🗒️ Artículos esenciales (lectura ~30 min)
-
-| Artículo | Fuente | Por qué leerlo |
-| --- | --- | --- |
-| [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) | Martin Fowler | Explicación definitiva de la pirámide — lectura obligatoria |
-| [Eradicating Non-Determinism in Tests](https://martinfowler.com/articles/nonDeterminism.html) | Martin Fowler | Por qué los tests deben ser repetibles |
-| [TestDouble](https://martinfowler.com/bliki/TestDouble.html) | Martin Fowler | Introducción a mocks, stubs y fakes (relevante desde semana 3) |
-
----
-
-## 💡 Nota de uso
-
-Los artículos de Martin Fowler en `martinfowler.com` son referencia estándar en la industria. Márcalos como favoritos — los citaremos varias veces durante el bootcamp.
+[↑ Semana 01](../../README.md)

@@ -1,6 +1,6 @@
 # Bugs para Analizar
 
-Revisa cada reporte. Identifica los problemas y escribe tu corrección en la sección **"Mi análisis"** de cada uno.
+Cinco reportes de la misma tienda online. Revisa cada uno y escribe tu corrección en su sección **Mi análisis**.
 
 ---
 
@@ -115,7 +115,7 @@ Revisa cada reporte. Identifica los problemas y escribe tu corrección en la sec
 | Campo | Contenido original |
 | --- | --- |
 | **Título** | `[Registro] El botón "Crear cuenta" permanece deshabilitado aunque todos los campos estén completos y válidos` |
-| **Pasos para reproducir** | 1. Ir a la página de registro: `https://app.exemplo.com/register`. 2. Completar todos los campos: nombre, email válido, contraseña con ≥8 caracteres, confirmación de contraseña. 3. Aceptar los términos de uso. 4. Verificar el estado del botón "Crear cuenta". |
+| **Pasos para reproducir** | 1. Ir a la página de registro: `https://tienda.example.com/register`. 2. Completar todos los campos: nombre, email válido, contraseña con ≥8 caracteres, confirmación de contraseña. 3. Aceptar los términos de uso. 4. Verificar el estado del botón "Crear cuenta". |
 | **Resultado obtenido** | El botón "Crear cuenta" permanece deshabilitado (gris) aunque todos los campos están completos y el formulario no muestra errores de validación. |
 | **Resultado esperado** | El botón debe habilitarse (activarse) una vez que todos los campos estén correctamente completos. |
 | **Severidad** | High |

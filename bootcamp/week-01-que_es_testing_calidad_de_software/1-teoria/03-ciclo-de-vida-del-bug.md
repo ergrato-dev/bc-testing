@@ -1,151 +1,159 @@
-# 03 — Ciclo de Vida del Bug
+# 03 - El ciclo de vida del bug
 
-> **Semana 01 · Etapa 0: Fundamentos** | Transversal (sin código)
+> Transversal: sin código.
 
----
-
-## Terminología esencial
-
-Antes de ver el ciclo, es importante distinguir tres términos que frecuentemente se confunden:
-
-| Término | Definición | Ejemplo |
-| --- | --- | --- |
-| **Error** | Acción humana que introduce un defecto | Un desarrollador escribe `precio * 1.1` en lugar de `precio * 0.9` para aplicar un descuento |
-| **Defecto / Bug** | El problema en el código (la causa) | La lógica de descuento está invertida en el archivo `PriceCalculator.java` |
-| **Failure / Fallo** | El comportamiento incorrecto observable (el efecto) | El sistema cobra 10% más en lugar de descontar 10% |
-
-> Un **error** introduce un **defecto** que produce un **failure** cuando se ejecuta.
+Encontrar un bug es la mitad del trabajo. La otra mitad es contarlo de forma que otra persona lo reproduzca sin preguntarte nada, y seguirlo hasta que la corrección esté comprobada.
 
 ---
 
-## ¿Qué es un reporte de bug?
+## 🎯 Objetivos
 
-Un **reporte de bug** (bug report) es el documento formal que describe un defecto encontrado en el software. Su propósito es proporcionar toda la información necesaria para que otro desarrollador pueda:
-
-1. **Reproducir** el problema
-2. **Entender** cuál es el comportamiento esperado
-3. **Priorizar** según su severidad e impacto
-
-### Campos obligatorios de un buen reporte
-
-| Campo | Descripción | Ejemplo |
-| --- | --- | --- |
-| **Título** | Breve y descriptivo: `[Componente] Descripción` | `[Checkout] El descuento se aplica a la inversa` |
-| **Pasos para reproducir** | Numerados, específicos, reproducibles | 1. Ir al carrito. 2. Añadir cupón SAVE10. 3. Verificar total. |
-| **Resultado obtenido** | Lo que ocurre actualmente | El precio aumenta un 10% |
-| **Resultado esperado** | Lo que debería ocurrir | El precio debe reducirse un 10% |
-| **Severidad** | Impacto técnico del defecto | High |
-| **Prioridad** | Urgencia de resolución según el negocio | P1 |
-| **Entorno** | SO, versión de la app, dispositivo | macOS 14, Chrome 122, app v2.3.1 |
-| **Evidencia** | Capturas, logs, videos (si aplica) | screenshot-checkout.png |
+- Distinguir error, defecto y fallo.
+- Escribir un reporte de bug con todos sus campos.
+- Distinguir severidad de prioridad y asignar las dos con una justificación.
+- Seguir un bug por los estados de su ciclo de vida, incluidos los caminos alternativos.
 
 ---
 
-## Severidad vs Prioridad
+## 1. Error, defecto y fallo
 
-Un error común es confundir severidad con prioridad. Son dimensiones distintas:
+Tres palabras que se usan como sinónimos y no lo son:
 
-**Severidad** = impacto técnico en el sistema
-**Prioridad** = urgencia de resolución según el negocio
+| Término | Qué es | Ejemplo |
+|---|---|---|
+| **Error** | La equivocación de una persona | Para aplicar un 10 % de descuento, alguien escribe `price * 1.1` en lugar de `price * 0.9` |
+| **Defecto** (*bug*) | Lo que esa equivocación deja en el código: la causa | La línea con `1.1` en `PriceCalculator.java` |
+| **Fallo** (*failure*) | Lo que se ve cuando se ejecuta ese código: el efecto | El cliente paga un 10 % más en lugar de un 10 % menos |
 
-| Severidad | Descripción | Ejemplo |
-| --- | --- | --- |
-| **Critical** | El sistema no funciona / pérdida de datos | La app se cae al intentar pagar |
-| **High** | Funcionalidad principal rota sin workaround | No se pueden crear cuentas nuevas |
-| **Medium** | Funcionalidad secundaria afectada | El filtro de búsqueda no ordena bien |
-| **Low** | Problema cosmético o mínimo impacto | Typo en el texto del footer |
-
-| Prioridad | Descripción |
-| --- | --- |
-| **P1** | Resolver hoy / urgente |
-| **P2** | Resolver en el sprint actual |
-| **P3** | Resolver en los próximos sprints |
-| **P4** | Backlog — sin urgencia |
-
-### ¿Pueden divergir?
-
-Sí, y es común:
-
-- **Alta severidad, baja prioridad**: un crash en una función muy poco usada por <0.1% de usuarios.
-- **Baja severidad, alta prioridad**: el logo de la empresa aparece distorsionado en la página de inicio (impacto en imagen de marca).
+Un error introduce un defecto, y el defecto produce un fallo cuando se ejecuta. Quien prueba ve fallos; quien corrige busca el defecto.
 
 ---
 
-## El ciclo de vida de un bug
+## 2. El reporte de bug
 
-Un bug no pasa directamente de "encontrado" a "resuelto". Sigue un flujo definido que asegura trazabilidad y calidad en la corrección.
+Un reporte de bug describe un fallo con la información suficiente para que otra persona pueda **reproducirlo**, **entender** qué debería pasar y **priorizarlo**.
+
+| Campo | Qué lleva | Ejemplo |
+|---|---|---|
+| Título | `[Componente] Qué está mal` | `[Checkout] El cupón SAVE10 sube el total en lugar de bajarlo` |
+| Pasos para reproducir | Numerados, concretos, desde un punto de partida conocido | 1. Inicia sesión. 2. Añade un producto de 50 €. 3. Aplica el cupón `SAVE10`. |
+| Resultado obtenido | Lo que pasa, tal cual | El total pasa de 50,00 € a 55,00 € |
+| Resultado esperado | Lo que debería pasar, concreto | El total pasa a 45,00 € |
+| Severidad | Impacto en el sistema | High |
+| Prioridad | Urgencia para el negocio | P1 |
+| Entorno | Sistema operativo, navegador o app y su versión, dispositivo | Windows 11, Chrome 131, app v2.3.1 |
+| Evidencia | Captura, vídeo, mensaje de error exacto, log | `checkout-cupon.png` |
+
+Dos reglas que separan un reporte útil de uno que vuelve con preguntas:
+
+- **El resultado obtenido describe, no diagnostica.** «El total pasa a 55,00 €» se puede comprobar; «el descuento está mal programado» es una hipótesis.
+- **El resultado esperado es concreto.** «Que funcione» no dice qué es funcionar.
+
+### El título
+
+Es lo primero que se lee, y muchas veces lo único. Debe decir qué está mal y dónde:
+
+| ❌ Título vago | ✅ Título útil |
+|---|---|
+| `Bug en login` | `[Login] El botón «Iniciar sesión» no responde en Safari 17` |
+| `Error al guardar` | `[Perfil] Guardar cambios sin foto borra la foto que ya había` |
+| `No funciona el pago` | `[Checkout] El pago con tarjetas Visa terminadas en 4242 devuelve «Error 500»` |
+| `Problema con el texto` | `[Registro] El error de email inválido aparece en inglés con el idioma en español` |
+
+---
+
+## 3. Severidad y prioridad
+
+- **Severidad:** cuánto daño hace el fallo al sistema. La evalúa quien prueba.
+- **Prioridad:** cuándo hay que corregirlo. La decide el equipo, con el negocio.
+
+| Severidad | Cuándo |
+|---|---|
+| Critical | El sistema no arranca, se pierden datos o se cobra mal |
+| High | Una función principal no funciona y no hay forma de evitarlo |
+| Medium | Falla una función secundaria, o la principal tiene un camino alternativo |
+| Low | Cosmético: una errata, un desalineado |
+
+| Prioridad | Cuándo |
+|---|---|
+| P1 | Hoy: bloquea a usuarios o al negocio |
+| P2 | En este sprint |
+| P3 | En los próximos sprints |
+| P4 | Sin fecha: queda en el *backlog* |
+
+Normalmente van juntas, pero no siempre:
+
+- **Severidad alta, prioridad baja:** la exportación a un formato antiguo se cierra con un error, y la usan tres clientes que tienen otra forma de exportar.
+- **Severidad baja, prioridad alta:** el logo sale deformado en la portada el día del lanzamiento.
+
+Por eso cada una lleva su justificación.
+
+---
+
+## 4. El ciclo de vida
+
+Un bug pasa por varios estados desde que se reporta hasta que se cierra. Cada cambio de estado tiene un responsable, y el historial queda registrado.
 
 ![Ciclo de vida del bug](../0-assets/02-ciclo-bug.svg)
 
-### Estados del ciclo
+| Estado | Qué significa | Quién lo mueve ahí |
+|---|---|---|
+| New | Reportado, sin revisar | Quien lo encuentra |
+| Open | Revisado y confirmado: está en la cola | QA lead o responsable de producto |
+| In Progress | Alguien lo está corrigiendo | Desarrollador |
+| Fixed | La corrección está hecha | Desarrollador |
+| Retest | Quien probó comprueba la corrección | Tester |
+| Verified | La corrección funciona | Tester |
+| Closed | Cerrado | QA lead |
+| Reopened | La corrección no funcionó, o el fallo volvió | Tester |
 
-| Estado | Descripción | ¿Quién actúa? |
-| --- | --- | --- |
-| **New** | El bug fue reportado y está pendiente de revisión | Tester |
-| **Open** | El bug fue revisado y confirmado — está en la cola | QA Lead / PM |
-| **In Progress** | El desarrollador está trabajando en la corrección | Desarrollador |
-| **Fixed** | El desarrollador aplicó una corrección | Desarrollador |
-| **Retest** | El tester verifica que la corrección funciona | Tester |
-| **Verified** | La corrección fue validada — el bug está resuelto | Tester |
-| **Closed** | El bug se cierra formalmente | QA Lead |
-| **Won't Fix** | Se decide no corregir (baja prioridad, duplicado, etc.) | QA Lead / PM |
-| **Reopened** | La corrección no funcionó — el bug reaparece | Tester |
+Camino principal:
 
-### Flujo típico
-
-```
+```text
 New → Open → In Progress → Fixed → Retest → Verified → Closed
-                                              ↓
-                                          Reopened → In Progress → ...
+                  ↑                    │
+                  └──── Reopened ←─────┘  (la corrección no funciona)
 ```
 
-### Flujos alternativos
+Caminos alternativos desde **New**, al revisar el reporte:
 
-- **New → Won't Fix**: el bug es válido pero no se priorizará (feature request disfrazado, baja severidad, fuera del alcance).
-- **New → Duplicate**: ya existe un reporte idéntico abierto.
-- **New → Not a Bug**: el comportamiento es el esperado — el tester malinterpretó los requisitos.
+| Estado | Cuándo |
+|---|---|
+| Duplicate | Ya hay un reporte del mismo fallo. Se cierra enlazando el original |
+| Not a Bug | El sistema hace lo que debe: quien reportó esperaba otra cosa. Se cierra citando el requisito o la documentación |
+| Won't Fix | Es un fallo real, pero no se va a corregir: poco impacto, coste alto o funcionalidad que se retira |
+| Cannot Reproduce | Con los datos del reporte nadie consigue verlo. Vuelve a quien reportó para que añada información |
 
----
+Los nombres cambian de una herramienta a otra, pero las preguntas son las mismas.
 
-## El ciclo de vida de un bug en la práctica
+### Las herramientas
 
-### Herramientas comunes de seguimiento
+| Herramienta | Dónde se usa |
+|---|---|
+| Jira | Empresas con proyectos ágiles grandes |
+| GitHub Issues | Junto al código; casi todos los proyectos de código abierto |
+| Azure DevOps | Equipos que trabajan con Microsoft |
+| Linear | Equipos pequeños de producto |
 
-| Herramienta | Uso |
-| --- | --- |
-| **Jira** | Estándar de la industria — proyectos ágiles grandes |
-| **GitHub Issues** | Integrado con el repositorio — popular en proyectos open source |
-| **Linear** | Moderno, rápido — favorito de startups |
-| **Trello** | Simple — equipos pequeños o proyectos no técnicos |
-| **Azure DevOps** | Ecosistema Microsoft |
-
-> En este bootcamp usaremos **GitHub Issues** para reportar los bugs del proyecto semanal.
-
----
-
-## Cómo escribir un título de bug efectivo
-
-El título es lo primero que lee el desarrollador. Debe responder: _¿qué está roto y dónde?_
-
-**Formato recomendado**: `[Componente] Descripción del comportamiento incorrecto`
-
-| ❌ Titulo malo | ✅ Título bueno |
-| --- | --- |
-| `Bug en login` | `[Login] El botón "Iniciar sesión" no responde en Safari 17` |
-| `Error al guardar` | `[Perfil] Al guardar cambios sin foto, el sistema elimina la foto existente` |
-| `No funciona el pago` | `[Checkout] La pasarela de pago falla con tarjetas Visa terminadas en 4242` |
-| `Problema con el texto` | `[Registro] El mensaje de error de email inválido aparece en inglés cuando el idioma es español` |
+GitHub Issues solo tiene dos estados, abierto y cerrado. El resto del ciclo se representa con etiquetas (`severity: high`, `duplicate`) y con el motivo del cierre. Cuando abras un *issue* en un proyecto real, busca primero su plantilla de reporte: muchos la tienen en `.github/ISSUE_TEMPLATE/`.
 
 ---
 
-## Resumen
+## ✅ Resumen
 
-- **Error → Defecto → Failure**: tres conceptos distintos que forman una cadena causal.
-- Un **buen reporte de bug** incluye título, pasos, resultado obtenido, resultado esperado, severidad, prioridad y entorno.
-- **Severidad** mide el impacto técnico; **prioridad** mide la urgencia del negocio — pueden divergir.
-- El ciclo de vida de un bug: **New → Open → In Progress → Fixed → Retest → Verified → Closed**.
-- Los flujos alternativos más importantes: **Won't Fix**, **Duplicate**, **Not a Bug**, **Reopened**.
+- Error (la persona), defecto (el código) y fallo (lo que se ve) forman una cadena.
+- Un reporte útil tiene título, pasos, obtenido, esperado, severidad, prioridad, entorno y evidencia, y describe sin diagnosticar.
+- Severidad es el daño; prioridad, la urgencia. Pueden no coincidir, y cada una se justifica.
+- Ciclo principal: New, Open, In Progress, Fixed, Retest, Verified, Closed; Reopened si la corrección falla.
+- Desde New, un reporte puede acabar como Duplicate, Not a Bug, Won't Fix o Cannot Reproduce.
 
+<!-- nav -->
 ---
 
-**Anterior**: [02 — Pirámide y Niveles](./02-piramide-y-niveles.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 02 - La pirámide de testing y los niveles de prueba](02-piramide-y-niveles.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 01](../README.md)

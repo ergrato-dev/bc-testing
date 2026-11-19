@@ -9,8 +9,8 @@
 | Campo | Tu respuesta |
 | --- | --- |
 | **ID** | BUG-001 |
-| **Fecha** | *(hoy)* |
-| **Reportado por** | Usuario (canal Slack) |
+| **Fecha** | *(completar: fecha de hoy)* |
+| **Reportado por** | Usuario, por el canal de soporte |
 | **Versión de la app** | *(completar)* |
 
 ---
@@ -60,13 +60,13 @@
 
 | Campo | Tu respuesta |
 | --- | --- |
-| **Capturas / Video** | *(¿hay evidencia disponible? ¿Qué pedirías al usuario?)* |
-| **Logs de error** | *(¿qué logs serían útiles para el desarrollador?)* |
+| **Capturas / Video** | *(completar: ¿hay evidencia? ¿qué pedirías al usuario?)* |
+| **Logs de error** | *(completar: ¿qué logs servirían a quien lo corrija?)* |
 
 ---
 
 ## Justificación de clasificación
 
-**Severidad**: (explica aquí por qué elegiste esa severidad)
+**Severidad**: (completar: por qué elegiste esa severidad)
 
-**Prioridad**: (explica aquí por qué elegiste esa prioridad)
+**Prioridad**: (completar: por qué elegiste esa prioridad)
