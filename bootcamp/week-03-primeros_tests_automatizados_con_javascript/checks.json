@@ -1,0 +1,69 @@
+{
+  "semana": "03",
+  "titulo": "Primeros Tests Automatizados con JavaScript",
+  "checks": [
+    {
+      "id": "instala",
+      "descripcion": "pnpm install funciona con el lockfile del proyecto",
+      "cmd": "cd {proyecto} && pnpm install --frozen-lockfile",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "versiones",
+      "descripcion": "package.json fija pnpm 12.6.0 y Jest 30.5.2",
+      "cmd": "cd {proyecto} && node -e 'const p = require(`./package.json`); process.exit(p.packageManager === `pnpm@12.6.0` && p.devDependencies.jest === `30.5.2` ? 0 : 1)'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "funciones",
+      "descripcion": "src/ exporta al menos tres funciones",
+      "cmd": "cd {proyecto} && node -e 'let n = 0; for (const f of require(`fs`).readdirSync(`src`).filter((f) => f.endsWith(`.js`))) for (const v of Object.values(require(`./src/${f}`))) if (typeof v === `function`) n++; process.exit(n >= 3 ? 0 : 1)'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "pasa",
+      "descripcion": "pnpm test pasa",
+      "cmd": "cd {proyecto} && pnpm test",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "ocho-tests",
+      "descripcion": "Al menos 8 tests, todos con nombre should ... when ...",
+      "cmd": "cd {proyecto} && pnpm exec jest --json 2>/dev/null | node -e 'const r = JSON.parse(require(`fs`).readFileSync(0)); const t = r.testResults.flatMap((s) => s.assertionResults).map((a) => a.title); process.exit(t.length >= 8 && t.every((x) => /^should .+ when .+/.test(x)) ? 0 : 1)'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "errores",
+      "descripcion": "Al menos un test comprueba un error con toThrow",
+      "cmd": "cd {proyecto} && grep -rqE 'toThrow[(]' tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-trampas",
+      "descripcion": "Ningún test saltado ni sin expect",
+      "cmd": "cd {proyecto} && ! grep -rqE '[.](only|skip|todo)[(]|x(it|describe|test)[(]' tests && test $(grep -rhoE 'expect[(]' tests | wc -l) -ge $(grep -rhE '^ *(it|test)[(]' tests | wc -l)",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "mutaciones",
+      "descripcion": "mutaciones.md anota al menos dos mutaciones con el test que las detecta",
+      "cmd": "cd {proyecto} && ! grep -q TODO mutaciones.md && test $(grep -cE '^[|] M[0-9]+ [|].+[|].+[|] .*should .+ when .+[|]' mutaciones.md) -ge 2",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No quedan TODO en src/ ni en tests/",
+      "cmd": "cd {proyecto} && ! grep -rq TODO src tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    }
+  ]
+}

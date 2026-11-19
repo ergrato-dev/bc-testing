@@ -1,19 +1,30 @@
-# Videografía — Semana 03
+# Videografía - Semana 03
 
-> Primeros Tests Automatizados con JavaScript (Jest)
+Los vídeos instalan Jest con `npm`; en el curso, el mismo paso es `pnpm add -D jest@30.5.2`.
 
+## En español
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [JEST JS tutorial en español para principiantes](https://www.youtube.com/watch?v=tgWBQZNCOT0) | Developero | Primeros tests con Jest, antes del lab 01 |
+| [Introducción al Testing desde Cero con Jest](https://www.youtube.com/watch?v=_DzBez4qMi0) | midudev | Qué es un test automatizado y cómo se escribe con Jest |
+| [Introducción a TDD en JavaScript con Jest](https://www.youtube.com/watch?v=G43sWqt8T98) | Programación Accesible | El ciclo rojo y verde de la teoría 02, como adelanto de la semana 11 |
+
+## En inglés
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [Jest Crash Course - Unit Testing in JavaScript](https://www.youtube.com/watch?v=7r4xVDI2vho) | Traversy Media | Repaso completo de `describe`, `test`, `expect` y matchers |
+| [Introduction To Testing In JavaScript With Jest](https://www.youtube.com/watch?v=FgnxcUQ5vho) | Web Dev Simplified | Un primer test explicado paso a paso |
+| [Test-Driven Development // Fun TDD Introduction with JavaScript](https://www.youtube.com/watch?v=Jv2uxzhPFl4) | Fireship | Rojo y verde en pocos minutos |
+
+<!-- nav -->
 ---
 
-| Recurso | URL | Por qué verlo |
-|---------|-----|---------------|
-| Jest Crash Course - Unit Testing in JavaScript (Traversy Media) | [youtube.com/watch?v=7r4xVDI2vho](https://www.youtube.com/watch?v=7r4xVDI2vho) | Recorrido completo por instalación, `describe`/`test`, `expect` y matchers básicos |
-| Introduction To Testing In JavaScript With Jest (Web Dev Simplified) | [youtube.com/watch?v=FgnxcUQ5vho](https://www.youtube.com/watch?v=FgnxcUQ5vho) | Primer test con Jest explicado paso a paso; ideal antes del ejercicio 01 |
-| Test-Driven Development // Fun TDD Introduction with JavaScript (Fireship) | [youtube.com/watch?v=Jv2uxzhPFl4](https://www.youtube.com/watch?v=Jv2uxzhPFl4) | Muestra en pocos minutos el ciclo rojo → verde que practicas esta semana |
+## 🔗 Navegación
 
----
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
-## Sugerencia de uso
-
-1. Ver los dos primeros antes de las prácticas.
-2. Ver el de Fireship antes del ejercicio 01 (test que falla por diseño).
-3. Tomar notas de nomenclatura y estructura AAA.
+[↑ Semana 03](../../README.md)

@@ -1,116 +1,145 @@
-# Semana 03 — Primeros Tests Automatizados con JavaScript
+# Semana 03 - Primeros Tests Automatizados con JavaScript
 
-> **Etapa 0 — Fundamentos de Testing** | Semana 3 de 6
+> **Etapa 0 - Fundamentos de Testing** | Semana 3 de 46
 
 ![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
 ---
 
-## 🎯 Objetivos de la Semana
+## Objetivos de la Semana
 
 Al finalizar esta semana serás capaz de:
 
-1. Configurar un entorno mínimo de testing con **Node.js + pnpm + Jest**
-2. Explicar la anatomía de un test en Jest usando `describe`, `test`/`it` y `expect`
-3. Aplicar el patrón **AAA (Arrange-Act-Assert)** en tests unitarios simples
-4. Usar matchers básicos: `toBe`, `toEqual`, `toBeTruthy`, `toBeFalsy`, `toBeNull`, `toThrow`
-5. Ejecutar y filtrar pruebas desde terminal (`pnpm test`, modo watch, patrón por nombre)
-6. Interpretar resultados de ejecución: pass, fail, error de ejecución y assertion failure
-7. Diseñar una suite inicial de tests unitarios para funciones puras del dominio asignado
+1. Crear un proyecto de tests con Node.js 22, pnpm y Jest, y explicar cada archivo de configuración.
+2. Escribir tests con `describe`, `it` y `expect`, ordenados en Arrange, Act y Assert y con nombres `should ... when ...`.
+3. Elegir el matcher de cada valor: `toBe`, `toEqual`, `toBeCloseTo`, `toBeNull` y `toThrow`.
+4. Leer un informe de Jest y distinguir un fallo de aserción de un error de ejecución.
+5. Convertir casos de partición y valores límite en tests.
+6. Comprobar con mutaciones hechas a mano que un test en verde detecta los bugs.
 
 ---
 
-## ⏱ Distribución del Tiempo (10 horas)
+## Requisitos previos
+
+- La [semana 2](../week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md): partición, valores límite y tu `casos-de-prueba.md`.
+- Una terminal (en Windows, WSL), git y un editor de texto. VS Code es el que usan los ejemplos.
+
+---
+
+## Distribución del Tiempo (10 horas)
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| 📖 Teoría | Configuración de entorno, estructura de Jest, assertions y lectura de resultados | 2 h |
-| 💻 Prácticas | 2 ejercicios guiados con código comentado para descomentar | 4.5 h |
-| 🏗 Proyecto | Suite básica de tests unitarios del dominio asignado | 3 h |
-| 📚 Recursos | Lecturas y videos de refuerzo | 0.5 h |
+| Teoría | Node.js, pnpm y Jest; estructura de un test; matchers, fallos y ejecución | 2.5 h |
+| Prácticas | 4 labs: primer proyecto, AAA y matchers, casos a tests, tests que mienten | 4 h |
+| Proyecto | Primera suite de tests de una funcionalidad del dominio | 3 h |
+| Recursos | Lecturas y vídeos | 0.5 h |
 
 ---
 
-## 📂 Contenido de la Semana
+## Contenido de la Semana
 
-### 📖 Teoría
+### Teoría
 
-1. [Setup del entorno con Node.js y Jest](./1-teoria/01-setup-jest.md)
-2. [Estructura de un test en Jest (AAA)](./1-teoria/02-estructura-test-jest.md)
-3. [Matchers básicos y ejecución de pruebas](./1-teoria/03-matchers-y-ejecucion.md)
+1. [Node.js, pnpm y Jest](./1-teoria/01-setup-jest.md)
+2. [Estructura de un test: describe, it, expect y AAA](./1-teoria/02-estructura-test-jest.md)
+3. [Matchers, errores y ejecución](./1-teoria/03-matchers-y-ejecucion.md)
 
-### 💻 Prácticas
+### Prácticas
 
-- [Ejercicio 01 — Configurar y ejecutar Jest por primera vez](./2-practicas/ejercicio-01-setup-jest/)
-- [Ejercicio 02 — Escribir tests unitarios básicos con AAA](./2-practicas/ejercicio-02-primeros-tests/)
+- [Índice de labs](./2-practicas/README.md)
+- [Lab 01 - Primer proyecto con Jest](./2-practicas/lab-01-primer-proyecto-jest/README.md)
+- [Lab 02 - AAA y matchers](./2-practicas/lab-02-aaa-y-matchers/README.md)
+- [Lab 03 - De casos de prueba a tests](./2-practicas/lab-03-de-casos-a-tests/README.md)
+- [Lab 04 - Tests que mienten](./2-practicas/lab-04-tests-que-mienten/README.md)
 
-### 🏗 Proyecto
+### Proyecto
 
-- [Suite Inicial de Tests del Dominio Asignado](./3-proyecto/README.md)
+- [Primera suite de tests del dominio](./3-proyecto/README.md)
 
-### 📚 Recursos
+### Recursos
 
-- [Ebooks Gratuitos](./4-recursos/ebooks-free/README.md)
+- [Ebooks gratuitos](./4-recursos/ebooks-free/README.md)
 - [Videografía](./4-recursos/videografia/README.md)
 - [Webgrafía](./4-recursos/webgrafia/README.md)
 
-### 📝 Glosario
+### Glosario
 
-- [Términos Clave de la Semana](./5-glosario/README.md)
+- [Términos clave de la semana](./5-glosario/README.md)
 
 ---
 
-## 🗂 Estructura de Carpetas
+## Entregables
 
-```
+- Proyecto (único entregable obligatorio): `~/proyecto-semana-03` con tus funciones, su suite y `mutaciones.md`, por el canal que indique el instructor. Antes de entregarlo:
+
+  ```bash
+  PROYECTO=~/proyecto-semana-03 ./scripts/verificar-semana.sh 03
+  ```
+
+  Las comprobaciones están en [checks.json](./checks.json) y se explican en [autograding](../../docs/autograding.md).
+
+---
+
+## Estructura de Carpetas
+
+```text
 week-03-primeros_tests_automatizados_con_javascript/
-├── README.md
-├── rubrica-evaluacion.md
-├── 0-assets/
-│   ├── 01-ciclo-test-jest.svg
-│   └── 02-patron-aaa.svg
-├── 1-teoria/
-│   ├── 01-setup-jest.md
-│   ├── 02-estructura-test-jest.md
-│   └── 03-matchers-y-ejecucion.md
-├── 2-practicas/
-│   ├── ejercicio-01-setup-jest/
-│   │   ├── README.md
-│   │   ├── starter/
-│   │   └── solution/
-│   └── ejercicio-02-primeros-tests/
-│       ├── README.md
-│       ├── starter/
-│       └── solution/
-├── 3-proyecto/
-│   ├── README.md
-│   └── starter/
-│       └── item.service.test.js
-├── 4-recursos/
-│   ├── ebooks-free/README.md
-│   ├── videografia/README.md
-│   └── webgrafia/README.md
-└── 5-glosario/
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/
+|   |-- 01-ciclo-test-jest.svg
+|   `-- 02-patron-aaa.svg
+|-- 1-teoria/
+|   |-- 01-setup-jest.md
+|   |-- 02-estructura-test-jest.md
+|   `-- 03-matchers-y-ejecucion.md
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-primer-proyecto-jest/
+|   |-- lab-02-aaa-y-matchers/
+|   |-- lab-03-de-casos-a-tests/
+|   `-- lab-04-tests-que-mienten/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/
+|       |-- package.json
+|       |-- pnpm-workspace.yaml
+|       |-- pnpm-lock.yaml
+|       |-- mutaciones.md
+|       |-- src/domain.js
+|       `-- tests/domain.test.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## ⚠️ Nota importante
+## Versiones de la semana
 
-Esta es la **primera semana con tests automatizados en código real**. La prioridad no es la complejidad de los casos, sino construir correctamente los fundamentos:
+| Herramienta | Versión | Dónde se fija |
+|---|---|---|
+| Node.js | 22 | La instalas tú; `engines` del proyecto |
+| pnpm | 12.6.0 | `packageManager` de `package.json` |
+| Jest | 30.5.2 | `devDependencies` de `package.json` |
 
-- Setup correcto
-- Nombres de test descriptivos
-- AAA consistente
-- Assertions claras
-
-> "Un test simple, legible y confiable vale más que una suite grande y confusa."
+Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## 🧭 Navegación
+## Nota Importante
 
-| ← Semana anterior | Siguiente semana → |
+La [semana 4](../week-04-primeros_tests_automatizados_con_python/README.md) escribe la misma suite en Python con pytest. Haz tus funciones pequeñas y claras: tendrás que traducirlas.
+
+---
+
+## Navegación
+
+| ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 02 — Casos de Prueba y Técnicas de Diseño](../week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | [Semana 04 — Primeros Tests en Python](../week-04-primeros_tests_automatizados_con_python/README.md) |
+| [Semana 02 - Casos de Prueba y Técnicas de Diseño](../week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | [Semana 04 - Primeros Tests Automatizados con Python](../week-04-primeros_tests_automatizados_con_python/README.md) |

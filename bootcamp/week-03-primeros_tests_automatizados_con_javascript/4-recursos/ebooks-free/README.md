@@ -1,21 +1,26 @@
-# Ebooks y Lecturas Gratuitas — Semana 03
+# Ebooks y lecturas gratuitas - Semana 03
 
-> Primeros Tests Automatizados con JavaScript (Jest)
+| Recurso | Qué leer | Para qué |
+|---|---|---|
+| [Jest: Getting Started](https://jestjs.io/docs/getting-started) | Instalación y primer test | El mismo recorrido que la teoría 01. Donde la documentación dice `npm`, tú usas `pnpm` |
+| [Jest: Using Matchers](https://jestjs.io/docs/using-matchers) | La página entera | `toBe`, `toEqual`, decimales, `null` y `toThrow` con ejemplos oficiales |
+| [Jest: Expect](https://jestjs.io/docs/expect) | `toBeCloseTo`, `toThrow` y `.not` | La referencia de cada matcher, para consultar |
+| [Software Engineering at Google, cap. 12 «Unit Testing»](https://abseil.io/resources/swe-book/html/ch12.html) | Las secciones sobre tests claros y sin lógica | Por qué el esperado se escribe a mano y un test comprueba un comportamiento |
+| [JavaScript Testing Best Practices](https://github.com/goldbergyoni/javascript-testing-best-practices) | Secciones 1.1 y 1.2 | Nombres de test y patrón AAA, con ejemplos en JavaScript |
 
+## Orden sugerido
+
+1. Getting Started y Using Matchers (25 min).
+2. Secciones 1.1 y 1.2 de JavaScript Testing Best Practices (20 min).
+3. Opcional: el capítulo 12 de *Software Engineering at Google*.
+
+<!-- nav -->
 ---
 
-| Recurso | URL | Por qué leerlo |
-|---------|-----|----------------|
-| Jest — Getting Started | [jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started) | Instalación, primer test y script `test` (usa `pnpm` donde la doc dice `npm`) |
-| Jest — Using Matchers | [jestjs.io/docs/using-matchers](https://jestjs.io/docs/using-matchers) | `toBe`, `toEqual`, `toBeNull`, truthiness y `toThrow` con ejemplos oficiales |
-| Software Engineering at Google — Cap. 12 "Unit Testing" | [abseil.io/resources/swe-book/html/ch12.html](https://abseil.io/resources/swe-book/html/ch12.html) | Libro gratuito: tests claros, mantenibles y centrados en comportamiento |
-| JavaScript Testing Best Practices (Yoni Goldberg) | [github.com/goldbergyoni/javascript-testing-best-practices](https://github.com/goldbergyoni/javascript-testing-best-practices) | Secciones 1.1 (nombres de test) y 1.2 (patrón AAA) aplican directamente a esta semana |
-| The Practical Test Pyramid (Ham Vocke, martinfowler.com) | [martinfowler.com/articles/practical-test-pyramid.html](https://martinfowler.com/articles/practical-test-pyramid.html) | Contexto: dónde encajan los tests unitarios dentro de una estrategia completa |
+## 🔗 Navegación
 
----
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
 
-## Sugerencia de estudio
-
-- 25 min: Getting Started + Using Matchers.
-- 20 min: secciones 1.1 y 1.2 de JavaScript Testing Best Practices.
-- Opcional: capítulo 12 de *Software Engineering at Google*.
+[↑ Semana 03](../../README.md)

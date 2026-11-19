@@ -1,38 +1,35 @@
-# Webgrafía — Semana 03
+# Webgrafía - Semana 03
 
-> Primeros Tests Automatizados con JavaScript (Jest)
+## Herramientas
 
----
-
-## Documentación oficial (prioridad alta)
-
-| Recurso | URL | Uso recomendado |
-|---|---|---|
-| Jest Docs (home) | https://jestjs.io/docs/getting-started | Base para setup y comandos |
-| Matchers | https://jestjs.io/docs/using-matchers | Selección correcta de assertions |
-| Setup/Teardown | https://jestjs.io/docs/setup-teardown | Uso de `beforeEach` y `afterEach` |
-| CLI Options | https://jestjs.io/docs/cli | Filtros, watch, ejecución |
-
----
-
-## Referencias de calidad de tests
-
-| Recurso | URL |
+| Recurso | Para qué |
 |---|---|
-| Testing Trophy / Testing strategy | https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications |
-| Practical Test Pyramid | https://martinfowler.com/articles/practical-test-pyramid.html |
-| FIRST Principles | https://www.qatouch.com/blog/first-principle-in-software-testing/ |
+| [Descarga de Node.js](https://nodejs.org/en/download) | Instalar Node.js 22 en tu sistema |
+| [corepack](https://github.com/nodejs/corepack) | Cómo instala corepack la versión de pnpm que pide `packageManager` |
+| [pnpm: settings](https://pnpm.io/settings) | Referencia de los ajustes de `pnpm-workspace.yaml`, entre ellos `allowBuilds` |
+| [Jest: CLI](https://jestjs.io/docs/cli) | Las opciones de `jest`: `-t`, `--watch`, `--watchAll` y el filtro por ruta |
 
+## JavaScript
+
+| Recurso | Para qué |
+|---|---|
+| [MDN: sintaxis de propagación](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax) | El `{ ...validVisitor, name: "A" }` del lab 03 |
+| [MDN: Number.isInteger()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger) | Comprobar que un número es entero (lab 03) |
+
+## Conceptos
+
+| Recurso | Para qué |
+|---|---|
+| [Martin Fowler: UnitTest](https://martinfowler.com/bliki/UnitTest.html) | Qué se entiende por test unitario y qué variantes hay |
+| [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) | Dónde encajan los tests unitarios dentro de una estrategia completa |
+
+<!-- nav -->
 ---
 
-## Comunidad
+## 🔗 Navegación
 
-- https://sqa.stackexchange.com
-- https://www.ministryoftesting.com
-- https://www.reddit.com/r/javascript
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
 
----
-
-## Nota
-
-Si algún enlace de video cambia con el tiempo, priorizar siempre la documentación oficial de Jest para decisiones técnicas.
+[↑ Semana 03](../../README.md)
