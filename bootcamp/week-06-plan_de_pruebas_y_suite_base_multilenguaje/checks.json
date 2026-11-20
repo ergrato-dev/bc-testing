@@ -1,0 +1,83 @@
+{
+  "semana": "06",
+  "titulo": "Proyecto Integrador — Etapa 0",
+  "checks": [
+    {
+      "id": "estructura",
+      "descripcion": "El proyecto tiene js/, python/, java/, plan-de-pruebas.md y un verify.sh ejecutable",
+      "cmd": "cd {proyecto} && test -f js/package.json && test -f python/pyproject.toml && test -f java/pom.xml && test -f plan-de-pruebas.md && test -x verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "js-pasa",
+      "descripcion": "La suite de Jest pasa, sin tests pendientes ni saltados",
+      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && pnpm test 2>&1 | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "python-pasa",
+      "descripcion": "La suite de pytest pasa, sin tests saltados",
+      "cmd": "cd {proyecto}/python && uv sync --locked -q && uv run pytest 2>&1 | tail -1 | grep ' passed' | grep -vE 'skipped|failed|error|xfail'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "java-pasa",
+      "descripcion": "La suite de JUnit pasa, sin tests saltados",
+      "cmd": "cd {proyecto}/java && mvn -B test | grep 'Tests run:' | tail -1",
+      "assert": "stdout~Failures: 0, Errors: 0, Skipped: 0$",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "plan-completo",
+      "descripcion": "plan-de-pruebas.md tiene sus 9 secciones y ningún TODO",
+      "cmd": "cd {proyecto} && test $(grep -cE '^## [1-9][.] ' plan-de-pruebas.md) -ge 9 && ! grep -q TODO plan-de-pruebas.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "riesgos",
+      "descripcion": "La sección 3 tiene 3 riesgos o más con impacto, probabilidad y prioridad",
+      "cmd": "cd {proyecto} && test $(grep -cE '^[|] K[0-9]+ [|].+[|] (Alto|Medio|Bajo) [|] (Alta|Media|Baja) [|] (Alta|Media|Baja) [|]$' plan-de-pruebas.md) -ge 3",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "matriz",
+      "descripcion": "La matriz tiene 8 casos o más, todos con prioridad y ✅ o — en cada lenguaje",
+      "cmd": "cd {proyecto} && n=$(grep -cE '^[|] TC-' plan-de-pruebas.md) && test $n -ge 8 && test $(grep -cE '^[|] TC-[A-Z0-9-]+ [|][^|]+[|][^|]+[|] (Alta|Media|Baja) [|] (✅|—) [|] (✅|—) [|] (✅|—) [|]$' plan-de-pruebas.md) -eq $n",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "alta-en-tres",
+      "descripcion": "Ningún caso de prioridad Alta queda sin automatizar en algún lenguaje",
+      "cmd": "cd {proyecto} && ! grep -E '^[|] TC-.*[|] Alta [|].*—' plan-de-pruebas.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "motivos",
+      "descripcion": "Cada caso con — aparece explicado en la sección 7",
+      "cmd": "cd {proyecto} && for id in $(grep -E '^[|] TC-.*—' plan-de-pruebas.md | awk -F'|' '{gsub(/ /, \"\", $2); print $2}'); do sed -n '/^## 7[.]/,/^## 8[.]/p' plan-de-pruebas.md | grep -q \"$id\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "verify",
+      "descripcion": "./verify.sh termina en 0: tres suites en verde y la matriz coincide con los tests",
+      "cmd": "cd {proyecto} && ./verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "evidencia",
+      "descripcion": "La sección 9 recoge la salida final de verify.sh",
+      "cmd": "cd {proyecto} && sed -n '/^## 9[.]/,$p' plan-de-pruebas.md | grep -q 'OK: tres suites en verde y trazabilidad completa'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    }
+  ]
+}

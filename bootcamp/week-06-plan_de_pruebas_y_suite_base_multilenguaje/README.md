@@ -1,6 +1,6 @@
-# Semana 06 - Cierre Etapa 0: Plan de Pruebas y Suite Base Multilenguaje
+# Semana 06 - Proyecto Integrador: Etapa 0
 
-> **Etapa 0 - Fundamentos de Testing** | Semana 6 de 6
+> **Etapa 0 - Fundamentos de Testing** | Semana 6 de 46
 
 ![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
@@ -10,12 +10,18 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Construir un plan de pruebas básico a partir de requerimientos funcionales.
-2. Definir criterios de entrada y salida para ejecución de tests.
-3. Priorizar casos por riesgo y valor de negocio.
-4. Escribir una suite base equivalente en JavaScript, Python y Java.
-5. Mantener nomenclatura de tests descriptiva en los tres lenguajes.
-6. Cerrar la Etapa 0 con una evidencia integradora reutilizable para semanas futuras.
+1. Escribir un plan de pruebas con alcance, reglas, riesgos, estrategia, criterios de entrada y salida, matriz de trazabilidad y evidencia.
+2. Priorizar los casos por riesgo, cruzando impacto y probabilidad.
+3. Seguir cada regla hasta su test en JavaScript, Python y Java, y encontrar los huecos entre los tres.
+4. Ejecutar las tres suites y comprobar la trazabilidad con un solo comando, `verify.sh`, que falla si falla cualquiera.
+5. Detectar entradas con veredictos distintos según el lenguaje y decidir si son un bug o una pregunta abierta.
+
+---
+
+## Requisitos previos
+
+- Las semanas [2](../week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) a [5](../week-05-primeros_tests_automatizados_con_java/README.md): los casos de prueba de tu dominio y sus tres suites, en verde.
+- Node 22 con pnpm, uv, y Java 21 con Maven.
 
 ---
 
@@ -23,10 +29,10 @@ Al finalizar esta semana serás capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoría | Revisión de Semanas 1-5, plan de pruebas, trazabilidad y equivalencias multilenguaje | 1 h |
-| Prácticas | Diseño de casos + suite base en JS/Python/Java | 2.5 h |
-| Proyecto | `test-plan.md` + suite en JS, Python y Java del dominio asignado | 6 h |
-| Recursos y cierre | Revisión de checklist y consolidación | 0.5 h |
+| Teoría | Repaso: plan de pruebas, riesgo, trazabilidad hasta el test y diferencias entre lenguajes | 0.5 h |
+| Planificación | 2 labs: plan por riesgo y `verify.sh` | 2.5 h |
+| Desarrollo | Las tres suites del dominio en un proyecto, con su plan y `verify.sh` en verde | 6.5 h |
+| Presentación | 5 minutos por aprendiz con los datos del plan | 0.5 h |
 
 ---
 
@@ -34,18 +40,17 @@ Al finalizar esta semana serás capaz de:
 
 ### Teoría
 
-1. [Plan de pruebas y trazabilidad](./1-teoria/01-plan-de-pruebas-y-trazabilidad.md)
-2. [Diseño de casos de prueba por riesgo](./1-teoria/02-diseno-de-casos-multilenguaje.md)
-3. [Suite base equivalente en JS, Python y Java](./1-teoria/03-suite-base-js-python-java.md)
+1. [Plan de pruebas y trazabilidad en tres lenguajes](./1-teoria/01-plan-de-pruebas-y-trazabilidad.md)
 
 ### Prácticas
 
-- [Ejercicio 01 - Plan de pruebas integrador](./2-practicas/ejercicio-01-plan-pruebas-integrador/)
-- [Ejercicio 02 - Suite base multilenguaje](./2-practicas/ejercicio-02-suite-base-multilenguaje/)
+- [Índice de labs](./2-practicas/README.md)
+- [Lab 01 - Plan de pruebas por riesgo](./2-practicas/lab-01-plan-de-pruebas-por-riesgo/README.md)
+- [Lab 02 - Un comando para tres suites](./2-practicas/lab-02-un-comando-para-tres-suites/README.md)
 
 ### Proyecto
 
-- [Proyecto integrador Etapa 0](./3-proyecto/README.md)
+- [Plan de pruebas y suite base en tres lenguajes](./3-proyecto/README.md)
 
 ### Recursos
 
@@ -59,26 +64,39 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
+## Entregables
+
+- Proyecto (único entregable obligatorio): `~/proyecto-semana-06` con `js/`, `python/`, `java/`, `plan-de-pruebas.md` y `verify.sh`, por el canal que indique el instructor. Antes de entregarlo:
+
+  ```bash
+  PROYECTO=~/proyecto-semana-06 ./scripts/verificar-semana.sh 06
+  ```
+
+  Las comprobaciones están en [checks.json](./checks.json) y se explican en [autograding](../../docs/autograding.md).
+
+---
+
 ## Estructura de Carpetas
 
-```
+```text
 week-06-plan_de_pruebas_y_suite_base_multilenguaje/
 |-- README.md
 |-- rubrica-evaluacion.md
+|-- checks.json
 |-- 0-assets/
-|   |-- 01-plan-pruebas-ciclo.svg
-|   |-- 02-trazabilidad-riesgo.svg
-|   `-- 03-suite-equivalente.svg
+|   `-- 01-de-la-regla-al-test.svg
 |-- 1-teoria/
-|   |-- 01-plan-de-pruebas-y-trazabilidad.md
-|   |-- 02-diseno-de-casos-multilenguaje.md
-|   `-- 03-suite-base-js-python-java.md
+|   `-- 01-plan-de-pruebas-y-trazabilidad.md
 |-- 2-practicas/
-|   |-- ejercicio-01-plan-pruebas-integrador/
-|   `-- ejercicio-02-suite-base-multilenguaje/
+|   |-- README.md
+|   |-- lab-01-plan-de-pruebas-por-riesgo/
+|   `-- lab-02-un-comando-para-tres-suites/
 |-- 3-proyecto/
 |   |-- README.md
 |   `-- starter/
+|       |-- .gitignore
+|       |-- plan-de-pruebas.md
+|       `-- verify.sh
 |-- 4-recursos/
 |   |-- ebooks-free/README.md
 |   |-- videografia/README.md
@@ -89,14 +107,20 @@ week-06-plan_de_pruebas_y_suite_base_multilenguaje/
 
 ---
 
+## Versiones de la semana
+
+Las mismas de las semanas 3 a 5: Node 22, pnpm 12.6.0 y Jest 30.5.2; Python 3.14 y pytest 9.1.1; JDK 21, Maven 3.9.16, JUnit 6.0.3, AssertJ 3.27.7 y Surefire 3.5.6. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
+
+---
+
 ## Nota Importante
 
-En esta semana se integra todo lo trabajado en fundamentos. El objetivo es asegurar que una misma intención de calidad pueda expresarse en tres lenguajes sin perder claridad.
+Con esta semana termina la Etapa 0. El proyecto `~/proyecto-semana-06` es la primera forma del repositorio que crece todo el curso ([proyecto hilo conductor](../../docs/proyecto-hilo-conductor.md)): guárdalo. En la [semana 7](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) empieza la Etapa 1, que hace crecer `js/`.
 
 ---
 
 ## Navegación
 
-| <- Semana anterior | Siguiente semana -> |
+| ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 05 - Primeros Tests con Java](../week-05-primeros_tests_automatizados_con_java/README.md) | [Semana 07 - Testing con JavaScript: base de Jest](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) |
+| [Semana 05 - Primeros Tests Automatizados con Java](../week-05-primeros_tests_automatizados_con_java/README.md) | [Semana 07 - Jest Avanzado y Organización de Suites](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) |

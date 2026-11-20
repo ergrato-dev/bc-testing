@@ -100,4 +100,4 @@ En esta semana comienza la etapa enfocada solo en JavaScript. La prioridad es me
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 06 - Cierre de Fundamentos](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) |
+| [Semana 06 - Proyecto Integrador: Etapa 0](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) |

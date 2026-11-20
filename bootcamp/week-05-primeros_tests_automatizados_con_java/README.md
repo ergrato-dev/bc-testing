@@ -142,4 +142,4 @@ Con esta semana tienes la misma funcionalidad probada en JavaScript, Python y Ja
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 04 - Primeros Tests Automatizados con Python](../week-04-primeros_tests_automatizados_con_python/README.md) | [Semana 06 - Cierre Etapa 0: Plan de Pruebas y Suite Base Multilenguaje](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) |
+| [Semana 04 - Primeros Tests Automatizados con Python](../week-04-primeros_tests_automatizados_con_python/README.md) | [Semana 06 - Proyecto Integrador: Etapa 0](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) |

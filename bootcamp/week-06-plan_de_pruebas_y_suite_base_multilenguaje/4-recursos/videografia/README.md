@@ -1,21 +1,31 @@
-# Videografía — Semana 06
+# Videografía - Semana 06
 
-> Plan de Pruebas y Suite Base Multilenguaje
+Los vídeos de plan de pruebas usan plantillas más largas que la del curso (ISO 29119, IEEE 829). Las nueve secciones de la [teoría](../../1-teoria/01-plan-de-pruebas-y-trazabilidad.md#el-plan-de-pruebas) son las que pide el proyecto.
 
+## En español
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [¿Qué es un plan de pruebas? en 1 minuto](https://www.youtube.com/watch?v=Hy_zqwJiR5U) | The QA Testing Channel | Idea general antes de la teoría |
+| [Cómo Crear un Plan Pruebas de Software](https://www.youtube.com/watch?v=0anZpU5W0Z8) | Quality-Stream | Cada sección de un plan según ISO 29119, para comparar con la plantilla del curso |
+| [¿Cómo DOCUMENTAR una MATRIZ de TRAZABILIDAD?](https://www.youtube.com/watch?v=WqafGBSK90s) | Gio Barragan | Matriz de casos de prueba, antes del paso 4 del lab 01 |
+| [Bash scripting desde cero: variables, if, for, funciones y set -euo pipefail](https://www.youtube.com/watch?v=A6lMVkaVv3Q) | Cultura DevOps | Las piezas de bash que usa `verify.sh`, como refuerzo del lab 02 |
+| [El comando set en Bash Scripting](https://www.youtube.com/watch?v=Tg2Zd0S1zRY) | Rafa DevOps | `set -e` y sus opciones, junto al paso 2 del lab 02 |
+
+## En inglés
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [How to Create an Effective Test Plan](https://www.youtube.com/watch?v=HCbrznlBoAI) | The Test Tribe | Alcance, enfoque y criterios de un plan, paso a paso |
+| [Requirements Traceability Matrix Explained](https://www.youtube.com/watch?v=W9YYJ9Mrb60) | DailyMind | Para qué sirve la matriz, en tres minutos |
+
+<!-- nav -->
 ---
 
-| Recurso | URL | Por qué verlo |
-|---------|-----|---------------|
-| How to Create an Effective Test Plan — Kristin Jackvony (The Test Tribe) | [youtube.com/watch?v=HCbrznlBoAI](https://www.youtube.com/watch?v=HCbrznlBoAI) | Paso a paso para redactar un plan de pruebas: alcance, enfoque y criterios |
-| Jest Crash Course - Unit Testing in JavaScript (Traversy Media) | [youtube.com/watch?v=7r4xVDI2vho](https://www.youtube.com/watch?v=7r4xVDI2vho) | Repaso de la suite JavaScript (Semana 03) |
-| Pytest Tutorial – How to Test Python Code (freeCodeCamp.org) | [youtube.com/watch?v=cHYq1MRoyI0](https://www.youtube.com/watch?v=cHYq1MRoyI0) | Repaso de la suite Python (Semana 04) |
-| Java Testing - JUnit 5 Crash Course (freeCodeCamp.org) | [youtube.com/watch?v=flpmSXVTqBI](https://www.youtube.com/watch?v=flpmSXVTqBI) | Repaso de la suite Java (Semana 05) |
+## 🔗 Navegación
 
-> El video dice "JUnit 5": la API Jupiter que muestra es la misma que usas con JUnit 6.0.3.
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
----
-
-## Dinámica sugerida
-
-- Ver el video del plan de pruebas antes del ejercicio 01.
-- Usar los repasos de Jest, pytest y JUnit como consulta durante el ejercicio 02 y el proyecto.
+[↑ Semana 06](../../README.md)
