@@ -1,35 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="920" height="480" font-family="system-ui, -apple-system, sans-serif">
-  <rect width="920" height="480" fill="#0f172a" rx="12"/>
-  <text x="460" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Patrón AAA en JUnit 6</text>
-  <text x="460" y="64" text-anchor="middle" font-size="13" fill="#94a3b8">Arrange · Act · Assert</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" font-family="sans-serif">
+  <rect width="900" height="480" fill="#0d1117" rx="12"/>
 
-  <rect x="70" y="100" width="245" height="280" rx="12" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
-  <text x="192" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#F89820">Arrange</text>
-  <text x="92" y="160" font-size="12" fill="#e2e8f0">Preparar datos y contexto</text>
-  <text x="92" y="184" font-size="12" fill="#cbd5e1">- Inputs y estado inicial</text>
-  <rect x="92" y="246" width="200" height="110" rx="8" fill="#111827"/>
-  <text x="104" y="270" font-size="11" fill="#94a3b8">double price = 100;</text>
-  <text x="104" y="288" font-size="11" fill="#94a3b8">int percent = 20;</text>
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#c9d1d9">Patrón AAA en JUnit</text>
+  <text x="450" y="66" text-anchor="middle" font-size="13" fill="#8b949e">Arrange · Act · Assert: tres bloques en este orden</text>
 
-  <rect x="338" y="100" width="245" height="280" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-  <text x="460" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#6366f1">Act</text>
-  <text x="360" y="160" font-size="12" fill="#e2e8f0">Ejecutar acción</text>
-  <rect x="360" y="246" width="200" height="110" rx="8" fill="#111827"/>
-  <text x="372" y="270" font-size="11" fill="#94a3b8">double result =</text>
-  <text x="372" y="288" font-size="11" fill="#94a3b8">service.calculate(price, percent);</text>
+  <!-- Arrange -->
+  <rect x="60" y="100" width="240" height="250" rx="12" fill="#161b22" stroke="#F89820" stroke-width="2"/>
+  <text x="180" y="132" text-anchor="middle" font-size="17" font-weight="700" fill="#58a6ff">Arrange (preparar)</text>
+  <text x="80" y="162" font-size="12" fill="#c9d1d9">Los datos de entrada del caso</text>
+  <text x="80" y="184" font-size="12" fill="#8b949e">· un valor por variable</text>
+  <text x="80" y="204" font-size="12" fill="#8b949e">· con nombre que explique qué es</text>
+  <rect x="78" y="236" width="204" height="94" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <text x="92" y="262" font-size="12" fill="#c9d1d9" font-family="monospace">int a = 2;</text>
+  <text x="92" y="282" font-size="12" fill="#c9d1d9" font-family="monospace">int b = 3;</text>
 
-  <rect x="606" y="100" width="245" height="280" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-  <text x="728" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#22c55e">Assert</text>
-  <text x="628" y="160" font-size="12" fill="#e2e8f0">Verificar resultado</text>
-  <rect x="628" y="246" width="200" height="110" rx="8" fill="#111827"/>
-  <text x="640" y="270" font-size="11" fill="#94a3b8">assertEquals(80, result);</text>
+  <!-- Act -->
+  <rect x="330" y="100" width="240" height="250" rx="12" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="450" y="132" text-anchor="middle" font-size="17" font-weight="700" fill="#d29922">Act (actuar)</text>
+  <text x="350" y="162" font-size="12" fill="#c9d1d9">Una sola llamada a lo que pruebas</text>
+  <text x="350" y="184" font-size="12" fill="#8b949e">· guarda el resultado</text>
+  <text x="350" y="204" font-size="12" fill="#8b949e">· sin cálculos propios</text>
+  <rect x="348" y="236" width="204" height="94" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <text x="362" y="262" font-size="12" fill="#c9d1d9" font-family="monospace">int result =</text>
+  <text x="362" y="282" font-size="12" fill="#c9d1d9" font-family="monospace">  Calculator.add(a, b);</text>
 
-  <line x1="315" y1="240" x2="338" y2="240" stroke="#475569" stroke-width="2"/>
-  <polygon points="338,240 328,234 328,246" fill="#475569"/>
-  <line x1="583" y1="240" x2="606" y2="240" stroke="#475569" stroke-width="2"/>
-  <polygon points="606,240 596,234 596,246" fill="#475569"/>
+  <!-- Assert -->
+  <rect x="600" y="100" width="240" height="250" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="720" y="132" text-anchor="middle" font-size="17" font-weight="700" fill="#3fb950">Assert (comprobar)</text>
+  <text x="620" y="162" font-size="12" fill="#c9d1d9">El resultado contra el esperado</text>
+  <text x="620" y="184" font-size="12" fill="#8b949e">· un valor escrito a mano</text>
+  <text x="620" y="204" font-size="12" fill="#8b949e">· primero el esperado, luego result</text>
+  <rect x="618" y="236" width="204" height="94" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <text x="632" y="262" font-size="12" fill="#c9d1d9" font-family="monospace">assertEquals(5, result);</text>
 
-  <rect x="80" y="400" width="760" height="54" rx="8" fill="#111827" stroke="#334155"/>
-  <text x="96" y="422" font-size="12" fill="#94a3b8">@Test @DisplayName("should return 80 when price is 100 and percent is 20")</text>
-  <text x="96" y="440" font-size="12" fill="#cbd5e1">void shouldReturn80WhenPriceIs100AndPercentIs20() { ... }</text>
+  <!-- Flechas -->
+  <line x1="300" y1="225" x2="322" y2="225" stroke="#30363d" stroke-width="2"/>
+  <polygon points="330,225 320,219 320,231" fill="#8b949e"/>
+  <line x1="570" y1="225" x2="592" y2="225" stroke="#30363d" stroke-width="2"/>
+  <polygon points="600,225 590,219 590,231" fill="#8b949e"/>
+
+  <!-- Nombre -->
+  <rect x="60" y="375" width="780" height="60" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text x="80" y="401" font-size="13" fill="#c9d1d9" font-family="monospace">@DisplayName("should return 5 when adding 2 and 3") void shouldReturn5WhenAdding2And3()</text>
+  <text x="80" y="422" font-size="12" fill="#8b949e">El nombre dice el resultado y la condición (when): se lee en el informe sin abrir el test.</text>
+
+  <text x="450" y="463" text-anchor="middle" font-size="12" fill="#8b949e">Semana 05 · Java con JUnit 6 y Maven</text>
 </svg>

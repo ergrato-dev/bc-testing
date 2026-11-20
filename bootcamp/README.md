@@ -12,7 +12,7 @@ Estado de cada semana:
 | [02](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | [Casos de Prueba y Técnicas de Diseño](week-02-casos_de_prueba_y_tecnicas_de_diseno/README.md) | Fundamentos | ✅ |
 | [03](week-03-primeros_tests_automatizados_con_javascript/README.md) | [Primeros Tests Automatizados — JavaScript](week-03-primeros_tests_automatizados_con_javascript/README.md) | Fundamentos | ✅ |
 | [04](week-04-primeros_tests_automatizados_con_python/README.md) | [Primeros Tests Automatizados — Python](week-04-primeros_tests_automatizados_con_python/README.md) | Fundamentos | ✅ |
-| [05](week-05-primeros_tests_automatizados_con_java/README.md) | [Primeros Tests Automatizados — Java](week-05-primeros_tests_automatizados_con_java/README.md) | Fundamentos | 🟡 |
+| [05](week-05-primeros_tests_automatizados_con_java/README.md) | [Primeros Tests Automatizados — Java](week-05-primeros_tests_automatizados_con_java/README.md) | Fundamentos | ✅ |
 | [06](week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Proyecto Integrador — Etapa 0](week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | Fundamentos | 🟡 |
 | [07](week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Jest Avanzado — Organización de Suites](week-07-jest_avanzado_y_organizacion_de_suites/README.md) | JavaScript | 🟡 |
 | [08](week-08-matchers_avanzados_y_parametrizacion/README.md) | [Matchers Avanzados y Parametrización con Jest](week-08-matchers_avanzados_y_parametrizacion/README.md) | JavaScript | 🟡 |

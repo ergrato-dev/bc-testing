@@ -49,7 +49,7 @@ Fuente única de versiones del bootcamp. Cuando una versión cambia, se actualiz
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
 | JDK | 21 LTS | `maven.compiler.release` | LTS |
-| Maven | 3.9+ | equipo del estudiante | Build tool del curso |
+| Maven | 3.9.16 (cualquier 3.9 sirve) | equipo del estudiante | Build tool del curso; se instala desde el tarball de Apache porque Ubuntu 24.04 trae la 3.8 (S05) |
 | JUnit (Jupiter) | 6.0.3 | `pom.xml` | La versión que gestiona Spring Boot 4.1.1 |
 | AssertJ | 3.27.7 | `pom.xml` | Aserciones fluentes |
 | maven-surefire-plugin | 3.5.6 | `pom.xml` | Ejecución de tests |

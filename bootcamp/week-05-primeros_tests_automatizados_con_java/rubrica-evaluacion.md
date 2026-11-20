@@ -1,99 +1,79 @@
-# Rúbrica de Evaluación — Semana 05
+# Rúbrica de Evaluación - Semana 05
 
-> Primeros Tests Automatizados con Java (JUnit 6)
+## Evidencias y ponderación
 
----
-
-## 📊 Distribución de Puntos
-
-| Tipo de Evidencia | Peso | Puntos |
-|---|---|---|
-| 🧠 Conocimiento | 30% | 30 pts |
-| 💪 Desempeño | 40% | 40 pts |
-| 📦 Producto | 30% | 30 pts |
-| **Total** | **100%** | **100 pts** |
-
-**Nota mínima por componente**: 70% (21/30 — 28/40 — 21/30)
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Proyecto Maven con JUnit 6 y AssertJ, tests con `@Test` y `@Nested`, `assertEquals` con delta, `assertThrows`, `Failure` frente a `Error` y a un error de compilación, ejecución parcial |
+| Desempeño | 40% | Labs 01 a 04: primer proyecto, AAA y assertions, casos del planetario, tests que mienten |
+| Producto | 30% | La suite de la semana 4 traducida a JUnit, con mutaciones anotadas |
 
 ---
 
-## 🧠 Conocimiento (30 puntos)
+## Criterios por evidencia
 
-Cuestionario teórico de 10 preguntas — 3 puntos cada una.
+## 1) Conocimiento (30%)
 
-### Preguntas
+### Criterios
 
-1. ¿Qué función cumple `@Test` en JUnit 6?
-2. ¿Por qué `@DisplayName` mejora la legibilidad de reportes?
-3. Explica AAA aplicado a un test en Java.
-4. ¿Cuándo usar `assertEquals` y cuándo `assertTrue`?
-5. ¿Cómo se valida una excepción esperada y su mensaje con JUnit 6? ¿Y con AssertJ?
-6. ¿Qué comando se usa para ejecutar tests con Maven?
-7. ¿Cuándo reporta Surefire un test como Failure y cuándo como Error? Da un ejemplo de cada uno.
-8. ¿Por qué `assertEquals(15.992, result)` puede fallar con un `double` y cómo se corrige?
-9. ¿En qué orden se ejecutan `@BeforeAll`, `@BeforeEach`, `@AfterEach` y `@AfterAll`, y por qué un test no debe depender de otro?
-10. ¿Cuál es la diferencia entre JUnit 4 y JUnit Jupiter (JUnit 5 y 6) a nivel de anotaciones básicas?
+- Explica qué hace cada parte del `pom.xml` (coordenadas, `maven.compiler.release`, dependencias con `scope` `test`, Surefire) y su pareja en los proyectos de las semanas 3 y 4.
+- Explica por qué un error de compilación impide ejecutar todos los tests y qué sale sin la dependencia de JUnit.
+- Escribe un test con `@Test`, `@DisplayName` y nombre `should<Resultado>When<Condición>`, con AAA, y agrupa tests en una clase `@Nested`.
+- Explica por qué `assertEquals` recibe primero el esperado y qué dice el informe si se invierte el orden.
+- Elige entre `assertEquals`, `assertNull`, `assertTrue` y `assertThrows` según el valor, y explica por qué `==` no sirve para comparar textos y por qué una clase sin `equals` no es igual a otra con el mismo contenido.
+- Explica qué delta usar con decimales y por qué `0.01` daría por bueno 16,9915 como 16,99.
+- Distingue `Failure`, `Error` y `COMPILATION ERROR`, y explica por qué `BUILD SUCCESS` no garantiza que se ejecutara algún test.
+- Ejecuta una clase, un test con `Clase#método` y un filtro con `*`.
+- Escribe la misma comprobación con JUnit y con AssertJ.
+
+### Niveles
+
+- **Alto (27-30):** responde con ejemplos propios y compara cada pieza con su equivalente de Jest y de pytest.
+- **Medio (21-26):** comprende los conceptos con alguna confusión menor (por ejemplo, el orden de `assertEquals`).
+- **Bajo (<21):** no distingue un `Failure` de un error de compilación, o cree que `BUILD SUCCESS` significa que los tests comprobaron algo.
 
 ---
 
-## 💪 Desempeño (40 puntos)
+## 2) Desempeño (40%)
 
-### Ejercicio 01 — Setup y primera ejecución con JUnit (20 pts)
+### Criterios
 
-| Criterio | Pts |
+- Lab 01: `~/labs-semana-05` con un `pom.xml` escrito a mano, 3 tests de `Calculator` en verde, `target/` en `.gitignore` y un commit.
+- Lab 02: 10 tests de `UserUtils` en verde, sin `TODO`; `createUser` con `assertEquals` del `User` completo, la búsqueda fallida con `assertNull`, el descuento de 29,90 con delta `0.0001` y dos tests con AssertJ.
+- Lab 03: 19 tests del planetario en tres clases `@Nested`, con el ID de su caso, 4 hallazgos con línea y técnica, y el código corregido sin tocar ningún esperado.
+- Lab 04: los cinco tests reescritos, el envío probado con 29,99 y 30, y cada una de las cuatro mutaciones detectada por un test.
+
+### Niveles
+
+- **Alto (36-40):** los cuatro labs completos, con cada decisión (comprobación, delta, código o test) justificada.
+- **Medio (28-35):** los cuatro labs completos, con algún esperado calculado en lugar de escrito o algún nombre genérico.
+- **Bajo (<28):** labs incompletos.
+
+---
+
+## 3) Producto (30%)
+
+### Criterios
+
+- `PROYECTO=... ./scripts/verificar-semana.sh 05` pasa las 10 comprobaciones.
+- Los métodos son las funciones de la semana 4, con los mismos mensajes, y siguen siendo puros.
+- Los tests cubren los mismos casos que la suite de pytest, con el ID del caso encima; los que el tipado hace imposibles están anotados en un comentario.
+- Cada comprobación corresponde a su valor; todos los esperados están escritos a mano y en primer lugar.
+- Las mutaciones de `mutaciones.md` son reales: al repetirlas, el test anotado falla.
+
+### Niveles
+
+- **Alto (27-30):** todo lo anterior, con alguna diferencia entre lenguajes encontrada y anotada (un caso que Java no deja escribir, o un test que pasaba en pytest y falla en JUnit).
+- **Medio (21-26):** pasan las comprobaciones, pero la suite de Java cubre menos casos que la de pytest o algún límite no se prueba.
+- **Bajo (<21):** no pasan las comprobaciones.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
 |---|---|
-| Configuró estructura Maven básica correctamente | 4 |
-| Ejecutó `mvn test` con al menos 1 test en pass | 4 |
-| Identificó fallo inicial intencional | 4 |
-| Corrigió implementación para dejar suite en verde | 4 |
-| Explicó comandos y salida principal de Maven | 4 |
-| **Total** | **20** |
+| ← [Proyecto — Proyecto - Primera suite de tests del dominio](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Ejercicio 02 — Tests unitarios básicos en Java (20 pts)
-
-| Criterio | Pts |
-|---|---|
-| Aplicó patrón AAA con claridad | 6 |
-| Usó assertions adecuadas (`assertEquals` con delta, `assertThrows`, AssertJ) | 6 |
-| Explicó el Error del PASO 5 y corrigió `isValidEmail` | 4 |
-| Nombres de métodos y `@DisplayName` descriptivos | 4 |
-| **Total** | **20** |
-
----
-
-## 📦 Producto (30 puntos)
-
-### Suite inicial del dominio (`ItemServiceTest.java`)
-
-| Criterio | Pts |
-|---|---|
-| Incluye al menos 8 tests funcionales | 4 |
-| Cubre happy path, validaciones y errores | 6 |
-| Mantiene AAA y usa `@BeforeEach` para el servicio bajo prueba | 6 |
-| Nombres de métodos y `@DisplayName` legibles | 4 |
-| No depende de recursos externos reales | 4 |
-| Incluye la tabla comparativa JS ↔ Python ↔ Java (3 intenciones equivalentes) | 3 |
-| `mvn test` sin failures, errors ni tests `@Disabled` | 3 |
-| **Total** | **30** |
-
----
-
-## 📝 Penalizaciones
-
-| Situación | Penalización |
-|---|---|
-| Nombres genéricos de test (`test1`, `shouldWork`) | −2 pts c/u (máx −6) |
-| Tests sin assertions útiles | −2 pts c/u (máx −8) |
-| Datos sensibles reales en tests | −5 pts |
-| Evidencia de copia de la suite de otro aprendiz | −30 pts (nota mínima) |
-
----
-
-## 🏆 Escala de Calificación Final
-
-| Rango | Calificación |
-|---|---|
-| 90–100 pts | Excelente — Base sólida de testing con JUnit |
-| 80–89 pts | Muy bien — Buen dominio con ajustes menores |
-| 70–79 pts | Aprobado — Base correcta, requiere práctica |
-| < 70 pts | No aprobado — Reforzar fundamentos |
+[↑ Semana 05](README.md)

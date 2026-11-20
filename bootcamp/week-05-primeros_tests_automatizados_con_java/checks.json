@@ -1,0 +1,76 @@
+{
+  "semana": "05",
+  "titulo": "Primeros Tests Automatizados con Java",
+  "checks": [
+    {
+      "id": "compila",
+      "descripcion": "Maven descarga las dependencias y compila el código y los tests",
+      "cmd": "cd {proyecto} && mvn -B -q test-compile",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "versiones",
+      "descripcion": "El pom.xml fija Java 21, JUnit 6.0.3, AssertJ 3.27.7 y Surefire 3.5.6",
+      "cmd": "cd {proyecto} && grep -q '<maven.compiler.release>21</maven.compiler.release>' pom.xml && grep -A1 '<artifactId>junit-jupiter</artifactId>' pom.xml | grep -q '<version>6[.]0[.]3</version>' && grep -A1 '<artifactId>assertj-core</artifactId>' pom.xml | grep -q '<version>3[.]27[.]7</version>' && grep -A1 '<artifactId>maven-surefire-plugin</artifactId>' pom.xml | grep -q '<version>3[.]5[.]6</version>'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "funciones",
+      "descripcion": "src/main define al menos tres métodos public static",
+      "cmd": "cd {proyecto} && test $(grep -rhE '^ +public static [^=]+[(]' src/main/java | wc -l) -ge 3",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "pasa",
+      "descripcion": "mvn test ejecuta al menos 8 tests, sin fallos ni saltados",
+      "cmd": "cd {proyecto} && mvn -B test | grep 'Tests run:' | tail -1",
+      "assert": "stdout~Tests run: ([89]|[1-9][0-9]+), Failures: 0, Errors: 0, Skipped: 0$",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "nombres",
+      "descripcion": "Cada @Test tiene un método should...When... y un @DisplayName \"should ... when ...\"",
+      "cmd": "cd {proyecto} && n=$(grep -rhE '^ *@Test *$' src/test/java | wc -l) && test $(grep -rhE '^ *void should[A-Z0-9][A-Za-z0-9]*When[A-Z0-9][A-Za-z0-9]*[(][)]' src/test/java | wc -l) -eq $n && test $(grep -rhE '^ *@DisplayName[(]\"should .+ when .+\"[)]' src/test/java | wc -l) -eq $n",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "errores",
+      "descripcion": "Al menos un test comprueba un error con assertThrows o assertThatThrownBy",
+      "cmd": "cd {proyecto} && grep -rqE 'assertThrows[(]|assertThatThrownBy[(]' src/test/java",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "assertj",
+      "descripcion": "Al menos una comprobación con AssertJ",
+      "cmd": "cd {proyecto} && grep -rqE 'assertThat(ThrownBy)?[(]' src/test/java",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-trampas",
+      "descripcion": "Ningún test desactivado ni que imprima en lugar de comprobar, y una comprobación o más por test",
+      "cmd": "cd {proyecto} && ! grep -rqE 'Disabled|System[.]out' src/test/java && test $(grep -rhE 'assert[A-Z][A-Za-z]*[(]' src/test/java | wc -l) -ge $(grep -rhE '^ *@Test *$' src/test/java | wc -l)",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "mutaciones",
+      "descripcion": "mutaciones.md anota al menos dos mutaciones con el test que las detecta",
+      "cmd": "cd {proyecto} && ! grep -q TODO mutaciones.md && test $(grep -cE '^[|] M[0-9]+ [|].+[|].+[|] .*should[A-Za-z0-9]+When[A-Za-z0-9]+.*[|]' mutaciones.md) -ge 2",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No quedan TODO en src/",
+      "cmd": "cd {proyecto} && ! grep -rq TODO src",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    }
+  ]
+}
