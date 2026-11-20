@@ -40,7 +40,7 @@
 
   <!-- Nombre -->
   <rect x="60" y="375" width="780" height="60" rx="10" fill="#161b22" stroke="#30363d"/>
-  <text x="80" y="401" font-size="13" fill="#c9d1d9" font-family="monospace">def test_returns_5_when_adding_2_and_3() -it("should return 5 when adding 2 and 3", () =&gt; { ... });gt; None: ...</text>
+  <text x="80" y="401" font-size="13" fill="#c9d1d9" font-family="monospace">def test_returns_5_when_adding_2_and_3() -&gt; None: ...</text>
   <text x="80" y="422" font-size="12" fill="#8b949e">El nombre dice el resultado y la condición (when): se lee sin abrir el test.</text>
 
   <text x="450" y="463" text-anchor="middle" font-size="12" fill="#8b949e">Semana 04 · Python con pytest</text>
