@@ -28,7 +28,7 @@ Solo **funciones puras**, como en la semana 3: reciben datos y devuelven un resu
 ```bash
 cp -r <ruta-del-bootcamp>/bootcamp/week-04-primeros_tests_automatizados_con_python/3-proyecto/starter ~/proyecto-semana-04
 cd ~/proyecto-semana-04
-uv sync --locked
+uv sync
 git init
 echo "__pycache__/" > .gitignore
 git add .
@@ -41,7 +41,7 @@ El starter trae:
 |---|---|
 | `pyproject.toml` | Python 3.14 y pytest 9.1.1 fijados, y `[tool.pytest]` configurado; no cambies esas versiones |
 | `.python-version` | `3.14` |
-| `uv.lock` | Versiones exactas: súbelo con el proyecto |
+| `uv.lock` | No viene en el starter: lo crea `uv sync` con las versiones exactas. Súbelo con el proyecto |
 | `src/domain.py` | Módulo vacío con `TODO` |
 | `tests/test_domain.py` | Suite vacía con `TODO` |
 | `mutaciones.md` | Tabla de mutaciones con `TODO` |
