@@ -15,7 +15,7 @@ Estado de cada semana:
 | [05](week-05-primeros_tests_automatizados_con_java/README.md) | [Primeros Tests Automatizados — Java](week-05-primeros_tests_automatizados_con_java/README.md) | Fundamentos | ✅ |
 | [06](week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Proyecto Integrador — Etapa 0](week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | Fundamentos | ✅ |
 | [07](week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Jest Avanzado — Organización de Suites](week-07-jest_avanzado_y_organizacion_de_suites/README.md) | JavaScript | ✅ |
-| [08](week-08-matchers_avanzados_y_parametrizacion/README.md) | [Matchers Avanzados y Parametrización con Jest](week-08-matchers_avanzados_y_parametrizacion/README.md) | JavaScript | 🟡 |
+| [08](week-08-matchers_avanzados_y_parametrizacion/README.md) | [Matchers Avanzados y Parametrización con Jest](week-08-matchers_avanzados_y_parametrizacion/README.md) | JavaScript | ✅ |
 | [09](week-09-testing_asincrono_con_jest/README.md) | [Testing Asíncrono en Jest](week-09-testing_asincrono_con_jest/README.md) | JavaScript | 🟡 |
 | [10](week-10-mocks_avanzados_en_jest/README.md) | [Mocks Avanzados en Jest](week-10-mocks_avanzados_en_jest/README.md) | JavaScript | 🟡 |
 | [11](week-11-tdd_con_jest/README.md) | [TDD con JavaScript — Red, Green, Refactor](week-11-tdd_con_jest/README.md) | JavaScript | 🟡 |

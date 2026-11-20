@@ -14,7 +14,7 @@
 
 ## La idea, comparada con lo que ya conoces
 
-Ya parametrizaste en JavaScript con `test.each` ([semana 8](../../week-08-matchers_avanzados_y_parametrizacion/1-teoria/02-tests-parametrizados-jest.md)) y en Python con `@pytest.mark.parametrize` ([semana 17](../../week-17-parametrizacion_y_marks_con_pytest/1-teoria/01-parametrizacion-efectiva-pytest.md)). La idea es la misma: el cuerpo del test se escribe una vez y cada fila de datos es una ejecución independiente.
+Ya parametrizaste en JavaScript con `test.each` ([semana 8](../../week-08-matchers_avanzados_y_parametrizacion/1-teoria/01-tablas-de-casos-con-each.md)) y en Python con `@pytest.mark.parametrize` ([semana 17](../../week-17-parametrizacion_y_marks_con_pytest/1-teoria/01-parametrizacion-efectiva-pytest.md)). La idea es la misma: el cuerpo del test se escribe una vez y cada fila de datos es una ejecución independiente.
 
 La diferencia en JUnit es que la tabla de casos va en anotaciones encima del método, y los valores llegan como parámetros del método:
 

@@ -138,4 +138,4 @@ Desde esta semana hasta la 15 solo crece `js/`. Python y Java no se tocan, pero 
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 06 - Proyecto Integrador: Etapa 0](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) |
+| [Semana 06 - Proyecto Integrador: Etapa 0](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md) | [Semana 08 - Jest: Matchers Avanzados y Parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) |

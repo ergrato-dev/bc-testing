@@ -1,0 +1,104 @@
+{
+  "semana": "08",
+  "titulo": "Jest — Matchers Avanzados y Parametrización",
+  "checks": [
+    {
+      "id": "js-pasa",
+      "descripcion": "La suite de Jest pasa, sin tests pendientes, saltados ni fallidos",
+      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && out=$(pnpm test 2>&1) && echo \"$out\" | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "inventario",
+      "descripcion": "tablas.md está completo: no queda ningún TODO",
+      "cmd": "cd {proyecto} && test -f tablas.md && ! grep -q TODO tablas.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-focos",
+      "descripcion": "Ningún test lleva .only ni .skip",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '[.](only|skip)[(]|^ *(fit|xit|fdescribe|xdescribe)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "nombres",
+      "descripcion": "Todos los tests empiezan por should",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '^ *(it|test)[(]' | grep -vE '^ *(it|test)[(].should '",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "tablas",
+      "descripcion": "Hay 3 tablas de casos o más (it.each o test.each)",
+      "cmd": "cd {proyecto}/js && test $(cat tests/*.test.js | grep -cE '[.]each[(`]') -ge 3",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "nombres-con-datos",
+      "descripcion": "El nombre de cada tabla lleva sus datos ($variable o %s)",
+      "cmd": "cd {proyecto}/js && t=$(cat tests/*.test.js | grep -E '^ *[]`][)][(]') && ! echo \"$t\" | grep -v '[$%]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "filas-con-id",
+      "descripcion": "Cada test que ejecuta Jest, fila de tabla incluida, tiene un ID encima",
+      "cmd": "cd {proyecto}/js && ids=$(cat tests/*.test.js | grep -cE '^ *// *TC-[A-Z0-9]+(-[A-Z0-9]+)* *$') && total=$(pnpm test 2>&1 | grep '^Tests:' | grep -oE '[0-9]+ total' | grep -oE '[0-9]+') && test \"$ids\" -eq \"$total\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "estricto",
+      "descripcion": "Algún objeto se compara entero con toStrictEqual",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -q 'toStrictEqual('",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "asimetrico",
+      "descripcion": "Algún test usa un matcher asimétrico (expect.any, expect.objectContaining...)",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'expect[.](any|anything|stringMatching|stringContaining|objectContaining|arrayContaining)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "coleccion",
+      "descripcion": "Algún array se comprueba con toHaveLength, toContain o toContainEqual",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'toHaveLength[(]|toContain(Equal)?[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "error-exacto",
+      "descripcion": "Cada toThrow dice qué error espera: ninguno va vacío",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -q 'toThrow(' && ! cat tests/*.test.js | grep -q 'toThrow()'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "verify-cuenta-filas",
+      "descripcion": "verify.sh falla si una tabla tiene filas sin ID",
+      "cmd": "tmp=$(mktemp -d) && cp -a {proyecto}/. \"$tmp\" && printf 'it.each([[1], [2]])(\"should pass %%s\", () => {});' > \"$tmp/js/tests/zz-sin-id.test.js\" && (cd \"$tmp\" && ! ./verify.sh >/dev/null 2>&1); r=$?; rm -rf \"$tmp\"; exit $r",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "motivos",
+      "descripcion": "Cada caso con — aparece explicado en la sección 7",
+      "cmd": "cd {proyecto} && for id in $(grep -E '^[|] TC-.*—' plan-de-pruebas.md | awk -F'|' '{gsub(/ /, \"\", $2); print $2}'); do sed -n '/^## 7[.]/,/^## 8[.]/p' plan-de-pruebas.md | grep -q \"$id\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "verify",
+      "descripcion": "./verify.sh termina en 0: tres suites en verde y la matriz coincide con los tests",
+      "cmd": "cd {proyecto} && ./verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    }
+  ]
+}

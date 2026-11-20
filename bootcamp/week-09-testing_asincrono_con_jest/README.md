@@ -101,4 +101,4 @@ En testing asíncrono, el error más frecuente no está en la lógica de negocio
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 08 - Matchers avanzados y parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) | [Semana 10 - Mocks avanzados en Jest](../week-10-mocks_avanzados_en_jest/README.md) |
+| [Semana 08 - Jest: Matchers Avanzados y Parametrización](../week-08-matchers_avanzados_y_parametrizacion/README.md) | [Semana 10 - Mocks avanzados en Jest](../week-10-mocks_avanzados_en_jest/README.md) |

@@ -39,6 +39,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 08 - JavaScript Testing II: Matchers Avanzados y Parametrización](../../week-08-matchers_avanzados_y_parametrizacion/README.md) → |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 08 - Jest: Matchers Avanzados y Parametrización](../../week-08-matchers_avanzados_y_parametrizacion/README.md) → |
 
 [↑ Semana 07](../README.md)

@@ -1,15 +1,29 @@
 # Videografía - Semana 08
 
-| Recurso | URL | Por qué verlo |
+Casi no hay vídeos en español sobre `test.each` ni sobre los matchers de objetos de Jest. Los de esta lista en español explican las pruebas parametrizadas con JUnit, que usarás en la [semana 25](../../../week-25-junit_6_avanzado_y_assertj/README.md): la idea es la misma de la teoría 01. Para `it.each` en sí, hay dos vídeos cortos en inglés.
+
+## En español
+
+| Vídeo | Canal | Para qué |
 |---|---|---|
-| Introduction To Testing In JavaScript With Jest (Web Dev Simplified) | https://www.youtube.com/watch?v=FgnxcUQ5vho | Repaso rápido de `expect` y matchers básicos antes de pasar a los avanzados. |
-| Jest Crash Course - Learn How to Test your JavaScript Application (Laiture) | https://www.youtube.com/watch?v=ajiAl5UNzBU | Recorrido amplio por matchers de igualdad, arrays y errores con ejemplos en vivo. |
-| Jest - 7 - toBe() Vs toEqual(), toBe(), toEqual(), not(), toBeCloseTo() (Seeema Holiday Developer) | https://www.youtube.com/watch?v=RT3ISoUUSkU | Diferencia entre igualdad por referencia y profunda, y uso de `toBeCloseTo` con decimales. |
-| Simplify Repetitive Tests with jest.each (TomDoesTech) | https://www.youtube.com/watch?v=0xozYnrS0_c | Muestra cómo convertir tests repetidos en una tabla con `test.each`. |
-| Jest each for parametrized tests (Concise Developer) | https://www.youtube.com/watch?v=8qf0o6ZeMQY | Variantes de `.each` (arrays y template literal) y cómo formatear el título. |
-| Building your own custom jest matchers (Andrew Burgess) | https://www.youtube.com/watch?v=JjXB9OXRbGw | Complemento del diagrama de custom matchers: cómo `expect.extend` genera mensajes de fallo legibles. |
+| [Mega Curso de Testing JavaScript en Español](https://www.youtube.com/playlist?list=PLkr7dGY4D2sNVB1pqpGKFsDubkANQve_u) | Developero | Lista de vídeos de Jest; los primeros repasan matchers y la estructura de un test |
+| [Cómo hacer pruebas parametrizadas – Curso de JUnit 4](https://www.youtube.com/watch?v=e6tOIIJXUk0) | makigas | Un test con una tabla de datos, en Java: la misma idea que `it.each` |
+| [JUnit avanzado - Intro a pruebas parametrizadas](https://www.youtube.com/watch?v=3LmA3jZLbmQ) | Tavo Leyva | Por qué parametrizar y qué casos van en una tabla |
 
-## Dinámica sugerida
+## En inglés
 
-- Ver los videos 1-3 antes del ejercicio 01.
-- Ver los videos 4-5 antes del ejercicio 02.
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [Jest each for parametrized tests](https://www.youtube.com/watch?v=8qf0o6ZeMQY) | Concise Developer | `test.each` con arrays y con la tabla de plantilla |
+| [Simplify Repetitive Tests with jest.each](https://www.youtube.com/watch?v=0xozYnrS0_c) | TomDoesTech | Convertir tests repetidos en una tabla, como en el lab 01 |
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 08](../../README.md)

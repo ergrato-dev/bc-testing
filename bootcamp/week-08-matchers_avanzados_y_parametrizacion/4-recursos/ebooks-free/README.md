@@ -1,14 +1,19 @@
-# Ebooks Free - Semana 08
+# Ebooks gratuitos - Semana 08
 
-| Recurso | URL | Por qué leerlo |
-|---|---|---|
-| Jest - Expect (documentación oficial) | https://jestjs.io/docs/expect | Referencia completa de `toStrictEqual`, `toContainEqual`, `toBeCloseTo` y `toHaveProperty`, con sus diferencias. |
-| JavaScript & Node.js Testing Best Practices (Yoni Goldberg) | https://github.com/goldbergyoni/javascript-testing-best-practices | Guía gratuita con reglas de nombrado de tests y assertions declarativas. |
-| Eloquent JavaScript - Cap. 8: Bugs and Errors | https://eloquentjavascript.net/08_error.html | Capítulo gratuito sobre testing automatizado y excepciones, base para `toThrow`. |
-| The Floating-Point Guide | https://floating-point-gui.de/ | Explica por qué `0.1 + 0.2` no es `0.3` y por que se compara con tolerancia (`toBeCloseTo`). |
+| Recurso | Para qué |
+|---|---|
+| [Software Engineering at Google, capítulo 12: Unit Testing](https://abseil.io/resources/swe-book/html/ch12.html) | La sección «Tests and Code Sharing: DAMP, Not DRY»: cuánta repetición quitar de un test sin que deje de leerse solo |
+| [JavaScript.info: Desestructuración](https://es.javascript.info/destructuring-assignment) | `({ name, expected }) =>` y el resto de formas de tomar campos de un objeto, en español |
+| [JavaScript.info: Errores personalizados](https://es.javascript.info/custom-errors) | Clases que heredan de `Error`, `this.name` y campos propios, como `TicketError` |
+| [JavaScript.info: Expresiones regulares](https://es.javascript.info/regular-expressions) | Lo que necesitas para `expect.stringMatching` y `toThrow(/.../)`: `^`, `$`, `\d` y los cuantificadores |
 
-## Sugerencia de estudio
+<!-- nav -->
+---
 
-- 20 min: matchers avanzados.
-- 20 min: tablas de parametrización.
-- 20 min: lectura de fallos de assertions.
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 08](../../README.md)

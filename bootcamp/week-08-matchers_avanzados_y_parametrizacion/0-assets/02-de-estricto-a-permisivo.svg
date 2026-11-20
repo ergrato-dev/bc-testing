@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="sans-serif">
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="38" fill="#c9d1d9" font-size="22" text-anchor="middle" font-weight="bold">Comparar objetos: de más estricto a más permisivo</text>
+
+  <g font-size="14">
+    <rect x="40" y="70" width="820" height="62" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="60" y="98" fill="#58a6ff" font-family="monospace" font-size="16">toBe</text>
+    <text x="300" y="98" fill="#c9d1d9">El mismo objeto en memoria, no una copia</text>
+    <text x="300" y="120" fill="#8b949e">Para números, textos y booleanos</text>
+
+    <rect x="40" y="144" width="820" height="62" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="60" y="172" fill="#58a6ff" font-family="monospace" font-size="16">toStrictEqual</text>
+    <text x="300" y="172" fill="#c9d1d9">El mismo contenido, campo a campo</text>
+    <text x="300" y="194" fill="#8b949e">Un campo con undefined cuenta como campo de más</text>
+
+    <rect x="40" y="218" width="820" height="62" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="60" y="246" fill="#58a6ff" font-family="monospace" font-size="16">toEqual</text>
+    <text x="300" y="246" fill="#c9d1d9">El mismo contenido, campo a campo</text>
+    <text x="300" y="268" fill="#d29922">Ignora los campos con undefined</text>
+
+    <rect x="40" y="292" width="820" height="62" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="60" y="320" fill="#58a6ff" font-family="monospace" font-size="16">toMatchObject</text>
+    <text x="300" y="320" fill="#c9d1d9">Los campos que escribes; el resto da igual</text>
+    <text x="300" y="342" fill="#d29922">Un campo de más o equivocado que no escribes pasa</text>
+
+    <rect x="40" y="366" width="820" height="62" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="60" y="394" fill="#58a6ff" font-family="monospace" font-size="16">expect.any(String)</text>
+    <text x="300" y="394" fill="#c9d1d9">Dentro de otro matcher: cualquier valor de ese tipo</text>
+    <text x="300" y="416" fill="#8b949e">Para lo que cambia en cada ejecución: horas, contadores</text>
+  </g>
+  <text x="450" y="455" fill="#8b949e" font-size="13" text-anchor="middle">Elige el más estricto que el test pueda cumplir</text>
+</svg>

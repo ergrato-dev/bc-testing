@@ -1,0 +1,4 @@
+# Jest trae @parcel/watcher, que tiene un script de compilación.
+# pnpm 12 no instala nada hasta que decides si ese script se ejecuta; Jest no lo necesita.
+allowBuilds:
+  "@parcel/watcher": false
