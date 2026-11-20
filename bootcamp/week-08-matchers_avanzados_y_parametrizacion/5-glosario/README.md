@@ -30,6 +30,6 @@
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 09 - JavaScript Testing III: Testing Asíncrono con Jest](../../week-09-testing_asincrono_con_jest/README.md) → |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 09 - Jest: Testing Asíncrono](../../week-09-testing_asincrono_con_jest/README.md) → |
 
 [↑ Semana 08](../README.md)

@@ -100,4 +100,4 @@ Un mock aporta valor cuando ayuda a aislar el comportamiento bajo prueba. Si moc
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) | [Semana 11 - TDD en JavaScript con Jest](../week-11-tdd_con_jest/README.md) |
+| [Semana 09 - Jest: Testing Asíncrono](../week-09-testing_asincrono_con_jest/README.md) | [Semana 11 - TDD en JavaScript con Jest](../week-11-tdd_con_jest/README.md) |

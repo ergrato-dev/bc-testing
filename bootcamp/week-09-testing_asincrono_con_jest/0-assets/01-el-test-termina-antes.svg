@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="sans-serif">
+  <rect width="900" height="420" fill="#0d1117"/>
+  <text x="450" y="38" fill="#c9d1d9" font-size="22" text-anchor="middle" font-weight="bold">Sin await, el test termina antes que la promesa</text>
+
+  <!-- Sin await -->
+  <rect x="30" y="64" width="840" height="150" rx="8" fill="#161b22" stroke="#f85149"/>
+  <text x="50" y="92" fill="#f85149" font-size="16" font-weight="bold">Sin await</text>
+  <text x="200" y="92" fill="#c9d1d9" font-size="14" font-family="monospace">expect(service.book(...)).rejects.toThrow(...)</text>
+  <line x1="60" y1="140" x2="840" y2="140" stroke="#30363d" stroke-width="2"/>
+  <rect x="60" y="124" width="150" height="32" rx="6" fill="#0d1117" stroke="#58a6ff"/>
+  <text x="135" y="145" fill="#58a6ff" font-size="14" text-anchor="middle">el test</text>
+  <text x="135" y="178" fill="#3fb950" font-size="14" text-anchor="middle">✓ pasa</text>
+  <rect x="250" y="124" width="200" height="32" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="350" y="145" fill="#c9d1d9" font-size="14" text-anchor="middle">otros tests, el resumen</text>
+  <text x="350" y="178" fill="#3fb950" font-size="14" text-anchor="middle" font-family="monospace">Tests: 5 passed</text>
+  <rect x="500" y="124" width="200" height="32" rx="6" fill="#0d1117" stroke="#d29922"/>
+  <text x="600" y="145" fill="#d29922" font-size="14" text-anchor="middle">la promesa termina</text>
+  <text x="600" y="178" fill="#f85149" font-size="14" text-anchor="middle">el expect falla: nadie lo espera</text>
+  <text x="780" y="145" fill="#f85149" font-size="14" text-anchor="middle" font-family="monospace">exit 1</text>
+  <text x="780" y="178" fill="#8b949e" font-size="13" text-anchor="middle">error suelto</text>
+  <text x="60" y="204" fill="#8b949e" font-size="13">El informe ya dijo PASS. El error sale después, sin el nombre del test.</text>
+
+  <!-- Con await -->
+  <rect x="30" y="234" width="840" height="150" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="50" y="262" fill="#3fb950" font-size="16" font-weight="bold">Con await</text>
+  <text x="200" y="262" fill="#c9d1d9" font-size="14" font-family="monospace">await expect(service.book(...)).rejects.toThrow(...)</text>
+  <line x1="60" y1="310" x2="840" y2="310" stroke="#30363d" stroke-width="2"/>
+  <rect x="60" y="294" width="390" height="32" rx="6" fill="#0d1117" stroke="#58a6ff"/>
+  <text x="255" y="315" fill="#58a6ff" font-size="14" text-anchor="middle">el test espera a que la promesa termine</text>
+  <text x="255" y="348" fill="#f85149" font-size="14" text-anchor="middle">✕ falla, con su nombre y su línea</text>
+  <rect x="500" y="294" width="200" height="32" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="600" y="315" fill="#c9d1d9" font-size="14" text-anchor="middle">otros tests, el resumen</text>
+  <text x="600" y="348" fill="#f85149" font-size="14" text-anchor="middle" font-family="monospace">Tests: 1 failed</text>
+  <text x="780" y="315" fill="#f85149" font-size="14" text-anchor="middle" font-family="monospace">exit 1</text>
+  <text x="60" y="374" fill="#8b949e" font-size="13">El fallo está dentro del informe y apunta al test que lo tiene.</text>
+</svg>

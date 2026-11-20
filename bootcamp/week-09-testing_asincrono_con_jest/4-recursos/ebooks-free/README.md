@@ -1,15 +1,20 @@
-# Ebooks Free - Semana 09
+# Ebooks gratuitos - Semana 09
 
-| Recurso | URL | Por qué leerlo |
-|---|---|---|
-| Jest - Testing Asynchronous Code (documentación oficial) | https://jestjs.io/docs/asynchronous | Patrones oficiales con `await`, `return`, `resolves`/`rejects` y `expect.assertions`. |
-| Jest - Timer Mocks (documentación oficial) | https://jestjs.io/docs/timer-mocks | `advanceTimersByTime`, `runOnlyPendingTimers` y el límite de 100000 timers de `runAllTimers`. |
-| Eloquent JavaScript - Cap. 11: Asynchronous Programming | https://eloquentjavascript.net/11_async.html | Capítulo gratuito sobre promesas, funciones `async` y el event loop. |
-| You Don't Know JS: Async & Performance (1a ed.) | https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/README.md | Libro gratuito; el capítulo de promesas explica a fondo cómo se encadenan y rechazan. |
-| javascript.info - Promises, async/await | https://javascript.info/async | Tutorial por capítulos, incluido uno dedicado a microtasks. |
+| Recurso | Para qué |
+|---|---|
+| [JavaScript.info: Promesas](https://es.javascript.info/promise-basics) | Qué es una promesa, sus estados (pendiente, resuelta, rechazada) y `.then`, en español |
+| [JavaScript.info: Async/await](https://es.javascript.info/async-await) | `async`, `await` y el `try/catch` alrededor de un `await`, en español |
+| [JavaScript.info: Microtareas](https://es.javascript.info/microtask-queue) | Por qué el código de detrás de un `await` se ejecuta después: la razón de que `advanceTimersByTime` no vea el reintento |
+| [JavaScript.info: setTimeout y setInterval](https://es.javascript.info/settimeout-setinterval) | Los timers que el reloj falso de Jest sustituye |
+| [Eloquent JavaScript, capítulo 11: Asynchronous Programming](https://eloquentjavascript.net/11_async.html) | La programación asíncrona desde el principio, con callbacks, promesas y `async` (en inglés) |
 
-## Sugerencia de estudio
+<!-- nav -->
+---
 
-- 20 min: promesas y `async/await`.
-- 20 min: errores asíncronos y falsos positivos.
-- 20 min: fake timers.
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 09](../../README.md)

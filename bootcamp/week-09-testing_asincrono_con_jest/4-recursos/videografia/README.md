@@ -1,15 +1,30 @@
 # Videografía - Semana 09
 
-| Recurso | URL | Por qué verlo |
+No hay vídeos en español sobre los tests asíncronos de Jest ni sobre sus fake timers. Los de esta lista en español explican las promesas y `async`/`await`, la base de la teoría 01. Para los tests en sí, hay tres vídeos en inglés.
+
+## En español
+
+| Vídeo | Canal | Para qué |
 |---|---|---|
-| What the heck is the event loop anyway? (Philip Roberts, JSConf EU) | https://www.youtube.com/watch?v=8aGhZQkoFbQ | Explica call stack, cola de tareas y callbacks: la base para entender por qué un test asíncrono termina antes de tiempo. |
-| In The Loop (Jake Archibald, JSConf) | https://www.youtube.com/watch?v=cCOL7MC4Pl0 | Diferencia entre microtasks (promesas) y tareas (`setTimeout`), clave para `advanceTimersByTimeAsync`. |
-| JavaScript Async Await (Web Dev Simplified) | https://www.youtube.com/watch?v=V_Kr9OSfDeU | Repaso corto de `async/await` y manejo de errores con `try/catch`. |
-| How to Test Asynchronous Code with Jest (ProgrammingKnowledge) | https://www.youtube.com/watch?v=kRQBuchIawU | Ejemplos de tests con callbacks, promesas, `resolves`/`rejects` y `async/await`. |
-| Test Timing-Based JavaScript Functions with Jest (Josh Branchaud) | https://www.youtube.com/watch?v=WbPXXDijkhc | Uso de los fake timers de Jest para probar funciones con `setTimeout` sin esperar tiempo real. |
-| Day 4 - Time Travel with Fake Timers (Marc Littlemore) | https://www.youtube.com/watch?v=aneQh5DgboE | Cómo acelerar tests lentos de temporizadores avanzando el reloj falso. |
+| [Guía completa de Promesas y Async/Await](https://www.youtube.com/watch?v=Kq03iwGT4xk) | Domini Code | Las tareas asíncronas, las promesas y `async`/`await` de principio a fin |
+| [PROMESAS y ASYNC - AWAIT, Curso de JavaScript desde cero #16](https://www.youtube.com/watch?v=ksg6SDwllDs) | Desarrollo Útil | Por qué existen las promesas, `.then`, `.catch` y `await` |
+| [Callbacks, Promises (promesas) y async await en JavaScript](https://www.youtube.com/watch?v=HgqNstf4xg0) | Emprinnos | La diferencia entre código síncrono y asíncrono |
 
-## Dinámica sugerida
+## En inglés
 
-- Ver los videos 1-4 antes del ejercicio 01.
-- Ver los videos 5-6 antes del ejercicio 02.
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [How to Test Asynchronous Code with Jest](https://www.youtube.com/watch?v=kRQBuchIawU) | ProgrammingKnowledge | Un recorrido por los tests de código asíncrono en Jest |
+| [Test Timing-Based JavaScript Functions with Jest](https://www.youtube.com/watch?v=WbPXXDijkhc) | Josh Branchaud | Fake timers sobre una función que espera |
+| [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ) | JSConf | El bucle de eventos: por qué una promesa termina después de que el test devuelve el control |
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 09](../../README.md)

@@ -157,7 +157,7 @@ Es un detector de **fugas de goroutines** gratuito: un `go func()` que se olvida
 | Un plazo de `context.WithTimeout` | `synctest.Test`: el plazo vence en tiempo virtual |
 | Un handler HTTP que recibe peticiones a la vez | `httptest.NewServer` y varias goroutines, con `-race` (proyecto) |
 
-Comparado con lo que viste en otros lenguajes: Jest simula el reloj con `jest.useFakeTimers()` ([semana 9](../../week-09-testing_asincrono_con_jest/1-teoria/03-fake-timers-jest.md)), pero tienes que avanzarlo tú con `advanceTimersByTime`. En `synctest` el reloj avanza solo, cuando todo está bloqueado, y no hace falta cambiar el código de producción para inyectar un reloj.
+Comparado con lo que viste en otros lenguajes: Jest simula el reloj con `jest.useFakeTimers()` ([semana 9](../../week-09-testing_asincrono_con_jest/1-teoria/03-fake-timers.md)), pero tienes que avanzarlo tú con `advanceTimersByTime`. En `synctest` el reloj avanza solo, cuando todo está bloqueado, y no hace falta cambiar el código de producción para inyectar un reloj.
 
 ---
 

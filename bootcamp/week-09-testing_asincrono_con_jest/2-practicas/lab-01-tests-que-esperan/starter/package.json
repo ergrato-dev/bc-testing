@@ -1,0 +1,14 @@
+{
+  "name": "labs-semana-09",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "30.5.2"
+  }
+}

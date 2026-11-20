@@ -133,4 +133,4 @@ Una tabla cambia lo que cuenta `verify.sh`: cada fila es un test para Jest, pero
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 07 - Jest Avanzado y Organización de Suites](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) |
+| [Semana 07 - Jest Avanzado y Organización de Suites](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Jest: Testing Asíncrono](../week-09-testing_asincrono_con_jest/README.md) |

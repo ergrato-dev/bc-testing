@@ -1,0 +1,104 @@
+{
+  "semana": "09",
+  "titulo": "Jest — Testing Asíncrono",
+  "checks": [
+    {
+      "id": "js-pasa",
+      "descripcion": "La suite de Jest pasa, sin tests pendientes, saltados ni fallidos",
+      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && out=$(pnpm test 2>&1) && echo \"$out\" | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-focos",
+      "descripcion": "Ningún test lleva .only ni .skip",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '[.](only|skip)[(]|^ *(fit|xit|fdescribe|xdescribe)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "nombres",
+      "descripcion": "Todos los tests empiezan por should",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '^ *(it|test)[(]' | grep -vE '^ *(it|test)[(].should '",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "filas-con-id",
+      "descripcion": "Cada test que ejecuta Jest, fila de tabla incluida, tiene un ID encima",
+      "cmd": "cd {proyecto}/js && ids=$(cat tests/*.test.js | grep -cE '^ *// *TC-[A-Z0-9]+(-[A-Z0-9]+)* *$') && total=$(pnpm test 2>&1 | grep '^Tests:' | grep -oE '[0-9]+ total' | grep -oE '[0-9]+') && test \"$ids\" -eq \"$total\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "reintentos",
+      "descripcion": "js/src/retry.js existe y el servicio espera a sendWithRetry con await",
+      "cmd": "cd {proyecto}/js && test -f src/retry.js && grep -q 'await sendWithRetry(' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "rechazos",
+      "descripcion": "Algún test comprueba un rechazo con await expect(...).rejects",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'await expect[(].*[.]rejects[.]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-expect-suelto",
+      "descripcion": "Ningún expect(...).rejects o .resolves queda sin await, return ni variable",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '^ *expect[(].*[.](rejects|resolves)[.]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "fake-timers",
+      "descripcion": "Algún test usa fake timers y los avanza con la versión Async",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -q 'useFakeTimers(' && cat tests/*.test.js | grep -qE '(advanceTimersByTimeAsync|runAllTimersAsync)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "sin-avance-sincrono",
+      "descripcion": "Ningún test avanza los timers con la versión síncrona",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '(advanceTimersByTime|runAllTimers|runOnlyPendingTimers)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "relojes-restaurados",
+      "descripcion": "Cada archivo que activa fake timers vuelve a los reales con useRealTimers",
+      "cmd": "cd {proyecto}/js && for f in $(grep -l 'useFakeTimers(' tests/*.test.js); do grep -q 'useRealTimers(' \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "sin-esperas-reales",
+      "descripcion": "La suite pasa con --testTimeout=1000: ningún test espera tiempo real",
+      "cmd": "cd {proyecto}/js && pnpm test --testTimeout=1000 >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mutante-sin-await",
+      "descripcion": "Si el servicio deja de esperar a sendWithRetry, algún test falla",
+      "cmd": "tmp=$(mktemp -d) && cp -a {proyecto}/js/. \"$tmp\" && sed -i 's/await sendWithRetry(/sendWithRetry(/' \"$tmp\"/src/*.js && (cd \"$tmp\" && ! pnpm test >/dev/null 2>&1); r=$?; rm -rf \"$tmp\"; exit $r",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "motivos",
+      "descripcion": "Cada caso con — aparece explicado en la sección 7",
+      "cmd": "cd {proyecto} && for id in $(grep -E '^[|] TC-.*—' plan-de-pruebas.md | awk -F'|' '{gsub(/ /, \"\", $2); print $2}'); do sed -n '/^## 7[.]/,/^## 8[.]/p' plan-de-pruebas.md | grep -q \"$id\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "verify",
+      "descripcion": "./verify.sh termina en 0: tres suites en verde y la matriz coincide con los tests",
+      "cmd": "cd {proyecto} && ./verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    }
+  ]
+}

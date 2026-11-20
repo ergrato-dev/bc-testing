@@ -1,6 +1,6 @@
-# Semana 09 - JavaScript Testing III: Testing Asíncrono con Jest
+# Semana 09 - Jest: Testing Asíncrono
 
-> **Etapa 1 - Testing con JavaScript** | Semana 9 de 15
+> **Etapa 1 - Testing con JavaScript** | Semana 9 de 46
 
 ![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
@@ -10,12 +10,18 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Escribir tests para funciones asíncronas con `async/await` y Promises.
-2. Validar errores asíncronos con `rejects` y `toThrow` de forma correcta.
-3. Controlar el tiempo con fake timers en escenarios de retry y debounce.
-4. Evitar falsos positivos por no esperar la finalización de tareas asíncronas.
-5. Diseñar suites asíncronas legibles siguiendo patrón AAA.
-6. Preparar base para integrar mocks avanzados y APIs en semanas siguientes.
+1. Escribir tests de funciones asíncronas que esperan cada promesa con `async` y `await`.
+2. Reconocer un `expect` que nadie espera por lo que muestra Jest: el resumen en verde, un error después y el código de salida 1.
+3. Comprobar los rechazos con `await expect(...).rejects`, y encontrar el `try/catch` que pasa sin comprobar nada.
+4. Simular un colaborador asíncrono que falla con `mockRejectedValue` y sus versiones `Once`.
+5. Probar reintentos y esperas con el reloj falso de Jest, sin esperar tiempo real.
+
+---
+
+## Requisitos previos
+
+- La [semana 7](../week-07-jest_avanzado_y_organizacion_de_suites/README.md): `describe`, hooks, stubs y mocks con `jest.fn()`.
+- La [semana 8](../week-08-matchers_avanzados_y_parametrizacion/README.md): tu `~/proyecto-semana-08` con `./verify.sh` en verde.
 
 ---
 
@@ -23,10 +29,10 @@ Al finalizar esta semana serás capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoría | Promesas, async/await, rejects y timers | 2.5 h |
-| Prácticas | Ejercicios guiados de asincronía y control de tiempo | 4 h |
-| Proyecto | Suite asíncrona del dominio asignado | 3 h |
-| Recursos y cierre | Refuerzo y checklist final | 0.5 h |
+| Teoría | Esperar a las promesas; errores asíncronos; fake timers | 2.5 h |
+| Prácticas | 3 labs sobre la taquilla y los avisos del planetario | 4 h |
+| Proyecto | El aviso del dominio, asíncrono y con reintentos | 3 h |
+| Recursos | Lecturas y vídeos | 0.5 h |
 
 ---
 
@@ -34,18 +40,20 @@ Al finalizar esta semana serás capaz de:
 
 ### Teoría
 
-1. [Promesas y async/await en testing](./1-teoria/01-promesas-y-async-await-jest.md)
-2. [Validación de errores asíncronos](./1-teoria/02-errores-asincronos-jest.md)
-3. [Fake timers y control del tiempo](./1-teoria/03-fake-timers-jest.md)
+1. [Esperar a las promesas](./1-teoria/01-esperar-a-las-promesas.md)
+2. [Errores asíncronos](./1-teoria/02-errores-asincronos.md)
+3. [Fake timers: controlar el tiempo](./1-teoria/03-fake-timers.md)
 
 ### Prácticas
 
-- [Ejercicio 01 - Promesas y async/await](./2-practicas/ejercicio-01-promesas-y-async-await/)
-- [Ejercicio 02 - Fake timers y reintentos](./2-practicas/ejercicio-02-fake-timers-y-reintentos/)
+- [Índice de labs](./2-practicas/README.md)
+- [Lab 01 - Tests que esperan](./2-practicas/lab-01-tests-que-esperan/README.md)
+- [Lab 02 - Errores asíncronos](./2-practicas/lab-02-errores-asincronos/README.md)
+- [Lab 03 - Reintentos con fake timers](./2-practicas/lab-03-reintentos-con-fake-timers/README.md)
 
 ### Proyecto
 
-- [Proyecto semanal: Suite asíncrona del dominio](./3-proyecto/README.md)
+- [Suite asíncrona con Jest](./3-proyecto/README.md)
 
 ### Recursos
 
@@ -59,28 +67,40 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
+## Entregables
+
+- Proyecto (único entregable obligatorio): `~/proyecto-semana-09`, con el aviso asíncrono y sus reintentos, la suite de `js/` esperando cada promesa y el plan actualizado, por el canal que indique el instructor. Antes de entregarlo:
+
+  ```bash
+  PROYECTO=~/proyecto-semana-09 ./scripts/verificar-semana.sh 09
+  ```
+
+  Las comprobaciones están en [checks.json](./checks.json) y se explican en [autograding](../../docs/autograding.md).
+
+---
+
 ## Estructura de Carpetas
 
-```
+```text
 week-09-testing_asincrono_con_jest/
 |-- README.md
 |-- rubrica-evaluacion.md
+|-- checks.json
 |-- 0-assets/
-|   |-- 01-flujo-async-await-jest.svg
-|   |-- 02-manejo-rejects-jest.svg
-|   |-- 03-fake-timers-ciclo.svg
-|   |-- 04-event-loop-testing.svg
-|   `-- 05-errores-asincronos-diagnostico.svg
+|   |-- 01-el-test-termina-antes.svg
+|   `-- 02-reloj-falso-reintentos.svg
 |-- 1-teoria/
-|   |-- 01-promesas-y-async-await-jest.md
-|   |-- 02-errores-asincronos-jest.md
-|   `-- 03-fake-timers-jest.md
+|   |-- 01-esperar-a-las-promesas.md
+|   |-- 02-errores-asincronos.md
+|   `-- 03-fake-timers.md
 |-- 2-practicas/
-|   |-- ejercicio-01-promesas-y-async-await/
-|   `-- ejercicio-02-fake-timers-y-reintentos/
+|   |-- README.md
+|   |-- lab-01-tests-que-esperan/
+|   |-- lab-02-errores-asincronos/
+|   `-- lab-03-reintentos-con-fake-timers/
 |-- 3-proyecto/
 |   |-- README.md
-|   `-- starter/
+|   `-- starter/retry.js
 |-- 4-recursos/
 |   |-- ebooks-free/README.md
 |   |-- videografia/README.md
@@ -91,9 +111,21 @@ week-09-testing_asincrono_con_jest/
 
 ---
 
+## Versiones de la semana
+
+| Herramienta | Versión | Dónde se fija |
+|---|---|---|
+| Node.js | 22 | La instalas tú; `engines` del proyecto |
+| pnpm | 12.6.0 | `packageManager` de `package.json` |
+| Jest | 30.5.2 | `devDependencies` de `package.json` |
+
+Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
+
+---
+
 ## Nota Importante
 
-En testing asíncrono, el error más frecuente no está en la lógica de negocio sino en no esperar correctamente la promesa. Esta semana prioriza confiabilidad sobre cantidad de tests.
+Con código asíncrono, la línea `Tests:` no basta: un `expect` que nadie espera falla después del resumen, o hace que Jest no llegue a imprimirlo. Mira siempre el código de salida de `pnpm test`, como hace `verify.sh`.
 
 ---
 

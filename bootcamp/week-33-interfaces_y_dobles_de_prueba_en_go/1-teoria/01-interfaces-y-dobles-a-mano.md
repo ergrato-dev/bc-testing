@@ -109,7 +109,7 @@ r := rand.New(rand.NewPCG(1, 2)) // math/rand/v2: misma semilla, mismos números
 
 | Dependencia oculta | Se inyecta como | Equivalente que ya conoces |
 |---|---|---|
-| `time.Now()` | `Now func() time.Time` | `jest.useFakeTimers` ([semana 9](../../week-09-testing_asincrono_con_jest/1-teoria/03-fake-timers-jest.md)), `Clock` en Java |
+| `time.Now()` | `Now func() time.Time` | `jest.useFakeTimers` ([semana 9](../../week-09-testing_asincrono_con_jest/1-teoria/03-fake-timers.md)), `Clock` en Java |
 | `rand.IntN` | `*rand.Rand` con semilla fija | `random.seed` en Python, `new Random(seed)` en Java |
 
 ---

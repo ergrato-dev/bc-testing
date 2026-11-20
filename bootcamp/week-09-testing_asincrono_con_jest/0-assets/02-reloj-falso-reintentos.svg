@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="sans-serif">
+  <rect width="900" height="380" fill="#0d1117"/>
+  <text x="450" y="38" fill="#c9d1d9" font-size="22" text-anchor="middle" font-weight="bold">Los reintentos con el reloj falso de Jest</text>
+
+  <rect x="30" y="62" width="840" height="290" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="50" y="92" fill="#F7DF1E" font-size="15" font-family="monospace">sendWithRetry(notifier, to, message)   // retries: 2, delay: 1000</text>
+
+  <!-- eje -->
+  <line x1="80" y1="190" x2="840" y2="190" stroke="#30363d" stroke-width="3"/>
+  <g font-size="13" fill="#8b949e" text-anchor="middle" font-family="monospace">
+    <text x="100" y="214">0 ms</text>
+    <text x="340" y="214">1000 ms</text>
+    <text x="760" y="214">3000 ms</text>
+  </g>
+
+  <!-- intentos -->
+  <g font-size="14" text-anchor="middle">
+    <circle cx="100" cy="190" r="9" fill="#f85149"/>
+    <text x="100" y="160" fill="#c9d1d9">intento 1</text>
+    <text x="100" y="140" fill="#f85149" font-size="13">falla</text>
+    <circle cx="340" cy="190" r="9" fill="#f85149"/>
+    <text x="340" y="160" fill="#c9d1d9">intento 2</text>
+    <text x="340" y="140" fill="#f85149" font-size="13">falla</text>
+    <circle cx="760" cy="190" r="9" fill="#f85149"/>
+    <text x="760" y="160" fill="#c9d1d9">intento 3</text>
+    <text x="760" y="140" fill="#f85149" font-size="13">falla: rechaza</text>
+  </g>
+  <g font-size="13" fill="#d29922" text-anchor="middle">
+    <text x="220" y="180">espera 1 s</text>
+    <text x="550" y="180">espera 2 s (el doble)</text>
+  </g>
+
+  <!-- avances -->
+  <g font-family="monospace" font-size="13" fill="#58a6ff">
+    <text x="60" y="256">await jest.advanceTimersByTimeAsync(999)</text>
+    <text x="60" y="278">// send: 1 llamada</text>
+    <text x="460" y="256">await jest.advanceTimersByTimeAsync(1)</text>
+    <text x="460" y="278">// send: 2 llamadas</text>
+  </g>
+  <line x1="330" y1="230" x2="330" y2="198" stroke="#58a6ff" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="342" y1="230" x2="342" y2="198" stroke="#3fb950" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="50" y="320" fill="#c9d1d9" font-size="14">El test no espera 3 s: mueve el reloj falso hasta un milisegundo antes y uno después de cada reintento.</text>
+  <text x="50" y="340" fill="#8b949e" font-size="13">Con un bug que no dobla la espera, el intento 3 llega a los 2000 ms y el test lo ve.</text>
+</svg>
