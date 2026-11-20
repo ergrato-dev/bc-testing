@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="sans-serif">
+  <title>Stub, mock y spy: qué sustituyen y qué comprueba el test</title>
+  <rect width="900" height="400" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" font-weight="bold" text-anchor="middle">Tres dobles de prueba</text>
+
+  <!-- Código bajo prueba -->
+  <rect x="330" y="56" width="240" height="56" rx="8" fill="#161b22" stroke="#F7DF1E"/>
+  <text x="450" y="80" fill="#F7DF1E" font-size="14" font-weight="bold" text-anchor="middle">Código bajo prueba</text>
+  <text x="450" y="100" fill="#c9d1d9" font-size="13" font-family="monospace" text-anchor="middle">service.book(...)</text>
+
+  <line x1="390" y1="112" x2="160" y2="146" stroke="#8b949e" stroke-width="2"/>
+  <line x1="450" y1="112" x2="450" y2="146" stroke="#8b949e" stroke-width="2"/>
+  <line x1="510" y1="112" x2="740" y2="146" stroke="#8b949e" stroke-width="2"/>
+
+  <!-- Stub -->
+  <rect x="30" y="146" width="260" height="210" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="160" y="174" fill="#58a6ff" font-size="16" font-weight="bold" text-anchor="middle">Stub</text>
+  <text x="160" y="200" fill="#c9d1d9" font-size="13" text-anchor="middle">Da una respuesta fija</text>
+  <text x="160" y="220" fill="#c9d1d9" font-size="13" text-anchor="middle">para llevar el código por un camino</text>
+  <text x="160" y="254" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">today: jest.fn()</text>
+  <text x="160" y="272" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">  .mockReturnValue("2026-03-15")</text>
+  <text x="160" y="310" fill="#8b949e" font-size="13" text-anchor="middle">El test mira el resultado,</text>
+  <text x="160" y="330" fill="#8b949e" font-size="13" text-anchor="middle">no el stub</text>
+
+  <!-- Mock -->
+  <rect x="320" y="146" width="260" height="210" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="450" y="174" fill="#3fb950" font-size="16" font-weight="bold" text-anchor="middle">Mock</text>
+  <text x="450" y="200" fill="#c9d1d9" font-size="13" text-anchor="middle">Sustituye al colaborador</text>
+  <text x="450" y="220" fill="#c9d1d9" font-size="13" text-anchor="middle">y anota cada llamada</text>
+  <text x="450" y="254" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">send: jest.fn()</text>
+  <text x="450" y="272" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">toHaveBeenCalledWith(...)</text>
+  <text x="450" y="310" fill="#8b949e" font-size="13" text-anchor="middle">El test mira cómo se llamó:</text>
+  <text x="450" y="330" fill="#8b949e" font-size="13" text-anchor="middle">argumentos y número de veces</text>
+
+  <!-- Spy -->
+  <rect x="610" y="146" width="260" height="210" rx="8" fill="#161b22" stroke="#d29922"/>
+  <text x="740" y="174" fill="#d29922" font-size="16" font-weight="bold" text-anchor="middle">Spy</text>
+  <text x="740" y="200" fill="#c9d1d9" font-size="13" text-anchor="middle">Envuelve una función real:</text>
+  <text x="740" y="220" fill="#c9d1d9" font-size="13" text-anchor="middle">anota y ejecuta la original</text>
+  <text x="740" y="254" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">jest.spyOn(console, "log")</text>
+  <text x="740" y="272" fill="#c9d1d9" font-size="12" font-family="monospace" text-anchor="middle">jest.restoreAllMocks()</text>
+  <text x="740" y="310" fill="#8b949e" font-size="13" text-anchor="middle">Hay que restaurarlo:</text>
+  <text x="740" y="330" fill="#8b949e" font-size="13" text-anchor="middle">si no, sigue en el test siguiente</text>
+
+  <text x="450" y="386" fill="#c9d1d9" font-size="13" text-anchor="middle"><tspan font-family="monospace">jest.fn()</tspan> hace de stub o de mock según lo que compruebes con él</text>
+</svg>

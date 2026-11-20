@@ -1,6 +1,6 @@
-# Semana 07 - JavaScript Testing I: Jest Avanzado y Organización de Suites
+# Semana 07 - Jest Avanzado y Organización de Suites
 
-> **Etapa 1 - Testing con JavaScript** | Semana 7 de 15
+> **Etapa 1 - Testing con JavaScript** | Semana 7 de 46
 
 ![Bootcamp Testing](../../assets/bootcamp-header.svg)
 
@@ -10,12 +10,18 @@
 
 Al finalizar esta semana serás capaz de:
 
-1. Organizar suites de tests en Jest con `describe` anidados por comportamiento.
-2. Aplicar hooks de ciclo de vida (`beforeAll`, `beforeEach`, `afterEach`, `afterAll`) con criterio.
-3. Diferenciar `mock`, `stub` y `spy` en escenarios básicos de aislamiento.
-4. Diseñar suites legibles con patrón AAA y nombres de test profesionales.
-5. Ejecutar tests por archivo y por patrón usando `pnpm`.
-6. Preparar una base de trabajo para temas avanzados de mocking y asincronía.
+1. Organizar una suite de Jest en `describe` anidados por función y por contexto, de forma que el informe se lea como una lista de reglas.
+2. Ejecutar un contexto con `-t` y encontrar un `.only` olvidado antes de que deje la suite en verde sin ejecutarla.
+3. Preparar el estado de cada test con `beforeEach`, predecir el orden de los hooks y detectar con `--randomize` los tests que dependen de otros.
+4. Sustituir un colaborador por un stub, un mock o un spy de Jest, y saber qué comprueba el test en cada caso.
+5. Probar con dobles un servicio que guarda estado y avisa al cliente, sin perder la trazabilidad de la semana 6.
+
+---
+
+## Requisitos previos
+
+- La [semana 3](../week-03-primeros_tests_automatizados_con_javascript/README.md): Jest, `describe`, `it`, AAA y matchers.
+- La [semana 6](../week-06-plan_de_pruebas_y_suite_base_multilenguaje/README.md): tu `~/proyecto-semana-06` con `./verify.sh` en verde.
 
 ---
 
@@ -23,10 +29,10 @@ Al finalizar esta semana serás capaz de:
 
 | Actividad | Contenido | Tiempo |
 |---|---|---|
-| Teoría | Organización, hooks y fundamentos de test doubles | 2.5 h |
-| Prácticas | Ejercicios guiados de estructura y aislamiento básico | 4 h |
-| Proyecto | Suite inicial modular del dominio asignado | 3 h |
-| Recursos y cierre | Refuerzo y checklist de calidad | 0.5 h |
+| Teoría | Suites por comportamiento; hooks y aislamiento; stub, mock y spy | 2.5 h |
+| Prácticas | 3 labs sobre el servicio de reservas del planetario | 4 h |
+| Proyecto | Suite modular del dominio y un servicio probado con dobles | 3 h |
+| Recursos | Lecturas y vídeos | 0.5 h |
 
 ---
 
@@ -34,18 +40,20 @@ Al finalizar esta semana serás capaz de:
 
 ### Teoría
 
-1. [Organización de suites y convenciones de Jest](./1-teoria/01-organizacion-suites-jest.md)
-2. [Ciclo de vida de pruebas con hooks](./1-teoria/02-ciclo-de-vida-hooks-jest.md)
-3. [Introducción a mocks, stubs y spies](./1-teoria/03-intro-mocks-stubs-spies-jest.md)
+1. [Organizar una suite por comportamiento](./1-teoria/01-organizar-suites-por-comportamiento.md)
+2. [Hooks y aislamiento entre tests](./1-teoria/02-hooks-y-aislamiento.md)
+3. [Dobles de prueba: stub, mock y spy](./1-teoria/03-dobles-de-prueba-basicos.md)
 
 ### Prácticas
 
-- [Ejercicio 01 - Organización de suite Jest](./2-practicas/ejercicio-01-organizacion-suite-jest/)
-- [Ejercicio 02 - Hooks y mocks básicos](./2-practicas/ejercicio-02-hooks-y-mocks-basicos/)
+- [Índice de labs](./2-practicas/README.md)
+- [Lab 01 - Describe por comportamiento](./2-practicas/lab-01-describe-por-comportamiento/README.md)
+- [Lab 02 - Hooks y estado compartido](./2-practicas/lab-02-hooks-y-estado-compartido/README.md)
+- [Lab 03 - Stubs, mocks y spies](./2-practicas/lab-03-stubs-mocks-y-spies/README.md)
 
 ### Proyecto
 
-- [Proyecto semanal: Suite modular del dominio](./3-proyecto/README.md)
+- [Suite modular con Jest](./3-proyecto/README.md)
 
 ### Recursos
 
@@ -59,27 +67,45 @@ Al finalizar esta semana serás capaz de:
 
 ---
 
+## Entregables
+
+- Proyecto (único entregable obligatorio): `~/proyecto-semana-07`, con la suite de `js/` reorganizada, el servicio y sus tests, y el plan actualizado, por el canal que indique el instructor. Antes de entregarlo:
+
+  ```bash
+  PROYECTO=~/proyecto-semana-07 ./scripts/verificar-semana.sh 07
+  ```
+
+  Las comprobaciones están en [checks.json](./checks.json) y se explican en [autograding](../../docs/autograding.md).
+
+---
+
 ## Estructura de Carpetas
 
-```
+```text
 week-07-jest_avanzado_y_organizacion_de_suites/
 |-- README.md
 |-- rubrica-evaluacion.md
+|-- checks.json
 |-- 0-assets/
-|   |-- 01-mapa-suites-jest.svg
-|   |-- 02-ciclo-hooks-jest.svg
-|   |-- 03-test-doubles-jest.svg
-|   `-- 04-flujo-ejecucion-jest.svg
+|   |-- 01-orden-de-los-hooks.svg
+|   `-- 02-stub-mock-spy.svg
 |-- 1-teoria/
-|   |-- 01-organizacion-suites-jest.md
-|   |-- 02-ciclo-de-vida-hooks-jest.md
-|   `-- 03-intro-mocks-stubs-spies-jest.md
+|   |-- 01-organizar-suites-por-comportamiento.md
+|   |-- 02-hooks-y-aislamiento.md
+|   `-- 03-dobles-de-prueba-basicos.md
 |-- 2-practicas/
-|   |-- ejercicio-01-organizacion-suite-jest/
-|   `-- ejercicio-02-hooks-y-mocks-basicos/
+|   |-- README.md
+|   |-- lab-01-describe-por-comportamiento/
+|   |-- lab-02-hooks-y-estado-compartido/
+|   `-- lab-03-stubs-mocks-y-spies/
 |-- 3-proyecto/
 |   |-- README.md
-|   `-- starter/
+|   `-- starter/js/
+|       |-- src/clock.js
+|       |-- src/notifier.js
+|       |-- src/service.js
+|       |-- tests/notifier.test.js
+|       `-- tests/service.test.js
 |-- 4-recursos/
 |   |-- ebooks-free/README.md
 |   |-- videografia/README.md
@@ -90,9 +116,21 @@ week-07-jest_avanzado_y_organizacion_de_suites/
 
 ---
 
+## Versiones de la semana
+
+| Herramienta | Versión | Dónde se fija |
+|---|---|---|
+| Node.js | 22 | La instalas tú; `engines` del proyecto |
+| pnpm | 12.6.0 | `packageManager` de `package.json` |
+| Jest | 30.5.2 | `devDependencies` de `package.json` |
+
+Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
+
+---
+
 ## Nota Importante
 
-En esta semana comienza la etapa enfocada solo en JavaScript. La prioridad es mejorar la arquitectura de tests antes de aumentar complejidad técnica.
+Desde esta semana hasta la 15 solo crece `js/`. Python y Java no se tocan, pero `./verify.sh` los sigue ejecutando: cada entrega tiene que dejar las tres suites en verde.
 
 ---
 

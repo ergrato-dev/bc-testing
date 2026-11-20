@@ -1,18 +1,29 @@
-# Videografía — Semana 07
+# Videografía - Semana 07
 
-> Jest Avanzado y Organización de Suites
+Casi no hay vídeos en español sobre los hooks de Jest o sobre `jest.spyOn`. Los de esta lista cubren lo mismo con otros ejemplos, y el de Mockito explica la diferencia entre spy y stub con Java, que usarás en la [semana 26](../../../week-26-mockito_mocking_en_java/README.md).
 
+## En español
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [JEST JS tutorial en español para PRINCIPIANTES](https://www.youtube.com/watch?v=tgWBQZNCOT0) | Developero | Repaso de `describe`, `it` y matchers de la semana 3, antes del lab 01 |
+| [Pruebas unitarias y de integración en Node JS con Jest](https://www.youtube.com/watch?v=_hf5VH78_IY) | Escalab | Jest en un proyecto de Node.js, con tests unitarios y de integración; útil para ver suites más grandes |
+| [Pruebas Unitarias en Java - Cap 30 - Mockito - Parte 5 Spy & Stub](https://www.youtube.com/watch?v=f89OiLWOEyQ) | Carlos Ruiz | Spy frente a stub y mock, con otra herramienta; la idea es la misma de la teoría 03 |
+
+## En inglés
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [Jest tutorial #7 Before Each](https://www.youtube.com/watch?v=WbUTR_E4osg) | Code Step By Step | `beforeEach` en pocos minutos, antes del lab 02 |
+| [JestJS Mocking tutorial Part 3: jest.spyOn() and jest.mock()](https://www.youtube.com/watch?v=p-Ddv28QrUA) | krunal shimpi | La parte de `jest.spyOn`; `jest.mock()` llega en la [semana 10](../../../week-10-mocks_avanzados_en_jest/README.md) |
+
+<!-- nav -->
 ---
 
-| Recurso | URL | Por qué verlo |
-|---------|-----|---------------|
-| Jest Crash Course - Unit Testing in JavaScript (Traversy Media) | [youtube.com/watch?v=7r4xVDI2vho](https://www.youtube.com/watch?v=7r4xVDI2vho) | Repaso de `describe`, `test` y matchers antes de organizar suites |
-| React Testing Library Tutorial #14 - Before & After Each (Net Ninja) | [youtube.com/watch?v=MtiQMhzjQrY](https://www.youtube.com/watch?v=MtiQMhzjQrY) | `beforeEach`/`afterEach` en la práctica; el ejemplo usa React pero los hooks son los de Jest |
-| JestJS Mocking tutorial Part 3: jest.spyOn() and jest.mock() (krunal shimpi) | [youtube.com/watch?v=p-Ddv28QrUA](https://www.youtube.com/watch?v=p-Ddv28QrUA) | Ejemplo de `jest.spyOn` sobre un objeto real; ver solo la parte de `spyOn` (el resto se ve en Semana 10) |
+## 🔗 Navegación
 
----
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
-## Dinámica sugerida
-
-- Ver el video 1 antes del ejercicio 01.
-- Ver los videos 2 y 3 antes del ejercicio 02.
+[↑ Semana 07](../../README.md)

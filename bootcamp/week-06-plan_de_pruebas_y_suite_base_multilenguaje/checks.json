@@ -12,7 +12,7 @@
     {
       "id": "js-pasa",
       "descripcion": "La suite de Jest pasa, sin tests pendientes ni saltados",
-      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && pnpm test 2>&1 | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
+      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && out=$(pnpm test 2>&1) && echo \"$out\" | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
       "assert": "exit0",
       "pista": "3-proyecto/README.md, paso 1"
     },

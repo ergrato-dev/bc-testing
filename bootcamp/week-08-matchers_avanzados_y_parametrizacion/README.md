@@ -101,4 +101,4 @@ Esta semana apunta a escribir menos código repetido y más intención de prueba
 
 | <- Semana anterior | Siguiente semana -> |
 |---|---|
-| [Semana 07 - Jest avanzado y organización](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) |
+| [Semana 07 - Jest Avanzado y Organización de Suites](../week-07-jest_avanzado_y_organizacion_de_suites/README.md) | [Semana 09 - Testing asíncrono con Jest](../week-09-testing_asincrono_con_jest/README.md) |

@@ -1,85 +1,76 @@
 # Rúbrica de Evaluación - Semana 07
 
-> JavaScript Testing I: organización de suites, hooks y test doubles básicos
+## Evidencias y ponderación
+
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `describe` por comportamiento, nombre completo y `-t`, `.only`, hooks y su orden, aislamiento, `--randomize`, stub, mock y spy |
+| Desempeño | 40% | Labs 01 a 03: suite reorganizada, `beforeEach` y estado compartido, dobles de prueba sobre el servicio del planetario |
+| Producto | 30% | Suite de JS del dominio reorganizada y un servicio con estado probado con dobles, con la trazabilidad de la semana 6 |
 
 ---
 
-## Distribución de Puntos
+## Criterios por evidencia
 
-| Tipo de Evidencia | Peso | Puntos |
-|---|---|---|
-| Conocimiento | 30% | 30 pts |
-| Desempeño | 40% | 40 pts |
-| Producto | 30% | 30 pts |
-| **Total** | **100%** | **100 pts** |
+## 1) Conocimiento (30%)
 
-**Mínimo por componente**: 70% (21/30 - 28/40 - 21/30)
+### Criterios
 
----
+- Organiza una suite en módulo, función y contexto `when ...`, y explica por qué el informe de `--verbose` sirve de especificación.
+- Explica cómo forma Jest el nombre completo de un test y lo usa con `-t` para ejecutar un contexto.
+- Explica por qué un `.only` olvidado termina con código 0 y cómo encontrarlo antes de un commit.
+- Explica para qué sirve cada hook y predice el orden de los `beforeEach` y `afterEach` de dos `describe` anidados.
+- Explica por qué la preparación no va en el cuerpo del `describe` ni en `beforeAll`, y reconoce un test que pasa solo y falla en grupo.
+- Usa `--randomize` y `--seed` para encontrar y repetir una dependencia de orden.
+- Distingue stub, mock y spy por lo que comprueba el test, y explica por qué un spy se restaura.
 
-## Conocimiento (30 pts)
+### Niveles
 
-Cuestionario de 10 preguntas (3 pts c/u):
-
-1. Cuándo conviene usar `describe` anidado.
-2. Diferencia entre `beforeAll` y `beforeEach`.
-3. Diferencia entre `mock`, `stub` y `spy`.
-4. Qué ventaja da agrupar tests por método o comportamiento.
-5. Por qué el patrón AAA mejora mantenibilidad.
-6. Cómo ejecutar una sola suite desde terminal.
-7. Qué riesgos tiene el sobreuso de hooks globales.
-8. Cómo detectar un test frágil por setup excesivo.
-9. Cuál es el rol de `jest.fn()` en aislamiento.
-10. Qué caracteriza un nombre de test profesional.
+- **Alto (27-30):** responde con ejemplos propios y predice, antes de ejecutar, qué tests fallarán al compartir estado.
+- **Medio (21-26):** comprende los conceptos con alguna confusión menor (por ejemplo, entre stub y mock).
+- **Bajo (<21):** pone la preparación en el cuerpo del `describe` o no sabe qué comprueba un mock.
 
 ---
 
-## Desempeño (40 pts)
+## 2) Desempeño (40%)
 
-### Ejercicio 01 - Organización de suite Jest (20 pts)
+### Criterios
 
-| Criterio | Pts |
+- Lab 01: 10 tests en tres niveles con 6 contextos `when ...`, todos con `should`; el `.only` encontrado con `grep` y quitado.
+- Lab 02: el fallo del primer intento explicado con las cuentas; `beforeEach` en el `describe` exterior y otro en `when the booking exists`; 11 tests que pasan con varias semillas; el orden de los hooks anotado antes de ejecutar el experimento.
+- Lab 03: ningún test usa `systemClock`; el bug del aviso encontrado con el mock y corregido en `src/booking.js`; el spy de `console.log` silenciado y restaurado; 19 tests en verde con `--randomize`.
+
+### Niveles
+
+- **Alto (36-40):** los tres labs completos, con cada decisión (contexto, hook o doble) justificada.
+- **Medio (28-35):** los tres labs completos, con algún contexto mal nombrado o algún doble creado fuera de `beforeEach`.
+- **Bajo (<28):** labs incompletos.
+
+---
+
+## 3) Producto (30%)
+
+### Criterios
+
+- `PROYECTO=... ./scripts/verificar-semana.sh 07` pasa las 13 comprobaciones.
+- La suite del dominio conserva todos sus casos y sus ID, ahora agrupados por función y contexto.
+- El servicio valida con las funciones de la semana 3, lee la fecha del reloj inyectado y avisa solo después de guardar.
+- Los tests del servicio comprueban el resultado con un stub del reloj y los avisos con un mock, incluido que no se avisa cuando se rechaza.
+- El plan tiene las reglas y los riesgos del servicio, sus casos con ✅ — —, el motivo en la sección 7 y un criterio de salida que se puede cumplir.
+
+### Niveles
+
+- **Alto (27-30):** todo lo anterior, con la mutación del aviso detectada y alguna regla que faltaba descubierta al guardar estado.
+- **Medio (21-26):** pasan las comprobaciones, pero algún test del servicio no comprueba el aviso o comprueba solo que se llamó, sin argumentos.
+- **Bajo (<21):** no pasan las comprobaciones.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
 |---|---|
-| Estructura `describe` clara y escalable | 6 |
-| Nombres `should ... when ...` consistentes | 4 |
-| Patrón AAA aplicado correctamente | 6 |
-| Ejecuta la suite sin errores de sintaxis | 4 |
-| **Total** | **20** |
+| ← [Proyecto — Proyecto - Suite modular con Jest](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Ejercicio 02 - Hooks y mocks básicos (20 pts)
-
-| Criterio | Pts |
-|---|---|
-| Uso correcto de hooks por alcance | 6 |
-| Diferencia y aplica mock/stub/spy básico | 6 |
-| Cubre happy path + caso inválido | 4 |
-| Mantiene tests aislados e independientes | 4 |
-| **Total** | **20** |
-
----
-
-## Producto (30 pts)
-
-### Proyecto semanal del dominio (suite modular)
-
-| Criterio | Pts |
-|---|---|
-| Mínimo 10 tests funcionales y ejecutables | 6 |
-| Organización modular por comportamiento/método | 6 |
-| Usa hooks de forma coherente | 5 |
-| Incluye al menos 3 casos con doble de prueba | 5 |
-| Nomenclatura profesional consistente | 4 |
-| Evidencia de ejecución con `pnpm` | 4 |
-| **Total** | **30** |
-
----
-
-## Penalizaciones
-
-| Situación | Penalización |
-|---|---|
-| Uso de `npm` en lugar de `pnpm` | -3 |
-| Tests con nombres genéricos (`test1`, `works`) | -2 c/u (max -8) |
-| Tests sin assertion relevante | -2 c/u (max -8) |
-| Dependencia de API/BD real en unit tests | -5 |
-| Evidencia de copia de otro dominio | -30 |
+[↑ Semana 07](README.md)

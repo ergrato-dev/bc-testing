@@ -16,7 +16,7 @@
 
 ## @Nested: un contexto por clase
 
-En Jest agrupabas con `describe` dentro de `describe` ([semana 7](../../week-07-jest_avanzado_y_organizacion_de_suites/1-teoria/02-ciclo-de-vida-hooks-jest.md)). En JUnit, el equivalente es una **clase interna** marcada con `@Nested`.
+En Jest agrupabas con `describe` dentro de `describe` ([semana 7](../../week-07-jest_avanzado_y_organizacion_de_suites/1-teoria/01-organizar-suites-por-comportamiento.md)). En JUnit, el equivalente es una **clase interna** marcada con `@Nested`.
 
 Sin `@Nested`, el contexto acaba en el nombre de cada test y el *Arrange* se repite:
 

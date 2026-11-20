@@ -190,7 +190,7 @@ Copia legible de [checks.json](../checks.json):
 | Comprobación | Qué mira |
 |---|---|
 | estructura | Existen `js/package.json`, `python/pyproject.toml`, `java/pom.xml`, `plan-de-pruebas.md` y un `verify.sh` ejecutable |
-| js-pasa | `pnpm install --frozen-lockfile` y `pnpm test` en `js/`, sin tests `todo`, saltados ni fallidos |
+| js-pasa | `pnpm install --frozen-lockfile` y `pnpm test` en `js/` terminan con código 0, sin tests `todo`, saltados ni fallidos |
 | python-pasa | `uv sync --locked` y `uv run pytest` en `python/`, sin tests saltados ni fallidos |
 | java-pasa | La última línea `Tests run:` de `mvn test` en `java/` termina en `Failures: 0, Errors: 0, Skipped: 0` |
 | plan-completo | `plan-de-pruebas.md` tiene sus 9 secciones `## N.` y ningún `TODO` |

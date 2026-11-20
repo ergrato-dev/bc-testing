@@ -1,0 +1,97 @@
+{
+  "semana": "07",
+  "titulo": "Jest Avanzado — Organización de Suites",
+  "checks": [
+    {
+      "id": "js-pasa",
+      "descripcion": "La suite de Jest pasa, sin tests pendientes ni saltados",
+      "cmd": "cd {proyecto}/js && pnpm install --frozen-lockfile >/dev/null && out=$(pnpm test 2>&1) && echo \"$out\" | grep '^Tests:' | grep -vE 'todo|skipped|failed'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-focos",
+      "descripcion": "Ningún test lleva .only ni .skip",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '[.](only|skip)[(]|^ *(fit|xit|fdescribe|xdescribe)[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "contextos",
+      "descripcion": "Hay 6 contextos o más: describe('when ...') dentro de otro describe",
+      "cmd": "cd {proyecto}/js && test $(cat tests/*.test.js | grep -cE '^ {4,}describe[(].when ') -ge 6",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "nombres",
+      "descripcion": "Todos los tests empiezan por should",
+      "cmd": "cd {proyecto}/js && ! cat tests/*.test.js | grep -E '^ *(it|test)[(]' | grep -vE '^ *(it|test)[(].should '",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "before-each",
+      "descripcion": "El estado de cada test se prepara en un beforeEach",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE '^ *beforeEach[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "aislamiento",
+      "descripcion": "La suite pasa desordenada con --randomize y las semillas 1, 2 y 3",
+      "cmd": "cd {proyecto}/js && for s in 1 2 3; do pnpm test --randomize --seed=$s >/dev/null 2>&1 || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "stub",
+      "descripcion": "Un stub de Jest fija la fecha de hoy (mockReturnValue)",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'mockReturnValue'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mock-llamada",
+      "descripcion": "Un mock comprueba con qué argumentos se avisó (toHaveBeenCalledWith)",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'toHaveBeenCalledWith[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mock-sin-llamada",
+      "descripcion": "Un mock comprueba que no se avisa cuando no toca (not.toHaveBeenCalled)",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -qE 'not[.]toHaveBeenCalled[(]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "spy",
+      "descripcion": "Hay un jest.spyOn y los spies se restauran",
+      "cmd": "cd {proyecto}/js && cat tests/*.test.js | grep -q 'jest[.]spyOn' && { cat tests/*.test.js | grep -qE 'restoreAllMocks|mockRestore' || grep -q '\"restoreMocks\": true' package.json; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "servicio-en-matriz",
+      "descripcion": "La matriz tiene 5 casos o más solo en JS (✅ — —)",
+      "cmd": "cd {proyecto} && test $(grep -cE '^[|] TC-.*[|] ✅ [|] — [|] — [|]$' plan-de-pruebas.md) -ge 5",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "motivos",
+      "descripcion": "Cada caso con — aparece explicado en la sección 7",
+      "cmd": "cd {proyecto} && for id in $(grep -E '^[|] TC-.*—' plan-de-pruebas.md | awk -F'|' '{gsub(/ /, \"\", $2); print $2}'); do sed -n '/^## 7[.]/,/^## 8[.]/p' plan-de-pruebas.md | grep -q \"$id\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "verify",
+      "descripcion": "./verify.sh termina en 0: tres suites en verde y la matriz coincide con los tests",
+      "cmd": "cd {proyecto} && ./verify.sh",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    }
+  ]
+}

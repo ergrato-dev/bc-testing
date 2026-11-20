@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" font-family="sans-serif">
+  <title>Orden de los hooks de Jest con un describe anidado</title>
+  <rect width="900" height="470" fill="#0d1117"/>
+  <text x="450" y="34" fill="#c9d1d9" font-size="20" font-weight="bold" text-anchor="middle">Orden de los hooks</text>
+
+  <!-- Código -->
+  <text x="40" y="70" fill="#8b949e" font-size="13">Lo que escribes</text>
+  <rect x="30" y="82" width="380" height="350" rx="8" fill="#161b22" stroke="#30363d"/>
+  <g font-family="monospace" font-size="13" fill="#c9d1d9">
+    <text x="48" y="110"><tspan fill="#58a6ff">describe</tspan>("outer", () =&gt; {</text>
+    <text x="68" y="136" fill="#d29922">beforeAll(...)</text>
+    <text x="68" y="158" fill="#3fb950">beforeEach(...)</text>
+    <text x="68" y="180" fill="#3fb950">afterEach(...)</text>
+    <text x="68" y="202" fill="#d29922">afterAll(...)</text>
+    <text x="68" y="232">it("first", ...)</text>
+    <text x="68" y="262"><tspan fill="#58a6ff">describe</tspan>("inner", () =&gt; {</text>
+    <text x="88" y="288" fill="#3fb950">beforeEach(...)</text>
+    <text x="88" y="310" fill="#3fb950">afterEach(...)</text>
+    <text x="88" y="340">it("second", ...)</text>
+    <text x="68" y="366">});</text>
+    <text x="48" y="392">});</text>
+  </g>
+  <rect x="60" y="248" width="330" height="128" rx="6" fill="none" stroke="#58a6ff" stroke-dasharray="5 4"/>
+
+  <!-- Ejecución -->
+  <text x="480" y="70" fill="#8b949e" font-size="13">Lo que ejecuta Jest</text>
+  <rect x="470" y="82" width="400" height="350" rx="8" fill="#161b22" stroke="#30363d"/>
+  <g font-size="13" fill="#c9d1d9">
+    <text x="490" y="110" fill="#d29922">1  outer: beforeAll</text>
+    <text x="490" y="138" fill="#3fb950">2  outer: beforeEach</text>
+    <text x="510" y="162" font-weight="bold">3  test first</text>
+    <text x="490" y="186" fill="#3fb950">4  outer: afterEach</text>
+    <line x1="490" y1="200" x2="850" y2="200" stroke="#30363d"/>
+    <text x="490" y="224" fill="#3fb950">5  outer: beforeEach</text>
+    <text x="490" y="248" fill="#3fb950">6  inner: beforeEach</text>
+    <text x="510" y="272" font-weight="bold">7  test second</text>
+    <text x="490" y="296" fill="#3fb950">8  inner: afterEach</text>
+    <text x="490" y="320" fill="#3fb950">9  outer: afterEach</text>
+    <line x1="490" y1="334" x2="850" y2="334" stroke="#30363d"/>
+    <text x="490" y="358" fill="#d29922">10 outer: afterAll</text>
+  </g>
+  <text x="670" y="400" fill="#8b949e" font-size="12" text-anchor="middle">beforeEach: de fuera hacia dentro</text>
+  <text x="670" y="418" fill="#8b949e" font-size="12" text-anchor="middle">afterEach: de dentro hacia fuera</text>
+
+  <text x="450" y="456" fill="#c9d1d9" font-size="13" text-anchor="middle"><tspan fill="#3fb950">Each</tspan>: una vez por cada test de su describe   ·   <tspan fill="#d29922">All</tspan>: una vez por describe</text>
+</svg>
