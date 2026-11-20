@@ -1,106 +1,78 @@
-# Rúbrica de Evaluación — Semana 04
+# Rúbrica de Evaluación - Semana 04
 
-> Primeros Tests Automatizados con Python (pytest)
+## Evidencias y ponderación
 
----
-
-## 📊 Distribución de Puntos
-
-| Tipo de Evidencia | Peso | Puntos |
-|---|---|---|
-| 🧠 Conocimiento | 30% | 30 pts |
-| 💪 Desempeño | 40% | 40 pts |
-| 📦 Producto | 30% | 30 pts |
-| **Total** | **100%** | **100 pts** |
-
-**Nota mínima por componente**: 70% (21/30 — 28/40 — 21/30)
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Proyecto con uv y pytest, tests como funciones y clases, `assert`, `pytest.approx`, `pytest.raises`, `FAILED` frente a `ERROR`, ejecución parcial |
+| Desempeño | 40% | Labs 01 a 04: primer proyecto, AAA y asserts, casos del planetario, tests que mienten |
+| Producto | 30% | La suite de la semana 3 traducida a pytest, con mutaciones anotadas |
 
 ---
 
-## 🧠 Conocimiento (30 puntos)
+## Criterios por evidencia
 
-Cuestionario teórico de 10 preguntas — 3 puntos cada una.
+## 1) Conocimiento (30%)
 
-### Preguntas
+### Criterios
 
-1. ¿Qué patrón de nombres debe seguir un archivo de test en pytest?
-2. ¿Qué diferencias hay entre escribir un test con pytest y con `unittest`?
-3. Explica el patrón AAA en un test de Python.
-4. ¿Qué hace `pytest -v` y en qué ayuda?
-5. ¿Para qué sirve `pytest -k "texto"`?
-6. ¿Cómo se representa en pytest un test que espera excepción?
-7. ¿Cuándo marca pytest un test como `FAILED` y cuándo como `ERROR`? Da un ejemplo de cada uno (pista: una excepción inesperada dentro del test es `FAILED`).
-8. ¿Por qué las funciones puras son buen punto de entrada para tests unitarios?
-9. ¿Qué beneficio aporta un nombre de test descriptivo en snake_case?
-10. ¿Qué problema evita ejecutar tests de forma repetible en un entorno aislado?
+- Explica qué hacen `pyproject.toml`, `.python-version`, `uv.lock` y `.venv`, y su pareja en el proyecto de la semana 3.
+- Explica por qué hace falta `pythonpath = ["."]` y qué error sale sin él.
+- Escribe un test como función `test_*` y agrupa tests en una clase `Test*`, con AAA y nombre `test_<resultado>_when_<condición>`.
+- Elige entre `==`, `is None`, `is True`, `pytest.approx` y `pytest.raises` según el valor, y explica por qué `is` no sirve para comparar diccionarios.
+- Explica por qué `pytest.approx` no acepta 16,9915 como 16,99 y `toBeCloseTo` sí.
+- Explica por qué `match` falla con paréntesis y por qué `assert (condición, "mensaje")` siempre pasa.
+- Distingue `FAILED` de `ERROR` y dice el código de salida de cada caso (0, 1, 2, 5).
+- Ejecuta un archivo, un test por su ruta, `-k`, `-x` y `--lf`.
 
-### Criterios de Calificación por Pregunta
+### Niveles
 
-- **3 pts** — Respuesta completa, precisa y con ejemplo o justificación
-- **2 pts** — Respuesta correcta pero incompleta o sin ejemplo
-- **1 pt** — Respuesta parcialmente correcta con imprecisiones notables
-- **0 pts** — Respuesta incorrecta o en blanco
+- **Alto (27-30):** responde con ejemplos propios y compara cada pieza con su equivalente de Jest.
+- **Medio (21-26):** comprende los conceptos con alguna confusión menor (por ejemplo, entre `is` y `==`).
+- **Bajo (<21):** no distingue `FAILED` de `ERROR`, o cree que un test en verde siempre comprueba algo.
 
 ---
 
-## 💪 Desempeño (40 puntos)
+## 2) Desempeño (40%)
 
-### Ejercicio 01 — Setup y primera ejecución con pytest (20 pts)
+### Criterios
 
-| Criterio | Pts |
+- Lab 01: `~/labs-semana-04` con `pyproject.toml`, `.python-version`, `uv.lock`, 3 tests de `math_utils` en verde y un commit.
+- Lab 02: 10 tests de `user_utils` en verde, sin `TODO`; `create_user` con `==`, la búsqueda fallida con `is None` y el descuento de 29,90 con `pytest.approx`.
+- Lab 03: 19 tests del planetario en tres clases, con el ID de su caso, 4 hallazgos con línea y técnica, y el código corregido sin tocar ningún esperado.
+- Lab 04: los cinco tests reescritos, el envío probado con 29,99 y 30, y cada una de las cuatro mutaciones detectada por un test.
+
+### Niveles
+
+- **Alto (36-40):** los cuatro labs completos, con cada decisión (comparación, código o test) justificada.
+- **Medio (28-35):** los cuatro labs completos, con algún esperado calculado en lugar de escrito o algún nombre genérico.
+- **Bajo (<28):** labs incompletos.
+
+---
+
+## 3) Producto (30%)
+
+### Criterios
+
+- `PROYECTO=... ./scripts/verificar-semana.sh 04` pasa las 9 comprobaciones.
+- Las funciones son las de la semana 3, con los mismos mensajes, y siguen siendo puras.
+- Los tests cubren los mismos casos que la suite de Jest, con el ID del caso encima.
+- Cada comparación corresponde a su valor; todos los esperados están escritos a mano.
+- Las mutaciones de `mutaciones.md` son reales: al repetirlas, el test anotado falla.
+
+### Niveles
+
+- **Alto (27-30):** todo lo anterior, con alguna diferencia entre lenguajes encontrada y anotada (un test que pasaba en Jest y falla en pytest, o al revés).
+- **Medio (21-26):** pasan las comprobaciones, pero la suite de Python cubre menos casos que la de Jest o algún límite no se prueba.
+- **Bajo (<21):** no pasan las comprobaciones.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
 |---|---|
-| Configuró correctamente estructura base (`src/`, `tests/`) | 4 |
-| Ejecutó pytest y obtuvo al menos 1 test en estado pass | 4 |
-| Identificó y explicó un fallo inicial intencional | 4 |
-| Corrigió implementación para pasar en verde | 4 |
-| Documentó comandos de ejecución y filtro de tests | 4 |
-| **Total** | **20** |
+| ← [Proyecto — Proyecto - Primera suite de tests del dominio](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Ejercicio 02 — Tests unitarios básicos con AAA (20 pts)
-
-| Criterio | Pts |
-|---|---|
-| Escribió tests con estructura AAA clara | 6 |
-| Usó assertions y manejo de excepciones correctamente | 6 |
-| Nombres de tests descriptivos en snake_case | 4 |
-| Cubre happy path + al menos 2 casos inválidos | 4 |
-| **Total** | **20** |
-
----
-
-## 📦 Producto (30 puntos)
-
-### Suite inicial del dominio (`test_item_service.py`)
-
-| Criterio | Pts |
-|---|---|
-| Incluye al menos 8 tests funcionales | 4 |
-| Cubre happy path, validaciones y errores | 6 |
-| Mantiene AAA de forma consistente | 6 |
-| Nombres de test legibles y descriptivos | 4 |
-| No depende de recursos externos reales | 4 |
-| Incluye la tabla comparativa JS ↔ Python (3 intenciones equivalentes) | 3 |
-| Suite ejecuta correctamente en local con `uv run pytest` | 3 |
-| **Total** | **30** |
-
----
-
-## 📝 Penalizaciones
-
-| Situación | Penalización |
-|---|---|
-| Nombres genéricos de test (`test1`, `test_ok`) | −2 pts c/u (máx −6) |
-| Tests sin assertions útiles | −2 pts c/u (máx −8) |
-| Datos sensibles reales en tests | −5 pts |
-| Evidencia de copia de la suite de otro aprendiz | −30 pts (nota mínima) |
-
----
-
-## 🏆 Escala de Calificación Final
-
-| Rango | Calificación |
-|---|---|
-| 90–100 pts | Excelente — Base sólida en testing con pytest |
-| 80–89 pts | Muy bien — Buen dominio con pequeños ajustes |
-| 70–79 pts | Aprobado — Base correcta, requiere práctica |
-| < 70 pts | No aprobado — Reforzar antes de continuar |
+[↑ Semana 04](README.md)

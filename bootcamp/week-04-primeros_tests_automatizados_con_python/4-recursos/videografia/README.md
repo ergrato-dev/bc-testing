@@ -1,19 +1,30 @@
-# Videografía — Semana 04
+# Videografía - Semana 04
 
-> Primeros Tests Automatizados con Python (pytest)
+Los vídeos instalan pytest con `pip`; en el curso, el mismo paso es `uv add --dev pytest==9.1.1`, y se ejecuta con `uv run pytest`.
 
+## En español
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [Introducción a Pytest](https://www.youtube.com/watch?v=RoMp6baav18) | NicoPaez | Primeros tests con pytest, antes del lab 01 |
+| [PyTest: Pruebas Unitarias en Python](https://www.youtube.com/watch?v=JZ0TMkwMgp8) | UskoKruM2010 | Un módulo y su suite paso a paso, como refuerzo de la teoría 02 |
+| [Domina el testing en Python con PyTest](https://www.youtube.com/watch?v=HI4VCxNQ4D0) | yacklyon | Repaso largo; las fixtures y la parametrización llegan en las semanas 16 y 17 |
+
+## En inglés
+
+| Vídeo | Canal | Para qué |
+|---|---|---|
+| [getting started with pytest](https://www.youtube.com/watch?v=mzlH8lp4ISA) | anthonywritescode | Introducción de uno de los mantenedores de pytest |
+| [How To Write Unit Tests in Python • Pytest Tutorial](https://www.youtube.com/watch?v=YbpKMIUjvK8) | pixegami | Tutorial corto de los primeros tests |
+| [Unit Testing Your Code with the unittest Module](https://www.youtube.com/watch?v=6tNS--WetLI) | Corey Schafer | El estilo `unittest`, para compararlo con pytest |
+
+<!-- nav -->
 ---
 
-| Recurso | URL | Por qué verlo |
-|---|---|---|
-| getting started with pytest (anthonywritescode, mantenedor de pytest) | https://www.youtube.com/watch?v=mzlH8lp4ISA | Introducción a pytest (de principiante a intermedio) explicada por uno de sus mantenedores. |
-| How To Write Unit Tests in Python • Pytest Tutorial (pixegami) | https://www.youtube.com/watch?v=YbpKMIUjvK8 | Tutorial corto y práctico para escribir y ejecutar los primeros tests con pytest. |
-| Pytest Tutorial – How to Test Python Code (freeCodeCamp.org) | https://www.youtube.com/watch?v=cHYq1MRoyI0 | Curso completo; los primeros bloques refuerzan estructura, assertions y opciones de la CLI. |
-| Python Tutorial: Unit Testing Your Code with the unittest Module (Corey Schafer) | https://www.youtube.com/watch?v=6tNS--WetLI | Muestra el estilo `unittest` (clases y `assertEqual`) para compararlo con pytest. |
-| How To Write Unit Tests For Existing Python Code // Part 1 of 2 (ArjanCodes) | https://www.youtube.com/watch?v=ULxMQ57engo | Cómo elegir qué probar primero en código existente y escribir tests legibles. |
+## 🔗 Navegación
 
-## Dinámica sugerida
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
-- Ver los videos 1 y 2 antes del ejercicio 01.
-- Ver el video 4 junto a la teoría 02 (pytest frente a `unittest`).
-- Ver los videos 3 y 5 como refuerzo antes del proyecto.
+[↑ Semana 04](../../README.md)

@@ -1,52 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" font-family="system-ui, -apple-system, sans-serif">
-  <rect width="920" height="520" fill="#0f172a" rx="12"/>
-  <text x="460" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#f1f5f9">Ciclo de Ejecución de Tests con pytest</text>
-  <text x="460" y="62" text-anchor="middle" font-size="13" fill="#94a3b8">Escribir -> Ejecutar -> Analizar -> Corregir</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" font-family="sans-serif">
+  <rect width="900" height="500" fill="#0d1117" rx="12"/>
 
-  <rect x="60" y="110" width="180" height="72" rx="10" fill="#1e293b" stroke="#3572A5" stroke-width="2"/>
-  <text x="150" y="138" text-anchor="middle" font-size="14" fill="#3572A5" font-weight="700">1. Escribir test</text>
-  <text x="150" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">test_*.py + assert</text>
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#c9d1d9">Ciclo de un test en pytest</text>
+  <text x="450" y="66" text-anchor="middle" font-size="13" fill="#8b949e">Escribir, ejecutar, leer el resultado y corregir</text>
 
-  <rect x="270" y="110" width="180" height="72" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-  <text x="360" y="138" text-anchor="middle" font-size="14" fill="#6366f1" font-weight="700">2. Ejecutar</text>
-  <text x="360" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">pytest / pytest -v</text>
+  <!-- Pasos -->
+  <rect x="60" y="120" width="170" height="70" rx="10" fill="#161b22" stroke="#3572A5" stroke-width="2"/>
+  <text x="145" y="146" text-anchor="middle" font-size="13" fill="#58a6ff" font-weight="700">1. Escribir el test</text>
+  <text x="145" y="168" text-anchor="middle" font-size="12" fill="#c9d1d9" font-family="monospace">def test_ · assert</text>
 
-  <rect x="480" y="110" width="180" height="72" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-  <text x="570" y="138" text-anchor="middle" font-size="14" fill="#22c55e" font-weight="700">3. Analizar</text>
-  <text x="570" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">pass, failure o error</text>
+  <rect x="270" y="120" width="170" height="70" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="355" y="146" text-anchor="middle" font-size="13" fill="#58a6ff" font-weight="700">2. Ejecutar</text>
+  <text x="355" y="168" text-anchor="middle" font-size="12" fill="#c9d1d9" font-family="monospace">uv run pytest</text>
 
-  <rect x="690" y="110" width="170" height="72" rx="10" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
-  <text x="775" y="138" text-anchor="middle" font-size="14" fill="#F89820" font-weight="700">4. Corregir</text>
-  <text x="775" y="158" text-anchor="middle" font-size="12" fill="#cbd5e1">código o assertion</text>
+  <rect x="480" y="120" width="170" height="70" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="565" y="146" text-anchor="middle" font-size="13" fill="#3fb950" font-weight="700">3. Leer el resultado</text>
+  <text x="565" y="168" text-anchor="middle" font-size="12" fill="#c9d1d9">PASSED, FAILED o ERROR</text>
 
-  <line x1="240" y1="146" x2="270" y2="146" stroke="#475569" stroke-width="2"/>
-  <polygon points="270,146 260,140 260,152" fill="#475569"/>
-  <line x1="450" y1="146" x2="480" y2="146" stroke="#475569" stroke-width="2"/>
-  <polygon points="480,146 470,140 470,152" fill="#475569"/>
-  <line x1="660" y1="146" x2="690" y2="146" stroke="#475569" stroke-width="2"/>
-  <polygon points="690,146 680,140 680,152" fill="#475569"/>
+  <rect x="690" y="120" width="150" height="70" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="765" y="146" text-anchor="middle" font-size="13" fill="#d29922" font-weight="700">4. Corregir</text>
+  <text x="765" y="168" text-anchor="middle" font-size="12" fill="#c9d1d9">el código o el test</text>
 
-  <path d="M775 182 C775 252 360 252 360 182" fill="none" stroke="#ef4444" stroke-width="2"/>
-  <polygon points="360,182 370,176 370,188" fill="#ef4444"/>
-  <text x="566" y="250" text-anchor="middle" font-size="12" fill="#ef4444">Si falla, ajustar y re-ejecutar</text>
+  <!-- Flechas -->
+  <line x1="230" y1="155" x2="262" y2="155" stroke="#30363d" stroke-width="2"/>
+  <polygon points="270,155 260,149 260,161" fill="#8b949e"/>
+  <line x1="440" y1="155" x2="472" y2="155" stroke="#30363d" stroke-width="2"/>
+  <polygon points="480,155 470,149 470,161" fill="#8b949e"/>
+  <line x1="650" y1="155" x2="682" y2="155" stroke="#30363d" stroke-width="2"/>
+  <polygon points="690,155 680,149 680,161" fill="#8b949e"/>
 
-  <rect x="70" y="300" width="240" height="140" rx="10" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
-  <text x="190" y="327" text-anchor="middle" font-size="14" fill="#22c55e" font-weight="700">PASS</text>
-  <text x="88" y="352" font-size="12" fill="#e2e8f0">- Comportamiento esperado</text>
-  <text x="88" y="372" font-size="12" fill="#e2e8f0">- Continuar con nuevos casos</text>
-  <text x="88" y="392" font-size="12" fill="#e2e8f0">- Refactor seguro</text>
+  <!-- Vuelta -->
+  <path d="M765 190 C765 250 355 250 355 198" fill="none" stroke="#f85149" stroke-width="2"/>
+  <polygon points="355,190 349,201 361,201" fill="#f85149"/>
+  <text x="560" y="268" text-anchor="middle" font-size="12" fill="#f85149">Mientras haya FAILED o ERROR: corregir y volver a ejecutar</text>
 
-  <rect x="340" y="300" width="240" height="140" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-  <text x="460" y="327" text-anchor="middle" font-size="14" fill="#ef4444" font-weight="700">FAILURE</text>
-  <text x="358" y="352" font-size="12" fill="#e2e8f0">- Assertion no coincide</text>
-  <text x="358" y="372" font-size="12" fill="#e2e8f0">- Revisar expected vs actual</text>
-  <text x="358" y="392" font-size="12" fill="#e2e8f0">- Ajustar test o lógica</text>
+  <!-- Tres resultados -->
+  <rect x="60" y="300" width="250" height="130" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="185" y="327" text-anchor="middle" font-size="14" font-weight="700" fill="#3fb950">PASSED</text>
+  <text x="76" y="352" font-size="12" fill="#c9d1d9">Cada assert se cumplió.</text>
+  <text x="76" y="372" font-size="12" fill="#c9d1d9" font-family="monospace">test_..._when_... PASSED</text>
+  <text x="76" y="400" font-size="12" fill="#8b949e">Sigue con el siguiente caso.</text>
 
-  <rect x="610" y="300" width="240" height="140" rx="10" fill="#1e293b" stroke="#F89820" stroke-width="2"/>
-  <text x="730" y="327" text-anchor="middle" font-size="14" fill="#F89820" font-weight="700">ERROR</text>
-  <text x="628" y="352" font-size="12" fill="#e2e8f0">- Falla la colección o un fixture</text>
-  <text x="628" y="372" font-size="12" fill="#e2e8f0">- Import roto o error de sintaxis</text>
-  <text x="628" y="392" font-size="12" fill="#e2e8f0">- El test ni siquiera se ejecuta</text>
+  <rect x="325" y="300" width="250" height="130" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="450" y="327" text-anchor="middle" font-size="14" font-weight="700" fill="#f85149">FAILED</text>
+  <text x="341" y="352" font-size="12" fill="#c9d1d9">Falló un assert o el código lanzó</text>
+  <text x="341" y="372" font-size="12" fill="#c9d1d9" font-family="monospace">assert -1 == 5</text>
+  <text x="341" y="400" font-size="12" fill="#8b949e">una excepción dentro del test.</text>
 
-  <text x="460" y="485" text-anchor="middle" font-size="12" fill="#64748b">Semana 04 · Etapa 0 · Python + pytest</text>
+  <rect x="590" y="300" width="250" height="130" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="715" y="327" text-anchor="middle" font-size="14" font-weight="700" fill="#d29922">ERROR</text>
+  <text x="606" y="352" font-size="12" fill="#c9d1d9">El test no llegó a ejecutarse.</text>
+  <text x="606" y="372" font-size="12" fill="#c9d1d9" font-family="monospace">ModuleNotFoundError</text>
+  <text x="606" y="400" font-size="12" fill="#8b949e">Revisa imports y configuración.</text>
+
+  <text x="450" y="470" text-anchor="middle" font-size="12" fill="#8b949e">Semana 04 · Python con pytest</text>
 </svg>

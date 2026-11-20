@@ -2,8 +2,8 @@ from src.math_utils import add, is_even
 
 
 # Test activo que falla por diseño: add tiene un bug en src/math_utils.py.
-# Lee el mensaje de error y corrígelo en el PASO 1 (src/math_utils.py).
-def test_add_returns_five_when_inputs_are_two_and_three() -> None:
+# Lee el informe y corrígelo en el PASO 1 (src/math_utils.py).
+def test_returns_5_when_adding_2_and_3() -> None:
     # Arrange
     a = 2
     b = 3
@@ -16,30 +16,30 @@ def test_add_returns_five_when_inputs_are_two_and_three() -> None:
 
 
 # ============================================
-# PASO 2: Test booleano para número par
+# PASO 2: Test booleano simple
 # ============================================
 # Descomenta las siguientes líneas:
-# def test_is_even_returns_true_when_number_is_even() -> None:
+# def test_returns_true_when_number_is_even() -> None:
 #     # Arrange
-#     value = 10
+#     number = 10
 #
 #     # Act
-#     result = is_even(value)
+#     result = is_even(number)
 #
 #     # Assert
-#     assert result is True
+#     assert result
 
 
 # ============================================
-# PASO 3: Test booleano para número impar
+# PASO 3: Test para número impar
 # ============================================
 # Descomenta las siguientes líneas:
-# def test_is_even_returns_false_when_number_is_odd() -> None:
+# def test_returns_false_when_number_is_odd() -> None:
 #     # Arrange
-#     value = 7
+#     number = 7
 #
 #     # Act
-#     result = is_even(value)
+#     result = is_even(number)
 #
 #     # Assert
-#     assert result is False
+#     assert not result
